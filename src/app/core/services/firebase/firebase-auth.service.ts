@@ -2,7 +2,7 @@ import { Observable, from, map } from 'rxjs';
 import { UserCredentials } from '../../interfaces/user-credentials';
 import { UserRegisterInfo } from '../../interfaces/user-register-info';
 import { User } from '../../interfaces/user';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../auth/auth.service';
 import { FirebaseService, FirebaseUserCredential } from './firebase.service';
 
 export class FirebaseAuthService extends AuthService{
