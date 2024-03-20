@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPage implements OnInit {
 
+  activateChange: boolean = true;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  // Método para cambiar entre el componente de Login y Registro
+  changeComponent(){
+    this.activateChange = !this.activateChange
   }
 
 }
