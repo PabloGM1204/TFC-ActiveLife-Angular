@@ -11,6 +11,9 @@
     </ion-toolbar>
   </ion-header>
   <!--Botones para el Login y Registro y que cambian entre ellos-->
-  <ion-button *ngIf="activateChange" (click)="changeComponent()" fill="clear" style="text-transform: none;">Login</ion-button>
   <ion-button *ngIf="activateChange" (click)="changeComponent()" fill="clear" style="text-transform: none;">Registro</ion-button>
+  <ion-button *ngIf="!activateChange" (click)="changeComponent()" fill="clear" style="text-transform: none;">Login</ion-button>
+
+  <app-login-form *ngIf="activateChange" (doLogin)="onLogin($event)"></app-login-form>
+  <app-register-form *ngIf="!activateChange" (doRegister)="onRegister($event)"></app-register-form>
 </ion-content>

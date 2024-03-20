@@ -29,7 +29,8 @@ export function AuthServiceFactory(
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
-    AppRoutingModule],
+    AppRoutingModule
+  ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {
