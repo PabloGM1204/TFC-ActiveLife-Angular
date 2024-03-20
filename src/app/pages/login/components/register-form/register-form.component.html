@@ -1,0 +1,27 @@
+<form *ngIf="form" [formGroup]="form" (ngSubmit)="onSubmit()" (key.enter)="onSubmit()">
+  <ion-item>
+    <ion-input labelPlacement="stacked" label='Nombre de usuario' formControlName="nickname" type="text"></ion-input>
+    <ion-icon *ngIf="hasTouched('nickname') && hasError('nickname')" color="danger" slot="end" name="close-circle-outline"></ion-icon>
+    <ion-icon *ngIf="hasTouched('nickname') && !hasError('nickname')" color="success" slot="end" name="checkmark-circle-outline"></ion-icon>
+  </ion-item>
+  <ion-item>
+    <ion-input labelPlacement="stacked" label="Email" formControlName="email" type="text"></ion-input>
+    <ion-icon *ngIf="hasTouched('email') && hasError('email')" color="danger" slot="end" name="close-circle-outline"></ion-icon>
+    <ion-icon *ngIf="hasTouched('email') && !hasError('email')" color="success" slot="end" name="checkmark-circle-outline"></ion-icon>
+  </ion-item>
+  <ion-item>
+    <ion-input labelPlacement="stacked" label='Contraseña' formControlName="password" type="password"></ion-input>
+    <ion-icon *ngIf="hasTouched('password') && hasError('password')" color="danger" slot="end" name="close-circle-outline"></ion-icon>
+    <ion-icon *ngIf="hasTouched('password') && !hasError('password')" color="success" slot="end" name="checkmark-circle-outline"></ion-icon>
+  </ion-item>
+  <p class="error-message" *ngIf="hasTouched('password') && hasError('password')">Debes estar bien escrita la contraseña</p>  
+  <ion-item>
+    <ion-input labelPlacement="stacked" label='Repite contraseña' formControlName="confirm" type="password"></ion-input>
+    <ion-icon *ngIf="hasTouched('confirm') && hasError('confirm')" color="danger" slot="end" name="close-circle-outline"></ion-icon>
+    <ion-icon *ngIf="hasTouched('confirm') && !hasError('confirm')" color="success" slot="end" name="checkmark-circle-outline"></ion-icon>
+  </ion-item>
+  <p class="error-message" *ngIf="hasTouched('confirm') && hasError('confirm')">Deben coincidir las contraseñas</p>  
+  <div class="ion-text-end">
+    <ion-button style="text-transform: none;" (click)="onSubmit()">Registrarse</ion-button>
+  </div>
+</form>
