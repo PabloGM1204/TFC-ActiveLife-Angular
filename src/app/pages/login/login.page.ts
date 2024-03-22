@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FirebaseApp } from 'firebase/app';
 import { UserCredentials } from 'src/app/core/interfaces/user-credentials';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { FirebaseService } from 'src/app/core/services/firebase/firebase.service';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +16,7 @@ export class LoginPage implements OnInit {
 
   constructor(
     private auth: AuthService,
+    private firebaseSvc: FirebaseService,
     private router: Router
   ) { }
 
@@ -45,6 +48,7 @@ export class LoginPage implements OnInit {
     console.log("Datos registro: ", credencials)
     this.auth.register(credencials).subscribe({
       next: data => {
+        console.log("Data que devuelve el registro ", data)
         this.router.navigate(['/home']);
       },
       error: err => {

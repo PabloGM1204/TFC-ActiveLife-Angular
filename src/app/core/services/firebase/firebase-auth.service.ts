@@ -75,7 +75,9 @@ export class FirebaseAuthService extends AuthService{
       console.log(info)
       return from(this.firebaseSvc.createDocumentWithId('users',{
         username: info.nickname,
-        email:info.email
+        email:info.email,
+        admin: info.admin,
+        aceptado: false
     }, info.uuid))}
     throw new Error('Error inesperado');
   }

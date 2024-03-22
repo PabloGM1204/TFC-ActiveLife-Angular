@@ -21,6 +21,7 @@
     <ion-icon *ngIf="hasTouched('confirm') && !hasError('confirm')" color="success" slot="end" name="checkmark-circle-outline"></ion-icon>
   </ion-item>
   <p class="error-message" *ngIf="hasTouched('confirm') && hasError('confirm')">Deben coincidir las contraseñas</p>  
+  <ion-toggle labelPlacement="stacked" formControlName="admin">Administrador</ion-toggle>
   <div class="ion-text-end">
     <ion-button style="text-transform: none;" (click)="onSubmit()">Registrarse</ion-button>
   </div>
