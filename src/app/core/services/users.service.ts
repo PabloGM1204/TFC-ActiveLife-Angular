@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FirebaseService } from './firebase/firebase.service';
 import { Unsubscribe, UserCredential } from 'firebase/auth';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, from, map } from 'rxjs';
 import { User } from '../interfaces/user';
 
 @Injectable({
@@ -13,6 +13,7 @@ export class UsersService {
     private firebaseSvc: FirebaseService
   ) { }
 
+  // Lista 
   private _users: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
   users$: Observable<User[]> = this._users.asObservable();
 
@@ -29,5 +30,10 @@ export class UsersService {
         aceptado: data.aceptado
       }
     })
+  }
+
+
+  public acceptUser(user: User) {
+    from(this.firebaseSvc.updateDocumentField('users', user.uuid, 'aceptado', true))
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/core/interfaces/user';
 import { UsersService } from 'src/app/core/services/users.service';
 
 @Component({
@@ -9,11 +10,16 @@ import { UsersService } from 'src/app/core/services/users.service';
 export class UsuariosPage implements OnInit {
 
   constructor(
-    private userSvc: UsersService
+    public userSvc: UsersService
   ) { }
 
   ngOnInit() {
     this.userSvc.subscribeToUsersCollection();
+  }
+
+  accept(user: User){
+    console.log("Aceptar usuario: ", user)
+    this.userSvc.acceptUser(user)
   }
 
 }
