@@ -15,8 +15,8 @@ export class HomePage {
   ) {}
 
   // Método para ir a rutinas
-  goRutinas(){
-    this.router.navigate(['/rutinas'])
+  goUsuarios(){
+    this.router.navigate(['/usuarios'])
   }
 
   // Método para ir a citas

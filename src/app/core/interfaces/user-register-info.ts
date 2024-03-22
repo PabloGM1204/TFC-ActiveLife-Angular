@@ -4,5 +4,6 @@ export interface UserRegisterInfo{
     surname: string,
     password: string,
     nickname: string,
-    admin: boolean
+    admin: boolean,
+    aceptado: boolean
 }

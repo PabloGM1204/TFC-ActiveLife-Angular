@@ -1,10 +1,7 @@
-import { Media } from "./media"
-
 export interface User {
-    id?:number,
+    uuid?:string,
     name:string,
-    surname:string,
-    nickname?:string
-    picture?:Media|null,
-    uuid?:string
+    email:string,
+    admin: boolean,
+    aceptado: boolean
 }
