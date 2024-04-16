@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FirebaseService } from './firebase/firebase.service';
 import { Unsubscribe, UserCredential } from 'firebase/auth';
-import { BehaviorSubject, Observable, from, map } from 'rxjs';
+import { BehaviorSubject, Observable, filter, from, map } from 'rxjs';
 import { User } from '../interfaces/user';
 
 @Injectable({
@@ -13,10 +13,11 @@ export class UsersService {
     private firebaseSvc: FirebaseService
   ) { }
 
-  // Lista 
+  // Lista de usuarios
   private _users: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
   users$: Observable<User[]> = this._users.asObservable();
 
+  // GetAll continuo de la colección de usuarios
   public subscribeToUsersCollection(): Unsubscribe | null {
     return this.firebaseSvc.subscribeToCollection('users', this._users, (snapshot: any) => {
       const data = snapshot.data();
@@ -32,8 +33,13 @@ export class UsersService {
     })
   }
 
-
+  // Aceptar un usuario que se ha registrado como administrador
   public acceptUser(user: User) {
     from(this.firebaseSvc.updateDocumentField('users', user.uuid, 'aceptado', true))
+  }
+
+  // Eliminar un usuario que se ha registrado
+  public deleteUser(user: User) {
+    from(this.firebaseSvc.deleteDocument('users', user.uuid))
   }
 }

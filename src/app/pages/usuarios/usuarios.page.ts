@@ -22,4 +22,9 @@ export class UsuariosPage implements OnInit {
     this.userSvc.acceptUser(user)
   }
 
+  deleteUser(user: User){
+    console.log("Eliminar usuario: ", user)
+    this.userSvc.deleteUser(user)
+  }
+
 }
