@@ -29,6 +29,11 @@ export class HomePage {
     this.router.navigate(['/problemas'])
   }
 
+  // Método para ir a rutinas
+  goRutinas(){
+    this.router.navigate(['/rutinas'])
+  }
+
   // Método para cerrar sesión
   onSingOut(){
     this.auth.logOut().subscribe(_=>{

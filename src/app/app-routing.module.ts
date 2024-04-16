@@ -33,6 +33,10 @@ const routes: Routes = [
     path: 'usuarios',
     loadChildren: () => import('./pages/usuarios/usuarios.module').then( m => m.UsuariosPageModule)
   },
+  {
+    path: 'rutinas',
+    loadChildren: () => import('./pages/rutinas/rutinas.module').then( m => m.RutinasPageModule)
+  },
 ];
 
 @NgModule({
