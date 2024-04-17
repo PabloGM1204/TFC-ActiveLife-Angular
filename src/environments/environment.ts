@@ -12,7 +12,8 @@ export const environment = {
     messagingSenderId: "401030159193",
     appId: "1:401030159193:web:0dd07d6211893465fcca48",
     measurementId: "G-W70WFFMYJ5"
-  }
+  },
+  apiUrl: 'https://exercisedb.p.rapidapi.com/exercises',
 };
 
 /*

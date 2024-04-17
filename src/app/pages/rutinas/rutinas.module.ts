@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { RutinasPageRoutingModule } from './rutinas-routing.module';
 
 import { RutinasPage } from './rutinas.page';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RutinasPageRoutingModule
+    RutinasPageRoutingModule,
+    HttpClientModule
   ],
   declarations: [RutinasPage]
 })

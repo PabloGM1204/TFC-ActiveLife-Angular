@@ -11,6 +11,7 @@ import { FirebaseService } from './core/services/firebase/firebase.service';
 import { FirebaseAuthService } from './core/services/firebase/firebase-auth.service';
 import { environment } from 'src/environments/environment';
 import { AuthService } from './core/services/auth/auth.service';
+import { HttpClientModule } from '@angular/common/http';
 
 export function AuthServiceFactory(
   backend:string,
@@ -29,7 +30,8 @@ export function AuthServiceFactory(
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
