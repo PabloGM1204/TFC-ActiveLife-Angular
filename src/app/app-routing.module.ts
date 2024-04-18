@@ -37,6 +37,10 @@ const routes: Routes = [
     path: 'rutinas',
     loadChildren: () => import('./pages/rutinas/rutinas.module').then( m => m.RutinasPageModule)
   },
+  {
+    path: 'crear-rutina',
+    loadChildren: () => import('./pages/crear-rutina/crear-rutina.module').then( m => m.CrearRutinaPageModule)
+  },
 ];
 
 @NgModule({

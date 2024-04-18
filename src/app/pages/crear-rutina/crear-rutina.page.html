@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>crear-rutina</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">crear-rutina</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-select label="Body Parts" placeholder="Select one part" (ionChange)="activateSecondSelect($event)">
+    <ion-select-option *ngFor="let part of apiSvc.bodyList">{{ part }}</ion-select-option>
+  </ion-select>
+  <ng-container *ngFor="let exercise of exercises">
+    <app-card-exercise class="card" [exercise]="exercise"></app-card-exercise>
+  </ng-container>
+</ion-content>

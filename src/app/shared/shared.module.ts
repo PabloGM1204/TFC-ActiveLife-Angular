@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { CardExerciseComponent } from './components/card-exercise/card-exercise.component';
 
 
 
@@ -12,7 +13,7 @@ import { IonicModule } from '@ionic/angular';
     // Pipes
 
     // Componentes
-
+    CardExerciseComponent
   ],
   imports: [
     CommonModule,
@@ -25,9 +26,9 @@ import { IonicModule } from '@ionic/angular';
     CommonModule,
     FormsModule,
     IonicModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
     // Componentes
-
+    CardExerciseComponent
     // Directivas
 
     // Pipes
