@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { map } from 'rxjs';
 import { Rutina } from 'src/app/core/interfaces/rutina';
 import { ApiService } from 'src/app/core/services/api.service';
@@ -12,9 +13,17 @@ import { RutinaService } from 'src/app/core/services/rutina.service';
 })
 export class CrearRutinaPage implements OnInit {
 
+  form: FormGroup;
+
   constructor(
-    public apiSvc: ApiService
-  ) { }
+    public apiSvc: ApiService,
+    private formBuilder: FormBuilder
+  ) {
+    this.form = this.formBuilder.group({
+      name: ['', [Validators.required]],
+      day: ['', [Validators.required]]
+    });
+  }
 
   // Selec de los ejercicios
   secondSelect: boolean = false;
@@ -26,6 +35,8 @@ export class CrearRutinaPage implements OnInit {
   ngOnInit() {
     
   }
+
+
 
   activateSecondSelect(event: any) {
     const value = event.detail.value;

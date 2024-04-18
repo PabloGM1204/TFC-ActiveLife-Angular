@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { CardExerciseComponent } from './components/card-exercise/card-exercise.component';
 import { DetalleExerciseComponent } from './components/detalle-exercise/detalle-exercise.component';
+import { AddExerciseComponent } from './components/add-exercise/add-exercise.component';
 
 
 
@@ -15,7 +16,8 @@ import { DetalleExerciseComponent } from './components/detalle-exercise/detalle-
 
     // Componentes
     CardExerciseComponent,
-    DetalleExerciseComponent
+    DetalleExerciseComponent,
+    AddExerciseComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +33,8 @@ import { DetalleExerciseComponent } from './components/detalle-exercise/detalle-
     ReactiveFormsModule,
     // Componentes
     CardExerciseComponent,
-    DetalleExerciseComponent
+    DetalleExerciseComponent,
+    AddExerciseComponent
     // Directivas
 
     // Pipes

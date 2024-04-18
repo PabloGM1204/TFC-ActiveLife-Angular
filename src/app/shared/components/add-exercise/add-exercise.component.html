@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ exercise?.name }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form">
+    <ion-label position="stacked">repeticiones</ion-label>
+    <ion-input type="text" formControlName="repeticiones"></ion-input>
+    <ion-label position="stacked">Series</ion-label>
+    <ion-input type="text" formControlName="serie"></ion-input>
+  </form>
+  <ion-button (click)="addExercise()"></ion-button>
+</ion-content>

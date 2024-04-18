@@ -10,6 +10,18 @@
       <ion-title size="large">crear-rutina</ion-title>
     </ion-toolbar>
   </ion-header>
+  <form [formGroup]="form">
+    <ion-input labelPlacement="stacked" label="Nombre de la rutina" formControlName="name" type="text"></ion-input>
+    <ion-select label="Días" placeholder="Elige un día" formControlName="day">
+      <ion-select-option value="Lunes">Lunes</ion-select-option>
+      <ion-select-option value="Martes">Martes</ion-select-option>
+      <ion-select-option value="Miercoles">Miercoles</ion-select-option>
+      <ion-select-option value="Jueves">Jueves</ion-select-option>
+      <ion-select-option value="Viernes">Viernes</ion-select-option>
+      <ion-select-option value="Viernes">Sabado</ion-select-option>
+      <ion-select-option value="Viernes">Domingo</ion-select-option>
+    </ion-select>
+  </form>
   <ion-select label="Body Parts" placeholder="Select one part" (ionChange)="activateSecondSelect($event)">
     <ion-select-option *ngFor="let part of apiSvc.bodyList">{{ part }}</ion-select-option>
   </ion-select>
