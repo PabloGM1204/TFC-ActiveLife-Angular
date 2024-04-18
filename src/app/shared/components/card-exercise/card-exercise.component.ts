@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { DetalleExerciseComponent } from '../detalle-exercise/detalle-exercise.component';
 import { AddExerciseComponent } from '../add-exercise/add-exercise.component';
@@ -12,6 +12,8 @@ export class CardExerciseComponent  implements OnInit {
 
   @Input() exercise: any;
 
+  @Output() addExerciseEvent: EventEmitter<any> = new EventEmitter<any>();
+
   constructor(
     private modal: ModalController
   ) { }
@@ -24,6 +26,7 @@ export class CardExerciseComponent  implements OnInit {
     var onDismiss = (info: any) => {
       if(info.data){
         console.log("Información: ", info.data);
+        this.addExerciseEvent.emit(info.data);
       } else  {
         console.log("No hay información");
       }

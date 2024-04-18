@@ -10,6 +10,7 @@
       <ion-title size="large">crear-rutina</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-button (click)="createRutine()">Crear Rutina</ion-button>
   <form [formGroup]="form">
     <ion-input labelPlacement="stacked" label="Nombre de la rutina" formControlName="name" type="text"></ion-input>
     <ion-select label="Días" placeholder="Elige un día" formControlName="day">
@@ -26,6 +27,7 @@
     <ion-select-option *ngFor="let part of apiSvc.bodyList">{{ part }}</ion-select-option>
   </ion-select>
   <ng-container *ngFor="let exercise of exercises">
-    <app-card-exercise class="card" [exercise]="exercise"></app-card-exercise>
+    <app-card-exercise class="card" [exercise]="exercise" (addExerciseEvent)="addExerciseToRutine($event, exercise)"></app-card-exercise>
   </ng-container>
+  <p-toast position="bottom-center" key="bc"></p-toast>
 </ion-content>

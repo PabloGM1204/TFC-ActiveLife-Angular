@@ -8,12 +8,16 @@ import { CrearRutinaPageRoutingModule } from './crear-rutina-routing.module';
 
 import { CrearRutinaPage } from './crear-rutina.page';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   imports: [
     SharedModule,
     CrearRutinaPageRoutingModule
   ],
-  declarations: [CrearRutinaPage]
+  declarations: [CrearRutinaPage],
+  providers: [
+    MessageService // Añade MessageService como un proveedor aquí
+  ]
 })
 export class CrearRutinaPageModule {}

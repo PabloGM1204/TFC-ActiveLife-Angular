@@ -6,6 +6,8 @@ import { CardExerciseComponent } from './components/card-exercise/card-exercise.
 import { DetalleExerciseComponent } from './components/detalle-exercise/detalle-exercise.component';
 import { AddExerciseComponent } from './components/add-exercise/add-exercise.component';
 
+import { ToastModule } from 'primeng/toast';
+
 
 
 @NgModule({
@@ -24,6 +26,7 @@ import { AddExerciseComponent } from './components/add-exercise/add-exercise.com
     IonicModule,
     FormsModule,
     ReactiveFormsModule,
+    ToastModule,
   ],
   exports: [
     // Modulos
@@ -31,6 +34,7 @@ import { AddExerciseComponent } from './components/add-exercise/add-exercise.com
     FormsModule,
     IonicModule,
     ReactiveFormsModule,
+    ToastModule,
     // Componentes
     CardExerciseComponent,
     DetalleExerciseComponent,
