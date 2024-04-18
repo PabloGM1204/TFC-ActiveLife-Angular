@@ -1,0 +1,40 @@
+<!-- app-exercise-details-modal.component.html -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Detalles del Ejercicio</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="full">
+    <ion-item>
+      <ion-label>Nombre:</ion-label>
+      <ion-text>{{ exercise?.name }}</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label>Tipo:</ion-label>
+      <ion-text>{{ exercise?.equipment }}</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label>Tipo:</ion-label>
+      <ion-text>{{ exercise?.target }}</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label>Músculos Secundarios:</ion-label>
+      <ion-text>{{ exercise?.secondaryMuscles?.join(', ') }}</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label>Instrucciones:</ion-label>
+      <ion-text>
+        <ul>
+          <li *ngFor="let instruction of exercise?.instructions">{{ instruction }}</li>
+        </ul>
+      </ion-text>
+    </ion-item>
+  </ion-list>
+</ion-content>

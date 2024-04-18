@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { CardExerciseComponent } from './components/card-exercise/card-exercise.component';
+import { DetalleExerciseComponent } from './components/detalle-exercise/detalle-exercise.component';
 
 
 
@@ -13,7 +14,8 @@ import { CardExerciseComponent } from './components/card-exercise/card-exercise.
     // Pipes
 
     // Componentes
-    CardExerciseComponent
+    CardExerciseComponent,
+    DetalleExerciseComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,8 @@ import { CardExerciseComponent } from './components/card-exercise/card-exercise.
     IonicModule,
     ReactiveFormsModule,
     // Componentes
-    CardExerciseComponent
+    CardExerciseComponent,
+    DetalleExerciseComponent
     // Directivas
 
     // Pipes

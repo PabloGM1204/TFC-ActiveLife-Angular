@@ -5,5 +5,9 @@
   <!-- Nombre -->
   <ion-card-content>
     <ion-card-title>{{ exercise?.name }}</ion-card-title>
+    <div class="button-container">
+      <ion-button slot="start">Meter</ion-button>
+      <ion-button slot="end" (click)="showDetails(exercise)">Detalle</ion-button>
+    </div>
   </ion-card-content>
 </ion-card>
