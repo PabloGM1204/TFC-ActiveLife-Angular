@@ -31,7 +31,8 @@ export class CrearRutinaPage implements OnInit {
   ) {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]],
-      day: ['', [Validators.required]]
+      day: ['', [Validators.required]],
+      public: [false, [Validators.required]]
     });
   }
 
@@ -86,7 +87,7 @@ export class CrearRutinaPage implements OnInit {
       title: this.form.get('name')?.value,
       userUUID: this.user!.uuid,
       exercises: this.rutina,
-      public: false
+      public: this.form.get('public')?.value
     }
     console.log("Rutina: ", rutina);
     this.rutinaSvc.addRutina(rutina).subscribe(

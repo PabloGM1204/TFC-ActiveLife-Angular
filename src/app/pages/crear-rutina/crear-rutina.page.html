@@ -12,6 +12,7 @@
   </ion-header>
   <ion-button (click)="createRutine()">Crear Rutina</ion-button>
   <form [formGroup]="form">
+    <ion-toggle formControlName="public">Público</ion-toggle>
     <ion-input labelPlacement="stacked" label="Nombre de la rutina" formControlName="name" type="text"></ion-input>
     <ion-select label="Días" placeholder="Elige un día" formControlName="day">
       <ion-select-option value="Lunes">Lunes</ion-select-option>
