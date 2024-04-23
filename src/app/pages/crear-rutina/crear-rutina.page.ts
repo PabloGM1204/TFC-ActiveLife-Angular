@@ -87,7 +87,8 @@ export class CrearRutinaPage implements OnInit {
       title: this.form.get('name')?.value,
       userUUID: this.user!.uuid,
       exercises: this.rutina,
-      public: this.form.get('public')?.value
+      public: this.form.get('public')?.value,
+      day: this.form.get('day')?.value
     }
     console.log("Rutina: ", rutina);
     this.rutinaSvc.addRutina(rutina).subscribe(

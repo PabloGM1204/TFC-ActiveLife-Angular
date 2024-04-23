@@ -4,7 +4,10 @@ import { IonRouterOutlet } from '@ionic/angular';
 import { map } from 'rxjs';
 import { Rutina } from 'src/app/core/interfaces/rutina';
 import { RutinaService } from 'src/app/core/services/rutina.service';
+import { SwiperOptions } from 'swiper';
+import SwiperCore, { EffectCoverflow } from 'swiper';
 
+SwiperCore.use([EffectCoverflow]);
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.page.html',
@@ -29,20 +32,19 @@ export class LandingPage implements OnInit {
   }
 
   // Configuración del swiper
-  swiperConfig: any = {
-    direction: 'horizontal', // Dirección del swiper ('horizontal' o 'vertical')
-    loop: true, // Habilitar el bucle infinito
-    speed: 500, // Velocidad de la transición (en milisegundos)
-    slidesPerView: 'auto', // Número de slides visibles al mismo tiempo ('auto' para ajustar automáticamente)
-    spaceBetween: 10, // Espacio entre slides (en píxeles)
-    pagination: { // Configuración de la paginación
-      el: '.swiper-pagination', // Selector del elemento de paginación
-      clickable: true, // Permitir hacer clic en la paginación para ir al slide correspondiente
+  config: SwiperOptions = {
+    effect: 'coverflow',
+    slidesPerView: 3,
+    centeredSlides: true,
+    coverflowEffect: {
+      rotate: 50, // Cambia el valor según lo que desees
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: true,
     },
-    navigation: { // Configuración de la navegación (flechas)
-      nextEl: '.swiper-button-next', // Selector del botón de siguiente
-      prevEl: '.swiper-button-prev', // Selector del botón de anterior
-    },
+    loop: true,
+    initialSlide: 2,
   };
 
   items: any[] = ['Elemento 1', 'Elemento 2', 'Elemento 3', 'Elemento 4', 'Elemento 5'];

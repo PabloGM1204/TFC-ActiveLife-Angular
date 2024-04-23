@@ -5,9 +5,11 @@
   </ion-card-header>
 
   <ion-card-content>
-    <ion-label>Body Part: {{ rutina.exercises[0]?.bodyPart }}</ion-label>
-    <ion-label>Equipment: {{ rutina.exercises[0]?.equipment }}</ion-label>
-    <ion-label>Series: {{ rutina.exercises[0]?.serie }}</ion-label>
-    <ion-label>Repetitions: {{ rutina.exercises[0]?.repeticiones }}</ion-label>
+    <ion-label>Day: {{ rutina.day }}</ion-label>
+    <br>
+    <ion-label>Body Part:</ion-label>
+    <ion-item *ngFor="let exercise of rutina.exercises; let last = last">
+      <ion-label>{{ exercise.bodyPart }}</ion-label>
+    </ion-item>
   </ion-card-content>
 </ion-card>
