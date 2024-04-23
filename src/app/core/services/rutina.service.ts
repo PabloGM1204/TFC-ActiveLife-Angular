@@ -18,7 +18,7 @@ export class RutinaService {
   rutinas$: Observable<Rutina[]> = this._rutinas.asObservable();
 
   // GetAll continuo de la colección de rutinas
-  public subscribeToUsersCollection(): Unsubscribe | null {
+  public subscribeToRutinaCollection(): Unsubscribe | null {
     return this.firebaseSvc.subscribeToCollection('rutinas', this._rutinas, (snapshot: any) => {
       const data = snapshot.data();
       console.log("Datos del documento: ", data, " uuid: ", snapshot.id);

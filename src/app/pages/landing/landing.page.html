@@ -12,4 +12,9 @@
   </ion-header>
   <ion-button (click)="goLogReg()">Login/Registro</ion-button>
   <ion-button (click)="downloadAPK()">APK</ion-button>
+  <swiper #swiper>
+    <ng-template *ngFor="let rutina of rutinas" swiperSlide>
+      <app-card-rutine [rutina]="rutina"></app-card-rutine>
+    </ng-template>
+  </swiper>
 </ion-content>

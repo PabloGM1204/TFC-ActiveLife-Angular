@@ -23,7 +23,7 @@ export class RutinasPage implements OnInit {
   rutinas: Rutina[] = [];
 
   ngOnInit() {
-    this.rutinaSvc.subscribeToUsersCollection();
+    this.rutinaSvc.subscribeToRutinaCollection();
     this.auth.me().subscribe(_ => {
       console.log("Usuario logeado "+ _.uuid);
       this.rutinasFiltered(_.uuid);

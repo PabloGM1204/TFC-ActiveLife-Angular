@@ -7,6 +7,7 @@ import { DetalleExerciseComponent } from './components/detalle-exercise/detalle-
 import { AddExerciseComponent } from './components/add-exercise/add-exercise.component';
 
 import { ToastModule } from 'primeng/toast';
+import { CardRutineComponent } from './components/card-rutine/card-rutine.component';
 
 
 
@@ -19,7 +20,8 @@ import { ToastModule } from 'primeng/toast';
     // Componentes
     CardExerciseComponent,
     DetalleExerciseComponent,
-    AddExerciseComponent
+    AddExerciseComponent,
+    CardRutineComponent
   ],
   imports: [
     CommonModule,
@@ -38,7 +40,8 @@ import { ToastModule } from 'primeng/toast';
     // Componentes
     CardExerciseComponent,
     DetalleExerciseComponent,
-    AddExerciseComponent
+    AddExerciseComponent,
+    CardRutineComponent
     // Directivas
 
     // Pipes

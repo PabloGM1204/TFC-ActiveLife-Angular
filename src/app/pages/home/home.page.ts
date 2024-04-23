@@ -34,6 +34,11 @@ export class HomePage {
     this.router.navigate(['/rutinas'])
   }
 
+  // Método para ir a landing
+  goLanding(){
+    this.router.navigate(['/landing'])
+  }
+
   // Método para cerrar sesión
   onSingOut(){
     this.auth.logOut().subscribe(_=>{
