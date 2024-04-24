@@ -5,7 +5,7 @@ import { InfoRutinaPage } from './info-rutina.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: ':id',
     component: InfoRutinaPage
   }
 ];

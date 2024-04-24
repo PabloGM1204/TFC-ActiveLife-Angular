@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Rutina } from 'src/app/core/interfaces/rutina';
 
 @Component({
   selector: 'app-card-rutine-private',
@@ -7,10 +9,17 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CardRutinePrivateComponent  implements OnInit {
 
-  @Input() rutina: any
+  @Input() rutina: any;
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {}
+
+  editRutine(){
+    console.log("Editar rutina: ", this.rutina);
+    this.router.navigate(['/info-rutina', this.rutina.id]);
+  }
 
 }

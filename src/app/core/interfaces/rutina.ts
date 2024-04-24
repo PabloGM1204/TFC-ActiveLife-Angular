@@ -4,5 +4,6 @@ export interface Rutina {
     exercises: any[],
     public: boolean,
     day: string,
-    description: string
+    description: string,
+    id?: any
 }

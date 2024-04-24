@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { map } from 'rxjs';
 import { Rutina } from 'src/app/core/interfaces/rutina';
@@ -8,7 +8,7 @@ import { RutinaService } from 'src/app/core/services/rutina.service';
 import { ToastModule } from 'primeng/toast';
 import { User } from 'src/app/core/interfaces/user';
 import { MessageService } from 'primeng/api';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-crear-rutina',
@@ -16,6 +16,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./crear-rutina.page.scss'],
 })
 export class CrearRutinaPage implements OnInit {
+
+  // En el caso en el que reciba por la ruta el id de la rutina
+  id: any;
 
   form: FormGroup;
 
@@ -27,7 +30,8 @@ export class CrearRutinaPage implements OnInit {
     private formBuilder: FormBuilder,
     private auth: AuthService,
     private messageService: MessageService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute,
   ) {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]],
@@ -47,6 +51,10 @@ export class CrearRutinaPage implements OnInit {
 
 
   ngOnInit() {
+    this.id = this.route.snapshot.paramMap.get('id');
+    if(this.id != null){
+      this.loadRutine();
+    }
     this.auth.me().subscribe(_ => {
       console.log("Usuario logeado "+ _.uuid);
       this.user = _;
@@ -71,9 +79,9 @@ export class CrearRutinaPage implements OnInit {
   removeExerciseToRutine(data: any, exercise: any){
     console.log("Datos: ", data);
     console.log("Ejercicio: ", exercise);
+    this.showBottomCenterBad();
     this.rutina = this.rutina.filter((item) => item.id !== exercise.id);
     console.log("Ejercicios: ", this.rutina);
-    this.showBottomCenterBad();
   }
 
   // Obtener los ejercicios por parte del cuerpo y activar el segundo select
@@ -113,12 +121,26 @@ export class CrearRutinaPage implements OnInit {
     );
   }
 
+  loadRutine(){
+    console.log("ID de la rutina: ", this.id);
+    this.rutinaSvc.getRutina(this.id).subscribe((rutina: any) => {
+      this.rutina = rutina;
+      // Inicializar el formulario con los datos de la rutina
+      this.form.patchValue({
+        name: rutina.title,
+        day: rutina.day,
+        public: rutina.public,
+        description: rutina.description
+      });
+    });
+  }
+
   showBottomCenterGood() {
     this.messageService.add({ key: 'bc', severity: 'success', summary: 'Success', detail: 'Ejercicio Añadido' });
   }
 
   showBottomCenterBad(){
-    this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Ejercicio eliminado de la rutina' });
+    this.messageService.add({ key: 'er', severity: 'error', summary: 'Error', detail: 'Ejercicio eliminado de la rutina' });
   }
 
 }

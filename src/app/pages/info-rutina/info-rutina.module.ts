@@ -7,14 +7,20 @@ import { IonicModule } from '@ionic/angular';
 import { InfoRutinaPageRoutingModule } from './info-rutina-routing.module';
 
 import { InfoRutinaPage } from './info-rutina.page';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { MessageService } from 'primeng/api';
+import { ExercisePrivateComponent } from './components/exercise-private/exercise-private.component';
+import { ModalExerciseComponent } from './components/modal-exercise/modal-exercise.component';
+
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
+    SharedModule,
     InfoRutinaPageRoutingModule
   ],
-  declarations: [InfoRutinaPage]
+  declarations: [InfoRutinaPage, ExercisePrivateComponent, ModalExerciseComponent],
+  providers: [
+    MessageService // Añade MessageService como un proveedor aquí
+  ]
 })
 export class InfoRutinaPageModule {}

@@ -1,0 +1,46 @@
+<ion-card>
+  <ion-card-content>
+    <ion-grid>
+      <ion-row>
+        <!-- Imagen del ejercicio -->
+        <ion-col size="12" size-md="4">
+          <img [src]="exercise?.gifUrl" alt="Exercise" style="max-width: 100%;">
+        </ion-col>
+        <!-- Detalles del ejercicio -->
+        <ion-col size="12" size-md="8">
+          <ion-card-title>{{ exercise.name }}</ion-card-title>
+          <ion-card-subtitle>{{ exercise.bodyPart }}</ion-card-subtitle>
+          <ion-item>
+            <ion-label>Equipment</ion-label>
+            <ion-text>{{ exercise.equipment }}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-label>Target</ion-label>
+            <ion-text>{{ exercise.target }}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-label>Secondary Muscles</ion-label>
+            <ion-text>{{ exercise.secondaryMuscles.join(', ') }}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-label>Series</ion-label>
+            <ion-text>{{ exercise.serie }}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-label>Repetitions</ion-label>
+            <ion-text>{{ exercise.repeticiones }}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-label>Instructions</ion-label>
+            <ion-text>
+              <ul>
+                <li *ngFor="let instruction of exercise.instructions">{{ instruction }}</li>
+              </ul>
+            </ion-text>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+  <ion-button (click)="removeExercise(exercise)" color="danger"></ion-button>
+</ion-card>

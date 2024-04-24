@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { FirebaseService } from './firebase/firebase.service';
-import { BehaviorSubject, Observable, from, map } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, from, map, tap } from 'rxjs';
 import { Rutina } from '../interfaces/rutina';
-import { Unsubscribe } from 'firebase/auth';
+import { Unsubscribe } from 'firebase/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -30,8 +30,34 @@ export class RutinaService {
         public: data.public,
         day: data.day,
         description: data.description,
+        id: snapshot.id
       }
     })
+  }
+
+  // Obtener una rutina por su uuid
+  public getRutina(id: any): Observable<Rutina> {
+    return from(this.firebaseSvc.getDocument('rutinas', id)).pipe(
+      map((rutina: any) => {
+        console.log('Rutina:', rutina);
+        return {
+          title: rutina.data.title,
+          userUUID: rutina.data.userUUID,
+          exercises: rutina.data.exercises,
+          public: rutina.data.public,
+          day: rutina.data.day,
+          description: rutina.data.description,
+          id: rutina.id
+        };
+      }),
+      tap(rutina => {
+        console.log('Rutina:', rutina);
+      }),
+      catchError((error) => {
+        console.error('Error al obtener la rutina:', error);
+        throw error;
+      })
+    );
   }
 
   // Crear una rutina
@@ -54,4 +80,19 @@ export class RutinaService {
       })
     )
   }
+
+  //
+  public updateRutina(rutina: Rutina): Observable<void> {
+    let updateRutina = {
+      title: rutina.title ? rutina.title : '',
+      exercises: rutina.exercises,
+      public: rutina.public,
+      day: rutina.day ? rutina.day : '',
+      description: rutina.description ? rutina.description : ''
+    };
+    console.log('Rutina actualizada:', updateRutina);
+    console.log('Rutina id:', rutina);
+    return from(this.firebaseSvc.updateDocument('rutinas', rutina.id, updateRutina))
+  }
+
 }

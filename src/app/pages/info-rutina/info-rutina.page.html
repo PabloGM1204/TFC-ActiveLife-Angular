@@ -10,4 +10,25 @@
       <ion-title size="large">info-rutina</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-button (click)="updateRutine()">Crear Rutina</ion-button>
+  <form [formGroup]="form">
+    <ion-toggle formControlName="public">Público</ion-toggle>
+    <ion-input labelPlacement="stacked" label="Nombre de la rutina" formControlName="name" type="text"></ion-input>
+    <ion-input labelPlacement="stacked" label="Descripción" formControlName="description" type="text"></ion-input>  
+    <ion-select label="Días" placeholder="Elige un día" formControlName="day">
+      <ion-select-option value="Lunes">Lunes</ion-select-option>
+      <ion-select-option value="Martes">Martes</ion-select-option>
+      <ion-select-option value="Miercoles">Miercoles</ion-select-option>
+      <ion-select-option value="Jueves">Jueves</ion-select-option>
+      <ion-select-option value="Viernes">Viernes</ion-select-option>
+      <ion-select-option value="Viernes">Sabado</ion-select-option>
+      <ion-select-option value="Viernes">Domingo</ion-select-option>
+    </ion-select>
+  </form>
+  <ion-button (click)="openModal()">Añadir ejercicio</ion-button>
+  <ng-container *ngFor="let exercise of exercises">
+    <app-exercise-private [exercise]="exercise" (removeExerciseEvent)="removeExerciseToRutine($event, exercise)"></app-exercise-private>
+  </ng-container>
+  <p-toast position="bottom-center" key="bc"></p-toast>
+  <p-toast position="bottom-center" key="er"></p-toast>
 </ion-content>

@@ -1,0 +1,9 @@
+<ion-content>
+  <ion-select label="Body Parts" placeholder="Select one part" (ionChange)="activateSecondSelect($event)">
+    <ion-select-option *ngFor="let part of apiSvc.bodyList">{{ part }}</ion-select-option>
+  </ion-select>
+  
+  <ng-container *ngFor="let exercise of exercises">
+    <app-card-exercise class="card" [exercise]="exercise"></app-card-exercise>
+  </ng-container>
+</ion-content>
