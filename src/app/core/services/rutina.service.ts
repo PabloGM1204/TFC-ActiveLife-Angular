@@ -28,7 +28,8 @@ export class RutinaService {
         userUUID: data.userUUID,
         exercises: data.exercises,
         public: data.public,
-        day: data.day
+        day: data.day,
+        description: data.description,
       }
     })
   }
@@ -40,7 +41,8 @@ export class RutinaService {
       userUUID: _rutina.userUUID,
       exercises: _rutina.exercises,
       public: _rutina.public,
-      day: _rutina.day
+      day: _rutina.day,
+      description: _rutina.description
     };
     console.log('Nueva rutina:', newRutina);
     return from(this.firebaseSvc.createDocument('rutinas', newRutina)).pipe(

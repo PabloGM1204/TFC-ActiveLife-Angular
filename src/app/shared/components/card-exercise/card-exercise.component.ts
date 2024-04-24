@@ -13,12 +13,15 @@ export class CardExerciseComponent  implements OnInit {
   @Input() exercise: any;
 
   @Output() addExerciseEvent: EventEmitter<any> = new EventEmitter<any>();
+  @Output() removeExerciseEvent: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(
     private modal: ModalController
   ) { }
 
   ngOnInit() {}
+
+  dentro: boolean = false;
 
   // Añadir erjercicio a la rutina
   addExercise(exercise: any){
@@ -27,11 +30,19 @@ export class CardExerciseComponent  implements OnInit {
       if(info.data){
         console.log("Información: ", info.data);
         this.addExerciseEvent.emit(info.data);
+        this.dentro = true;
       } else  {
         console.log("No hay información");
       }
     }
     this.presentAddExercise(exercise, onDismiss);
+  }
+
+  // Eliminar ejercicio de la rutina
+  removeExercise(exercise: any){
+    console.log("Eliminar ejercicio: ", exercise);
+    this.removeExerciseEvent.emit(exercise);
+    this.dentro = false;
   }
 
   // Modal para ver el detalle del ejercicio

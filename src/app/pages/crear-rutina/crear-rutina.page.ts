@@ -32,7 +32,8 @@ export class CrearRutinaPage implements OnInit {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]],
       day: ['', [Validators.required]],
-      public: [false, [Validators.required]]
+      public: [false, [Validators.required]],
+      description: ['']
     });
   }
 
@@ -66,6 +67,14 @@ export class CrearRutinaPage implements OnInit {
     console.log("Ejercicios: ", this.rutina);
   }
 
+  // Eliminar ejercicio de la rutina
+  removeExerciseToRutine(data: any, exercise: any){
+    console.log("Datos: ", data);
+    console.log("Ejercicio: ", exercise);
+    this.rutina = this.rutina.filter((item) => item.id !== exercise.id);
+    console.log("Ejercicios: ", this.rutina);
+  }
+
   // Obtener los ejercicios por parte del cuerpo y activar el segundo select
   activateSecondSelect(event: any) {
     const value = event.detail.value;
@@ -88,7 +97,8 @@ export class CrearRutinaPage implements OnInit {
       userUUID: this.user!.uuid,
       exercises: this.rutina,
       public: this.form.get('public')?.value,
-      day: this.form.get('day')?.value
+      day: this.form.get('day')?.value,
+      description: this.form.get('description')?.value
     }
     console.log("Rutina: ", rutina);
     this.rutinaSvc.addRutina(rutina).subscribe(

@@ -3,5 +3,6 @@ export interface Rutina {
     userUUID: string,
     exercises: any[],
     public: boolean,
-    day: string
+    day: string,
+    description: string
 }

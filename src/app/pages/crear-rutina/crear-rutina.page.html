@@ -14,6 +14,7 @@
   <form [formGroup]="form">
     <ion-toggle formControlName="public">Público</ion-toggle>
     <ion-input labelPlacement="stacked" label="Nombre de la rutina" formControlName="name" type="text"></ion-input>
+    <ion-input labelPlacement="stacked" label="Descripción" formControlName="description" type="text"></ion-input>  
     <ion-select label="Días" placeholder="Elige un día" formControlName="day">
       <ion-select-option value="Lunes">Lunes</ion-select-option>
       <ion-select-option value="Martes">Martes</ion-select-option>
@@ -28,7 +29,7 @@
     <ion-select-option *ngFor="let part of apiSvc.bodyList">{{ part }}</ion-select-option>
   </ion-select>
   <ng-container *ngFor="let exercise of exercises">
-    <app-card-exercise class="card" [exercise]="exercise" (addExerciseEvent)="addExerciseToRutine($event, exercise)"></app-card-exercise>
+    <app-card-exercise class="card" [exercise]="exercise" (addExerciseEvent)="addExerciseToRutine($event, exercise)" (removeExerciseEvent)="removeExerciseToRutine($event, exercise)"></app-card-exercise>
   </ng-container>
   <p-toast position="bottom-center" key="bc"></p-toast>
 </ion-content>
