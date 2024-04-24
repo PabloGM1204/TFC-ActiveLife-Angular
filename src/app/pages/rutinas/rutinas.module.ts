@@ -8,15 +8,15 @@ import { RutinasPageRoutingModule } from './rutinas-routing.module';
 
 import { RutinasPage } from './rutinas.page';
 import { HttpClientModule } from '@angular/common/http';
+import { CardRutinePrivateComponent } from './card-rutine-private/card-rutine-private.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
+    SharedModule,
     RutinasPageRoutingModule,
     HttpClientModule
   ],
-  declarations: [RutinasPage]
+  declarations: [RutinasPage, CardRutinePrivateComponent]
 })
 export class RutinasPageModule {}

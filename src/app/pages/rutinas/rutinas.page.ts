@@ -19,14 +19,18 @@ export class RutinasPage implements OnInit {
     private router: Router
   ) { }
 
-  // Lista de rutinas
+  // Lista de rutinas privadas
   rutinas: Rutina[] = [];
+
+  // Lista de rutinas publicas
+  rutinasPublic: Rutina[] = [];
 
   ngOnInit() {
     this.rutinaSvc.subscribeToRutinaCollection();
     this.auth.me().subscribe(_ => {
       console.log("Usuario logeado "+ _.uuid);
       this.rutinasFiltered(_.uuid);
+      this.rutinasFilteredByPublic();
     })
   }
 
@@ -38,6 +42,29 @@ export class RutinasPage implements OnInit {
         this.rutinas = filteredRutinas;
         console.log("RESULTADO DE LAS RUTINAS FILTRADAS: ", this.rutinas);
       });
+  }
+
+  // Filtrar las rutinas por las que son publicas
+  rutinasFilteredByPublic() {
+    this.rutinaSvc.rutinas$.pipe(
+      map(rutina => rutina.filter(rutina => rutina.public == true))
+      ).subscribe(filteredRutinas => {
+        this.rutinasPublic = filteredRutinas;
+        console.log("RESULTADO DE LAS RUTINAS PUBLICAS: ", this.rutinasPublic);
+      });
+  }
+
+  // Variable para activar o no las rutinas publicas
+  publicRutine: boolean = false;
+
+  // Método para activar las rutinas privadas
+  privateRutines(){
+    this.publicRutine = false;
+  }
+
+  // Método para activar las rutinas publicas
+  publicRutines(){
+    this.publicRutine = true;
   }
 
   goCrearRutina() {

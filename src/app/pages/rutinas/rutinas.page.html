@@ -11,4 +11,20 @@
     </ion-toolbar>
   </ion-header>
   <ion-button (click)="goCrearRutina()"></ion-button>
+  <ion-buttons class="button-container">
+    <ion-button (click)="privateRutines()">Privadas</ion-button>
+    <ion-button (click)="publicRutines()">Publicas</ion-button>
+  </ion-buttons>
+  <!-- Cards de las rutinas privadas -->
+  <ng-container *ngIf="!publicRutine">
+    <ng-container *ngFor="let rutina of rutinas">
+      <app-card-rutine-private [rutina]="rutina"></app-card-rutine-private>
+    </ng-container>
+  </ng-container>
+  <!-- Cards de las rutinas publicas -->
+  <ng-container *ngIf="publicRutine">
+    <ng-container *ngFor="let rutina of rutinasPublic">
+      <app-card-rutine [rutina]="rutina"></app-card-rutine>
+    </ng-container>
+  </ng-container>
 </ion-content>
