@@ -1,9 +1,12 @@
 <ion-content>
+  <ion-button (click)="updateExercises()"></ion-button>
   <ion-select label="Body Parts" placeholder="Select one part" (ionChange)="activateSecondSelect($event)">
     <ion-select-option *ngFor="let part of apiSvc.bodyList">{{ part }}</ion-select-option>
   </ion-select>
   
   <ng-container *ngFor="let exercise of exercises">
-    <app-card-exercise class="card" [exercise]="exercise"></app-card-exercise>
+    <app-card-exercise class="card" [exercise]="exercise" *ngIf="active" (addExerciseEvent)="addExerciseToRutine($event, exercise)" (removeExerciseEvent)="removeExerciseToRutine($event, exercise)"></app-card-exercise>
   </ng-container>
 </ion-content>
+<p-toast position="bottom-center" key="bc"></p-toast>
+<p-toast position="bottom-center" key="er"></p-toast>

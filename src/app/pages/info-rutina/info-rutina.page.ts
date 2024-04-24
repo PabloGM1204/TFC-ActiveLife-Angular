@@ -108,6 +108,10 @@ export class InfoRutinaPage implements OnInit {
   openModal(){
     var onDismiss = (info: any) => {
       console.log("Datos: ", info);
+      info.data.forEach((exercise: any) => {
+        this.rutina.push(exercise);
+        this.exercises.push(exercise);
+    });
     }
     this.presentForm(this.exercises, onDismiss);
   }
