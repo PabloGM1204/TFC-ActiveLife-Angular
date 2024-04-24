@@ -63,7 +63,7 @@ export class CrearRutinaPage implements OnInit {
     }
     console.log("Ejercicio con datos: ", _exercise);
     this.rutina.push(_exercise);
-    this.showBottomCenter();
+    this.showBottomCenterGood();
     console.log("Ejercicios: ", this.rutina);
   }
 
@@ -73,6 +73,7 @@ export class CrearRutinaPage implements OnInit {
     console.log("Ejercicio: ", exercise);
     this.rutina = this.rutina.filter((item) => item.id !== exercise.id);
     console.log("Ejercicios: ", this.rutina);
+    this.showBottomCenterBad();
   }
 
   // Obtener los ejercicios por parte del cuerpo y activar el segundo select
@@ -112,8 +113,12 @@ export class CrearRutinaPage implements OnInit {
     );
   }
 
-  showBottomCenter() {
+  showBottomCenterGood() {
     this.messageService.add({ key: 'bc', severity: 'success', summary: 'Success', detail: 'Ejercicio Añadido' });
+  }
+
+  showBottomCenterBad(){
+    this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Ejercicio eliminado de la rutina' });
   }
 
 }
