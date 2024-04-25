@@ -27,7 +27,7 @@ export class ProfilePage implements OnInit {
         uuid: _.uuid,
         username: _.name,
         email: _.email,
-        photo: _?.photo
+        photo: _?.photo ? _?.photo : "https://firebasestorage.googleapis.com/v0/b/fir-project-91ee3.appspot.com/o/images%2Fprofile.png?alt=media&token=cf7e68cc-c045-4fa3-978b-8281d42fcd51"
       }
       this.capturedImage = this.user.photo;
       console.log("Usuario logeado ",  this.user);
@@ -35,8 +35,7 @@ export class ProfilePage implements OnInit {
   }
 
   // Imagen capturada
-  capturedImage: any | undefined = "https://firebasestorage.googleapis.com/v0/b/fir-project-91ee3.appspot.com/o/images%2Fprofile.png?alt=media&token=cf7e68cc-c045-4fa3-978b-8281d42fcd51";
-
+  capturedImage: any | undefined;
   // Tomar foto
   async takePicture() {
     const image = await Camera.getPhoto({
