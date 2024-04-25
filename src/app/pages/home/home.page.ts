@@ -39,6 +39,11 @@ export class HomePage {
     this.router.navigate(['/landing'])
   }
 
+  // Método para ir a perfil
+  goProfile(){
+    this.router.navigate(['/profile'])
+  }
+
   // Método para cerrar sesión
   onSingOut(){
     this.auth.logOut().subscribe(_=>{

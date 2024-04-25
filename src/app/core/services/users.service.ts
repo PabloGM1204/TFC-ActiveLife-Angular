@@ -33,6 +33,12 @@ export class UsersService {
     })
   }
 
+  // Actualizar datos del usuario
+  public updateUser(user: any) {
+    console.log("Usuario a actualizar: ", user);
+    from(this.firebaseSvc.updateDocument('users', user.uuid, user))
+  }
+
   // Aceptar un usuario que se ha registrado como administrador
   public acceptUser(user: User) {
     from(this.firebaseSvc.updateDocumentField('users', user.uuid, 'aceptado', true))

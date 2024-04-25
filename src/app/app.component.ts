@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from './core/services/auth/auth.service';
 import { Router } from '@angular/router';
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ export class AppComponent {
     public auth: AuthService,
     private rotuer: Router
   ) {
+    defineCustomElements(window);
     this.auth.isLogged$.subscribe(logged => {
       console.log(logged)
       if(logged){

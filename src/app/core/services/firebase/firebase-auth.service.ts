@@ -89,7 +89,8 @@ export class FirebaseAuthService extends AuthService{
         return {
           name:data.data['username'],
           email:data.data['email'],
-          uuid:data.id
+          uuid:data.id,
+          photo: data.data['photo']
         }
     }));
     else

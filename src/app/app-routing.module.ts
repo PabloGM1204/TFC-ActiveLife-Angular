@@ -45,6 +45,10 @@ const routes: Routes = [
     path: 'info-rutina',
     loadChildren: () => import('./pages/info-rutina/info-rutina.module').then( m => m.InfoRutinaPageModule)
   },
+  {
+    path: 'profile',
+    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+  },
 ];
 
 @NgModule({

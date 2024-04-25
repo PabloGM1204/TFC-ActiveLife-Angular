@@ -12,6 +12,21 @@ import { FirebaseAuthService } from './core/services/firebase/firebase-auth.serv
 import { environment } from 'src/environments/environment';
 import { AuthService } from './core/services/auth/auth.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MediaService } from './core/services/media.service';
+import { ApiService } from './core/services/api.service';
+import { FirebaseMediaService } from './core/services/firebase/firebase-media.service';
+
+export function MediaServiceFactory(
+  backend:string,
+  api:ApiService,
+  firebase:FirebaseService){
+    switch(backend){
+      case 'Firebase':
+        return new FirebaseMediaService(firebase)
+      default:
+        throw new Error("Not implemented");
+    }
+}
 
 export function AuthServiceFactory(
   backend:string,
@@ -48,6 +63,11 @@ export function AuthServiceFactory(
       provide: AuthService,
       deps: ['backend', FirebaseService],
       useFactory: AuthServiceFactory,  
+    },
+    {
+      provide: MediaService,
+      deps: ['backend', ApiService, FirebaseService],
+      useFactory: MediaServiceFactory,  
     },
 
   ],
