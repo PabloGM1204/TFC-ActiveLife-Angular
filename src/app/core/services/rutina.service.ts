@@ -13,7 +13,7 @@ export class RutinaService {
     private firebaseSvc: FirebaseService
   ) {}
 
-  // Lista de usuarios
+  // Lista de rutinas
   private _rutinas: BehaviorSubject<Rutina[]> = new BehaviorSubject<Rutina[]>([]);
   rutinas$: Observable<Rutina[]> = this._rutinas.asObservable();
 

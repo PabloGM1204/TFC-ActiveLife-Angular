@@ -8,6 +8,7 @@ import { AddExerciseComponent } from './components/add-exercise/add-exercise.com
 
 import { ToastModule } from 'primeng/toast';
 import { CardRutineComponent } from './components/card-rutine/card-rutine.component';
+import { TruncamientoPipe } from './pipes/truncamiento.pipe';
 
 
 
@@ -16,12 +17,13 @@ import { CardRutineComponent } from './components/card-rutine/card-rutine.compon
     // Directives
 
     // Pipes
+    TruncamientoPipe,
 
     // Componentes
     CardExerciseComponent,
     DetalleExerciseComponent,
     AddExerciseComponent,
-    CardRutineComponent
+    CardRutineComponent,
   ],
   imports: [
     CommonModule,
@@ -41,10 +43,11 @@ import { CardRutineComponent } from './components/card-rutine/card-rutine.compon
     CardExerciseComponent,
     DetalleExerciseComponent,
     AddExerciseComponent,
-    CardRutineComponent
+    CardRutineComponent,
     // Directivas
 
     // Pipes
+    TruncamientoPipe
   ]
 })
 export class SharedModule { }
