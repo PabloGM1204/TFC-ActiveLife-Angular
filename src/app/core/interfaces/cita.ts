@@ -6,4 +6,5 @@ export interface Cita {
     titulo: string,
     userUUID: string,
     encargadoUuid?: string,
+    estado?: string,
 }

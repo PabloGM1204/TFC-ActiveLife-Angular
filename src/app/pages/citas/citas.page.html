@@ -26,14 +26,14 @@
       <ion-col size="2">{{ cita.fechaCita }}</ion-col>
       <ion-col size="2">{{ cita.descripcion | truncamiento:20 }}</ion-col>
       <ion-col size="3">
-        <ion-button fill="clear" color="secondary">
-          <ion-icon name="create-outline"></ion-icon>
+        <ion-button fill="clear" color="secondary" (click)="accept(cita)">
+          <ion-icon name="checkmark-outline"></ion-icon>
+        </ion-button>
+        <ion-button fill="clear" color="secondary" (click)="denied(cita)">
+          <ion-icon name="close-outline"></ion-icon>
         </ion-button>
         <ion-button fill="clear" color="secondary">
-          <ion-icon name="trash-outline"></ion-icon>
-        </ion-button>
-        <ion-button fill="clear" color="secondary">
-          <ion-icon name="id-card-outline"></ion-icon>
+          <ion-icon name="chatbox-ellipses-outline"></ion-icon>
         </ion-button>
       </ion-col>
     </ion-row>
@@ -50,14 +50,11 @@
       <ion-col size="2">{{ cita.fechaCita }}</ion-col>
       <ion-col size="2">{{ cita.descripcion | truncamiento:20 }}</ion-col>
       <ion-col size="3">
-        <ion-button fill="clear" color="secondary">
-          <ion-icon name="create-outline"></ion-icon>
+        <ion-button fill="clear" color="secondary" (click)="getCita(cita)">
+          <ion-icon name="checkmark-outline"></ion-icon>
         </ion-button>
         <ion-button fill="clear" color="secondary">
-          <ion-icon name="trash-outline"></ion-icon>
-        </ion-button>
-        <ion-button fill="clear" color="secondary">
-          <ion-icon name="id-card-outline"></ion-icon>
+          <ion-icon name="chatbox-ellipses-outline"></ion-icon>
         </ion-button>
       </ion-col>
     </ion-row>

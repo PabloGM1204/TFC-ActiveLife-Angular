@@ -20,10 +20,14 @@ export class CitasPage implements OnInit {
     this.citasSvc.subscribeToCitasCollection();
     this.auth.me().subscribe(_ => {
       console.log("Usuario logeado "+ _.uuid);
+      this.user = _;
       this.citasFiltered(_.uuid);
       this.citasFilteredByPublic();
     })
   }
+
+  // Info del usuario
+  user: any;
 
   // Lista de rutinas privadas
   citas: Cita[] = [];
@@ -64,4 +68,21 @@ export class CitasPage implements OnInit {
     this.publicCitas = true;
   }
 
+  // Para aceptar una cita
+  accept(cita: Cita) {
+    cita.estado = "aceptado";
+    this.citasSvc.updateCita(cita);
+  }
+
+  // Para denegar una cita
+  denied(cita: Cita){
+    cita.estado = "denegado";
+    this.citasSvc.updateCita(cita);
+  }
+
+  // Para que el admin obtenga la cita
+  getCita(cita: Cita) {
+    cita.encargadoUuid = this.user.uuid;
+    this.citasSvc.updateCita(cita);
+  }
 }

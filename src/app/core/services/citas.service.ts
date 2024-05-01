@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Unsubscribe } from 'firebase/firestore';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, from } from 'rxjs';
 import { Cita } from '../interfaces/cita';
 import { FirebaseService } from './firebase/firebase.service';
 
@@ -30,8 +30,15 @@ export class CitasService {
         imagen: data.image,
         titulo: data.titulo,
         userUUID: snapshot.id,
-        encargadoUuid: data?.encargadoUuid
+        encargadoUuid: data?.encargadoUuid,
+        estado: data.estado ? data.estado : 'espera'
       }
     })
+  }
+
+  // Actualizar datos de la cita
+  public updateCita(cita: Cita) {
+    console.log("Cita a actualizar: ", cita);
+    from(this.firebaseSvc.updateDocument('citas', cita.userUUID, cita))
   }
 }
