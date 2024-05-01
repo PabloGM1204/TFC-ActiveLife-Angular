@@ -9,6 +9,7 @@ import { AddExerciseComponent } from './components/add-exercise/add-exercise.com
 import { ToastModule } from 'primeng/toast';
 import { CardRutineComponent } from './components/card-rutine/card-rutine.component';
 import { TruncamientoPipe } from './pipes/truncamiento.pipe';
+import { ModalCitaComponent } from './components/modal-cita/modal-cita.component';
 
 
 
@@ -24,6 +25,7 @@ import { TruncamientoPipe } from './pipes/truncamiento.pipe';
     DetalleExerciseComponent,
     AddExerciseComponent,
     CardRutineComponent,
+    ModalCitaComponent
   ],
   imports: [
     CommonModule,
@@ -44,6 +46,7 @@ import { TruncamientoPipe } from './pipes/truncamiento.pipe';
     DetalleExerciseComponent,
     AddExerciseComponent,
     CardRutineComponent,
+    ModalCitaComponent,
     // Directivas
 
     // Pipes

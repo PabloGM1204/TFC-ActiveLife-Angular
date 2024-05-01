@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Detalles de la Cita</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ cita?.titulo }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-label>Descripción:</ion-label>
+      <p>{{ cita?.descripcion }}</p>
+
+      <ion-label>Estado:</ion-label>
+      <p>{{ cita?.estado }}</p>
+
+      <ion-label>Fecha de la Cita:</ion-label>
+      <p>{{ getCitaDate(cita?.fechaCita) }}</p>
+
+      <ion-label>Fecha de Solicitud:</ion-label>
+      <p>{{ getCitaDate(cita?.fechaSolicitud) }}</p>
+
+      <ion-label>Encargado UUID:</ion-label>
+      <p>{{ cita?.encargadoUuid }}</p>
+
+      <ion-label>Usuario UUID:</ion-label>
+      <p>{{ cita?.userUUID }}</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-button (click)="activateAnswer()">Respuesta</ion-button>
+  <textarea *ngIf="activo" class="large-input" rows="5" [(ngModel)]="respuesta" placeholder="Escribe tu respuesta aquí..."></textarea>
+  <ion-button *ngIf="activo" (click)="sendAnswer()">Enviar</ion-button>
+</ion-content>

@@ -7,4 +7,5 @@ export interface Cita {
     userUUID: string,
     encargadoUuid?: string,
     estado?: string,
+    respuesta?: string
 }

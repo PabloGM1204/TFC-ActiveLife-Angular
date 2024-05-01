@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { map } from 'rxjs';
 import { Cita } from 'src/app/core/interfaces/cita';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { CitasService } from 'src/app/core/services/citas.service';
+import { ModalCitaComponent } from 'src/app/shared/components/modal-cita/modal-cita.component';
 
 @Component({
   selector: 'app-citas',
@@ -14,6 +16,7 @@ export class CitasPage implements OnInit {
   constructor(
     public citasSvc: CitasService,
     public auth: AuthService,
+    private modal: ModalController
   ) { }
 
   ngOnInit() {
@@ -84,5 +87,42 @@ export class CitasPage implements OnInit {
   getCita(cita: Cita) {
     cita.encargadoUuid = this.user.uuid;
     this.citasSvc.updateCita(cita);
+  }
+
+  // Métodos para añadir y eliminar ejercicios de la rutina
+  openModal(cita: Cita){
+    var onDismiss = (info: any) => {
+      console.log("Datos: ", info);
+      let _cita = {
+        descripcion: info.data.descripcion,
+        fechaCita: info.data.fechaCita,
+        fechaSolicitud: info.data.fechaSolicitud,
+        imagen: info.data.imagen,
+        titulo: info.data.titulo,
+        userUUID: info.data.userUUID,
+        encargadoUuid: info.data.encargadoUuid,
+        estado: info.data.estado,
+        respuesta: info.data.respuesta
+      }
+      this.citasSvc.updateCita(_cita);
+    }
+    this.presentForm(cita, onDismiss);
+  }
+
+  // Método para ver el modal de los ejercicios a añadir
+  async presentForm(data: any | null, onDismiss:(result:any)=>void){
+    const modal = await this.modal.create({
+      component: ModalCitaComponent,
+      componentProps:{
+        cita: data
+      },
+      cssClass:"modal-selector"
+    });
+    modal.present();
+    modal.onDidDismiss().then(result=>{
+      if(result && result.data){
+        onDismiss(result);
+      }
+    });
   }
 }

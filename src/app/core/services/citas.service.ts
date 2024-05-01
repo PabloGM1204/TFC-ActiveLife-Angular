@@ -31,7 +31,8 @@ export class CitasService {
         titulo: data.titulo,
         userUUID: snapshot.id,
         encargadoUuid: data?.encargadoUuid,
-        estado: data.estado ? data.estado : 'espera'
+        estado: data.estado ? data.estado : 'espera',
+        respuesta: data.respuesta ? data.respuesta : ''
       }
     })
   }
