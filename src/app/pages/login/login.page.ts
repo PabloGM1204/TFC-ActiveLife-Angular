@@ -31,6 +31,7 @@ export class LoginPage implements OnInit {
   // Método para hacer el login
   // al hacer click recibe los datos para el login y hacemos el login, en caso de ir bien pasaria al home
   onLogin(credencials: UserCredentials){
+    this.auth.logOut();
     console.log("Datos login: ", credencials)
     this.auth.login(credencials).subscribe({
       next: data => {

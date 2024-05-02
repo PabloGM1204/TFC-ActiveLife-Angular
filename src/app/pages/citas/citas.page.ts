@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { Timestamp } from 'firebase/firestore';
 import { map } from 'rxjs';
 import { Cita } from 'src/app/core/interfaces/cita';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
@@ -124,5 +125,11 @@ export class CitasPage implements OnInit {
         onDismiss(result);
       }
     });
+  }
+
+  // Método para formatear una fecha de tipo Timestamp
+  getCitaDate(timestamp: Timestamp): string {
+    const date = timestamp.toDate(); // Convierte el Timestamp a un objeto Date
+    return date.toLocaleString(); // Devuelve una cadena con la fecha y hora formateada
   }
 }

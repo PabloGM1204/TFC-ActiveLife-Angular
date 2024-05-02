@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { IonRouterOutlet } from '@ionic/angular';
 import { map } from 'rxjs';
 import { Rutina } from 'src/app/core/interfaces/rutina';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { FirebaseService } from 'src/app/core/services/firebase/firebase.service';
 import { RutinaService } from 'src/app/core/services/rutina.service';
 import { SwiperOptions } from 'swiper';
 import SwiperCore, { EffectCoverflow } from 'swiper';
@@ -19,6 +21,7 @@ export class LandingPage implements OnInit {
   constructor(
     private router: Router,
     private rutinaSvc: RutinaService,
+    private authSvc: FirebaseService
   ) { }
 
   ionViewDidEnter() {
@@ -28,7 +31,12 @@ export class LandingPage implements OnInit {
   }
 
   ngOnInit() {
-    
+    this.rutinaSvc.subscribeToRutinaCollection();
+    this.authSvc.connectAnonymously().then(() => {
+      console.log("Conexión anónima exitosa");
+    }).catch((error) => {
+      console.log("Error en la conexión anónima: ", error);
+    });
   }
 
   // Configuración del swiper
