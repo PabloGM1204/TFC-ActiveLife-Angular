@@ -33,7 +33,7 @@
       <p>{{ cita?.userUUID }}</p>
     </ion-card-content>
   </ion-card>
-  <ion-button (click)="activateAnswer()">Respuesta</ion-button>
+  <ion-button *ngIf="resp" (click)="activateAnswer()">Respuesta</ion-button>
   <textarea *ngIf="activo" class="large-input" rows="5" [(ngModel)]="respuesta" placeholder="Escribe tu respuesta aquí..."></textarea>
   <ion-button *ngIf="activo" (click)="sendAnswer()">Enviar</ion-button>
 </ion-content>

@@ -18,9 +18,18 @@ export class ModalCitaComponent  implements OnInit {
     private modalController: ModalController
   ) { }
 
-  ngOnInit() {}
-   // Método para cerrar el modal
-   dismissModal() {
+  resp: boolean = false;
+
+  ngOnInit() {
+    console.log("Cita recibida: ", this.cita);
+    if(this.cita?.encargadoUuid){
+      this.resp = true;
+    }
+  }
+
+
+  // Método para cerrar el modal
+  dismissModal() {
     this.modalController.dismiss();
   }
 
@@ -29,7 +38,7 @@ export class ModalCitaComponent  implements OnInit {
   
   // Método para activar la respuesta
   activateAnswer() {
-    this.activo = true;
+    this.activo = !this.activo;
   }
 
   // Método para formatear una fecha de tipo Timestamp
