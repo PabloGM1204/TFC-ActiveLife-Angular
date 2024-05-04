@@ -1,17 +1,19 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>landing</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">landing</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-button (click)="goLogReg()">Login/Registro</ion-button>
-  <ion-button (click)="downloadAPK()">APK</ion-button>
+  <div class="container">
+    <div class="left-content">
+      <h1 id="title">ActiveLife</h1>
+      <p>Aplicación para crear rutinas, concretar citas con los con los administradores. </p>
+      <div>
+        <ion-button (click)="goLogReg()">Login/Registro</ion-button>
+        <br>
+        <ion-button (click)="downloadAPK()">APK</ion-button>
+      </div>
+      <p class="small-phrase">Si no tienes cuenta registrate gratis.</p>
+    </div>
+    <div class="right-content">
+      <img src="assets/imgs/logoActiveLife.png">
+    </div>
+  </div>
   <swiper [config]="config">
     <ng-template *ngFor="let rutina of rutinas" swiperSlide>
       <app-card-rutine [rutina]="rutina"></app-card-rutine>

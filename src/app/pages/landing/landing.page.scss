@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    justify-content: center;
+    background-color: #FEF4EA;
+}
+  
+.left-content {
+    width: 500px;
+    padding: 20px;
+}
+  
+.right-content {
+    width: 500px;
+    padding: 20px;
+}
+
+#title{
+    font-size: 50px;
+    font-weight: bold;
+    color: rgb(33, 51, 67);
+    font-family: "Times New Roman";
+}
+
+.small-phrase {
+    font-size: 14px;
+}
