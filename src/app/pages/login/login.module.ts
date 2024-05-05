@@ -5,11 +5,14 @@ import { LoginPage } from './login.page';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
+import { SwiperModule } from 'swiper/angular';
+
 
 @NgModule({
   imports: [
     SharedModule,
-    LoginPageRoutingModule
+    LoginPageRoutingModule,
+    SwiperModule
   ],
   declarations: [
     LoginPage,

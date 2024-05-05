@@ -1,19 +1,17 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">login</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <!--Botones para el Login y Registro y que cambian entre ellos-->
-  <ion-button *ngIf="activateChange" (click)="changeComponent()" fill="clear" style="text-transform: none;">Registro</ion-button>
-  <ion-button *ngIf="!activateChange" (click)="changeComponent()" fill="clear" style="text-transform: none;">Login</ion-button>
-
-  <app-login-form *ngIf="activateChange" (doLogin)="onLogin($event)"></app-login-form>
-  <app-register-form *ngIf="!activateChange" (doRegister)="onRegister($event)"></app-register-form>
+<ion-content [fullscreen]="true" class="fondo">
+  <div class="container">
+    <div class="left-content">
+      <ion-button *ngIf="activateChange" (click)="changeComponent()" fill="clear" style="text-transform: none;">Registro</ion-button>
+      <ion-button *ngIf="!activateChange" (click)="changeComponent()" fill="clear" style="text-transform: none;">Login</ion-button>
+      <app-login-form *ngIf="activateChange" (doLogin)="onLogin($event)"></app-login-form>
+      <app-register-form *ngIf="!activateChange" (doRegister)="onRegister($event)"></app-register-form>
+    </div>
+    <div class="right-content">
+      <swiper [config]="config">
+        <ng-template *ngFor="let item of items" swiperSlide>
+          <h1>{{ item }}</h1>
+        </ng-template>
+      </swiper>
+    </div>
+  </div>
 </ion-content>

@@ -49,7 +49,7 @@ export class LandingPage implements OnInit {
       stretch: 0,
       depth: 100,
       modifier: 1,
-      slideShadows: true,
+      slideShadows: false,
     },
     loop: true,
     initialSlide: 2,
