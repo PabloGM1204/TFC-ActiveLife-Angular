@@ -1,10 +1,10 @@
 <ion-content [fullscreen]="true" class="fondo">
   <div class="container">
     <div class="left-content">
-      <ion-button *ngIf="activateChange" (click)="changeComponent()" fill="clear" style="text-transform: none;">Registro</ion-button>
-      <ion-button *ngIf="!activateChange" (click)="changeComponent()" fill="clear" style="text-transform: none;">Login</ion-button>
       <app-login-form *ngIf="activateChange" (doLogin)="onLogin($event)"></app-login-form>
       <app-register-form *ngIf="!activateChange" (doRegister)="onRegister($event)"></app-register-form>
+      <ion-button expand="block" *ngIf="activateChange" (click)="changeComponent()" fill="clear" style="text-transform: none;">Registro</ion-button>
+      <ion-button expand="block" *ngIf="!activateChange" (click)="changeComponent()" fill="clear" style="text-transform: none;">Login</ion-button>
     </div>
     <div class="right-content">
       <swiper [config]="config">
