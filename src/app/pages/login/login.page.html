@@ -9,7 +9,7 @@
     <div class="right-content">
       <swiper [config]="config">
         <ng-template *ngFor="let item of items" swiperSlide>
-          <h1>{{ item }}</h1>
+          <img [src]="item" alt="Swiper Image">
         </ng-template>
       </swiper>
     </div>

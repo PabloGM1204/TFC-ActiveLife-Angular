@@ -23,8 +23,13 @@
 .right-content {
     height: 400px;
     width: 350px;
-    padding: 20px;
     background-color: antiquewhite;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+swiper {
+    height: 100%;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }

@@ -5,8 +5,9 @@ import { UserCredentials } from 'src/app/core/interfaces/user-credentials';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { FirebaseService } from 'src/app/core/services/firebase/firebase.service';
 import { SwiperOptions } from 'swiper';
-import SwiperCore, { EffectCoverflow } from 'swiper';
+import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper';
 
+SwiperCore.use([Autoplay, Pagination, Navigation]);
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -23,13 +24,22 @@ export class LoginPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log("Configuración de Swiper: ", this.config)
   }
 
   config: SwiperOptions = {
     loop: true,
+    slidesPerView: 1,
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false
+    },
+    pagination: {
+      clickable: true
+    }
   };
 
-  items: any[] = ['Elemento 1', 'Elemento 2', 'Elemento 3', 'Elemento 4', 'Elemento 5'];
+  items: any[] = ['assets/imgs/swiper/img-swiper-1.jpg', 'assets/imgs/swiper/img-swiper-2.jpg', 'assets/imgs/swiper/img-swiper-3.jpg', 'assets/imgs/swiper/img-swiper-4.jpg'];
 
   // Método para cambiar entre el componente de Login y Registro
   changeComponent(){
