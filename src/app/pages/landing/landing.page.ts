@@ -21,7 +21,8 @@ export class LandingPage implements OnInit {
   constructor(
     private router: Router,
     private rutinaSvc: RutinaService,
-    private authSvc: FirebaseService
+    private authSvc: FirebaseService,
+    private auth: AuthService
   ) { }
 
   ionViewDidEnter() {
@@ -32,11 +33,13 @@ export class LandingPage implements OnInit {
 
   ngOnInit() {
     this.rutinaSvc.subscribeToRutinaCollection();
-    this.authSvc.connectAnonymously().then(() => {
-      console.log("Conexión anónima exitosa");
-    }).catch((error) => {
-      console.log("Error en la conexión anónima: ", error);
-    });
+    if(!this.auth.isLogged$) {
+      this.authSvc.connectAnonymously().then(() => {
+        console.log("Conexión anónima exitosa");
+      }).catch((error) => {
+        console.log("Error en la conexión anónima: ", error);
+      });
+    }
   }
 
   // Configuración del swiper

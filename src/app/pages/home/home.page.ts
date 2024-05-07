@@ -1,18 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { FirebaseService } from 'src/app/core/services/firebase/firebase.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
   constructor(
     public auth: AuthService,
-    private router: Router
+    private router: Router,
+    private firebaseSvc: FirebaseService
   ) {}
+
+  async ngOnInit() {
+    const isAnon = await this.firebaseSvc.isUserConnectedAnonymously();
+    if(isAnon){
+      console.warn("El usuario está conectado anónimamente");
+    }
+  }
 
   // Método para ir a rutinas
   goUsuarios(){

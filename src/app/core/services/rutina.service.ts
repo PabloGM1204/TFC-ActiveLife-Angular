@@ -21,7 +21,7 @@ export class RutinaService {
   public subscribeToRutinaCollection(): Unsubscribe | null {
     return this.firebaseSvc.subscribeToCollection('rutinas', this._rutinas, (snapshot: any) => {
       const data = snapshot.data();
-      console.log("Datos del documento: ", data, " uuid: ", snapshot.id);
+      //console.log("Datos del documento: ", data, " uuid: ", snapshot);
 
       return {
         title: data.title,
@@ -39,7 +39,7 @@ export class RutinaService {
   public getRutina(id: any): Observable<Rutina> {
     return from(this.firebaseSvc.getDocument('rutinas', id)).pipe(
       map((rutina: any) => {
-        console.log('Rutina:', rutina);
+        //console.log('Rutina:', rutina);
         return {
           title: rutina.data.title,
           userUUID: rutina.data.userUUID,
@@ -51,7 +51,7 @@ export class RutinaService {
         };
       }),
       tap(rutina => {
-        console.log('Rutina:', rutina);
+        //console.log('Rutina:', rutina);
       }),
       catchError((error) => {
         console.error('Error al obtener la rutina:', error);
