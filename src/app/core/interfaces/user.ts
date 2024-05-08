@@ -3,5 +3,6 @@ export interface User {
     username:string,
     email:string,
     admin: boolean,
-    aceptado: boolean
+    aceptado: boolean,
+    imageUrl?: string
 }

@@ -1,23 +1,14 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>usuarios</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">usuarios</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" id="general">
   <ion-grid>
     <ion-row>
+      <ion-col size="2">Foto</ion-col>
       <ion-col size="2">Nombre</ion-col>
       <ion-col size="2">UUID</ion-col>
       <ion-col size="2">Email</ion-col>
       <ion-col size="2">Admin</ion-col>
     </ion-row>
-    <ion-row *ngFor="let user of userSvc.users$ | async">
+    <ion-row [class.odd-row]="index % 2 === 0" [class.even-row]="index % 2 !== 0" *ngFor="let user of userSvc.users$ | async; let index = index">
+      <ion-col size="2"><ion-avatar><img [src]="user?.imageUrl" alt="Imagen del alumno"></ion-avatar></ion-col>
       <ion-col size="2">{{ user.username }}</ion-col>
       <ion-col size="2">{{ user.uuid }}</ion-col>
       <ion-col size="2">{{ user.email }}</ion-col>
