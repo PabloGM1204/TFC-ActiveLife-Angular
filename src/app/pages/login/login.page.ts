@@ -6,6 +6,8 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { FirebaseService } from 'src/app/core/services/firebase/firebase.service';
 import { SwiperOptions } from 'swiper';
 import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper';
+import { InfoModalComponent } from './components/info-modal/info-modal.component';
+import { ModalController } from '@ionic/angular';
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 @Component({
@@ -20,7 +22,8 @@ export class LoginPage implements OnInit {
   constructor(
     private auth: AuthService,
     private firebaseSvc: FirebaseService,
-    private router: Router
+    private router: Router,
+    private modal: ModalController
   ) { }
 
   ngOnInit() {
@@ -53,7 +56,21 @@ export class LoginPage implements OnInit {
     console.log("Datos login: ", credencials)
     this.auth.login(credencials).subscribe({
       next: data => {
-        this.router.navigate(['/home']);
+        console.log("Data que devuelve el login ", data)
+        if(data.admin == false) {
+          this.presentModal("Para usar la aplicación como cliente debe usar el APK", (result)=>{
+            console.log("Modal cerrado")
+            //this.auth.logOut();
+          });
+        } else if (data.admin == true && data.aceptado == false) {
+          this.presentModal("Aun no tienes permisos para acceder a la aplicación", (result)=>{
+            console.log("Modal cerrado")
+            //this.auth.logOut();
+          });
+        } else {
+          console.warn("usuario ha ido a home")
+          this.router.navigate(['/home']);
+        }
       },
       error: err => {
         console.log(err)
@@ -68,12 +85,41 @@ export class LoginPage implements OnInit {
     this.auth.register(credencials).subscribe({
       next: data => {
         console.log("Data que devuelve el registro ", data)
+        if(data.admin == false) {
+          this.presentModal("Para usar la aplicación como cliente debe usar el APK", (result)=>{
+            console.log("Modal cerrado")
+            //this.auth.logOut();
+          });
+        } else if (data.admin == true && data.aceptado == false) {
+          this.presentModal("Aun no tienes permisos para acceder a la aplicación", (result)=>{
+            console.log("Modal cerrado")
+            //this.auth.logOut();
+          });
+        }
         this.router.navigate(['/home']);
       },
       error: err => {
         console.log(err)
       }
     })
+  }
+
+
+  // Método para ver el modal para informar a los usuarios
+  async presentModal(data: any | null, onDismiss:(result:any)=>void){
+    const modal = await this.modal.create({
+      component: InfoModalComponent,
+      componentProps:{
+        info: data
+      },
+      cssClass:"info-modal"
+    });
+    modal.present();
+    modal.onDidDismiss().then(result=>{
+      if(result && result.data){
+        onDismiss(result);
+      }
+    });
   }
 
 }

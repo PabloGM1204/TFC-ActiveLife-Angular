@@ -22,7 +22,8 @@ export class RegisterFormComponent  implements OnInit {
       email:['', [Validators.required, Validators.email]],
       password:['', [Validators.required, PasswordValidation.passwordProto('password')]],
       confirm:['', [Validators.required, PasswordValidation.passwordProto('confirm')]],
-      admin: [false] // Para saber si es administrador o cliente
+      admin: [false], // Para saber si es administrador o cliente
+      aceptado: [false]
     }, {validator:[PasswordValidation.passwordMatch('password','confirm') ]});
   }
 

@@ -17,11 +17,13 @@ export class UsuariosPage implements OnInit {
     this.userSvc.subscribeToUsersCollection();
   }
 
+  // Metodo para que un admin acepte un usuario
   accept(user: User){
     console.log("Aceptar usuario: ", user)
     this.userSvc.acceptUser(user)
   }
 
+  // Metodo para eliminar un usuario
   deleteUser(user: User){
     console.log("Eliminar usuario: ", user)
     this.userSvc.deleteUser(user)

@@ -28,18 +28,33 @@ export class LandingPage implements OnInit {
   ionViewDidEnter() {
     // Coloca aquí el código que deseas ejecutar cada vez que el usuario entra en esta página
     console.log('El usuario ha entrado en esta página');
-    this.rutinasFiltered();
+    //this.rutinasFiltered();
   }
+
+  loguead: Boolean | undefined;
 
   ngOnInit() {
     this.rutinaSvc.subscribeToRutinaCollection();
-    if(!this.auth.isLogged$) {
-      this.authSvc.connectAnonymously().then(() => {
-        console.log("Conexión anónima exitosa");
-      }).catch((error) => {
-        console.log("Error en la conexión anónima: ", error);
-      });
-    }
+    this.auth.isLogged$.subscribe(logged => {
+      console.log(logged);
+      this.loguead = logged;
+      
+    });
+    setTimeout(() => {
+      if (this.loguead) {
+        console.log("Usuario logeado");
+      } else {
+        console.log("No hay usuario logeado");
+        this.authSvc.connectAnonymously().then(() => {
+          console.log("Conexión anónima exitosa");
+          this.rutinasFiltered();
+        }).catch((error) => {
+          console.log("Error en la conexión anónima: ", error);
+          this.auth.logOut();
+          this.rutinasFiltered();
+        });
+      }
+    }, 5000); // Espera 3 segundos (3000 milisegundos) antes de ejecutar el código dentro del setTimeout
   }
 
   // Configuración del swiper
@@ -81,6 +96,11 @@ export class LandingPage implements OnInit {
   // Método para descargar el APK de la app
   downloadAPK(){
     console.log("Descargar APK")
+  }
+
+  // Método para ir a la página de about
+  goAbout(){
+    this.router.navigate(['/about'])
   }
 
 }

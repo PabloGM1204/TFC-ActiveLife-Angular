@@ -26,10 +26,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/citas/citas.module').then( m => m.CitasPageModule)
   },
   {
-    path: 'problemas',
-    loadChildren: () => import('./pages/problemas/problemas.module').then( m => m.ProblemasPageModule)
-  },
-  {
     path: 'usuarios',
     loadChildren: () => import('./pages/usuarios/usuarios.module').then( m => m.UsuariosPageModule)
   },
@@ -48,7 +44,11 @@ const routes: Routes = [
   {
     path: 'profile',
     loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+  },  {
+    path: 'about',
+    loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
   },
+
 ];
 
 @NgModule({
