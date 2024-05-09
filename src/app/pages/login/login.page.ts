@@ -63,7 +63,7 @@ export class LoginPage implements OnInit {
             //this.auth.logOut();
           });
         } else if (data.admin == true && data.aceptado == false) {
-          this.presentModal("No tienes permisos para acceder a esta aplicación aun", (result)=>{
+          this.presentModal("Aun no tienes permisos para acceder a la aplicación", (result)=>{
             console.log("Modal cerrado")
             //this.auth.logOut();
           });
@@ -91,7 +91,7 @@ export class LoginPage implements OnInit {
             //this.auth.logOut();
           });
         } else if (data.admin == true && data.aceptado == false) {
-          this.presentModal("No tienes permisos para acceder a esta aplicación aun", (result)=>{
+          this.presentModal("Aun no tienes permisos para acceder a la aplicación", (result)=>{
             console.log("Modal cerrado")
             //this.auth.logOut();
           });
@@ -105,9 +105,6 @@ export class LoginPage implements OnInit {
   }
 
 
-
-
-
   // Método para ver el modal para informar a los usuarios
   async presentModal(data: any | null, onDismiss:(result:any)=>void){
     const modal = await this.modal.create({
@@ -115,7 +112,7 @@ export class LoginPage implements OnInit {
       componentProps:{
         info: data
       },
-      cssClass:"modal-selector"
+      cssClass:"info-modal"
     });
     modal.present();
     modal.onDidDismiss().then(result=>{
