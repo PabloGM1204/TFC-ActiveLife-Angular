@@ -1,15 +1,16 @@
 #general {
-    top: 55px;
     --ion-grid-column-padding: 8px;
 }
   
 #general ion-grid {
     padding: 16px;
+    margin-top: 55px;
 }
   
 #general ion-row {
     align-items: center;
     border-bottom: 1px solid #ddd;
+    justify-content: center;
 }
   
 #general ion-col {

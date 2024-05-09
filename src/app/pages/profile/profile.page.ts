@@ -27,7 +27,7 @@ export class ProfilePage implements OnInit {
         uuid: _.uuid,
         username: _.name,
         email: _.email,
-        imageUrl: _?.imageUrl ? _?.imageUrl : "https://firebasestorage.googleapis.com/v0/b/fir-project-91ee3.appspot.com/o/images%2Fprofile.png?alt=media&token=cf7e68cc-c045-4fa3-978b-8281d42fcd51"
+        imageUrl: _?.photo ? _?.photo : "https://firebasestorage.googleapis.com/v0/b/fir-project-91ee3.appspot.com/o/images%2Fprofile.png?alt=media&token=cf7e68cc-c045-4fa3-978b-8281d42fcd51"
       }
       this.capturedImage = this.user.imageUrl;
       console.log("Usuario logeado ",  this.user);

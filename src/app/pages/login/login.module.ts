@@ -6,6 +6,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 import { SwiperModule } from 'swiper/angular';
+import { InfoModalComponent } from './components/info-modal/info-modal.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { SwiperModule } from 'swiper/angular';
   declarations: [
     LoginPage,
     LoginFormComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    InfoModalComponent
   ]
 })
 export class LoginPageModule {}

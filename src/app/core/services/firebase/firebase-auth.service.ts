@@ -17,7 +17,9 @@ export class FirebaseAuthService extends AuthService{
         this.me().subscribe({
           next:data=>{
             this._user.next(data);
-            this._logged.next(true);
+            if(data.aceptado != false) {
+              this._logged.next(true);
+            }
           },
           error:err=>{
             console.log(err);
@@ -40,7 +42,9 @@ export class FirebaseAuthService extends AuthService{
           if(credentials){
             this.me().subscribe(data=>{
               this._user.next(data);
-              this._logged.next(true);
+              if(data.aceptado != false){
+                this._logged.next(true);
+              }
               subscr.next(data);
               subscr.complete();
             });
@@ -56,12 +60,12 @@ export class FirebaseAuthService extends AuthService{
           subscr.error('Cannot register');
         if(credentials){
           var _info:any = {...info};
-          console.log("Info del usuario " +info)
+          console.log("Info del usuario ", info)
           _info.uuid = this.firebaseSvc.user?.uid;
           this.postRegister(_info).subscribe(data=>{
             console.log("Data usuario "+ data)
             this._user.next(_info);
-            this._logged.next(true);
+            //this._logged.next(true);
             subscr.next(_info);
             subscr.complete();
           });
@@ -77,7 +81,7 @@ export class FirebaseAuthService extends AuthService{
         username: info.nickname,
         email:info.email,
         admin: info.admin,
-        aceptado: false
+        aceptado: false,
     }, info.uuid))}
     throw new Error('Error inesperado');
   }
@@ -90,7 +94,9 @@ export class FirebaseAuthService extends AuthService{
           name:data.data['username'],
           email:data.data['email'],
           uuid:data.id,
-          photo: data.data['photo']
+          photo: data.data['imageUrl'],
+          admin: data.data['admin'],
+          aceptado: data.data['aceptado']
         }
     }));
     else

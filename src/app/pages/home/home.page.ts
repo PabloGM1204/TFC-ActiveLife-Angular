@@ -33,11 +33,6 @@ export class HomePage implements OnInit {
     this.router.navigate(['/citas'])
   }
 
-  // Método para ir a registrar problemas
-  goProblemas(){
-    this.router.navigate(['/problemas'])
-  }
-
   // Método para ir a rutinas
   goRutinas(){
     this.router.navigate(['/rutinas'])
