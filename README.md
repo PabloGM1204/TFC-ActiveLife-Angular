@@ -100,6 +100,17 @@
 
 - Solucioné problemas con el autologin para facilitar el inicio de sesión ya que había un problema con el inicio de sesión anonimo.
 
+**Mayo 8, 2024**
+
+- Preparé la entrega del checkpoint con el diario, webgrafia, video.
+- Mejoré el css de la página de usuarios (Posibles cambios en el futuro).
+
+**Mayo 9, 2024**
+
+- Añado el modal para los distinto usuarios que se loguean y aun no tienen los permisos necesarios para entrar.
+- Mejoro el css de la Landing.
+- Creo el video para despues actualizar el README.md con el mismo.
+
 ## Webgrafía
 
 - [Swiper documentation](https://swiperjs.com/element)
