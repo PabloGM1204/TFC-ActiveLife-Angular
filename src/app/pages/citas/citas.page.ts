@@ -90,6 +90,11 @@ export class CitasPage implements OnInit {
     this.citasSvc.updateCita(cita);
   }
 
+  // Para eliminar una cita
+  deleteCita(cita: Cita) {
+    this.citasSvc.deleteCita(cita);
+  }
+
   // Métodos para añadir y eliminar ejercicios de la rutina
   openModal(cita: Cita){
     var onDismiss = (info: any) => {
@@ -128,8 +133,14 @@ export class CitasPage implements OnInit {
   }
 
   // Método para formatear una fecha de tipo Timestamp
-  getCitaDate(timestamp: Timestamp): string {
-    const date = timestamp.toDate(); // Convierte el Timestamp a un objeto Date
-    return date.toLocaleString(); // Devuelve una cadena con la fecha y hora formateada
+  getCitaDate(timestamp: Timestamp): { fechaFormateada: string, pasada: boolean } {
+    const citaDate = timestamp.toDate(); // Convierte el Timestamp a un objeto Date
+    const currentDate = new Date(); // Fecha y hora actuales
+    const pasada = citaDate < currentDate;  // Comprueba si la fecha es anterior a la actual
+    // Formatea la fecha y hora
+    const fechaFormateada = citaDate.toLocaleString(); // Devuelve una cadena con la fecha y hora formateada
+
+    // Devuelve la fecha formateada y un indicador de si la cita es pasada o no
+    return { fechaFormateada, pasada };
   }
 }

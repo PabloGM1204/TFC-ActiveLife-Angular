@@ -21,16 +21,19 @@
       <ion-col size="2">Descripcion</ion-col>
       <ion-col size="3">Acciones</ion-col>
     </ion-row>
-    <ion-row *ngFor="let cita of citas">
+    <ion-row *ngFor="let cita of citas" [class.pasada]="getCitaDate(cita.fechaCita).pasada" [class.aceptada]="cita.estado == 'aceptado'" [class.denegado]="cita.estado == 'denegado'">
       <ion-col size="2">{{ cita.titulo }}</ion-col>
-      <ion-col size="2">{{ getCitaDate(cita.fechaCita) }}</ion-col>
+      <ion-col size="2">{{ getCitaDate(cita.fechaCita).fechaFormateada }}</ion-col>
       <ion-col size="2">{{ cita.descripcion | truncamiento:20 }}</ion-col>
       <ion-col size="3">
-        <ion-button fill="clear" color="secondary" (click)="accept(cita)">
+        <ion-button *ngIf="!getCitaDate(cita.fechaCita).pasada" fill="clear" color="secondary" (click)="accept(cita)">
           <ion-icon name="checkmark-outline"></ion-icon>
         </ion-button>
-        <ion-button fill="clear" color="secondary" (click)="denied(cita)">
+        <ion-button *ngIf="!getCitaDate(cita.fechaCita).pasada" fill="clear" color="secondary" (click)="denied(cita)">
           <ion-icon name="close-outline"></ion-icon>
+        </ion-button>
+        <ion-button *ngIf="getCitaDate(cita.fechaCita).pasada" fill="clear" color="danger" (click)="deleteCita(cita)">
+          <ion-icon name="trash-outline"></ion-icon>
         </ion-button>
         <ion-button fill="clear" color="secondary" (click)="openModal(cita)">
           <ion-icon name="chatbox-ellipses-outline"></ion-icon>
@@ -47,7 +50,7 @@
     </ion-row>
     <ion-row *ngFor="let cita of citasPublic">
       <ion-col size="2">{{ cita.titulo }}</ion-col>
-      <ion-col size="2">{{ getCitaDate(cita.fechaCita) }}</ion-col>
+      <ion-col size="2">{{ getCitaDate(cita.fechaCita).fechaFormateada }}</ion-col>
       <ion-col size="2">{{ cita.descripcion | truncamiento:20 }}</ion-col>
       <ion-col size="3">
         <ion-button fill="clear" color="secondary" (click)="getCita(cita)">

@@ -42,4 +42,10 @@ export class CitasService {
     console.log("Cita a actualizar: ", cita);
     from(this.firebaseSvc.updateDocument('citas', cita.userUUID, cita))
   }
+
+  // Eliminar cita
+  public deleteCita(cita: Cita) {
+    console.log("Cita a eliminar: ", cita);
+    from(this.firebaseSvc.deleteDocument('citas', cita.userUUID))
+  }
 }
