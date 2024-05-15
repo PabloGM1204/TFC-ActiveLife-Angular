@@ -44,10 +44,18 @@ export class AppComponent {
         case '/home':
           this.infoText = 'Esta es la página de inicio.';
           break;
-        case '/about':
-          this.infoText = 'Esta es la página sobre nosotros.';
+        case '/profile':
+          this.infoText = 'Página de perfil de usuario en la que puedes ver tus datos y cambiar tu foto de perfil.';
           break;
-        // Añade más casos según las rutas de tu aplicación
+        case '/usuarios':
+          this.infoText = 'Página con la lista de todos los usuarios que se han registrado a los cuales puedes aceptar, denegar y borrar.';
+          break;
+        case '/citas':
+          this.infoText = 'Página en la que puedes aceptar, denegar, responder y obtener citas.';
+          break;
+        case '/rutinas':
+          this.infoText = 'Página en la que puedes ver tus rutinas, crear nuevas, editarlas y borrarlas.';
+          break;
         default:
           this.infoText = 'Información genérica.';
       }
