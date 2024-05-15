@@ -10,7 +10,7 @@ import { ToastModule } from 'primeng/toast';
 import { CardRutineComponent } from './components/card-rutine/card-rutine.component';
 import { TruncamientoPipe } from './pipes/truncamiento.pipe';
 import { ModalCitaComponent } from './components/modal-cita/modal-cita.component';
-
+import { PrimeraLetraMayusPipe } from './pipes/primera-letra-mayus.pipe';
 
 
 @NgModule({
@@ -25,7 +25,8 @@ import { ModalCitaComponent } from './components/modal-cita/modal-cita.component
     DetalleExerciseComponent,
     AddExerciseComponent,
     CardRutineComponent,
-    ModalCitaComponent
+    ModalCitaComponent,
+    PrimeraLetraMayusPipe,
   ],
   imports: [
     CommonModule,
@@ -50,7 +51,8 @@ import { ModalCitaComponent } from './components/modal-cita/modal-cita.component
     // Directivas
 
     // Pipes
-    TruncamientoPipe
+    TruncamientoPipe,
+    PrimeraLetraMayusPipe
   ]
 })
 export class SharedModule { }

@@ -1,3 +1,10 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="toggleTooltip()" class="info-button">
+      <ion-icon name="information-circle"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <app-info-tooltip *ngIf="showTooltip" [infoText]="infoText"></app-info-tooltip>
 </ion-app>
