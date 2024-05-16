@@ -35,6 +35,16 @@ export class AppComponent {
     });
   }
 
+  // Método para cambiar de idioma
+  onLang() {
+    console.log('Cambio de idioma');
+  }
+
+  // Método para cerrar sesión
+  onSingOut() {
+    
+  }
+
   toggleTooltip() {
     this.showTooltip = !this.showTooltip;
 

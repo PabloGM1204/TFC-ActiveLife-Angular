@@ -38,11 +38,6 @@ export class HomePage implements OnInit {
     this.router.navigate(['/rutinas'])
   }
 
-  // Método para ir a landing
-  goLanding(){
-    this.router.navigate(['/landing'])
-  }
-
   // Método para ir a perfil
   goProfile(){
     this.router.navigate(['/profile'])

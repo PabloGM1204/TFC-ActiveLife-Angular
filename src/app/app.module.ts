@@ -16,6 +16,7 @@ import { MediaService } from './core/services/media.service';
 import { ApiService } from './core/services/api.service';
 import { FirebaseMediaService } from './core/services/firebase/firebase-media.service';
 import { InfoTooltipComponent } from './shared/components/info-tooltip/info-tooltip.component';
+import { HeaderComponent } from './shared/components/header/header.component';
 
 export function MediaServiceFactory(
   backend:string,
@@ -42,7 +43,7 @@ export function AuthServiceFactory(
 }
 
 @NgModule({
-  declarations: [AppComponent, InfoTooltipComponent],
+  declarations: [AppComponent, InfoTooltipComponent, HeaderComponent],
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
