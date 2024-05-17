@@ -25,16 +25,16 @@
     <ion-item (click)="onSingOut()" button detail="false" color="danger"><ion-icon slot="start" name="log-out-outline"></ion-icon>Salirse</ion-item>
   </ion-menu>
 
-  <!-- Boton de información -->
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="toggleTooltip()" class="info-button">
-      <ion-icon name="information-circle"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-  <app-info-tooltip *ngIf="showTooltip" [infoText]="infoText"></app-info-tooltip>
   <div class="ion-page" id="main-content">
     <app-header *ngIf="auth.isLogged$ | async" 
     [user]="user"></app-header>
     <ion-router-outlet></ion-router-outlet>
+    <!-- Boton de información -->
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button (click)="toggleTooltip()" class="info-button">
+        <ion-icon name="information-circle"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    <app-info-tooltip *ngIf="showTooltip" [infoText]="infoText"></app-info-tooltip>
   </div>
 </ion-app>
