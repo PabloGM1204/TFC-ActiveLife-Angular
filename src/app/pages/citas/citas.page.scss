@@ -18,8 +18,8 @@
   
 #general ion-row:first-child {
     font-weight: bold;
-    color: white;
     background-color: #053464;
+    color: white;
 }
   
 #general ion-button {
@@ -39,7 +39,7 @@ ion-content{
 .botonera {
     display: flex;
     justify-content: center;
-    margin-top: 55px;
+    margin-top: 75px;
 }
 
 .activo {
@@ -70,4 +70,43 @@ ion-content{
 
 .denegado {
     background-color: #ff0000;
+}
+
+.leyenda {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.leyenda-item {
+    display: flex;
+    align-items: center;
+    border-bottom: none;
+    padding: 10px;
+}
+  
+.cuadrado {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+  
+.cuadrado.rojo {
+    background-color: #FF0000;
+    border: 1px solid #000;
+}
+  
+.cuadrado.verde {
+    background-color: #00CC00;
+    border: 1px solid #000;
+}
+  
+.cuadrado.gris {
+    background-color: #808080;
+    border: 1px solid #000;
+}
+  
+.cuadrado.sin-color {
+    background-color: transparent;
+    border: 1px solid #000;
 }

@@ -3,6 +3,25 @@
     <ion-button (click)="misCitas()" [class.activo]="!publicCitas" [class.desactivado]="publicCitas">Mis citas</ion-button>
     <ion-button (click)="noAdmins()" [class.activo]="publicCitas" [class.desactivado]="!publicCitas">Sin administrador</ion-button>
   </div>
+  <!-- Leyenda de Colores -->
+  <div class="leyenda">
+    <div class="leyenda-item">
+      <span class="cuadrado rojo"></span>
+      <ion-label>Cita denegada</ion-label>
+    </div>
+    <div class="leyenda-item">
+      <span class="cuadrado verde"></span>
+      <ion-label>Cita aceptada</ion-label>
+    </div>
+    <div class="leyenda-item">
+      <span class="cuadrado gris"></span>
+      <ion-label>Cita pasada de fecha</ion-label>
+    </div>
+    <div class="leyenda-item">
+      <span class="cuadrado sin-color"></span>
+      <ion-label>Sin administrador</ion-label>
+    </div>
+  </div>
   <ion-grid *ngIf="!publicCitas">
     <ion-row>
       <ion-col size="2">Titulo</ion-col>
