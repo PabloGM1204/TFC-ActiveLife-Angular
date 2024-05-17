@@ -1,17 +1,29 @@
 <ion-content [fullscreen]="true">
   <ion-card class="info-card">
     <ion-card-header>
-      <ion-avatar><img [src]="capturedImage" alt="Imagen del alumno"></ion-avatar>
-      <ion-button (click)="takePicture()">Cambiar foto</ion-button>
-      <ion-card-title class="card-title"></ion-card-title>
+      <div class="header-container">
+        <ion-avatar class="avatar">
+          <img [src]="capturedImage" alt="Imagen del alumno">
+        </ion-avatar>
+        <br>
+        <div class="contenedor">
+          <ion-button class="orange-button-white" (click)="takePicture()" fill="outline"><ion-icon name="camera-outline"></ion-icon></ion-button>
+        </div>
+      </div>
+      <ion-card-title class="titulo">{{ user?.username }}</ion-card-title>
     </ion-card-header>
 
     <ion-card-content class="card-content">
-      <ion-label class="label">Nombre: </ion-label>
-      <ion-text class="info">{{ user?.username }}</ion-text>
-      <br>
-      <ion-label class="label">Email: </ion-label>
-      <ion-text class="info">{{user?.email}}</ion-text>
+      <div class="info-row">
+        <ion-label class="label">Nombre</ion-label>
+        <br>
+        <ion-text class="info">{{ user?.username }}</ion-text>
+      </div>
+      <div class="info-row">
+        <ion-label class="label">Email</ion-label>
+        <br>
+        <ion-text class="info">{{ user?.email }}</ion-text>
+      </div>
     </ion-card-content>
   </ion-card>
 </ion-content>
