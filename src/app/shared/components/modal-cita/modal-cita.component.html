@@ -1,39 +1,62 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar class="topbar">
     <ion-title>Detalles de la Cita</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="dismissModal()">Cerrar</ion-button>
+      <ion-button (click)="dismissModal()"><ion-icon name="close-outline"></ion-icon></ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>{{ cita?.titulo }}</ion-card-title>
+  <ion-card class="custom-card">
+    <ion-card-header class="card-header">
+      <ion-card-title class="card-title">{{ cita?.titulo }}</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
-      <ion-label>Descripción:</ion-label>
-      <p>{{ cita?.descripcion }}</p>
+      <div class="info-group">
+        <ion-label class="info-label">Descripción:</ion-label>
+        <p class="info-value">{{ cita?.descripcion }}</p>
+      </div>
 
-      <ion-label>Estado:</ion-label>
-      <p>{{ cita?.estado }}</p>
+      <div class="info-group">
+        <ion-label class="info-label">Estado:</ion-label>
+        <p class="info-value">{{ cita?.estado }}</p>
+      </div>
 
-      <ion-label>Fecha de la Cita:</ion-label>
-      <p>{{ getCitaDate(cita?.fechaCita) }}</p>
+      <div class="info-group">
+        <ion-label class="info-label">Fecha de la Cita:</ion-label>
+        <p class="info-value">{{ getCitaDate(cita?.fechaCita) }}</p>
+      </div>
 
-      <ion-label>Fecha de Solicitud:</ion-label>
-      <p>{{ getCitaDate(cita?.fechaSolicitud) }}</p>
+      <div class="info-group">
+        <ion-label class="info-label">Fecha de Solicitud:</ion-label>
+        <p class="info-value">{{ getCitaDate(cita?.fechaSolicitud) }}</p>
+      </div>
 
-      <ion-label>Encargado UUID:</ion-label>
-      <p>{{ cita?.encargadoUuid }}</p>
+      <div class="info-group">
+        <ion-label class="info-label">Encargado UUID:</ion-label>
+        <p class="info-value">{{ cita?.encargadoUuid }}</p>
+      </div>
 
-      <ion-label>Usuario UUID:</ion-label>
-      <p>{{ cita?.userUUID }}</p>
+      <div class="info-group">
+        <ion-label class="info-label">Usuario UUID:</ion-label>
+        <p class="info-value">{{ cita?.userUUID }}</p>
+      </div>
     </ion-card-content>
   </ion-card>
-  <ion-button *ngIf="resp" (click)="activateAnswer()">Respuesta</ion-button>
-  <textarea *ngIf="activo" class="large-input" rows="5" [(ngModel)]="respuesta" placeholder="Escribe tu respuesta aquí..."></textarea>
-  <ion-button *ngIf="activo" (click)="sendAnswer()">Enviar</ion-button>
+
+  <div class="button-group">
+    <ion-button [disabled]="cita?.respuesta !== ''" (click)="activateAnswer()" class="action-button">Respuesta</ion-button>
+  </div>
+
+  <div *ngIf="cita?.respuesta !== ''" class="existing-response">
+    <ion-label class="response-title">Respuesta</ion-label>
+    <p class="response-value">{{ cita?.respuesta }}</p>
+  </div>
+
+  <div class="textarea-container" *ngIf="activo && cita?.respuesta === ''">
+    <textarea class="large-input" rows="5" [(ngModel)]="respuesta" placeholder="Escribe tu respuesta aquí..."></textarea>
+    <ion-button (click)="sendAnswer()" class="action-button">Enviar</ion-button>
+  </div>
 </ion-content>

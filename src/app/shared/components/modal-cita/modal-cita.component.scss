@@ -1,10 +1,104 @@
+.topbar {
+    --background: #FF6945;
+    --color: white;
+}
+
+ion-content {
+    --background: linear-gradient(to top, #fff2d6, #B7ECEC);
+
+}
+
+.custom-card {
+    --background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    --background: linear-gradient(to top, #fff2d6, #B7ECEC);
+}
+  
+.card-header {
+    text-align: center;
+}
+  
+.card-title {
+    font-size: 1.5em;
+    color: #333;
+    font-weight: bold;
+}
+  
+.info-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+  
+.info-label {
+    font-weight: bold;
+    color: #555;
+    flex: 1;
+}
+  
+.info-value {
+    font-size: 1em;
+    color: #777;
+    flex: 2;
+    margin-left: 10px;
+}
+  
+.button-group {
+    display: flex;
+    justify-content: center;
+}
+  
+.action-button {
+    --color: #FF5C35;
+    --background: #ffffff;
+    --border-color: #FF5C35;
+    --border-width: 2px; 
+    font-weight: bold;
+    width: 150px;
+    height: 50px;
+}
+
+.action-button2 {
+    margin-top: 10px;
+    --color: #ffffff;
+    --background: #FF5C35;
+    font-weight: bold;
+    width: 250px;
+    height: 50px;
+}
+  
+.textarea-container {
+    margin-top: 5px;
+    text-align: center;
+}
+  
 .large-input {
-    width: 100%;
-    min-height: 100px;
-    padding: 10px;
-    font-size: 16px;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    display: block;
     border: 1px solid #ccc;
-    color: black;
     border-radius: 5px;
-    resize: vertical; /* Permite redimensionar verticalmente */
+    padding: 10px;
+    font-size: 1em;
+    resize: none;
+}
+
+.existing-response {
+    margin-top: 20px;
+    text-align: center;
+}
+  
+.response-title {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #333;
+}
+  
+.response-value {
+    font-size: 1em;
+    color: #777;
+    margin-top: 10px;
 }
