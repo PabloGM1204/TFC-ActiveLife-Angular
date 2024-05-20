@@ -4,11 +4,11 @@
 
   <!-- Nombre -->
   <ion-card-content>
-    <ion-card-title>{{ exercise?.name }}</ion-card-title>
+    <ion-card-title>{{ exercise?.name | truncamiento:30 | primeraLetraMayus }}</ion-card-title>
     <div class="button-container">
-      <ion-button *ngIf="!dentro" slot="start" (click)="addExercise(exercise)">Meter</ion-button>
-      <ion-button *ngIf="dentro" slot="start" (click)="removeExercise(exercise)" color="danger">Sacar</ion-button>
-      <ion-button slot="end" (click)="showDetails(exercise)">Detalle</ion-button>
+      <ion-button *ngIf="!dentro" slot="start" (click)="addExercise(exercise)"><ion-icon name="add-outline"></ion-icon></ion-button>
+      <ion-button *ngIf="dentro" slot="start" (click)="removeExercise(exercise)" color="danger"><ion-icon name="close-outline"></ion-icon></ion-button>
+      <ion-button slot="end" (click)="showDetails(exercise)"><ion-icon name="document-text-outline"></ion-icon></ion-button>
     </div>
   </ion-card-content>
 </ion-card>
