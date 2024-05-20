@@ -1,20 +1,50 @@
 <ion-content [fullscreen]="true">
-  <ion-button (click)="updateRutine()">Crear Rutina</ion-button>
-  <form [formGroup]="form">
-    <ion-toggle formControlName="public">Público</ion-toggle>
-    <ion-input labelPlacement="stacked" label="Nombre de la rutina" formControlName="name" type="text"></ion-input>
-    <ion-input labelPlacement="stacked" label="Descripción" formControlName="description" type="text"></ion-input>  
-    <ion-select label="Días" placeholder="Elige un día" formControlName="day">
-      <ion-select-option value="Lunes">Lunes</ion-select-option>
-      <ion-select-option value="Martes">Martes</ion-select-option>
-      <ion-select-option value="Miercoles">Miercoles</ion-select-option>
-      <ion-select-option value="Jueves">Jueves</ion-select-option>
-      <ion-select-option value="Viernes">Viernes</ion-select-option>
-      <ion-select-option value="Viernes">Sabado</ion-select-option>
-      <ion-select-option value="Viernes">Domingo</ion-select-option>
-    </ion-select>
+  <div id="boton">
+    <ion-button (click)="updateRutine()" fill="outline" class="crear"><ion-icon name="save-outline"></ion-icon></ion-button>
+  </div>
+
+  <form [formGroup]="form" class="form-container">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="8">
+          <ion-item>
+            <ion-input labelPlacement="stacked" label="Nombre de la rutina" formControlName="name" type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="4" class="ion-align-self-end">
+          <ion-item lines="none">
+            <ion-label>Público</ion-label>
+            <ion-toggle formControlName="public"></ion-toggle>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-input labelPlacement="stacked" label="Descripción" formControlName="description" type="text"></ion-input>  
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-select label="Días" placeholder="Elige un día" formControlName="day">
+              <ion-select-option value="Lunes">Lunes</ion-select-option>
+              <ion-select-option value="Martes">Martes</ion-select-option>
+              <ion-select-option value="Miercoles">Miercoles</ion-select-option>
+              <ion-select-option value="Jueves">Jueves</ion-select-option>
+              <ion-select-option value="Viernes">Viernes</ion-select-option>
+              <ion-select-option value="Sabado">Sabado</ion-select-option>
+              <ion-select-option value="Domingo">Domingo</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </form>
-  <ion-button (click)="openModal()">Añadir ejercicio</ion-button>
+  <div id="boton">
+    <ion-button (click)="openModal()" class="añadir">Añadir ejercicio</ion-button>
+  </div>
   <ng-container *ngFor="let exercise of exercises">
     <app-exercise-private [exercise]="exercise" (removeExerciseEvent)="removeExerciseToRutine($event, exercise)"></app-exercise-private>
   </ng-container>

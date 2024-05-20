@@ -1,0 +1,42 @@
+ion-card {
+    --background: #C4EDE8;
+}
+
+#boton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ion-button {
+    width: 150px;
+    height: 50px;
+    padding-bottom: 25px;
+}
+
+.centro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+  
+.info-label {
+    font-weight: bold;
+    color: #555;
+    flex: 1;
+}
+  
+.info-value {
+    font-size: 1em;
+    color: #777;
+    flex: 2;
+    margin-left: 10px;
+}
+

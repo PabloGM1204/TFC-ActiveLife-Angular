@@ -1,0 +1,55 @@
+ion-content {
+    --padding-top: 75px;
+    --background: linear-gradient(to top, #fff2d6, #B7ECEC);
+}
+
+#boton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.crear {
+    --color: #FF5C35;
+    --background: #ffffff;
+    --border-color: #FF5C35;
+    --border-width: 2px; 
+    font-weight: bold;
+    width: 150px;
+    height: 50px;
+}
+
+.añadir {
+    --color: #ffff;
+    --background: #FF5C35;
+    font-weight: bold;
+    width: 170px;
+    height: 50px;
+}
+
+.card {
+    width: 20px;
+    display: ruby;
+}
+
+.form-container {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.exercise-list {
+    margin-top: 20px;
+}
+  
+ion-grid {
+    --ion-grid-padding: 0;
+}
+
+ion-col {
+    padding: 0;
+}
+
+ion-item {
+    margin-bottom: 16px;
+    --background: none;
+}
