@@ -1,6 +1,46 @@
+ion-content{
+    --padding-top: 75px;
+    --background: linear-gradient(to top, #fff2d6, #B7ECEC);
+}
+
+.crear-boton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.crear-boton ion-button {
+    --color: #FF5C35;
+    --background: #ffffff;
+    --border-color: #FF5C35;
+    --border-width: 2px; 
+    font-weight: bold;
+    width: 170px;
+    height: 50px;
+}
+
 .button-container {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.activo {
+    --color: #ffffff;
+    --background: #FF5C35;
+    font-weight: bold;
+    width: 170px;
+    height: 50px;
+}
+
+.desactivado {
+    --color: #FF5C35;
+    --background: #ffffff;
+    --border-color: #FF5C35;
+    --border-width: 2px; 
+    font-weight: bold;
+    width: 170px;
+    height: 50px;
 }
   

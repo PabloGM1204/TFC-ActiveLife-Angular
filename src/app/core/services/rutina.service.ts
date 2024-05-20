@@ -60,7 +60,7 @@ export class RutinaService {
     );
   }
 
-  // Crear una rutina
+  // Metodo para crear una rutina
   public addRutina(_rutina: Rutina): Observable<Rutina> {
     let newRutina = {
       title: _rutina.title,
@@ -81,7 +81,7 @@ export class RutinaService {
     )
   }
 
-  //
+  // Metodo para actualizar una rutina
   public updateRutina(rutina: Rutina): Observable<void> {
     let updateRutina = {
       title: rutina.title ? rutina.title : '',
@@ -93,6 +93,11 @@ export class RutinaService {
     console.log('Rutina actualizada:', updateRutina);
     console.log('Rutina id:', rutina);
     return from(this.firebaseSvc.updateDocument('rutinas', rutina.id, updateRutina))
+  }
+
+  // Metodo para elimnar una rutina
+  public deleteRutina(rutina: Rutina) {
+    from(this.firebaseSvc.deleteDocument('rutinas', rutina.id))
   }
 
 }

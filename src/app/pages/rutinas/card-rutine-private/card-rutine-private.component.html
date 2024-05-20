@@ -12,5 +12,8 @@
       <ion-label>{{ exercise.bodyPart }}</ion-label>
     </ion-item>
   </ion-card-content>
-  <ion-button (click)="editRutine()"></ion-button>
+  <div class="botonera">
+    <ion-button (click)="editRutine()" fill="outline" slot="start"><ion-icon name="pencil-outline"></ion-icon></ion-button>
+    <ion-button (click)="deleteRutine()" fill="outline" slot="end" color="danger"><ion-icon name="trash-outline"></ion-icon></ion-button>
+  </div>
 </ion-card>

@@ -1,13 +1,15 @@
 <ion-content [fullscreen]="true">
-  <ion-button (click)="goCrearRutina()"></ion-button>
-  <ion-buttons class="button-container">
-    <ion-button (click)="privateRutines()">Privadas</ion-button>
-    <ion-button (click)="publicRutines()">Publicas</ion-button>
-  </ion-buttons>
+  <div class="crear-boton">
+    <ion-button (click)="goCrearRutina()" fill="outline">Crear Rutina</ion-button>
+  </div>
+  <div class="button-container">
+    <ion-button (click)="privateRutines()" [class.activo]="!publicRutine" [class.desactivado]="publicRutine">Privadas</ion-button>
+    <ion-button (click)="publicRutines()" [class.activo]="publicRutine" [class.desactivado]="!publicRutine">Publicas</ion-button>
+  </div>
   <!-- Cards de las rutinas privadas -->
   <ng-container *ngIf="!publicRutine">
     <ng-container *ngFor="let rutina of rutinas">
-      <app-card-rutine-private [rutina]="rutina"></app-card-rutine-private>
+      <app-card-rutine-private [rutina]="rutina" (deleteRutina)="deleteRutine(rutina)"></app-card-rutine-private>
     </ng-container>
   </ng-container>
   <!-- Cards de las rutinas publicas -->

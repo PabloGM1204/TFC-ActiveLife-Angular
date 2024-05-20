@@ -67,6 +67,13 @@ export class RutinasPage implements OnInit {
     this.publicRutine = true;
   }
 
+  // Método para eliminar una rutina
+  deleteRutine(rutina: Rutina){
+    console.log("Eliminar rutina: ", rutina);
+    this.rutinaSvc.deleteRutina(rutina);
+  }
+
+  // Método para ir a crear una rutina
   goCrearRutina() {
     this.router.navigate(['/crear-rutina']);
   }

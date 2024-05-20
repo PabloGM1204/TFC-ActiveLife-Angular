@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Rutina } from 'src/app/core/interfaces/rutina';
 
@@ -10,6 +10,7 @@ import { Rutina } from 'src/app/core/interfaces/rutina';
 export class CardRutinePrivateComponent  implements OnInit {
 
   @Input() rutina: any;
+  @Output() deleteRutina: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(
     private router: Router
@@ -20,6 +21,11 @@ export class CardRutinePrivateComponent  implements OnInit {
   editRutine(){
     console.log("Editar rutina: ", this.rutina);
     this.router.navigate(['/info-rutina', this.rutina.id]);
+  }
+
+  deleteRutine(){
+    console.log("Eliminar rutina: ", this.rutina);
+    this.deleteRutina.emit(this.rutina);
   }
 
 }
