@@ -1,0 +1,49 @@
+.top-bar {
+    display: flex;
+    justify-content: center;
+    --background: #FF5C35;
+}
+  
+.center-title {
+    text-align: center;
+    flex: 1;
+}
+
+ion-content {
+    --background: linear-gradient(to top, #fff2d6, #B7ECEC);
+}
+
+.custom-card {
+    box-shadow: none; 
+    --background: linear-gradient(to top, #fff2d6, #B7ECEC);
+}
+  
+.card-header {
+    text-align: center;
+}
+  
+.card-title {
+    font-size: 1.5em;
+    color: #333;
+    font-weight: bold;
+}
+  
+.info-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+  
+.info-label {
+    font-weight: bold;
+    color: #555;
+    flex: 1;
+}
+  
+.info-value {
+    font-size: 1em;
+    color: #777;
+    flex: 2;
+    margin-left: 10px;
+}

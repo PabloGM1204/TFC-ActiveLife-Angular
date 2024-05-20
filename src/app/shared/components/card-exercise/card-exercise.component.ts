@@ -84,7 +84,7 @@ export class CardExerciseComponent  implements OnInit {
       componentProps: {
         exercise: data
       },
-      cssClass: "modal"
+      cssClass: "modal-detail"
     });
     modal.present();
     modal.onDidDismiss().then(result => {
