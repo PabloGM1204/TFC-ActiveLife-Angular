@@ -1,4 +1,46 @@
+ion-content {
+    --background: linear-gradient(to top, #fff2d6, #B7ECEC);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.boton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.crear {
+    --color: #FF5C35;
+    --background: #ffffff;
+    --border-color: #FF5C35;
+    --border-width: 2px; 
+    font-weight: bold;
+    width: 150px;
+    height: 50px;
+}
+
 .card {
     width: 20px;
     display: ruby;
+}
+
+ion-item {
+    --background: none;
+    margin: 20px;
+}
+
+.sticky-container {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #FF6945;
+}
+
+.scrollable-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
 }

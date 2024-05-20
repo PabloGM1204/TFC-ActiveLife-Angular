@@ -1,12 +1,24 @@
 <ion-content>
-  <ion-button (click)="updateExercises()"></ion-button>
-  <ion-select label="Body Parts" placeholder="Select one part" (ionChange)="activateSecondSelect($event)">
-    <ion-select-option *ngFor="let part of apiSvc.bodyList">{{ part }}</ion-select-option>
-  </ion-select>
+  <div class="sticky-container">
+    <div class="boton">
+      <ion-button (click)="updateExercises()" class="crear" fill="outline"><ion-icon name="add-outline"></ion-icon></ion-button>
+    </div>
+    <ion-item>
+      <ion-select label="Body Parts" placeholder="Select one part" (ionChange)="activateSecondSelect($event)">
+        <ion-select-option *ngFor="let part of apiSvc.bodyList">{{ part }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
   
-  <ng-container *ngFor="let exercise of exercises">
-    <app-card-exercise class="card" [exercise]="exercise" *ngIf="active" (addExerciseEvent)="addExerciseToRutine($event, exercise)" (removeExerciseEvent)="removeExerciseToRutine($event, exercise)"></app-card-exercise>
-  </ng-container>
+  <div class="scrollable-container">
+    <ng-container *ngFor="let exercise of exercises">
+      <app-card-exercise class="card" [exercise]="exercise" *ngIf="active" 
+        (addExerciseEvent)="addExerciseToRutine($event, exercise)" 
+        (removeExerciseEvent)="removeExerciseToRutine($event, exercise)">
+      </app-card-exercise>
+    </ng-container>
+  </div>
 </ion-content>
+
 <p-toast position="bottom-center" key="bc"></p-toast>
 <p-toast position="bottom-center" key="er"></p-toast>
