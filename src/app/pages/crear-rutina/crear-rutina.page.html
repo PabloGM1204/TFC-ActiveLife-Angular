@@ -1,6 +1,6 @@
 <ion-content [fullscreen]="true">
   <div id="boton">
-    <ion-button (click)="createRutine()" class="crear" fill="outline">Crear Rutina</ion-button>
+    <ion-button (click)="createRutine()" class="crear" fill="outline" [disabled]="isFormInvalid()">Crear Rutina</ion-button>
   </div>
 
   <form [formGroup]="form" class="form-container">
@@ -14,7 +14,7 @@
         </ion-col>
         <ion-col size="4" class="ion-align-self-end">
           <ion-item lines="none">
-            <ion-label>Público <span style="color: red">*</span></ion-label>
+            <ion-label>Público</ion-label>
             <ion-toggle formControlName="public"></ion-toggle>
           </ion-item>
         </ion-col>

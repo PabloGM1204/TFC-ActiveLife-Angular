@@ -66,6 +66,9 @@ export class AppComponent {
         case '/rutinas':
           this.infoText = 'Página en la que puedes ver tus rutinas, crear nuevas, editarlas y borrarlas.';
           break;
+        case '/crear-rutina':
+          this.infoText = 'Completa el formulario con los campos obligatorios y añade ejercicios para crear tu rutina.';
+          break;
         default:
           this.infoText = 'Información genérica.';
       }

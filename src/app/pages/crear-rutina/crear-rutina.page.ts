@@ -143,4 +143,8 @@ export class CrearRutinaPage implements OnInit {
     this.messageService.add({ key: 'er', severity: 'error', summary: 'Eliminado', detail: 'Ejercicio eliminado de la rutina' });
   }
 
+  isFormInvalid(): boolean {
+    return this.form.invalid || this.rutina.length < 1;
+  }
+
 }
