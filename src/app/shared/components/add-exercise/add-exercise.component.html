@@ -1,20 +1,21 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>{{ exercise?.name }}</ion-title>
-    <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon slot="icon-only" name="close"></ion-icon>
-      </ion-button>
-    </ion-buttons>
+  <ion-toolbar class="top-bar">
+    <ion-title class="center-title">{{ exercise?.name | primeraLetraMayus }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <form [formGroup]="form">
-    <ion-label position="stacked">repeticiones</ion-label>
-    <ion-input type="text" formControlName="repeticiones"></ion-input>
-    <ion-label position="stacked">Series</ion-label>
-    <ion-input type="text" formControlName="serie"></ion-input>
+    <ion-item>
+      <ion-label position="stacked">Repeticiones <span style="color: red;">*</span></ion-label>
+      <ion-input type="text" formControlName="repeticiones"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Series <span style="color: red;">*</span></ion-label>
+      <ion-input type="text" formControlName="serie"></ion-input>
+    </ion-item>
   </form>
-  <ion-button (click)="addExercise()"></ion-button>
+  <div class="crear">
+    <ion-button (click)="addExercise()"><ion-icon name="add-outline"></ion-icon></ion-button>
+  </div>
 </ion-content>

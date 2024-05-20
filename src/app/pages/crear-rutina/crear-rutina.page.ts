@@ -140,7 +140,7 @@ export class CrearRutinaPage implements OnInit {
   }
 
   showBottomCenterBad(){
-    this.messageService.add({ key: 'er', severity: 'error', summary: 'Error', detail: 'Ejercicio eliminado de la rutina' });
+    this.messageService.add({ key: 'er', severity: 'error', summary: 'Eliminado', detail: 'Ejercicio eliminado de la rutina' });
   }
 
 }
