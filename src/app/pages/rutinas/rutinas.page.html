@@ -21,7 +21,7 @@
   <ng-container *ngIf="publicRutine">
     <div class="rutinas-container">
       <ng-container *ngFor="let rutina of rutinasPublic">
-        <app-card-rutine [rutina]="rutina"></app-card-rutine>
+        <app-card-rutine (copyExerciseEvent)="copyExercise(rutina)" [rutina]="rutina"></app-card-rutine>
       </ng-container>
     </div>
   </ng-container>

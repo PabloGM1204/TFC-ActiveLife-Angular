@@ -100,4 +100,10 @@ export class RutinaService {
     from(this.firebaseSvc.deleteDocument('rutinas', rutina.id))
   }
 
+  // Método para copiar una rutina publica y guardarla como privada
+  public copyRutina(rutina: Rutina) {
+    console.log('copiar rutina', rutina);
+    from(this.firebaseSvc.createDocument('rutinas', rutina))
+  }
+
 }

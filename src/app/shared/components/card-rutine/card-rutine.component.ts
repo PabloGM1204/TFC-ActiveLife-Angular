@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-card-rutine',
@@ -8,9 +8,16 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CardRutineComponent  implements OnInit {
 
   @Input() rutina: any;
+  @Output() copyExerciseEvent: EventEmitter<any> = new EventEmitter<any>();
+
 
   constructor() { }
 
   ngOnInit() {}
+
+  copyRutine(rutina: any) {
+    console.log('copiar rutina', rutina);
+    this.copyExerciseEvent.emit(rutina);
+  }
 
 }

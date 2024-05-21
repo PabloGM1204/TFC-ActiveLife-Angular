@@ -25,9 +25,13 @@ export class RutinasPage implements OnInit {
   // Lista de rutinas publicas
   rutinasPublic: Rutina[] = [];
 
+  // Usuario
+  user: any;
+
   ngOnInit() {
     this.rutinaSvc.subscribeToRutinaCollection();
     this.auth.me().subscribe(_ => {
+      this.user = _;
       console.log("Usuario logeado "+ _.uuid);
       this.rutinasFiltered(_.uuid);
       this.rutinasFilteredByPublic();
@@ -76,6 +80,17 @@ export class RutinasPage implements OnInit {
   // Método para ir a crear una rutina
   goCrearRutina() {
     this.router.navigate(['/crear-rutina']);
+  }
+
+  // Método para copiar una rutina
+  copyExercise(rutina: any) {
+    console.log('copiar rutina', rutina);
+    let _rutina = {
+      ...rutina,
+      userUUID: this.user.uuid,
+      public: false
+    }
+    this.rutinaSvc.copyRutina(_rutina);
   }
 
 }
