@@ -16,7 +16,7 @@
       <ion-label>{{ exercise.bodyPart | primeraLetraMayus }}: {{ exercise.name | truncamiento:20 }}</ion-label>
     </ion-item>
   </ion-card-content>
-  <div class="centro"> 
+  <div class="centro" *ngIf="!isLandingPage"> 
     <ion-button (click)="copyRutine(rutina)" fill="outline"><ion-icon name="copy-outline"></ion-icon></ion-button>
   </div>
 </ion-card>

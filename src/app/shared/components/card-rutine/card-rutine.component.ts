@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-rutine',
@@ -7,13 +8,17 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class CardRutineComponent  implements OnInit {
 
+  isLandingPage: boolean = false;
+
   @Input() rutina: any;
   @Output() copyExerciseEvent: EventEmitter<any> = new EventEmitter<any>();
 
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.isLandingPage = this.router.url === '/landing';
+  }
 
   copyRutine(rutina: any) {
     console.log('copiar rutina', rutina);
