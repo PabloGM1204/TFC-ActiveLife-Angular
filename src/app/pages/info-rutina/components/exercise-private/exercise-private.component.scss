@@ -1,6 +1,12 @@
-ion-card {
-    --background: #C4EDE8;
-}
+ion-card.card-con-borde {
+    position: relative;
+    margin: 20px;
+    padding: 20px;
+    background: #C4EDE8;
+    border: 2px solid #FF5C35; /* Establece el color y el grosor del borde */
+    border-radius: 10px; /* Añade un radio al borde para esquinas redondeadas */
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2); /* Añade sombra para el efecto de desplazamiento */
+  }
 
 #boton {
     display: flex;
@@ -40,3 +46,9 @@ ion-button {
     margin-left: 10px;
 }
 
+img {
+    max-width: 100%; 
+    margin-top: 80px;
+    border: 2px solid #FF5C35;
+    border-radius: 10px;
+}
