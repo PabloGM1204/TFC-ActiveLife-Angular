@@ -7,9 +7,11 @@
   </ion-card-header>
 
   <ion-card-content>
+    <ion-label><span class="info-label">Descripcion:</span> {{ rutina.description }}</ion-label>
+    <br>
     <ion-label><span class="info-label">Day:</span> {{ rutina.day }}</ion-label>
     <br>
-    <ion-label class="info-label"><span class="info-label">Body Part:</span></ion-label>
+    <ion-label class="info-label"><span class="info-label">Body Part</span></ion-label>
     <ion-item *ngFor="let exercise of rutina.exercises; let last = last">
       <ion-label>{{ exercise.bodyPart | primeraLetraMayus }}: {{ exercise.name | truncamiento:20 }}</ion-label>
     </ion-item>

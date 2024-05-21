@@ -50,9 +50,9 @@ ion-content{
     justify-content: center;
     flex-wrap: wrap; /* Permite que las cartas se envuelvan en la siguiente fila si no caben en una fila */
     gap: 10px; /* Espacio entre las cartas, ajusta según tus necesidades */
-  }
+}
   
-.rutinas-container app-card-rutine-private {
+.rutinas-container app-card-rutine-private, app-card-rutine {
     flex: 0 0 470px; /* Ancho específico de cada carta, ajusta según tus necesidades */
     margin: 5px; /* Espacio alrededor de cada carta */  
 }

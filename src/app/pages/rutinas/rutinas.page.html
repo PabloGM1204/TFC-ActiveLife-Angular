@@ -19,8 +19,10 @@
   </ng-container>
   <!-- Cards de las rutinas publicas -->
   <ng-container *ngIf="publicRutine">
-    <ng-container *ngFor="let rutina of rutinasPublic">
-      <app-card-rutine [rutina]="rutina"></app-card-rutine>
-    </ng-container>
+    <div class="rutinas-container">
+      <ng-container *ngFor="let rutina of rutinasPublic">
+        <app-card-rutine [rutina]="rutina"></app-card-rutine>
+      </ng-container>
+    </div>
   </ng-container>
 </ion-content>
