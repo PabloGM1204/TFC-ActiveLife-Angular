@@ -8,9 +8,14 @@
   </div>
   <!-- Cards de las rutinas privadas -->
   <ng-container *ngIf="!publicRutine">
-    <ng-container *ngFor="let rutina of rutinas">
-      <app-card-rutine-private [rutina]="rutina" (deleteRutina)="deleteRutine(rutina)"></app-card-rutine-private>
-    </ng-container>
+    <div class="rutinas-container">
+      <ng-container *ngFor="let rutina of rutinas">
+        <app-card-rutine-private 
+          [rutina]="rutina" 
+          (deleteRutina)="deleteRutine(rutina)">
+        </app-card-rutine-private>
+      </ng-container>
+    </div>
   </ng-container>
   <!-- Cards de las rutinas publicas -->
   <ng-container *ngIf="publicRutine">
