@@ -1,7 +1,11 @@
+ion-content {
+    --background: linear-gradient(to top, #fff2d6, #B7ECEC);
+}
+
 .container {
     display: flex;
     justify-content: center;
-    background-color: #FEF4EA;
+    //background-color: #FEF4EA;
 }
   
 .left-content {
@@ -64,7 +68,7 @@
 
 #fondo-azul {
     text-align: center;
-    background-color: #B7ECEC;
+    //background-color: #B7ECEC;
     padding-left: 20px;
     padding-right: 20px;
 }
