@@ -1,9 +1,14 @@
 <ion-content [fullscreen]="true">
-
-  <ion-button (click)="goUsuarios()">Usuarios</ion-button>
-  <ion-button (click)="goCitas()">Citas</ion-button>
-  <ion-button (click)="goRutinas()">Crear rutina</ion-button>
-  <ion-button (click)="goProfile()">Perfil</ion-button>
-  <ion-item (click)="onSingOut()" button detail="false" color="danger"><ion-icon slot="start" name="log-out-outline"></ion-icon>Salirse</ion-item>
-
+  <ion-grid>
+    <ion-row>
+      <ion-col size="2">Titulo</ion-col>
+      <ion-col size="2">Fecha</ion-col>
+      <ion-col size="2">Descripcion</ion-col>
+    </ion-row>
+    <ion-row *ngFor="let cita of citas" [class.pasada]="getCitaDate(cita.fechaCita).pasada" [class.aceptada]="cita.estado == 'aceptado'" [class.denegado]="cita.estado == 'denegado'">
+      <ion-col size="2">{{ cita.titulo | primeraLetraMayus }}</ion-col>
+      <ion-col size="2">{{ getCitaDate(cita.fechaCita).fechaFormateada }}</ion-col>
+      <ion-col size="2">{{ cita.descripcion | truncamiento:20 | primeraLetraMayus }}</ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -1,27 +1,113 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+#general {
+  --ion-grid-column-padding: 8px;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+#general ion-grid {
+  padding: 16px;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+#general ion-row {
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  justify-content: center;
 }
 
-#container a {
-  text-decoration: none;
+#general ion-col {
+  padding: 10px 0;
+}
+
+#general ion-row:first-child {
+  font-weight: bold;
+  background-color: #053464;
+  color: white;
+}
+
+#general ion-button {
+  margin-right: 8px;
+  --padding-start: 0;
+  --padding-end: 0;
+}
+
+#general ion-icon {
+  font-size: 1.2em;
+}
+
+ion-content{
+  --padding-top: 70px;
+  --background: linear-gradient(to top, #fff2d6, #B7ECEC);
+}
+
+.botonera {
+  display: flex;
+  justify-content: center;
+  margin-top: 75px;
+}
+
+.activo {
+  --color: #ffffff;
+  --background: #FF5C35;
+  font-weight: bold;
+  width: 170px;
+  height: 50px;
+}
+
+.desactivado {
+  --color: #FF5C35;
+  --background: #ffffff;
+  --border-color: #FF5C35;
+  --border-width: 2px; 
+  font-weight: bold;
+  width: 170px;
+  height: 50px;
+}
+
+.pasada {
+  background-color: #808080 !important;
+}
+
+.aceptada {
+  background-color: #00cc00;
+}
+
+.denegado {
+  background-color: #ff0000;
+}
+
+.leyenda {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.leyenda-item {
+  display: flex;
+  align-items: center;
+  border-bottom: none;
+  padding: 10px;
+}
+
+.cuadrado {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.cuadrado.rojo {
+  background-color: #FF0000;
+  border: 1px solid #000;
+}
+
+.cuadrado.verde {
+  background-color: #00CC00;
+  border: 1px solid #000;
+}
+
+.cuadrado.gris {
+  background-color: #808080;
+  border: 1px solid #000;
+}
+
+.cuadrado.sin-color {
+  background-color: transparent;
+  border: 1px solid #000;
 }
