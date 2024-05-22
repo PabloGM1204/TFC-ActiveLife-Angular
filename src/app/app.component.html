@@ -1,6 +1,6 @@
 <ion-app>
   <!-- Cabecera de la pagina -->
-  <ion-menu #menu contentId="main-content">
+  <ion-menu #menu contentId="main-content" class="custom-menu">
     <ion-header>
       <ion-toolbar>
         <ion-buttons slot="start">
@@ -22,7 +22,7 @@
       </ion-list>
     </ion-content>
     <ion-item (click)="onLang()" button detail="false" *ngIf="auth.isLogged$" color="primary"><ion-icon slot="start" name="globe-outline"></ion-icon>Traducir</ion-item>
-    <ion-item (click)="onSingOut()" button detail="false" color="danger"><ion-icon slot="start" name="log-out-outline"></ion-icon>Salirse</ion-item>
+    <ion-item (click)="onSingOut()" (click)="menu.close()" button detail="false" color="danger"><ion-icon slot="start" name="log-out-outline"></ion-icon>Salirse</ion-item>
   </ion-menu>
 
   <div class="ion-page" id="main-content">

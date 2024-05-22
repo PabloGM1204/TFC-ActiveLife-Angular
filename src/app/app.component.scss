@@ -11,3 +11,17 @@ ion-fab {
 ion-toolbar{
     --background: #FF9333;
 }
+
+.custom-menu ion-item {
+    --background: #CEEEE6;
+}
+
+.custom-menu ion-content {
+    --background: linear-gradient(to top, #fff2d6, #B7ECEC); /* Ajusta el color de fondo del contenido */
+}
+
+ion-list {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    background-color: linear-gradient(to top, #fff2d6, #B7ECEC);
+}

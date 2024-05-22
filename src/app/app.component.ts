@@ -40,11 +40,6 @@ export class AppComponent {
     console.log('Cambio de idioma');
   }
 
-  // Método para cerrar sesión
-  onSingOut() {
-    
-  }
-
   toggleTooltip() {
     this.showTooltip = !this.showTooltip;
 
@@ -73,5 +68,12 @@ export class AppComponent {
           this.infoText = 'Información genérica.';
       }
     }
+  }
+
+  // Método para cerrar sesión
+  onSingOut(){
+    this.auth.logOut().subscribe(_=>{
+      this.rotuer.navigate(['/login']);
+    })
   }
 }
