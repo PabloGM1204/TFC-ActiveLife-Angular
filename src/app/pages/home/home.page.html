@@ -1,4 +1,7 @@
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" id="general">
+  <div class="centro">
+    <h1>Citas futuras</h1>
+  </div>
   <ion-grid>
     <ion-row>
       <ion-col size="2">Titulo</ion-col>
@@ -11,4 +14,10 @@
       <ion-col size="2">{{ cita.descripcion | truncamiento:20 | primeraLetraMayus }}</ion-col>
     </ion-row>
   </ion-grid>
+  <div class="centro">
+    <h1>Rutina de hoy</h1>
+  </div>
+  <ng-container *ngFor="let exercise of exercises">
+    <app-item-exercise [exercise]="exercise"></app-item-exercise>
+  </ng-container>
 </ion-content>

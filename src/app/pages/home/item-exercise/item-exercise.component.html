@@ -1,0 +1,48 @@
+<ion-card class="card-con-borde">
+  <ion-card-content>
+    <ion-grid>
+      <ion-row>
+        <!-- Imagen del ejercicio -->
+        <ion-col size="12" size-md="4" class="imagen-col">
+          <img [src]="exercise?.gifUrl" alt="Exercise">
+        </ion-col>
+        <!-- Detalles del ejercicio -->
+        <ion-col size="12" size-md="8" class="detalles-col">
+          <div class="centro">
+            <ion-card-title>{{ exercise.name | primeraLetraMayus }}</ion-card-title>
+          </div>
+          <div class="centro">
+            <ion-card-subtitle>{{ exercise.bodyPart | primeraLetraMayus }}</ion-card-subtitle>
+          </div>
+          <div class="info-group">
+            <ion-label class="info-label">Equipment:</ion-label>
+            <ion-text>{{ exercise.equipment }}</ion-text>
+          </div>
+          <div class="info-group">
+            <ion-label class="info-label">Target:</ion-label>
+            <ion-text>{{ exercise.target }}</ion-text>
+          </div>
+          <div class="info-group">
+            <ion-label class="info-label">Secondary Muscles:</ion-label>
+            <ion-text>{{ exercise.secondaryMuscles.join(', ') }}</ion-text>
+          </div>
+          <div class="info-group">
+            <ion-label class="info-label">Series:</ion-label>
+            <ion-text>{{ exercise.serie }}</ion-text>
+          </div>
+          <div class="info-group">
+            <ion-label class="info-label">Repetitions:</ion-label>
+            <ion-text>{{ exercise.repeticiones }}</ion-text>
+          </div>
+          <div class="info-group">
+            <ion-label class="info-label">Instructions</ion-label>
+            <p class="info-value">
+              <ul>
+                <li *ngFor="let instruction of exercise.instructions">{{ instruction }}</li>
+              </ul>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>

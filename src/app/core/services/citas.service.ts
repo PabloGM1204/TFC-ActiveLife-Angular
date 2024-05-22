@@ -21,7 +21,7 @@ export class CitasService {
   public subscribeToCitasCollection(): Unsubscribe | null {
     return this.firebaseSvc.subscribeToCollection('citas', this._citas, (snapshot: any) => {
       const data = snapshot.data();
-      console.log("Datos del documento: ", data, " uuid: ", snapshot.id);
+      //console.log("Datos del documento: ", data, " uuid: ", snapshot.id);
 
       return {
         descripcion: data.descripcion,

@@ -22,12 +22,6 @@
   color: white;
 }
 
-#general ion-button {
-  margin-right: 8px;
-  --padding-start: 0;
-  --padding-end: 0;
-}
-
 #general ion-icon {
   font-size: 1.2em;
 }
@@ -37,10 +31,9 @@ ion-content{
   --background: linear-gradient(to top, #fff2d6, #B7ECEC);
 }
 
-.botonera {
+.centro {
   display: flex;
   justify-content: center;
-  margin-top: 75px;
 }
 
 .activo {

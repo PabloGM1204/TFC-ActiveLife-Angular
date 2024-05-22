@@ -3,9 +3,11 @@ import { Router } from '@angular/router';
 import { Timestamp } from 'firebase/firestore';
 import { map } from 'rxjs';
 import { Cita } from 'src/app/core/interfaces/cita';
+import { Rutina } from 'src/app/core/interfaces/rutina';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { CitasService } from 'src/app/core/services/citas.service';
 import { FirebaseService } from 'src/app/core/services/firebase/firebase.service';
+import { RutinaService } from 'src/app/core/services/rutina.service';
 
 @Component({
   selector: 'app-home',
@@ -17,21 +19,43 @@ export class HomePage implements OnInit {
   constructor(
     public auth: AuthService,
     private router: Router,
-    private firebaseSvc: FirebaseService,
+    private rutinaSvc: RutinaService,
     public citasSvc: CitasService,
   ) {}
 
   ngOnInit() {
-    /*const isAnon = await this.firebaseSvc.isUserConnectedAnonymously();
-    if(isAnon){
-      console.warn("El usuario está conectado anónimamente");
-    }*/
+    this.rutinaSvc.subscribeToRutinaCollection();
     this.citasSvc.subscribeToCitasCollection();
     this.auth.me().subscribe(_ => {
       console.log("Usuario logeado "+ _.uuid);
       this.citasFiltered(_.uuid);
+      this.rutinasFiltered(_.uuid);
     })
   }
+
+  // Lista de rutinas privadas
+  rutinas: Rutina[] = [];
+
+  // Filtrar las rutinas por usuario
+  rutinasFiltered(uuid: string) {
+    // Obtener el día actual en español
+    const days = ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'];
+    const today = days[new Date().getDay()];
+    console.log("Día actual: ", today);
+    // Filtro las rutinas
+    this.rutinaSvc.rutinas$.pipe(
+      map(rutina => rutina.filter(rutina => rutina.userUUID === uuid && rutina.day == today && rutina.activo == true))
+      ).subscribe(filteredRutinas => {
+        this.rutinas = filteredRutinas;
+        filteredRutinas.forEach(rutina => {
+          this.exercises = rutina.exercises;
+        })
+        console.log("RESULTADO DE LAS RUTINAS FILTRADAS: ", this.rutinas);
+    });
+  }
+
+  // Lista de ejercicios
+  exercises: any[] = [];
 
   // Lista de rutinas privadas
   citas: Cita[] = [];

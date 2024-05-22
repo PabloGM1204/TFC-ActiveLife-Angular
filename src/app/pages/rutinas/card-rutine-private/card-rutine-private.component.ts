@@ -11,6 +11,8 @@ export class CardRutinePrivateComponent  implements OnInit {
 
   @Input() rutina: any;
   @Output() deleteRutina: EventEmitter<any> = new EventEmitter<any>();
+  @Output() changeRutina: EventEmitter<any> = new EventEmitter<any>();
+
 
   constructor(
     private router: Router
@@ -26,6 +28,11 @@ export class CardRutinePrivateComponent  implements OnInit {
   deleteRutine(){
     console.log("Eliminar rutina: ", this.rutina);
     this.deleteRutina.emit(this.rutina);
+  }
+
+  toggleChange(rutina: any) {
+    console.log("Cambiar rutina: ", rutina);
+    this.changeRutina.emit(rutina);
   }
 
 }

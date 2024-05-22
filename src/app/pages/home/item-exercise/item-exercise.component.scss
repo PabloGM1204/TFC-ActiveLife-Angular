@@ -1,0 +1,54 @@
+ion-card.card-con-borde {
+    position: relative;
+    margin: 20px;
+    padding: 20px;
+    background: #C4EDE8;
+    border: 2px solid #FF5C35; /* Establece el color y el grosor del borde */
+    border-radius: 10px; /* Añade un radio al borde para esquinas redondeadas */
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2); /* Añade sombra para el efecto de desplazamiento */
+  }
+
+#boton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ion-button {
+    width: 150px;
+    height: 50px;
+    padding-bottom: 25px;
+}
+
+.centro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+  
+.info-label {
+    font-weight: bold;
+    color: #555;
+    flex: 1;
+}
+  
+.info-value {
+    font-size: 1em;
+    color: #777;
+    flex: 2;
+    margin-left: 10px;
+}
+
+img {
+    max-width: 100%; 
+    margin-top: 80px;
+    border: 2px solid #FF5C35;
+    border-radius: 10px;
+}

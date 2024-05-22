@@ -5,5 +5,6 @@ export interface Rutina {
     public: boolean,
     day: string,
     description: string,
-    id?: any
+    id?: any,
+    activo?: boolean
 }

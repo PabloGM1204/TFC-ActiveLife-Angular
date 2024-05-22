@@ -3,6 +3,7 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ItemExerciseComponent } from './item-exercise/item-exercise.component';
 
 
 @NgModule({
@@ -10,6 +11,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
     SharedModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage]
+  declarations: [HomePage, ItemExerciseComponent]
 })
 export class HomePageModule {}

@@ -12,7 +12,8 @@
       <ng-container *ngFor="let rutina of rutinas">
         <app-card-rutine-private 
           [rutina]="rutina" 
-          (deleteRutina)="deleteRutine(rutina)">
+          (deleteRutina)="deleteRutine(rutina)"
+          (changeRutina)="changeRutina(rutina)">
         </app-card-rutine-private>
       </ng-container>
     </div>

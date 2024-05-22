@@ -21,7 +21,7 @@ export class RutinaService {
   public subscribeToRutinaCollection(): Unsubscribe | null {
     return this.firebaseSvc.subscribeToCollection('rutinas', this._rutinas, (snapshot: any) => {
       const data = snapshot.data();
-      //console.log("Datos del documento: ", data, " uuid: ", snapshot);
+      console.log("Datos del documento: ", data, " uuid: ", snapshot);
 
       return {
         title: data.title,
@@ -30,7 +30,8 @@ export class RutinaService {
         public: data.public,
         day: data.day,
         description: data.description,
-        id: snapshot.id
+        id: snapshot.id,
+        activo: data?.activo ? data.activo : false
       }
     })
   }
@@ -47,7 +48,8 @@ export class RutinaService {
           public: rutina.data.public,
           day: rutina.data.day,
           description: rutina.data.description,
-          id: rutina.id
+          id: rutina.id,
+          activo: rutina.data?.activo ? rutina.data.activo : false
         };
       }),
       tap(rutina => {
@@ -68,7 +70,8 @@ export class RutinaService {
       exercises: _rutina.exercises,
       public: _rutina.public,
       day: _rutina.day,
-      description: _rutina.description
+      description: _rutina.description,
+      activo: false
     };
     console.log('Nueva rutina:', newRutina);
     return from(this.firebaseSvc.createDocument('rutinas', newRutina)).pipe(
@@ -88,7 +91,8 @@ export class RutinaService {
       exercises: rutina.exercises,
       public: rutina.public,
       day: rutina.day ? rutina.day : '',
-      description: rutina.description ? rutina.description : ''
+      description: rutina.description ? rutina.description : '',
+      activo: rutina.activo
     };
     console.log('Rutina actualizada:', updateRutina);
     console.log('Rutina id:', rutina);

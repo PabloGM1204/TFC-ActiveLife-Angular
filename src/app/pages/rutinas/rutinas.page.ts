@@ -93,4 +93,20 @@ export class RutinasPage implements OnInit {
     this.rutinaSvc.copyRutina(_rutina);
   }
 
+  // Par cambiar la rutina activa
+  changeRutina(rutina: any) {
+    console.log('cambiar rutina', rutina);
+    if (rutina.activo) {
+      this.rutinas.forEach(otherRutina => {
+        if (otherRutina.day === rutina.day && otherRutina !== rutina && otherRutina.activo) {
+          otherRutina.activo = false;
+        }
+        this.rutinaSvc.updateRutina(rutina);
+        this.rutinaSvc.updateRutina(otherRutina);
+      });
+    } else {
+      this.rutinaSvc.updateRutina(rutina);
+    }
+  }
+
 }
