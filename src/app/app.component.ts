@@ -47,7 +47,7 @@ export class AppComponent {
       const page = this.rotuer.url;
       switch (page) {
         case '/home':
-          this.infoText = 'Esta es la página de inicio.';
+          this.infoText = 'Esta es la página de inicio donde veras las citas proximas que tienes y la rutina que te toca hoy.';
           break;
         case '/profile':
           this.infoText = 'Página de perfil de usuario en la que puedes ver tus datos y cambiar tu foto de perfil.';
@@ -59,7 +59,7 @@ export class AppComponent {
           this.infoText = 'Página en la que puedes aceptar, denegar, responder y obtener citas.';
           break;
         case '/rutinas':
-          this.infoText = 'Página en la que puedes ver tus rutinas, crear nuevas, editarlas y borrarlas.';
+          this.infoText = 'Página en la que puedes ver tus rutinas, crear nuevas, editarlas, borrarlas y copiar rutinas publicas.';
           break;
         case '/crear-rutina':
           this.infoText = 'Completa el formulario con los campos obligatorios y añade ejercicios para crear tu rutina.';

@@ -18,7 +18,7 @@
   </ion-card-content>
   <div class="botonera">
     <ion-button (click)="editRutine()" fill="outline" slot="start"><ion-icon name="pencil-outline"></ion-icon></ion-button>
-    <ion-toggle [(ngModel)]="rutina.activo" (ionChange)="toggleChange(rutina)">Activo</ion-toggle>
+    <ion-toggle [(ngModel)]="rutina.activo" (ionChange)="toggleChange(rutina)" class="toggle"></ion-toggle>
     <ion-button (click)="deleteRutine()" fill="outline" slot="end" color="danger"><ion-icon name="trash-outline"></ion-icon></ion-button>
   </div>
 </ion-card>

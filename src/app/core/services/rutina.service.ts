@@ -21,7 +21,7 @@ export class RutinaService {
   public subscribeToRutinaCollection(): Unsubscribe | null {
     return this.firebaseSvc.subscribeToCollection('rutinas', this._rutinas, (snapshot: any) => {
       const data = snapshot.data();
-      console.log("Datos del documento: ", data, " uuid: ", snapshot);
+      //console.log("Datos del documento: ", data, " uuid: ", snapshot);
 
       return {
         title: data.title,
@@ -92,7 +92,7 @@ export class RutinaService {
       public: rutina.public,
       day: rutina.day ? rutina.day : '',
       description: rutina.description ? rutina.description : '',
-      activo: rutina.activo
+      activo: rutina.activo ? rutina.activo : false
     };
     console.log('Rutina actualizada:', updateRutina);
     console.log('Rutina id:', rutina);

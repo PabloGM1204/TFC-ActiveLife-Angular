@@ -1,21 +1,21 @@
 <ion-content [fullscreen]="true" id="general">
   <div class="centro">
-    <h1>Citas futuras</h1>
+    <h1 class="titulo">Citas futuras</h1>
   </div>
   <ion-grid>
     <ion-row>
-      <ion-col size="2">Titulo</ion-col>
-      <ion-col size="2">Fecha</ion-col>
-      <ion-col size="2">Descripcion</ion-col>
+      <ion-col size="4">Titulo</ion-col>
+      <ion-col size="4">Fecha</ion-col>
+      <ion-col size="1.5">Descripcion</ion-col>
     </ion-row>
     <ion-row *ngFor="let cita of citas" [class.pasada]="getCitaDate(cita.fechaCita).pasada" [class.aceptada]="cita.estado == 'aceptado'" [class.denegado]="cita.estado == 'denegado'">
-      <ion-col size="2">{{ cita.titulo | primeraLetraMayus }}</ion-col>
-      <ion-col size="2">{{ getCitaDate(cita.fechaCita).fechaFormateada }}</ion-col>
-      <ion-col size="2">{{ cita.descripcion | truncamiento:20 | primeraLetraMayus }}</ion-col>
+      <ion-col size="4">{{ cita.titulo | primeraLetraMayus }}</ion-col>
+      <ion-col size="4">{{ getCitaDate(cita.fechaCita).fechaFormateada }}</ion-col>
+      <ion-col size="1.5">{{ cita.descripcion | truncamiento:20 | primeraLetraMayus }}</ion-col>
     </ion-row>
   </ion-grid>
   <div class="centro">
-    <h1>Rutina de hoy</h1>
+    <h1 class="titulo">Rutina de hoy</h1>
   </div>
   <ng-container *ngFor="let exercise of exercises">
     <app-item-exercise [exercise]="exercise"></app-item-exercise>

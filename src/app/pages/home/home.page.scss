@@ -1,3 +1,10 @@
+.titulo {
+  font-size: 50px;
+  font-weight: bold;
+  color: rgb(33, 51, 67);
+  font-family: "Times New Roman";
+}
+
 #general {
   --ion-grid-column-padding: 8px;
 }
@@ -52,18 +59,6 @@ ion-content{
   font-weight: bold;
   width: 170px;
   height: 50px;
-}
-
-.pasada {
-  background-color: #808080 !important;
-}
-
-.aceptada {
-  background-color: #00cc00;
-}
-
-.denegado {
-  background-color: #ff0000;
 }
 
 .leyenda {
