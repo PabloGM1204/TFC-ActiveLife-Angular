@@ -23,3 +23,10 @@ ion-item {
     color: #555;
     flex: 1;
 }
+@media (max-width: 600px) {
+    ion-card {
+        width: 200px;
+        height: auto;
+        margin-left: auto;
+    }
+}
