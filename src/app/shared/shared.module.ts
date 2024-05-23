@@ -11,6 +11,7 @@ import { CardRutineComponent } from './components/card-rutine/card-rutine.compon
 import { TruncamientoPipe } from './pipes/truncamiento.pipe';
 import { ModalCitaComponent } from './components/modal-cita/modal-cita.component';
 import { PrimeraLetraMayusPipe } from './pipes/primera-letra-mayus.pipe';
+import { ModalConfirmComponent } from './components/modal-confirm/modal-confirm.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { PrimeraLetraMayusPipe } from './pipes/primera-letra-mayus.pipe';
     CardRutineComponent,
     ModalCitaComponent,
     PrimeraLetraMayusPipe,
+    ModalConfirmComponent
   ],
   imports: [
     CommonModule,
@@ -48,6 +50,7 @@ import { PrimeraLetraMayusPipe } from './pipes/primera-letra-mayus.pipe';
     AddExerciseComponent,
     CardRutineComponent,
     ModalCitaComponent,
+    ModalConfirmComponent,
     // Directivas
 
     // Pipes

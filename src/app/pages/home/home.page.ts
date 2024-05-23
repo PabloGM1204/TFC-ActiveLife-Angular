@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'firebase/auth';
 import { Timestamp } from 'firebase/firestore';
-import { map } from 'rxjs';
+import { combineLatest, map } from 'rxjs';
 import { Cita } from 'src/app/core/interfaces/cita';
 import { Rutina } from 'src/app/core/interfaces/rutina';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { CitasService } from 'src/app/core/services/citas.service';
 import { FirebaseService } from 'src/app/core/services/firebase/firebase.service';
 import { RutinaService } from 'src/app/core/services/rutina.service';
+import { UsersService } from 'src/app/core/services/users.service';
 
 @Component({
   selector: 'app-home',
@@ -21,17 +23,23 @@ export class HomePage implements OnInit {
     private router: Router,
     private rutinaSvc: RutinaService,
     public citasSvc: CitasService,
+    private userSvc: UsersService
   ) {}
 
   ngOnInit() {
     this.rutinaSvc.subscribeToRutinaCollection();
+    this.userSvc.subscribeToUsersCollection();
     this.citasSvc.subscribeToCitasCollection();
     this.auth.me().subscribe(_ => {
       console.log("Usuario logeado "+ _.uuid);
+      this.user = _;
       this.citasFiltered(_.uuid);
       this.rutinasFiltered(_.uuid);
     })
   }
+
+  // Variable para guardar los datos del usuario
+  user: any
 
   // Lista de rutinas privadas
   rutinas: Rutina[] = [];
@@ -62,8 +70,17 @@ export class HomePage implements OnInit {
 
   // Citas filtradas por usuario
   citasFiltered(uuid: string) {
-    this.citasSvc.citas$.pipe(
-      map(citas => citas.filter(cita => cita?.encargadoUuid == uuid && cita?.estado == 'aceptado' && cita?.fechaCita.toDate() > new Date()))
+      combineLatest([this.citasSvc.citas$, this.userSvc.users$]).pipe(
+        map(([citas, users]) => 
+          citas
+            .filter(cita => cita?.encargadoUuid == uuid && cita?.estado == 'aceptado' && cita?.fechaCita.toDate() > new Date()).map(cita => {
+              const user = users.find(user => user.uuid === cita.userUUID);
+              return {
+                ...cita,
+                clienteFoto: user?.imageUrl ? user?.imageUrl : "https://firebasestorage.googleapis.com/v0/b/fir-project-91ee3.appspot.com/o/images%2Fprofile.png?alt=media&token=cf7e68cc-c045-4fa3-978b-8281d42fcd51"
+              };
+            })
+        )
       ).subscribe(filteredCitas => {
         this.citas = filteredCitas;
         console.log("RESULTADO DE LAS CITAS FILTRADAS: ", this.citas);
