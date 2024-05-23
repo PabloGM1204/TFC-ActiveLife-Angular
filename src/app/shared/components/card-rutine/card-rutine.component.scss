@@ -1,4 +1,14 @@
-ion-card {
+.style-1  {
+    position: relative;
+    margin: 20px;
+    padding: 20px;
+    background: #C4EDE8;
+    border: 2px solid #FF5C35; /* Establece el color y el grosor del borde */
+    border-radius: 10px; /* Añade un radio al borde para esquinas redondeadas */
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2); /* Añade sombra para el efecto de desplazamiento */
+}
+
+.style-2 {
     position: relative;
     margin: 20px;
     padding: 20px;
@@ -24,9 +34,21 @@ ion-item {
     flex: 1;
 }
 @media (max-width: 600px) {
-    ion-card {
+    .style-1{
         width: 200px;
         height: auto;
         margin-left: auto;
+        background: #C4EDE8;
+        border: 2px solid #FF5C35; /* Establece el color y el grosor del borde */
+    }
+
+    .style-2 {
+        position: relative;
+        margin: 20px;
+        padding: 20px;
+        background: #C4EDE8;
+        border: 2px solid #FF5C35; /* Establece el color y el grosor del borde */
+        border-radius: 10px; /* Añade un radio al borde para esquinas redondeadas */
+        box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2); /* Añade sombra para el efecto de desplazamiento */
     }
 }

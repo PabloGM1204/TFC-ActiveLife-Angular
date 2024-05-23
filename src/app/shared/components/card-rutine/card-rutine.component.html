@@ -1,4 +1,4 @@
-<ion-card>
+<ion-card [ngClass]="{'style-1': isLandingPage, 'style-2': !isLandingPage}">
   <ion-card-header>
     <div class="centro">
       <ion-card-title>{{ rutina.title | primeraLetraMayus }}</ion-card-title>
