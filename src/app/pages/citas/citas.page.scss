@@ -110,3 +110,14 @@ ion-content{
     background-color: transparent;
     border: 1px solid #000;
 }
+
+@media (max-width: 600px) {
+    .leyenda {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .leyenda-item {
+        justify-content: center;
+    }
+}

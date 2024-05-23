@@ -47,3 +47,9 @@
 ion-content{
     --background: linear-gradient(to top, #fff2d6, #B7ECEC);
 }
+
+@media (min-width: 576px) {
+    #general ion-button {
+      width: 100px;
+    }
+}
