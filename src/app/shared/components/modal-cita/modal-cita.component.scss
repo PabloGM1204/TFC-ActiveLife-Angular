@@ -3,6 +3,20 @@
     --color: white;
 }
 
+.cliente-foto-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .cliente-foto {
+    width: 100px; /* Aumenta el tamaño de la imagen */
+    height: 100px; /* Aumenta el tamaño de la imagen */
+    border-radius: 50%;
+    border: 2px solid #FF6945; /* Añade un borde para mejorar la apariencia */
+  }
+
 ion-content {
     --background: linear-gradient(to top, #fff2d6, #B7ECEC);
 

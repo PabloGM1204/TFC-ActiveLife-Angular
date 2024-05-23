@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Timestamp } from 'firebase/firestore';
-import { map } from 'rxjs';
+import { combineLatest, map } from 'rxjs';
 import { Cita } from 'src/app/core/interfaces/cita';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { CitasService } from 'src/app/core/services/citas.service';
+import { UsersService } from 'src/app/core/services/users.service';
 import { ModalCitaComponent } from 'src/app/shared/components/modal-cita/modal-cita.component';
 
 @Component({
@@ -16,14 +17,16 @@ export class CitasPage implements OnInit {
 
   constructor(
     public citasSvc: CitasService,
+    public userSvc: UsersService,
     public auth: AuthService,
     private modal: ModalController
   ) { }
 
   ngOnInit() {
     this.citasSvc.subscribeToCitasCollection();
+    this.userSvc.subscribeToUsersCollection();
     this.auth.me().subscribe(_ => {
-      console.log("Usuario logeado "+ _.uuid);
+      console.log("Usuario logeado ", _);
       this.user = _;
       this.citasFiltered(_.uuid);
       this.citasFilteredByPublic();
@@ -39,24 +42,48 @@ export class CitasPage implements OnInit {
   // Lista de rutinas publicas
   citasPublic: Cita[] = [];
 
-  // Citas filtradas por usuario
+  // Método para filtrar citas y añadir foto del usuario
   citasFiltered(uuid: string) {
-    this.citasSvc.citas$.pipe(
-      map(citas => citas.filter(cita => cita?.encargadoUuid == uuid))
-      ).subscribe(filteredCitas => {
-        this.citas = filteredCitas;
-        console.log("RESULTADO DE LAS CITAS FILTRADAS: ", this.citas);
-      });
+    combineLatest([this.citasSvc.citas$, this.userSvc.users$]).pipe(
+      map(([citas, users]) => 
+        citas
+          .filter(cita => cita?.encargadoUuid === uuid).map(cita => {
+            const user = users.find(user => user.uuid === cita.userUUID);
+            return {
+              ...cita,
+              encargadoNombre: this.user.name,
+              clienteNombre: user!.username,
+              clienteFoto: user?.imageUrl ? user?.imageUrl : "https://firebasestorage.googleapis.com/v0/b/fir-project-91ee3.appspot.com/o/images%2Fprofile.png?alt=media&token=cf7e68cc-c045-4fa3-978b-8281d42fcd51"
+            };
+          })
+      )
+    ).subscribe(filteredCitas => {
+      this.citas = filteredCitas;
+      console.log("RESULTADO DE LAS CITAS FILTRADAS: ", this.citas);
+    });
   }
 
-  // Citas publicas
+  // Citas públicas con fotos de clientes 
   citasFilteredByPublic() {
-    this.citasSvc.citas$.pipe(
-      map(citas => citas.filter(cita => !cita.encargadoUuid))
-      ).subscribe(filteredRutinas => {
-        this.citasPublic = filteredRutinas;
-        console.log("RESULTADO DE LAS RUTINAS PUBLICAS: ", this.citasPublic);
-      });
+    combineLatest([this.citasSvc.citas$, this.userSvc.users$]).pipe(
+      map(([citas, users]) => 
+        citas
+          .filter(cita => !cita.encargadoUuid)
+          .map(cita => {
+            const user = users.find(user => user.uuid === cita.userUUID);
+            console.log("Usuario encontrado: ", users)
+            return {
+              ...cita,
+              encargadoNombre: "Ninguno",
+              clienteNombre: user?.username,
+              clienteFoto: user?.imageUrl ? user?.imageUrl : "https://firebasestorage.googleapis.com/v0/b/fir-project-91ee3.appspot.com/o/images%2Fprofile.png?alt=media&token=cf7e68cc-c045-4fa3-978b-8281d42fcd51"
+            };
+          })
+      )
+    ).subscribe(filteredCitas => {
+      this.citasPublic = filteredCitas;
+      console.log("RESULTADO DE LAS RUTINAS PUBLICAS: ", this.citasPublic);
+    });
   }
 
   // Variable para activar o no las citas publicas
@@ -100,6 +127,7 @@ export class CitasPage implements OnInit {
     var onDismiss = (info: any) => {
       console.log("Datos: ", info);
       let _cita = {
+        id: info.data.id,
         descripcion: info.data.descripcion,
         fechaCita: info.data.fechaCita,
         fechaSolicitud: info.data.fechaSolicitud,

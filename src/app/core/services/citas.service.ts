@@ -24,12 +24,13 @@ export class CitasService {
       //console.log("Datos del documento: ", data, " uuid: ", snapshot.id);
 
       return {
+        id: snapshot.id,
         descripcion: data.descripcion,
         fechaCita: data.fechaCita,
         fechaSolicitud: data.fechaSolicitud,
         imagen: data.image,
         titulo: data.titulo,
-        userUUID: snapshot.id,
+        userUUID: data.userUuid,
         encargadoUuid: data?.encargadoUuid,
         estado: data.estado ? data.estado : 'espera',
         respuesta: data.respuesta ? data.respuesta : ''
@@ -40,12 +41,12 @@ export class CitasService {
   // Actualizar datos de la cita
   public updateCita(cita: Cita) {
     console.log("Cita a actualizar: ", cita);
-    from(this.firebaseSvc.updateDocument('citas', cita.userUUID, cita))
+    from(this.firebaseSvc.updateDocument('citas', cita.id, cita))
   }
 
   // Eliminar cita
   public deleteCita(cita: Cita) {
     console.log("Cita a eliminar: ", cita);
-    from(this.firebaseSvc.deleteDocument('citas', cita.userUUID))
+    from(this.firebaseSvc.deleteDocument('citas', cita.id))
   }
 }

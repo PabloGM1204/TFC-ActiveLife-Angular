@@ -9,11 +9,15 @@
 
 <ion-content>
   <ion-card class="custom-card">
+    <div class="cliente-foto-container">
+      <img [src]="cita?.clienteFoto" alt="Foto del cliente" class="cliente-foto" />
+    </div>
     <ion-card-header class="card-header">
       <ion-card-title class="card-title">{{ cita?.titulo }}</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
+
       <div class="info-group">
         <ion-label class="info-label">Descripción:</ion-label>
         <p class="info-value">{{ cita?.descripcion }}</p>
@@ -35,19 +39,19 @@
       </div>
 
       <div class="info-group">
-        <ion-label class="info-label">Encargado UUID:</ion-label>
-        <p class="info-value">{{ cita?.encargadoUuid }}</p>
+        <ion-label class="info-label">Encargado:</ion-label>
+        <p class="info-value">{{ cita?.encargadoNombre }}</p>
       </div>
 
       <div class="info-group">
-        <ion-label class="info-label">Usuario UUID:</ion-label>
-        <p class="info-value">{{ cita?.userUUID }}</p>
+        <ion-label class="info-label">Usuario:</ion-label>
+        <p class="info-value">{{ cita?.clienteNombre }}</p>
       </div>
     </ion-card-content>
   </ion-card>
 
-  <div class="button-group">
-    <ion-button [disabled]="cita?.respuesta !== ''" (click)="activateAnswer()" class="action-button">Respuesta</ion-button>
+  <div class="button-group" *ngIf="cita?.encargadoNombre !== 'Ninguno'">
+    <ion-button [disabled]="cita?.respuesta !== ''" (click)="activateAnswer()" class="action-button" fill="outline">Respuesta</ion-button>
   </div>
 
   <div *ngIf="cita?.respuesta !== ''" class="existing-response">
@@ -57,6 +61,6 @@
 
   <div class="textarea-container" *ngIf="activo && cita?.respuesta === ''">
     <textarea class="large-input" rows="5" [(ngModel)]="respuesta" placeholder="Escribe tu respuesta aquí..."></textarea>
-    <ion-button (click)="sendAnswer()" class="action-button">Enviar</ion-button>
+    <ion-button (click)="sendAnswer()" class="action-button" fill="outline">Enviar</ion-button>
   </div>
 </ion-content>
