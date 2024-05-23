@@ -57,10 +57,14 @@
   <div *ngIf="cita?.respuesta !== ''" class="existing-response">
     <ion-label class="response-title">Respuesta</ion-label>
     <p class="response-value">{{ cita?.respuesta }}</p>
+    <a *ngIf="cita?.fileUrl != ''" [href]="cita?.fileUrl" download="Respuesta Cita" target="_blank" class="descarga"><ion-icon name="download-outline"></ion-icon></a>
   </div>
 
   <div class="textarea-container" *ngIf="activo && cita?.respuesta === ''">
     <textarea class="large-input" rows="5" [(ngModel)]="respuesta" placeholder="Escribe tu respuesta aquí..."></textarea>
-    <ion-button (click)="sendAnswer()" class="action-button" fill="outline">Enviar</ion-button>
+    <input type="file" id="file" (change)="uploadFile($event)" accept=".pdf" style="display: none;"/>
+    <label for="file" class="custom-file-upload"><ion-icon name="cloud-upload-outline"></ion-icon> Subir archivo PDF</label>
+    <br>
+    <ion-button [disabled]="respuesta == ''" (click)="sendAnswer()" class="action-button" fill="outline">Enviar</ion-button>
   </div>
 </ion-content>

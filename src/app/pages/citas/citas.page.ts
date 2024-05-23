@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { Timestamp } from 'firebase/firestore';
+import { Firestore, Timestamp } from 'firebase/firestore';
 import { combineLatest, map } from 'rxjs';
 import { Cita } from 'src/app/core/interfaces/cita';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { CitasService } from 'src/app/core/services/citas.service';
+import { FirebaseService } from 'src/app/core/services/firebase/firebase.service';
 import { UsersService } from 'src/app/core/services/users.service';
 import { ModalCitaComponent } from 'src/app/shared/components/modal-cita/modal-cita.component';
 
@@ -19,7 +20,8 @@ export class CitasPage implements OnInit {
     public citasSvc: CitasService,
     public userSvc: UsersService,
     public auth: AuthService,
-    private modal: ModalController
+    private modal: ModalController,
+    private storage: FirebaseService
   ) { }
 
   ngOnInit() {
@@ -122,10 +124,26 @@ export class CitasPage implements OnInit {
     this.citasSvc.deleteCita(cita);
   }
 
-  // Métodos para añadir y eliminar ejercicios de la rutina
+  // Método para abrir el modal de la cita y actualizarlo los datos necesarios
   openModal(cita: Cita){
-    var onDismiss = (info: any) => {
+    var onDismiss = async (info: any) => {
       console.log("Datos: ", info);
+      const file = info.data.file;
+      console.log("Archivo: ", file);
+      const filePath = 'files/' + file.name;
+      const mimeType = file.type; // get the mime type from the file
+      const prefix = 'prefix'; // replace with your prefix
+      const extension = '.' + file.name.split('.').pop(); // get the extension from the file name
+
+      // Convert the file to a blob
+      const reader = new FileReader();
+      reader.readAsArrayBuffer(file);
+      await new Promise((resolve) => reader.onload = resolve);
+      const blob = new Blob([(reader.result || []) as BlobPart], {type: mimeType});
+
+      // Upload the file to Firebase Storage
+      const fileRef = await this.storage.fileUpload(blob, mimeType, filePath, prefix, extension);
+
       let _cita = {
         id: info.data.id,
         descripcion: info.data.descripcion,
@@ -136,7 +154,8 @@ export class CitasPage implements OnInit {
         userUUID: info.data.userUUID,
         encargadoUuid: info.data.encargadoUuid,
         estado: info.data.estado,
-        respuesta: info.data.respuesta
+        respuesta: info.data.respuesta,
+        file: fileRef.file
       }
       this.citasSvc.updateCita(_cita);
     }

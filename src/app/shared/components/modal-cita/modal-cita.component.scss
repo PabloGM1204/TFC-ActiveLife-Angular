@@ -116,3 +116,29 @@ ion-content {
     color: #777;
     margin-top: 10px;
 }
+
+.descarga {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #FF5C35;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+  
+.custom-file-upload:hover {
+    background-color: #3171e0;
+}
+
+.descarga ion-icon {
+    color: #FF5C35;
+    font-size: 2em;
+}

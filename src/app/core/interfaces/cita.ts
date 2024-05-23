@@ -11,5 +11,6 @@ export interface Cita {
     encargadoNombre?: string,
     estado?: string,
     respuesta?: string,
-    clienteFoto?: string
+    clienteFoto?: string,
+    fileUrl?: string,
 }
