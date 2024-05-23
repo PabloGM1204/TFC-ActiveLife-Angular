@@ -124,6 +124,23 @@ p.texto, p.texto2 {
     color: #555555;
     text-align: justify;
 }
+  
+.items {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+  
+.social-item {
+    flex: 1;
+    --ion-item-background: transparent;
+}
+
+.icon-color {
+    font-size: 32px;
+    color: #FF5C35;
+}
 
 @media (max-width: 600px) {
     .left-content, .right-content {

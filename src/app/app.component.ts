@@ -73,7 +73,7 @@ export class AppComponent {
   // Método para cerrar sesión
   onSingOut(){
     this.auth.logOut().subscribe(_=>{
-      this.rotuer.navigate(['/login']);
+      this.rotuer.navigate(['/landing']);
     })
   }
 }
