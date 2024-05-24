@@ -22,7 +22,7 @@ export class LandingPage implements OnInit {
     private router: Router,
     private rutinaSvc: RutinaService,
     private authSvc: FirebaseService,
-    private auth: AuthService
+    private auth: AuthService,
   ) { }
 
   ionViewDidEnter() {

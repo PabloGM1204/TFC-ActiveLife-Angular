@@ -99,4 +99,9 @@ export class HomePage implements OnInit {
     return { fechaFormateada, pasada };
   }
 
+  // Método para redirigir a la página de rutinas
+  goRutinas() {
+    this.router.navigate(['/rutinas']);
+  }
+
 }

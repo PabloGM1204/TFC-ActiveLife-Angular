@@ -31,8 +31,11 @@
     <ion-router-outlet></ion-router-outlet>
     <!-- Boton de información -->
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-      <ion-fab-button (click)="toggleTooltip()" class="info-button">
+      <ion-fab-button *ngIf="!isLanding" (click)="toggleTooltip()" class="info-button">
         <ion-icon name="information-circle"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button *ngIf="isLanding" (click)="onLang()" class="info-button">
+        <ion-label>{{translate.language$ | async | uppercase}}</ion-label>
       </ion-fab-button>
     </ion-fab>
     <app-info-tooltip *ngIf="showTooltip" [infoText]="infoText"></app-info-tooltip>

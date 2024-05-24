@@ -2,20 +2,20 @@
   <div class="container">
     <div class="left-content">
       <h1 id="title">ActiveLife</h1>
-      <p>Aplicación para crear rutinas, concretar citas con los con los administradores. </p>
+      <p>{{ "landing.infoApp" | translate }}</p>
       <div>
-        <ion-button class="orange-button" (click)="goLogReg()">Login/Registro</ion-button>
+        <ion-button class="orange-button" (click)="goLogReg()">{{ "landing.login/registro" | translate }}</ion-button>
         <br>
         <ion-button class="orange-button-white" fill="outline" (click)="downloadAPK()">APK</ion-button>
       </div>
-      <p class="small-phrase">Si no tienes cuenta registrate gratis.</p>
+      <p class="small-phrase">{{ "landing.infoCuenta" | translate }}</p>
     </div>
     <div class="right-content">
       <img src="assets/imgs/logoActiveLife.png">
     </div>
   </div>
   <div id="swiper">
-    <h2 id="title2">Rutinas creadas por los administradores</h2>
+    <h2 id="title2">{{ "landing.rutinasTitle" | translate }}</h2>
     <swiper [config]="config">
       <ng-template *ngFor="let rutina of rutinas" swiperSlide>
         <app-card-rutine [rutina]="rutina" class="rutina-slide"></app-card-rutine>
@@ -23,12 +23,12 @@
     </swiper>
   </div>
   <div id="fondo-azul">
-    <h2 id="title3">Conoce a los creadores</h2>
-    <p>Descubre la inspiradora historia detrás de nuestra aplicación. Conoce a los mentes creativas y apasionadas que están detrás del desarrollo de ActiveLife. ¡Aprende más sobre nuestros creadores y su visión para el futuro de la salud y el bienestar!</p>
+    <h2 id="title3">{{ "landing.creadoresTitle" | translate }}</h2>
+    <p>{{ "landing.creadoresInfo" | translate }}</p>
     <div id="container2">
         <div class="left-content2">
           <h1 id="titulo">Pablo García Muñoz</h1>
-          <p class="texto">Soy un joven de 19 años, nacido en España. Soy una persona amable y trabajadora, siempre dispuesto a ayudar a los demás. Me encanta pasar tiempo con mis amigos y familiares, y disfrutar de la música y los deportes. Me apasiona aprender cosas nuevas. En mi tiempo libre, me gusta leer y ver películas. Soy una persona muy sociable y me gusta estar rodeado de gente que quiero.</p>
+          <p class="texto">{{ "landing.creadoresVida" | translate }}</p>
           <div class="items">
             <ion-item class="social-item" lines="none">
               <a href="https://github.com/PabloGM1204" target="_blank"><ion-icon name="logo-github" slot="start" class="icon-color"></ion-icon></a>
@@ -48,7 +48,7 @@
       </div>
       <div class="right-content2">
         <h1 id="titulo">Antonio Luis Garcia</h1>
-        <p class="texto2">Soy un joven de 19 años, nacido en España. Soy una persona amable y trabajadora, siempre dispuesto a ayudar a los demás. Me encanta pasar tiempo con mis amigos y familiares, y disfrutar de la música y los deportes. Me apasiona aprender cosas nuevas. En mi tiempo libre, me gusta leer y ver películas. Soy una persona muy sociable y me gusta estar rodeado de gente que quiero.</p>
+        <p class="texto2">{{ "landing.creadoresVida" | translate }}</p>
         <div class="items">
           <ion-item class="social-item" lines="none">
             <a href="https://github.com/AntonioLuisGarcia" target="_blank"><ion-icon name="logo-github" slot="start" class="icon-color"></ion-icon></a>
@@ -59,9 +59,9 @@
         </div>
       </div>
     </div>
-    <h2 id="title3">Repositorio del TFG</h2>
+    <h2 id="title3">{{ "landing.repoTfg" | translate }}</h2>
     <div class="container">
-      <p class="texto2">Para acceder al repo con todo la informacion del proyecto.</p>
+      <p class="texto2">{{ "landing.repoInfo" | translate}}</p>
     </div>
     <div class="container">
       <a href="https://github.com/PabloGM1204/TFG-ActiveLife" target="_blank"><ion-icon name="logo-github" slot="start" class="icon-color"></ion-icon></a>

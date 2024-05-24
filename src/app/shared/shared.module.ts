@@ -12,6 +12,9 @@ import { TruncamientoPipe } from './pipes/truncamiento.pipe';
 import { ModalCitaComponent } from './components/modal-cita/modal-cita.component';
 import { PrimeraLetraMayusPipe } from './pipes/primera-letra-mayus.pipe';
 import { ModalConfirmComponent } from './components/modal-confirm/modal-confirm.component';
+import { HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { createTranslateLoader } from '../core/translate/translate';
 
 
 @NgModule({
@@ -36,6 +39,13 @@ import { ModalConfirmComponent } from './components/modal-confirm/modal-confirm.
     FormsModule,
     ReactiveFormsModule,
     ToastModule,
+    TranslateModule.forChild({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    })
   ],
   exports: [
     // Modulos
@@ -44,6 +54,7 @@ import { ModalConfirmComponent } from './components/modal-confirm/modal-confirm.
     IonicModule,
     ReactiveFormsModule,
     ToastModule,
+    TranslateModule,
     // Componentes
     CardExerciseComponent,
     DetalleExerciseComponent,

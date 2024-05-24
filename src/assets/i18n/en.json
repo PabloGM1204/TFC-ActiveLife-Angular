@@ -1,0 +1,13 @@
+{
+    "landing": {
+        "infoApp": "Application to create routines, schedule appointments with administrators.",
+        "login/registro": "Log in/Register",
+        "infoCuenta":"If you don't have an account, sign up for free.",
+        "rutinasTitle": "Routines created by administrators",
+        "creadoresTitle": "Meet the creators",
+        "creadoresInfo": "Discover the inspiring story behind our application. Get to know the creative and passionate minds behind the development of ActiveLife. Learn more about our creators and their vision for the future of health and wellness!",
+        "creadoresVida": "I am a 19-year-old, born in Spain. I am a kind and hardworking person, always willing to help others. I love spending time with my friends and family, and I enjoy music and sports. I am passionate about learning new things. In my free time, I like to read and watch movies. I am a very social person and I like to be surrounded by people I love.",
+        "repoTfg": "TFG Repository",
+        "repoInfo": "To access the repo with all the project information."
+    }
+}

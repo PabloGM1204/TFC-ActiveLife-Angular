@@ -3,6 +3,7 @@ import { AuthService } from './core/services/auth/auth.service';
 import { Router } from '@angular/router';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
 import { ModalController } from '@ionic/angular';
+import { CustomTranslateService } from './core/services/custom-translate.service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -13,11 +14,18 @@ export class AppComponent {
   user: any | undefined
   showTooltip = false;
   infoText?: string;
+  isLanding: boolean = false;
+  lang: string = "es";
 
   constructor(
     public auth: AuthService,
-    private rotuer: Router
+    private rotuer: Router,
+    public translate: CustomTranslateService
   ) {
+    this.rotuer.events.subscribe(() => {
+      this.isLanding = this.rotuer.url === '/landing' || this.rotuer.url === '/login';
+    });
+
     defineCustomElements(window);
     this.auth.isLogged$.subscribe(logged => {
       console.log(logged)
@@ -33,11 +41,20 @@ export class AppComponent {
       } else
         this.rotuer.navigate(['/landing'])
     });
+
+    this.translate.use(this.lang)
   }
+
 
   // Método para cambiar de idioma
   onLang() {
     console.log('Cambio de idioma');
+    if(this.lang=='es')
+      this.lang='en';
+    else
+      this.lang='es';
+    this.translate.use(this.lang);
+    return false; 
   }
 
   toggleTooltip() {
