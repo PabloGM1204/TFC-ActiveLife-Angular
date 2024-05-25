@@ -1,17 +1,15 @@
 <ion-content [fullscreen]="true">
-  <ion-toolbar>
-    <ion-buttons slot="end">
-      <ion-button (click)="onLang('es')" [ngClass]="{'selected': lang === 'es', 'not-selected': lang !== 'es'}">
-        <img src="assets/imgs/flags/bandera.png" class="flag-icon">
-      </ion-button>
-      <ion-button (click)="onLang('en')" [ngClass]="{'selected': lang === 'en', 'not-selected': lang !== 'en'}">
-        <img src="assets/imgs/flags/reino-unido.png" class="flag-icon">
-      </ion-button>
-      <ion-button (click)="onLang('it')" [ngClass]="{'selected': lang === 'it', 'not-selected': lang !== 'it'}">
-        <img src="assets/imgs/flags/italia.png" class="flag-icon">
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
+  <ion-buttons class="fixed-flags">
+    <ion-button (click)="onLang('es')" [ngClass]="{'selected': lang === 'es', 'not-selected': lang !== 'es'}">
+      <img src="assets/imgs/flags/bandera.png" class="flag-icon">
+    </ion-button>
+    <ion-button (click)="onLang('en')" [ngClass]="{'selected': lang === 'en', 'not-selected': lang !== 'en'}">
+      <img src="assets/imgs/flags/reino-unido.png" class="flag-icon">
+    </ion-button>
+    <ion-button (click)="onLang('it')" [ngClass]="{'selected': lang === 'it', 'not-selected': lang !== 'it'}">
+      <img src="assets/imgs/flags/italia.png" class="flag-icon">
+    </ion-button>
+  </ion-buttons>
   
   <div class="container">
     <div class="left-content">
