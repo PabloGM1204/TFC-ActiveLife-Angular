@@ -9,5 +9,15 @@
         "creadoresVida": "Soy un joven de 19 años, nacido en España. Soy una persona amable y trabajadora, siempre dispuesto a ayudar a los demás. Me encanta pasar tiempo con mis amigos y familiares, y disfrutar de la música y los deportes. Me apasiona aprender cosas nuevas. En mi tiempo libre, me gusta leer y ver películas. Soy una persona muy sociable y me gusta estar rodeado de gente que quiero.",
         "repoTfg": "Repositorio del TFG",
         "repoInfo": "Para acceder al repo con todo la informacion del proyecto."
+    },
+    "login": {
+        "botonLog": "Iniciar sesión",
+        "botonReg": "Registrarse",
+        "contra": "Contraseña",
+        "contra2": "Repetir contraseña",
+        "contraExp": "Tu contraseña podría ser corregida",
+        "contraExp2": "Deben ser iguales",
+        "nombreUsuario": "Nombre de usuario",
+        "admin": "Administrador"
     }
 }

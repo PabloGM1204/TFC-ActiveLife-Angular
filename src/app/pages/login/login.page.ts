@@ -8,6 +8,7 @@ import { SwiperOptions } from 'swiper';
 import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper';
 import { InfoModalComponent } from './components/info-modal/info-modal.component';
 import { ModalController } from '@ionic/angular';
+import { CustomTranslateService } from 'src/app/core/services/custom-translate.service';
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 @Component({
@@ -23,11 +24,15 @@ export class LoginPage implements OnInit {
     private auth: AuthService,
     private firebaseSvc: FirebaseService,
     private router: Router,
-    private modal: ModalController
+    private modal: ModalController,
+    public translate: CustomTranslateService
   ) { }
 
   ngOnInit() {
     console.log("Configuración de Swiper: ", this.config)
+    this.translate.language$.subscribe(lang => {
+      this.lang = lang;
+    });
   }
 
   config: SwiperOptions = {
@@ -120,6 +125,27 @@ export class LoginPage implements OnInit {
         onDismiss(result);
       }
     });
+  }
+
+  // Variable para el idioma
+  lang: string = "es";
+
+  // Método para cambiar el idioma
+  onLang(idioma: string) {
+    console.log('Cambio de idioma');
+    switch(idioma){
+      case 'es':
+        this.lang='es';
+        break;
+      case 'en':
+        this.lang='en';
+        break;
+      case 'it':
+        this.lang='it';
+        break;
+    }
+    this.translate.use(this.lang);
+    return false; 
   }
 
 }

@@ -1,35 +1,35 @@
 <form *ngIf="form" [formGroup]="form" (ngSubmit)="onSubmit()" (key.enter)="onSubmit()">
   <ion-item>
     <ion-icon name="person"></ion-icon>
-    <ion-input labelPlacement="stacked" placeholder='Nombre de usuario' formControlName="nickname" type="text"></ion-input>
+    <ion-input labelPlacement="stacked" [placeholder]=" 'login.nombreUsuario' | translate " formControlName="nickname" type="text"></ion-input>
     <ion-icon *ngIf="hasTouched('nickname') && hasError('nickname')" color="danger" slot="end" name="close-circle-outline"></ion-icon>
     <ion-icon *ngIf="hasTouched('nickname') && !hasError('nickname')" color="success" slot="end" name="checkmark-circle-outline"></ion-icon>
   </ion-item>
   <ion-item>
     <ion-icon name="person"></ion-icon>
-    <ion-input labelPlacement="stacked" placeholder="Email" formControlName="email" type="text"></ion-input>
+    <ion-input labelPlacement="stacked" placeholder="E - mail" formControlName="email" type="text"></ion-input>
     <ion-icon *ngIf="hasTouched('email') && hasError('email')" color="danger" slot="end" name="close-circle-outline"></ion-icon>
     <ion-icon *ngIf="hasTouched('email') && !hasError('email')" color="success" slot="end" name="checkmark-circle-outline"></ion-icon>
   </ion-item>
   <ion-item>
     <ion-icon name="lock-closed"></ion-icon>
-    <ion-input labelPlacement="stacked" placeholder='Contraseña' formControlName="password" type="password"></ion-input>
+    <ion-input labelPlacement="stacked" [placeholder]=" 'login.contra' | translate " formControlName="password" type="password"></ion-input>
     <ion-icon *ngIf="hasTouched('password') && hasError('password')" color="danger" slot="end" name="close-circle-outline"></ion-icon>
     <ion-icon *ngIf="hasTouched('password') && !hasError('password')" color="success" slot="end" name="checkmark-circle-outline"></ion-icon>
   </ion-item>
-  <p class="error-message" *ngIf="hasTouched('password') && hasError('password')">Debes estar bien escrita la contraseña</p>  
+  <p class="error-message" *ngIf="hasTouched('password') && hasError('password')">{{ "login.contraExp" | translate }}</p>  
   <ion-item>
     <ion-icon name="lock-closed"></ion-icon>
-    <ion-input labelPlacement="stacked" placeholder='Repite contraseña' formControlName="confirm" type="password"></ion-input>
+    <ion-input labelPlacement="stacked" [placeholder]=" 'login.contra2' | translate " formControlName="confirm" type="password"></ion-input>
     <ion-icon *ngIf="hasTouched('confirm') && hasError('confirm')" color="danger" slot="end" name="close-circle-outline"></ion-icon>
     <ion-icon *ngIf="hasTouched('confirm') && !hasError('confirm')" color="success" slot="end" name="checkmark-circle-outline"></ion-icon>
   </ion-item>
-  <p class="error-message" *ngIf="hasTouched('confirm') && hasError('confirm')">Deben coincidir las contraseñas</p>  
+  <p class="error-message" *ngIf="hasTouched('confirm') && hasError('confirm')">{{ "login.contraExp2" | translate }}</p>  
   <div class="admin-toggle">
-    <span>Admin</span>
+    <span>{{ "login.admin" | translate }}</span>
     <ion-toggle labelPlacement="stacked" formControlName="admin"></ion-toggle>
   </div>
   <div class="ion-text-end">
-    <ion-button expand="block" style="text-transform: none;" (click)="onSubmit()">Registrarse</ion-button>
+    <ion-button expand="block" style="text-transform: none;" (click)="onSubmit()">{{ "login.botonReg" | translate }}</ion-button>
   </div>
 </form>

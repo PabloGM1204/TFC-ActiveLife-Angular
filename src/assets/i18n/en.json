@@ -9,5 +9,15 @@
         "creadoresVida": "I am a 19-year-old, born in Spain. I am a kind and hardworking person, always willing to help others. I love spending time with my friends and family, and I enjoy music and sports. I am passionate about learning new things. In my free time, I like to read and watch movies. I am a very social person and I like to be surrounded by people I love.",
         "repoTfg": "TFG Repository",
         "repoInfo": "To access the repo with all the project information."
+    },
+    "login": {
+        "botonLog": "Log in",
+        "botonReg": "Register",
+        "contra":"Password",
+        "contra2": "Repeat password",
+        "contraExp": "Your password might be corrected",
+        "contraExp2": "Thes must be the same",
+        "nombreUsuario": "Username",
+        "admin": "Administrator"
     }
 }
