@@ -4,6 +4,7 @@ import { IonRouterOutlet } from '@ionic/angular';
 import { map } from 'rxjs';
 import { Rutina } from 'src/app/core/interfaces/rutina';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { CustomTranslateService } from 'src/app/core/services/custom-translate.service';
 import { FirebaseService } from 'src/app/core/services/firebase/firebase.service';
 import { RutinaService } from 'src/app/core/services/rutina.service';
 import { SwiperOptions } from 'swiper';
@@ -23,6 +24,7 @@ export class LandingPage implements OnInit {
     private rutinaSvc: RutinaService,
     private authSvc: FirebaseService,
     private auth: AuthService,
+    public translate: CustomTranslateService
   ) { }
 
   ionViewDidEnter() {
@@ -101,6 +103,26 @@ export class LandingPage implements OnInit {
   // Método para ir a la página de about
   goAbout(){
     this.router.navigate(['/about'])
+  }
+
+  lang: string = "es";
+
+  // Método para cambiar el idioma
+  onLang(idioma: string) {
+    console.log('Cambio de idioma');
+    switch(idioma){
+      case 'es':
+        this.lang='es';
+        break;
+      case 'en':
+        this.lang='en';
+        break;
+      case 'it':
+        this.lang='it';
+        break;
+    }
+    this.translate.use(this.lang);
+    return false; 
   }
 
 }

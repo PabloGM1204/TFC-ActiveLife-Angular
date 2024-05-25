@@ -142,6 +142,24 @@ p.texto, p.texto2 {
     color: #FF5C35;
 }
 
+.flag-icon {
+    width: 40px; /* Ajusta el tamaño según tus necesidades */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+  
+ion-button.not-selected {
+    opacity: 0.5; /* Ajusta la opacidad según lo necesario */
+}
+  
+ion-button.selected {
+    opacity: 1; /* El botón seleccionado se verá normal */
+}
+
+ion-toolbar {
+    --background: #FF5C35;
+}
+  
+
 @media (max-width: 600px) {
     .left-content, .right-content {
         flex: 1 1 100%;
