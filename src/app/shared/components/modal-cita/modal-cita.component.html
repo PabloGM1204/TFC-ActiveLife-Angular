@@ -47,6 +47,15 @@
         <ion-label class="info-label">Usuario:</ion-label>
         <p class="info-value">{{ cita?.clienteNombre }}</p>
       </div>
+      
+      <div class="centrar">
+        <ion-label *ngIf="cita?.imagen" class="info-label">Foto</ion-label>
+      </div>
+      <br>
+      <div class="centrar">
+        <img *ngIf="cita?.imagen" [src]="cita?.imagen" alt="Foto de la cita" class="cita-foto" />
+      </div>
+
     </ion-card-content>
   </ion-card>
 

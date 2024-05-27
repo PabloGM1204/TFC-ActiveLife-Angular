@@ -8,14 +8,14 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 16px;
-  }
+}
   
-  .cliente-foto {
-    width: 100px; /* Aumenta el tamaño de la imagen */
-    height: 100px; /* Aumenta el tamaño de la imagen */
+.cliente-foto {
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
-    border: 2px solid #FF6945; /* Añade un borde para mejorar la apariencia */
-  }
+    border: 2px solid #FF6945;
+}
 
 ion-content {
     --background: linear-gradient(to top, #fff2d6, #B7ECEC);
@@ -141,4 +141,9 @@ ion-content {
 .descarga ion-icon {
     color: #FF5C35;
     font-size: 2em;
+}
+
+.centrar {
+    display: grid;
+    justify-content: center;
 }
