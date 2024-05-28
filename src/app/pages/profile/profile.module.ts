@@ -8,12 +8,11 @@ import { ProfilePageRoutingModule } from './profile-routing.module';
 
 import { ProfilePage } from './profile.page';
 import { FirebaseMediaService } from 'src/app/core/services/firebase/firebase-media.service';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
+    SharedModule,
     ProfilePageRoutingModule
   ],
   declarations: [ProfilePage],

@@ -16,8 +16,20 @@
     <ion-card-content class="card-content">
       <div class="info-row">
         <ion-label class="label">Nombre</ion-label>
+        <br *ngIf="!formActive">
+        <ion-text class="info" *ngIf="!formActive">{{ user?.username }}</ion-text>
+        <form [formGroup]="form" *ngIf="formActive">
+          <br>
+          <ion-item class="item">
+            <ion-input type="text" formControlName="name"></ion-input>
+          </ion-item>
+        </form>
         <br>
-        <ion-text class="info">{{ user?.username }}</ion-text>
+        <ion-button (click)="activeForm()" *ngIf="!formActive" class="orange-button-white2" fill="outline"><ion-icon name="pencil-outline"></ion-icon></ion-button>
+        <div *ngIf="formActive">
+          <ion-button (click)="updateUserName()" class="orange-button-white2" fill="outline"><ion-icon name="save-outline"></ion-icon></ion-button>
+          <ion-button (click)="activeForm()" class="orange-button-white2" fill="outline"><ion-icon name="close-outline" color="danger"></ion-icon></ion-button>
+        </div>
       </div>
       <div class="info-row">
         <ion-label class="label">Email</ion-label>
@@ -26,4 +38,7 @@
       </div>
     </ion-card-content>
   </ion-card>
+  <div class="centrar">
+    <ion-button (click)="exportData()" class="orange-button2">Descargar CSV</ion-button>
+  </div>
 </ion-content>
