@@ -21,7 +21,17 @@
         <ion-item (click)="menu.close()" [routerLink]="['/citas']" button detail="false"><ion-icon slot="start" name="calendar-outline"></ion-icon>Citas</ion-item>
       </ion-list>
     </ion-content>
-    <ion-item (click)="onLang()" button detail="false" *ngIf="auth.isLogged$" color="primary"><ion-icon slot="start" name="globe-outline"></ion-icon>Traducir</ion-item>
+    <ion-buttons class="fixed-flags">
+      <ion-button (click)="onLang('es')" [ngClass]="{'selected': lang === 'es', 'not-selected': lang !== 'es'}">
+        <img src="assets/imgs/flags/bandera.png" class="flag-icon">
+      </ion-button>
+      <ion-button (click)="onLang('en')" [ngClass]="{'selected': lang === 'en', 'not-selected': lang !== 'en'}">
+        <img src="assets/imgs/flags/reino-unido.png" class="flag-icon">
+      </ion-button>
+      <ion-button (click)="onLang('it')" [ngClass]="{'selected': lang === 'it', 'not-selected': lang !== 'it'}">
+        <img src="assets/imgs/flags/italia.png" class="flag-icon">
+      </ion-button>
+    </ion-buttons>
     <ion-item (click)="onSingOut()" (click)="menu.close()" button detail="false" color="danger"><ion-icon slot="start" name="log-out-outline"></ion-icon>Salirse</ion-item>
   </ion-menu>
 
@@ -33,9 +43,6 @@
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
       <ion-fab-button *ngIf="!isLanding" (click)="toggleTooltip()" class="info-button">
         <ion-icon name="information-circle"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button *ngIf="isLanding" (click)="onLang()" class="info-button">
-        <ion-label>{{translate.language$ | async | uppercase}}</ion-label>
       </ion-fab-button>
     </ion-fab>
     <app-info-tooltip *ngIf="showTooltip" [infoText]="infoText"></app-info-tooltip>

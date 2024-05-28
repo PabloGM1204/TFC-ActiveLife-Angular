@@ -25,3 +25,23 @@ ion-list {
     padding-bottom: 0px;
     background-color: linear-gradient(to top, #fff2d6, #B7ECEC);
 }
+
+.fixed-flags {
+    background-color: #FFF2D6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flag-icon {
+    width: 40px; /* Ajusta el tamaño según tus necesidades */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+  
+ion-button.not-selected {
+    opacity: 0.5; /* Ajusta la opacidad según lo necesario */
+}
+  
+ion-button.selected {
+    opacity: 1; /* El botón seleccionado se verá normal */
+}

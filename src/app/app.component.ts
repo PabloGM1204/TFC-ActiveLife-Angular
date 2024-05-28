@@ -15,7 +15,6 @@ export class AppComponent {
   showTooltip = false;
   infoText?: string;
   isLanding: boolean = false;
-  lang: string = "es";
 
   constructor(
     public auth: AuthService,
@@ -41,18 +40,29 @@ export class AppComponent {
       } else
         this.rotuer.navigate(['/landing'])
     });
-
-    this.translate.use(this.lang)
+    this.translate.language$.subscribe(lang => {
+      this.lang = lang;
+    });
   }
 
 
-  // Método para cambiar de idioma
-  onLang() {
+  // Variable para el idioma
+  lang: string = "es";
+
+  // Método para cambiar el idioma
+  onLang(idioma: string) {
     console.log('Cambio de idioma');
-    if(this.lang=='es')
-      this.lang='en';
-    else
-      this.lang='es';
+    switch(idioma){
+      case 'es':
+        this.lang='es';
+        break;
+      case 'en':
+        this.lang='en';
+        break;
+      case 'it':
+        this.lang='it';
+        break;
+    }
     this.translate.use(this.lang);
     return false; 
   }

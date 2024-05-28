@@ -57,6 +57,9 @@ export class LandingPage implements OnInit {
         });
       }
     }, 5000); // Espera 3 segundos (3000 milisegundos) antes de ejecutar el código dentro del setTimeout
+    this.translate.language$.subscribe(lang => {
+      this.lang = lang;
+    });
   }
 
   // Configuración del swiper
