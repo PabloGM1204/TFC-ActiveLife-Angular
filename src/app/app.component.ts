@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
 import { ModalController } from '@ionic/angular';
 import { CustomTranslateService } from './core/services/custom-translate.service';
+import { BackgroundService } from './core/services/background.service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -15,16 +16,22 @@ export class AppComponent {
   showTooltip = false;
   infoText?: string;
   isLanding: boolean = false;
+  fondo: string = "";
 
   constructor(
     public auth: AuthService,
     private rotuer: Router,
-    public translate: CustomTranslateService
+    public translate: CustomTranslateService,
+    private backgroundSvc: BackgroundService,
   ) {
     this.rotuer.events.subscribe(() => {
       this.isLanding = this.rotuer.url === '/landing' || this.rotuer.url === '/login';
     });
 
+    this.backgroundSvc.background$.subscribe(fondo => {
+      this.fondo = fondo;
+    });
+    
     defineCustomElements(window);
     this.auth.isLogged$.subscribe(logged => {
       console.log(logged)

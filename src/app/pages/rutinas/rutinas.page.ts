@@ -4,6 +4,7 @@ import { map } from 'rxjs';
 import { Rutina } from 'src/app/core/interfaces/rutina';
 import { ApiService } from 'src/app/core/services/api.service';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { BackgroundService } from 'src/app/core/services/background.service';
 import { RutinaService } from 'src/app/core/services/rutina.service';
 
 @Component({
@@ -13,10 +14,13 @@ import { RutinaService } from 'src/app/core/services/rutina.service';
 })
 export class RutinasPage implements OnInit {
 
+  fondo: string = "";
+
   constructor(
     private rutinaSvc: RutinaService,
     public auth: AuthService,
-    private router: Router
+    private router: Router,
+    private backgroundSvc: BackgroundService,
   ) { }
 
   // Lista de rutinas privadas
@@ -35,7 +39,10 @@ export class RutinasPage implements OnInit {
       console.log("Usuario logeado "+ _.uuid);
       this.rutinasFiltered(_.uuid);
       this.rutinasFilteredByPublic();
-    })
+    });
+    this.backgroundSvc.background$.subscribe(fondo => {
+      this.fondo = fondo;
+    });
   }
 
   // Filtrar las rutinas por usuario

@@ -4,6 +4,7 @@ import { Firestore, Timestamp } from 'firebase/firestore';
 import { combineLatest, map } from 'rxjs';
 import { Cita } from 'src/app/core/interfaces/cita';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { BackgroundService } from 'src/app/core/services/background.service';
 import { CitasService } from 'src/app/core/services/citas.service';
 import { FirebaseService } from 'src/app/core/services/firebase/firebase.service';
 import { UsersService } from 'src/app/core/services/users.service';
@@ -16,12 +17,15 @@ import { ModalCitaComponent } from 'src/app/shared/components/modal-cita/modal-c
 })
 export class CitasPage implements OnInit {
 
+  fondo: string = "";
+
   constructor(
     public citasSvc: CitasService,
     public userSvc: UsersService,
     public auth: AuthService,
     private modal: ModalController,
-    private storage: FirebaseService
+    private storage: FirebaseService,
+    private backgroundSvc: BackgroundService
   ) { }
 
   ngOnInit() {
@@ -33,6 +37,9 @@ export class CitasPage implements OnInit {
       this.citasFiltered(_.uuid);
       this.citasFilteredByPublic();
     })
+    this.backgroundSvc.background$.subscribe(fondo => {
+      this.fondo = fondo;
+    });
   }
 
   // Info del usuario

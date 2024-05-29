@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { User } from 'src/app/core/interfaces/user';
+import { BackgroundService } from 'src/app/core/services/background.service';
 import { UsersService } from 'src/app/core/services/users.service';
 import { ModalConfirmComponent } from 'src/app/shared/components/modal-confirm/modal-confirm.component';
 
@@ -11,13 +12,19 @@ import { ModalConfirmComponent } from 'src/app/shared/components/modal-confirm/m
 })
 export class UsuariosPage implements OnInit {
 
+  fondo: string = "";
+
   constructor(
     public userSvc: UsersService,
     private modal: ModalController,
+    private backgroundSvc: BackgroundService,
   ) { }
 
   ngOnInit() {
     this.userSvc.subscribeToUsersCollection();
+    this.backgroundSvc.background$.subscribe(fondo => {
+      this.fondo = fondo;
+    });
   }
 
   // Metodo para que un admin acepte un usuario

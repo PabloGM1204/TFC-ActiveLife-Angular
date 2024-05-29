@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Camera, CameraResultType } from '@capacitor/camera';
 import { dataURLtoBlob } from 'src/app/core/helpers/blob';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
@@ -7,6 +7,7 @@ import { MediaService } from 'src/app/core/services/media.service';
 import { UsersService } from 'src/app/core/services/users.service';
 import { ModalController } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BackgroundService } from 'src/app/core/services/background.service';
 
 @Component({
   selector: 'app-profile',
@@ -24,7 +25,8 @@ export class ProfilePage implements OnInit {
     private auth: AuthService,
     private userSvc: UsersService,
     private mediaSvc: MediaService,
-    public _firebaseService: FirebaseService
+    public _firebaseService: FirebaseService,
+    private backgroundSvc: BackgroundService,
   ) {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]]
@@ -38,12 +40,14 @@ export class ProfilePage implements OnInit {
         uuid: _.uuid,
         username: _.name,
         email: _.email,
-        imageUrl: _?.photo ? _?.photo : "https://firebasestorage.googleapis.com/v0/b/fir-project-91ee3.appspot.com/o/images%2Fprofile.png?alt=media&token=cf7e68cc-c045-4fa3-978b-8281d42fcd51"
+        imageUrl: _?.photo ? _?.photo : "https://firebasestorage.googleapis.com/v0/b/fir-project-91ee3.appspot.com/o/images%2Fprofile.png?alt=media&token=cf7e68cc-c045-4fa3-978b-8281d42fcd51",
+        fondo: _?.fondo ? _?.fondo : "pri"
       }
       this.form.patchValue({
         name: this.user.username
       });
       this.capturedImage = this.user.imageUrl;
+      this.fondo = this.user.fondo;
       console.log("Usuario logeado ",  this.user);
     })
   }
@@ -76,11 +80,22 @@ export class ProfilePage implements OnInit {
     this.formActive = !this.formActive;
   }
 
-  //
+  // Metodo para actualizar el nombre del usario
   updateUserName() {
     this.user.username = this.form.value.name;
     this.userSvc.updateUser(this.user);
     this.activeForm();
+  }
+
+  fondo: string = "";
+
+  // Metodo para cambiar la imagen de fondo
+  changeBackground(fondo: string) {
+    console.log("Fondo: ", fondo);
+    this.fondo = fondo;
+    this.backgroundSvc.setBackground(fondo);
+    this.user.fondo = fondo;
+    this.userSvc.updateUser(this.user);
   }
 
   /**

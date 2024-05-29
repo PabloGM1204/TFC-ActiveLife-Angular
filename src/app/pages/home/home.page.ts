@@ -6,6 +6,7 @@ import { combineLatest, map } from 'rxjs';
 import { Cita } from 'src/app/core/interfaces/cita';
 import { Rutina } from 'src/app/core/interfaces/rutina';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { BackgroundService } from 'src/app/core/services/background.service';
 import { CitasService } from 'src/app/core/services/citas.service';
 import { FirebaseService } from 'src/app/core/services/firebase/firebase.service';
 import { RutinaService } from 'src/app/core/services/rutina.service';
@@ -18,12 +19,15 @@ import { UsersService } from 'src/app/core/services/users.service';
 })
 export class HomePage implements OnInit {
 
+  fondo: string = "";
+
   constructor(
     public auth: AuthService,
     private router: Router,
     private rutinaSvc: RutinaService,
     public citasSvc: CitasService,
-    private userSvc: UsersService
+    private userSvc: UsersService,
+    private backgroundSvc: BackgroundService,
   ) {}
 
   ngOnInit() {
@@ -35,11 +39,16 @@ export class HomePage implements OnInit {
       this.user = _;
       this.citasFiltered(_.uuid);
       this.rutinasFiltered(_.uuid);
+      this.backgroundSvc.setBackground(_.fondo);
     })
+    this.backgroundSvc.background$.subscribe(fondo => {
+      this.fondo = fondo;
+    });
   }
 
   ionViewDidEnter() {
-    console.log("Valor de la rutina ", this.rutinas, "Valor de la distancia ", this.rutinas.length);
+    //console.log("Valor de la rutina ", this.rutinas, "Valor de la distancia ", this.rutinas.length);
+    console.log("Valor del fondo ", this.fondo)
   }
 
   // Variable para guardar los datos del usuario

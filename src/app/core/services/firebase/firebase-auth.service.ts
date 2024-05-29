@@ -96,7 +96,8 @@ export class FirebaseAuthService extends AuthService{
           uuid:data.id,
           photo: data.data['imageUrl'],
           admin: data.data['admin'],
-          aceptado: data.data['aceptado']
+          aceptado: data.data['aceptado'],
+          fondo: data.data['fondo']
         }
     }));
     else

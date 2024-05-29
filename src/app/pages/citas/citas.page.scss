@@ -111,6 +111,18 @@ ion-content{
     border: 1px solid #000;
 }
 
+.pri {
+    --background: linear-gradient(to top, #fff2d6, #B7ECEC);
+}
+  
+.sec {
+    --background: linear-gradient(to top, #9561ee, #1db6ef);
+}
+  
+.img {
+    --background: linear-gradient(to top, #ffd45f, #ff6f91);
+}
+
 @media (max-width: 600px) {
     .leyenda {
         flex-direction: column;

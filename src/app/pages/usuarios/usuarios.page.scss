@@ -48,6 +48,18 @@ ion-content{
     --background: linear-gradient(to top, #fff2d6, #B7ECEC);
 }
 
+.pri {
+    --background: linear-gradient(to top, #fff2d6, #B7ECEC);
+}
+  
+.sec {
+    --background: linear-gradient(to top, #9561ee, #1db6ef);
+}
+  
+.img {
+    --background: linear-gradient(to top, #ffd45f, #ff6f91);
+}
+
 @media (min-width: 576px) {
     #general ion-button {
       width: 100px;

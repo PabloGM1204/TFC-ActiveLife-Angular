@@ -1,4 +1,4 @@
-<ion-content [fullscreen]="true" id="general">
+<ion-content [fullscreen]="true" id="general" [ngClass]="{'pri': fondo === 'pri', 'sec': fondo == 'sec', 'img': fondo == 'img'}">
   <div class="centro">
     <h1 *ngIf="citas && citas.length > 0; else noCitas" class="titulo">Citas futuras</h1>
     <ng-template #noCitas>

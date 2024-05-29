@@ -5,6 +5,7 @@ ion-content{
 .info-card {
     margin-top: 75px;
     width: 500px;
+    height: 550px;
     margin-left: auto;
     margin-right: auto;
     --background: linear-gradient(to top, #fff2d6, #B7ECEC);
@@ -81,4 +82,36 @@ ion-input {
 .centrar{
     display: flex;
     justify-content: center;
+}
+
+.fixed-flags {
+    --background: #FFF2D6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flag-icon {
+    width: 40px; /* Ajusta el tamaño según tus necesidades */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+  
+ion-button.not-selected {
+    opacity: 0.5; /* Ajusta la opacidad según lo necesario */
+}
+  
+ion-button.selected {
+    opacity: 1; /* El botón seleccionado se verá normal */
+}
+
+.pri {
+    --background: linear-gradient(to top, #fff2d6, #B7ECEC);
+}
+
+.sec {
+    --background: linear-gradient(to top, #9561ee, #1db6ef);
+}
+
+.img {
+    --background: linear-gradient(to top, #ffd45f, #ff6f91);
 }

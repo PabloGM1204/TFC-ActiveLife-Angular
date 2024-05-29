@@ -1,4 +1,4 @@
-<ion-content [fullscreen]="true" id="general">
+<ion-content [fullscreen]="true" id="general" [ngClass]="{'pri': fondo === 'pri', 'sec': fondo == 'sec', 'img': fondo == 'img'}">
   <div class="botonera">
     <ion-button (click)="misCitas()" [class.activo]="!publicCitas" [class.desactivado]="publicCitas">Mis citas</ion-button>
     <ion-button (click)="noAdmins()" [class.activo]="publicCitas" [class.desactivado]="!publicCitas">Sin administrador</ion-button>

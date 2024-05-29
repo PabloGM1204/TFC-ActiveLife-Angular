@@ -12,23 +12,23 @@
         <ion-title>ActiveLife</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content>
+    <ion-content [ngClass]="{'pri': fondo === 'pri', 'sec': fondo == 'sec', 'img': fondo == 'img'}">
       <ion-list>
-        <ion-item (click)="menu.close()" [routerLink]="['/home']" button detail="false"><ion-icon slot="start" name="home"></ion-icon>Home</ion-item>
-        <ion-item (click)="menu.close()" [routerLink]="['/rutinas']" button detail="false"><ion-icon slot="start" name="barbell-outline"></ion-icon>Rutinas</ion-item>
-        <ion-item (click)="menu.close()" [routerLink]="['/citas']" button detail="false"><ion-icon slot="start" name="calendar-outline"></ion-icon>Citas</ion-item>
-        <ion-item (click)="menu.close()" [routerLink]="['/usuarios']" button detail="false"><ion-icon slot="start" name="people-outline"></ion-icon>Usuarios</ion-item>
-        <ion-item (click)="menu.close()" [routerLink]="['/profile']" button detail="false"><ion-icon slot="start" name="person-circle-outline"></ion-icon>Perfil</ion-item>
+        <ion-item (click)="menu.close()" [routerLink]="['/home']" button detail="false" [ngClass]="{'pri-item': fondo === 'pri', 'sec-item': fondo == 'sec', 'img-item': fondo == 'img'}"><ion-icon slot="start" name="home"></ion-icon>Home</ion-item>
+        <ion-item (click)="menu.close()" [routerLink]="['/rutinas']" button detail="false" [ngClass]="{'pri-item': fondo === 'pri', 'sec-item': fondo == 'sec', 'img-item': fondo == 'img'}"><ion-icon slot="start" name="barbell-outline"></ion-icon>Rutinas</ion-item>
+        <ion-item (click)="menu.close()" [routerLink]="['/citas']" button detail="false" [ngClass]="{'pri-item': fondo === 'pri', 'sec-item': fondo == 'sec', 'img-item': fondo == 'img'}"><ion-icon slot="start" name="calendar-outline"></ion-icon>Citas</ion-item>
+        <ion-item (click)="menu.close()" [routerLink]="['/usuarios']" button detail="false" [ngClass]="{'pri-item': fondo === 'pri', 'sec-item': fondo == 'sec', 'img-item': fondo == 'img'}"><ion-icon slot="start" name="people-outline"></ion-icon>Usuarios</ion-item>
+        <ion-item (click)="menu.close()" [routerLink]="['/profile']" button detail="false" [ngClass]="{'pri-item': fondo === 'pri', 'sec-item': fondo == 'sec', 'img-item': fondo == 'img'}"><ion-icon slot="start" name="person-circle-outline"></ion-icon>Perfil</ion-item>
       </ion-list>
     </ion-content>
-    <ion-buttons class="fixed-flags">
-      <ion-button (click)="onLang('es')" [ngClass]="{'selected': lang === 'es', 'not-selected': lang !== 'es'}">
+    <ion-buttons [ngClass]="{'pri-lang': fondo === 'pri', 'sec-lang': fondo == 'sec', 'img-lang': fondo == 'img'}">
+      <ion-button (click)="onLang('es')" [ngClass]="{'selected': lang === 'es', 'not-selected': lang !== 'es'}" appAgrandar>
         <img src="assets/imgs/flags/bandera.png" class="flag-icon">
       </ion-button>
-      <ion-button (click)="onLang('en')" [ngClass]="{'selected': lang === 'en', 'not-selected': lang !== 'en'}">
+      <ion-button (click)="onLang('en')" [ngClass]="{'selected': lang === 'en', 'not-selected': lang !== 'en'}" appAgrandar>
         <img src="assets/imgs/flags/reino-unido.png" class="flag-icon">
       </ion-button>
-      <ion-button (click)="onLang('it')" [ngClass]="{'selected': lang === 'it', 'not-selected': lang !== 'it'}">
+      <ion-button (click)="onLang('it')" [ngClass]="{'selected': lang === 'it', 'not-selected': lang !== 'it'}" appAgrandar>
         <img src="assets/imgs/flags/italia.png" class="flag-icon">
       </ion-button>
     </ion-buttons>

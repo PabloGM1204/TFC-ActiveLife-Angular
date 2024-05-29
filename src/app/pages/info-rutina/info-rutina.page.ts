@@ -7,6 +7,7 @@ import { RutinaService } from 'src/app/core/services/rutina.service';
 import { Rutina } from 'src/app/core/interfaces/rutina';
 import { ModalController } from '@ionic/angular';
 import { ModalExerciseComponent } from './components/modal-exercise/modal-exercise.component';
+import { BackgroundService } from 'src/app/core/services/background.service';
 
 @Component({
   selector: 'app-info-rutina',
@@ -27,6 +28,8 @@ export class InfoRutinaPage implements OnInit {
 
   rutina: any[] = [];
 
+  fondo: string = "";
+
   constructor(
     private formBuilder: FormBuilder,
     public apiSvc: ApiService,
@@ -34,7 +37,8 @@ export class InfoRutinaPage implements OnInit {
     private route: ActivatedRoute,
     private rutinaSvc: RutinaService,
     private modal: ModalController,
-    private router: Router
+    private router: Router,
+    private backgroundSvc: BackgroundService,
   ) {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]],
@@ -49,6 +53,9 @@ export class InfoRutinaPage implements OnInit {
     if(this.id != null){
       this.loadRutine();
     }
+    this.backgroundSvc.background$.subscribe(fondo => {
+      this.fondo = fondo;
+    });
   }
 
   loadRutine(){

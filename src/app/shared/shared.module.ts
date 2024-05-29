@@ -15,14 +15,17 @@ import { ModalConfirmComponent } from './components/modal-confirm/modal-confirm.
 import { HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { createTranslateLoader } from '../core/translate/translate';
+import { AgrandarDirective } from './directives/agrandar.directive';
 
 
 @NgModule({
   declarations: [
     // Directives
+    AgrandarDirective,
 
     // Pipes
     TruncamientoPipe,
+    PrimeraLetraMayusPipe,
 
     // Componentes
     CardExerciseComponent,
@@ -30,8 +33,8 @@ import { createTranslateLoader } from '../core/translate/translate';
     AddExerciseComponent,
     CardRutineComponent,
     ModalCitaComponent,
-    PrimeraLetraMayusPipe,
-    ModalConfirmComponent
+    ModalConfirmComponent,
+    AgrandarDirective
   ],
   imports: [
     CommonModule,
@@ -63,7 +66,7 @@ import { createTranslateLoader } from '../core/translate/translate';
     ModalCitaComponent,
     ModalConfirmComponent,
     // Directivas
-
+    AgrandarDirective,
     // Pipes
     TruncamientoPipe,
     PrimeraLetraMayusPipe

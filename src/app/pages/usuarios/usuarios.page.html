@@ -1,4 +1,4 @@
-<ion-content [fullscreen]="true" id="general">
+<ion-content [fullscreen]="true" id="general" [ngClass]="{'pri': fondo === 'pri', 'sec': fondo == 'sec', 'img': fondo == 'img'}">
   <ion-grid>
     <ion-row>
       <ion-col size="2">Foto</ion-col>

@@ -12,14 +12,6 @@ ion-toolbar{
     --background: #FF9333;
 }
 
-.custom-menu ion-item {
-    --background: #CEEEE6;
-}
-
-.custom-menu ion-content {
-    --background: linear-gradient(to top, #fff2d6, #B7ECEC); /* Ajusta el color de fondo del contenido */
-}
-
 ion-list {
     padding-top: 0px;
     padding-bottom: 0px;
@@ -27,7 +19,7 @@ ion-list {
 }
 
 .fixed-flags {
-    background-color: #FFF2D6;
+    //--background: #FFF2D6;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,4 +36,40 @@ ion-button.not-selected {
   
 ion-button.selected {
     opacity: 1; /* El botón seleccionado se verá normal */
+}
+
+.pri {
+    --background: linear-gradient(to top, #fff2d6, #B7ECEC);
+}
+  
+.sec {
+    --background: linear-gradient(to top, #9561ee, #1db6ef);
+}
+  
+.img {
+    --background: linear-gradient(to top, #ffd45f, #ff6f91);
+}
+
+.pri-lang {
+    background: #fff2d6
+}
+  
+.sec-lang {
+    background: #9561ee
+}
+  
+.img-lang {
+    background: #ffd45f
+}
+
+.pri-item {
+    --background: #D5EFE3
+}
+  
+.sec-item {
+    --background: #4F92EE
+}
+  
+.img-item {
+    --background: #FF9A7C
 }

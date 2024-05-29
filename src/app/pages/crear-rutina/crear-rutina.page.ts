@@ -9,6 +9,7 @@ import { ToastModule } from 'primeng/toast';
 import { User } from 'src/app/core/interfaces/user';
 import { MessageService } from 'primeng/api';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BackgroundService } from 'src/app/core/services/background.service';
 
 @Component({
   selector: 'app-crear-rutina',
@@ -24,6 +25,8 @@ export class CrearRutinaPage implements OnInit {
 
   user: User | undefined;
 
+  fondo: string = "";
+
   constructor(
     public apiSvc: ApiService,
     private rutinaSvc: RutinaService,
@@ -32,6 +35,7 @@ export class CrearRutinaPage implements OnInit {
     private messageService: MessageService,
     private router: Router,
     private route: ActivatedRoute,
+    private backgroundSvc: BackgroundService,
   ) {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]],
@@ -59,6 +63,9 @@ export class CrearRutinaPage implements OnInit {
       console.log("Usuario logeado "+ _.uuid);
       this.user = _;
     })
+    this.backgroundSvc.background$.subscribe(fondo => {
+      this.fondo = fondo;
+    });
   }
 
   // Añadir ejercicio a la rutina

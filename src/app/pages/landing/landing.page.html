@@ -1,12 +1,12 @@
 <ion-content [fullscreen]="true">
   <ion-buttons class="fixed-flags">
-    <ion-button (click)="onLang('es')" [ngClass]="{'selected': lang === 'es', 'not-selected': lang !== 'es'}">
+    <ion-button (click)="onLang('es')" [ngClass]="{'selected': lang === 'es', 'not-selected': lang !== 'es'}" appAgrandar>
       <img src="assets/imgs/flags/bandera.png" class="flag-icon">
     </ion-button>
-    <ion-button (click)="onLang('en')" [ngClass]="{'selected': lang === 'en', 'not-selected': lang !== 'en'}">
+    <ion-button (click)="onLang('en')" [ngClass]="{'selected': lang === 'en', 'not-selected': lang !== 'en'}" appAgrandar>
       <img src="assets/imgs/flags/reino-unido.png" class="flag-icon">
     </ion-button>
-    <ion-button (click)="onLang('it')" [ngClass]="{'selected': lang === 'it', 'not-selected': lang !== 'it'}">
+    <ion-button (click)="onLang('it')" [ngClass]="{'selected': lang === 'it', 'not-selected': lang !== 'it'}" appAgrandar>
       <img src="assets/imgs/flags/italia.png" class="flag-icon">
     </ion-button>
   </ion-buttons>

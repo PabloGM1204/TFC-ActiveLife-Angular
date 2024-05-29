@@ -1,4 +1,4 @@
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" [ngClass]="{'pri': fondo === 'pri', 'sec': fondo == 'sec', 'img': fondo == 'img'}">
   <ion-card class="info-card">
     <ion-card-header>
       <div class="header-container">
@@ -41,4 +41,15 @@
   <div class="centrar">
     <ion-button (click)="exportData()" class="orange-button2">Descargar CSV</ion-button>
   </div>
+  <ion-buttons class="fixed-flags">
+    <ion-button (click)="changeBackground('pri')" [ngClass]="{'selected': fondo === 'pri', 'not-selected': fondo !== 'pri'}" appAgrandar>
+      <img src="assets/imgs/fondos/Fondo-principal.png" class="flag-icon">
+    </ion-button>
+    <ion-button (click)="changeBackground('sec')" [ngClass]="{'selected': fondo === 'sec', 'not-selected': fondo !== 'sec'}" appAgrandar>
+      <img src="assets/imgs/fondos/Fondo-secundario.png" class="flag-icon">
+    </ion-button>
+    <ion-button (click)="changeBackground('img')" [ngClass]="{'selected': fondo === 'img', 'not-selected': fondo !== 'img'}" appAgrandar>
+      <img src="assets/imgs/fondos/Fondo-tercero.png" class="flag-icon">
+    </ion-button>
+  </ion-buttons>
 </ion-content>

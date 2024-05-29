@@ -1,4 +1,4 @@
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" [ngClass]="{'pri': fondo === 'pri', 'sec': fondo == 'sec', 'img': fondo == 'img'}">
   <div id="boton">
     <ion-button (click)="createRutine()" class="crear" fill="outline" [disabled]="isFormInvalid()">Crear Rutina</ion-button>
   </div>
