@@ -30,7 +30,9 @@
   <div class="centro">
     <ion-button class="desactivado" fill="outline" (click)="goRutinas()"><ion-icon slot="start" name="barbell-outline" style="font-size: 32px;"></ion-icon>Rutinas</ion-button>
   </div>
-  <ng-container *ngFor="let exercise of exercises">
-    <app-item-exercise [exercise]="exercise"></app-item-exercise>
+  <ng-container *ngIf="rutinas.length != 0">
+    <ng-container *ngFor="let exercise of exercises">
+      <app-item-exercise [exercise]="exercise"></app-item-exercise>
+    </ng-container>
   </ng-container>
 </ion-content>

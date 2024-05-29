@@ -38,6 +38,10 @@ export class HomePage implements OnInit {
     })
   }
 
+  ionViewDidEnter() {
+    console.log("Valor de la rutina ", this.rutinas, "Valor de la distancia ", this.rutinas.length);
+  }
+
   // Variable para guardar los datos del usuario
   user: any
 
