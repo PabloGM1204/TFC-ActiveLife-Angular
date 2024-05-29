@@ -1,11 +1,11 @@
 <ion-content [fullscreen]="true" id="general" [ngClass]="{'pri': fondo === 'pri', 'sec': fondo == 'sec', 'img': fondo == 'img'}">
   <ion-grid>
     <ion-row>
-      <ion-col size="2">Foto</ion-col>
-      <ion-col size="2">Nombre</ion-col>
-      <ion-col size="2">Email</ion-col>
-      <ion-col size="2">Admin</ion-col>
-      <ion-col size="2">Acciones</ion-col>
+      <ion-col size="2">{{ "usuarios.foto" | translate }}</ion-col>
+      <ion-col size="2">{{ "usuarios.nombre" | translate }}</ion-col>
+      <ion-col size="2">{{ "usuarios.email" | translate }}</ion-col>
+      <ion-col size="2">{{ "usuarios.admin" | translate }}</ion-col>
+      <ion-col size="2">{{ "usuarios.acciones" | translate }}</ion-col>
     </ion-row>
     <ion-row [class.odd-row]="index % 2 === 0" [class.even-row]="index % 2 !== 0" *ngFor="let user of userSvc.users$ | async; let index = index">
       <ion-col size="2"><ion-avatar><img [src]="user?.imageUrl" alt="Imagen del alumno"></ion-avatar></ion-col>
@@ -13,8 +13,8 @@
       <ion-col size="2">{{ user.email }}</ion-col>
       <ion-col size="2"><ion-icon color="success" *ngIf="user.admin" name="checkmark-outline"></ion-icon><ion-icon color="danger" *ngIf="!user.admin" name="close-outline"></ion-icon></ion-col>
       <ion-col size="2">
-        <ion-button [disabled]="user.aceptado" *ngIf="user.admin" (click)="accept(user)">Aceptar</ion-button>
-        <ion-button *ngIf="!user.admin" (click)="deleteUser(user)" color="danger">Eliminar</ion-button>
+        <ion-button [disabled]="user.aceptado" *ngIf="user.admin" (click)="accept(user)">{{ "usuarios.acp" | translate }}</ion-button>
+        <ion-button *ngIf="!user.admin" (click)="deleteUser(user)" color="danger">{{ "usuarios.eln" | translate }}</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

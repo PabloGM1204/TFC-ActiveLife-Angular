@@ -3,15 +3,15 @@
     <div class="centro">
       <ion-card-title>{{ rutina.title | primeraLetraMayus }}</ion-card-title>
     </div>
-    <ion-card-subtitle><span class="info-label">Numero de ejercicios:</span> {{ rutina.exercises.length }}</ion-card-subtitle>
+    <ion-card-subtitle><span class="info-label">{{ "card-rutine.num" | translate }}</span> {{ rutina.exercises.length }}</ion-card-subtitle>
   </ion-card-header>
 
   <ion-card-content>
-    <ion-label><span class="info-label">Descripcion:</span> {{ rutina.description }}</ion-label>
+    <ion-label><span class="info-label">{{ "card-rutine.des" | translate }}</span> {{ rutina.description }}</ion-label>
     <br>
-    <ion-label><span class="info-label">Day:</span> {{ rutina.day }}</ion-label>
+    <ion-label><span class="info-label">{{ "card-rutine.day" | translate }}</span> {{ rutina.day }}</ion-label>
     <br>
-    <ion-label class="info-label"><span class="info-label">Body Part</span></ion-label>
+    <ion-label class="info-label"><span class="info-label">{{ "card-rutine.part" | translate }}</span></ion-label>
     <ion-item *ngFor="let exercise of rutina.exercises; let last = last">
       <ion-label>{{ exercise.bodyPart | primeraLetraMayus }}: {{ exercise.name | truncamiento:20 }}</ion-label>
     </ion-item>

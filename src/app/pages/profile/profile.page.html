@@ -15,7 +15,7 @@
 
     <ion-card-content class="card-content">
       <div class="info-row">
-        <ion-label class="label">Nombre</ion-label>
+        <ion-label class="label">{{ "profile.nombre" | translate }}</ion-label>
         <br *ngIf="!formActive">
         <ion-text class="info" *ngIf="!formActive">{{ user?.username }}</ion-text>
         <form [formGroup]="form" *ngIf="formActive">
@@ -32,14 +32,14 @@
         </div>
       </div>
       <div class="info-row">
-        <ion-label class="label">Email</ion-label>
+        <ion-label class="label">E-mail</ion-label>
         <br>
         <ion-text class="info">{{ user?.email }}</ion-text>
       </div>
     </ion-card-content>
   </ion-card>
   <div class="centrar">
-    <ion-button (click)="exportData()" class="orange-button2">Descargar CSV</ion-button>
+    <ion-button (click)="exportData()" class="orange-button2">{{ "profile.des" | translate }}</ion-button>
   </div>
   <ion-buttons class="fixed-flags">
     <ion-button (click)="changeBackground('pri')" [ngClass]="{'selected': fondo === 'pri', 'not-selected': fondo !== 'pri'}" appAgrandar>

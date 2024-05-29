@@ -19,5 +19,115 @@
         "contraExp2": "Devono essere uguali",
         "nombreUsuario": "Nome utente",
         "admin": "Amministratore"
+    },
+    "menu": {
+        "home": "Inizio",
+        "rutinas": "Routine",
+        "citas": "Appuntamenti",
+        "usuarios": "Utenti",
+        "perfil": "Profilo",
+        "logout": "Vicino"
+    },
+    "citas": {
+        "misCitas": "I miei appuntamenti",
+        "noAdmin": "Senza amministratore",
+        "den": "Appuntamento negato",
+        "ace": "Appuntamento accettato",
+        "pas": "Appuntamento passato",
+        "sin": "Senza amministratore",
+        "user": "Utente",
+        "titulo": "Titolo",
+        "fecha": "Data",
+        "desc": "Descrizione",
+        "acciones": "Azioni"
+    },
+    "crear": {
+        "crear": "Crea Routine",
+        "nombre": "Nome della routine",
+        "publico": "Pubblico",
+        "desc": "Descrizione",
+        "dia": "Giorno",
+        "lun": "Lunedì",
+        "mar": "Martedì",
+        "mie": "Mercoledì",
+        "jue": "Giovedì",
+        "vie": "Venerdì",
+        "sab": "Sabato",
+        "dom": "Domenica",
+        "partes": "Parti del corpo"
+    },
+    "home": {
+        "titulo1": "Prossimi appuntamenti",
+        "titulo1-2": "Non hai prossimi appuntamenti",
+        "user": "Utente",
+        "titulo": "Titolo",
+        "fecha": "Data",
+        "desc": "Descrizione",
+        "titulo2": "Routine di oggi",
+        "titulo2-2": "Non hai routine per oggi",
+        "rutinas": "Routine"
+    },
+    "item-exercise": {
+        "equip": "Attrezzatura:",
+        "obj": "Obiettivo:",
+        "sec": "Muscoli secondari:",
+        "ser": "Serie:",
+        "rep": "Ripetizioni:",
+        "int": "Istruzioni",
+        "det": "Dettagli dell'esercizio",
+        "tipo": "Tipo:"
+    },
+    "info-rutinas": {
+        "publico": "Pubblico",
+        "lun": "Lunedì",
+        "mar": "Martedì",
+        "mie": "Mercoledì",
+        "jue": "Giovedì",
+        "vie": "Venerdì",
+        "sab": "Sabato",
+        "dom": "Domenica",
+        "add": "Aggiungi esercizio"
+    },
+    "profile": {
+        "nombre": "Nome",
+        "des": "Scarica CSV"
+    },
+    "rutinas": {
+        "crear": "Crea Routine",
+        "priv": "Private",
+        "pub": "Pubbliche"
+    },
+    "card-rutine": {
+        "num": "Numero di esercizi:",
+        "des": "Descrizione:",
+        "day": "Giorno:",
+        "part": "Parti del corpo"
+    },
+    "usuarios": {
+        "foto": "Foto",
+        "nombre": "Nome",
+        "email": "E-mail",
+        "admin": "Admin",
+        "acciones": "Azioni",
+        "acp": "Accetta",
+        "eln": "Elimina"
+    },
+    "modal-cita": {
+        "titulo": "Dettagli dell'appuntamento",
+        "des": "Descrizione:",
+        "est": "Stato:",
+        "fec": "Data dell'appuntamento:",
+        "fech2": "Data della richiesta:",
+        "enc": "Incaricato:",
+        "user": "Utente:",
+        "foto": "Foto",
+        "res": "Risposta",
+        "sub": "Carica file PDF",
+        "env": "Invia"
+    },
+    "confirm": {
+        "titulo": "Sei sicuro?",
+        "no": "No",
+        "si": "Sì"
     }
 }

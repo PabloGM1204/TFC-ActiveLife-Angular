@@ -1,6 +1,6 @@
 <ion-content [fullscreen]="true" [ngClass]="{'pri': fondo === 'pri', 'sec': fondo == 'sec', 'img': fondo == 'img'}">
   <div id="boton">
-    <ion-button (click)="createRutine()" class="crear" fill="outline" [disabled]="isFormInvalid()">Crear Rutina</ion-button>
+    <ion-button (click)="createRutine()" class="crear" fill="outline" [disabled]="isFormInvalid()">{{ "crear.crear" | translate }}</ion-button>
   </div>
 
   <form [formGroup]="form" class="form-container">
@@ -8,13 +8,13 @@
       <ion-row>
         <ion-col size="8">
           <ion-item>
-            <ion-label position="stacked">Nombre de la rutina <span style="color: red">*</span></ion-label>
+            <ion-label position="stacked">{{ "crear.nombre" | translate }} <span style="color: red">*</span></ion-label>
             <ion-input formControlName="name" type="text"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col size="4" class="ion-align-self-end">
           <ion-item lines="none">
-            <ion-label>Público</ion-label>
+            <ion-label>{{ "crear.publico" | translate }}</ion-label>
             <ion-toggle formControlName="public"></ion-toggle>
           </ion-item>
         </ion-col>
@@ -22,7 +22,7 @@
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-label position="stacked">Descripción</ion-label>
+            <ion-label position="stacked">{{ "crear.desc" | translate }}</ion-label>
             <ion-input formControlName="description" type="text"></ion-input>
           </ion-item>
         </ion-col>
@@ -30,21 +30,21 @@
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-label>Día <span style="color: red">*</span></ion-label>
+            <ion-label>{{ "crear.dia" | translate }} <span style="color: red">*</span></ion-label>
             <ion-select placeholder="Elige un día" formControlName="day">
-              <ion-select-option value="Lunes">Lunes</ion-select-option>
-              <ion-select-option value="Martes">Martes</ion-select-option>
-              <ion-select-option value="Miercoles">Miércoles</ion-select-option>
-              <ion-select-option value="Jueves">Jueves</ion-select-option>
-              <ion-select-option value="Viernes">Viernes</ion-select-option>
-              <ion-select-option value="Sabado">Sábado</ion-select-option>
-              <ion-select-option value="Domingo">Domingo</ion-select-option>
+              <ion-select-option value="Lunes">{{ "crear.lun" | translate }}</ion-select-option>
+              <ion-select-option value="Martes">{{ "crear.mar" | translate }}</ion-select-option>
+              <ion-select-option value="Miercoles">{{ "crear.mie" | translate }}</ion-select-option>
+              <ion-select-option value="Jueves">{{ "crear.jue" | translate }}</ion-select-option>
+              <ion-select-option value="Viernes">{{ "crear.vie" | translate }}</ion-select-option>
+              <ion-select-option value="Sabado">{{ "crear.sab" | translate }}</ion-select-option>
+              <ion-select-option value="Domingo">{{ "crear.dom" | translate }}</ion-select-option>
             </ion-select>
           </ion-item>
         </ion-col>
         <ion-col>
           <ion-item>
-            <ion-label>Body Parts</ion-label>
+            <ion-label>{{ "crear.partes" | translate }}</ion-label>
             <ion-select placeholder="Select one part" (ionChange)="activateSecondSelect($event)">
               <ion-select-option *ngFor="let part of apiSvc.bodyList">{{ part }}</ion-select-option>
             </ion-select>

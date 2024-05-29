@@ -14,11 +14,11 @@
     </ion-header>
     <ion-content [ngClass]="{'pri': fondo === 'pri', 'sec': fondo == 'sec', 'img': fondo == 'img'}">
       <ion-list>
-        <ion-item (click)="menu.close()" [routerLink]="['/home']" button detail="false" [ngClass]="{'pri-item': fondo === 'pri', 'sec-item': fondo == 'sec', 'img-item': fondo == 'img'}"><ion-icon slot="start" name="home"></ion-icon>Home</ion-item>
-        <ion-item (click)="menu.close()" [routerLink]="['/rutinas']" button detail="false" [ngClass]="{'pri-item': fondo === 'pri', 'sec-item': fondo == 'sec', 'img-item': fondo == 'img'}"><ion-icon slot="start" name="barbell-outline"></ion-icon>Rutinas</ion-item>
-        <ion-item (click)="menu.close()" [routerLink]="['/citas']" button detail="false" [ngClass]="{'pri-item': fondo === 'pri', 'sec-item': fondo == 'sec', 'img-item': fondo == 'img'}"><ion-icon slot="start" name="calendar-outline"></ion-icon>Citas</ion-item>
-        <ion-item (click)="menu.close()" [routerLink]="['/usuarios']" button detail="false" [ngClass]="{'pri-item': fondo === 'pri', 'sec-item': fondo == 'sec', 'img-item': fondo == 'img'}"><ion-icon slot="start" name="people-outline"></ion-icon>Usuarios</ion-item>
-        <ion-item (click)="menu.close()" [routerLink]="['/profile']" button detail="false" [ngClass]="{'pri-item': fondo === 'pri', 'sec-item': fondo == 'sec', 'img-item': fondo == 'img'}"><ion-icon slot="start" name="person-circle-outline"></ion-icon>Perfil</ion-item>
+        <ion-item (click)="menu.close()" [routerLink]="['/home']" button detail="false" [ngClass]="{'pri-item': fondo === 'pri', 'sec-item': fondo == 'sec', 'img-item': fondo == 'img'}"><ion-icon slot="start" name="home"></ion-icon>{{ "menu.home" | translate }}</ion-item>
+        <ion-item (click)="menu.close()" [routerLink]="['/rutinas']" button detail="false" [ngClass]="{'pri-item': fondo === 'pri', 'sec-item': fondo == 'sec', 'img-item': fondo == 'img'}"><ion-icon slot="start" name="barbell-outline"></ion-icon>{{ "menu.rutinas" | translate }}</ion-item>
+        <ion-item (click)="menu.close()" [routerLink]="['/citas']" button detail="false" [ngClass]="{'pri-item': fondo === 'pri', 'sec-item': fondo == 'sec', 'img-item': fondo == 'img'}"><ion-icon slot="start" name="calendar-outline"></ion-icon>{{ "menu.citas" | translate }}</ion-item>
+        <ion-item (click)="menu.close()" [routerLink]="['/usuarios']" button detail="false" [ngClass]="{'pri-item': fondo === 'pri', 'sec-item': fondo == 'sec', 'img-item': fondo == 'img'}"><ion-icon slot="start" name="people-outline"></ion-icon>{{ "menu.usuarios" | translate }}</ion-item>
+        <ion-item (click)="menu.close()" [routerLink]="['/profile']" button detail="false" [ngClass]="{'pri-item': fondo === 'pri', 'sec-item': fondo == 'sec', 'img-item': fondo == 'img'}"><ion-icon slot="start" name="person-circle-outline"></ion-icon>{{ "menu.logout" | translate }}</ion-item>
       </ion-list>
     </ion-content>
     <ion-buttons [ngClass]="{'pri-lang': fondo === 'pri', 'sec-lang': fondo == 'sec', 'img-lang': fondo == 'img'}">
@@ -32,7 +32,7 @@
         <img src="assets/imgs/flags/italia.png" class="flag-icon">
       </ion-button>
     </ion-buttons>
-    <ion-item (click)="onSingOut()" (click)="menu.close()" button detail="false" color="danger"><ion-icon slot="start" name="log-out-outline"></ion-icon>Salirse</ion-item>
+    <ion-item (click)="onSingOut()" (click)="menu.close()" button detail="false" color="danger"><ion-icon slot="start" name="log-out-outline"></ion-icon>{{ "menu.logout" | translate}}</ion-item>
   </ion-menu>
 
   <div class="ion-page" id="main-content">

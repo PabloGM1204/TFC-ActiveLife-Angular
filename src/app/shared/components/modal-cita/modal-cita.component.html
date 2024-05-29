@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar class="topbar">
-    <ion-title>Detalles de la Cita</ion-title>
+    <ion-title>{{ "modal-cita.titulo" | translate }}</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="dismissModal()"><ion-icon name="close-outline"></ion-icon></ion-button>
     </ion-buttons>
@@ -19,37 +19,37 @@
     <ion-card-content>
 
       <div class="info-group">
-        <ion-label class="info-label">Descripción:</ion-label>
+        <ion-label class="info-label">{{ "modal-cita.des" | translate }}</ion-label>
         <p class="info-value">{{ cita?.descripcion }}</p>
       </div>
 
       <div class="info-group">
-        <ion-label class="info-label">Estado:</ion-label>
+        <ion-label class="info-label">{{ "modal-cita.est" | translate }}</ion-label>
         <p class="info-value">{{ cita?.estado }}</p>
       </div>
 
       <div class="info-group">
-        <ion-label class="info-label">Fecha de la Cita:</ion-label>
+        <ion-label class="info-label">{{ "modal-cita.fec" | translate }}</ion-label>
         <p class="info-value">{{ getCitaDate(cita?.fechaCita) }}</p>
       </div>
 
       <div class="info-group">
-        <ion-label class="info-label">Fecha de Solicitud:</ion-label>
+        <ion-label class="info-label">{{ "modal-cita.fech2" | translate }}</ion-label>
         <p class="info-value">{{ getCitaDate(cita?.fechaSolicitud) }}</p>
       </div>
 
       <div class="info-group">
-        <ion-label class="info-label">Encargado:</ion-label>
+        <ion-label class="info-label">{{ "modal-cita.enc" | translate }}</ion-label>
         <p class="info-value">{{ cita?.encargadoNombre }}</p>
       </div>
 
       <div class="info-group">
-        <ion-label class="info-label">Usuario:</ion-label>
+        <ion-label class="info-label">{{ "modal-cita.user" | translate }}</ion-label>
         <p class="info-value">{{ cita?.clienteNombre }}</p>
       </div>
       
       <div class="centrar">
-        <ion-label *ngIf="cita?.imagen" class="info-label">Foto</ion-label>
+        <ion-label *ngIf="cita?.imagen" class="info-label">{{ "modal-cita.foto" | translate }}</ion-label>
       </div>
       <br>
       <div class="centrar">
@@ -60,11 +60,11 @@
   </ion-card>
 
   <div class="button-group" *ngIf="cita?.encargadoNombre !== 'Ninguno'">
-    <ion-button [disabled]="cita?.respuesta !== ''" (click)="activateAnswer()" class="action-button" fill="outline">Respuesta</ion-button>
+    <ion-button [disabled]="cita?.respuesta !== ''" (click)="activateAnswer()" class="action-button" fill="outline">{{ "modal-cita.res" | translate }}</ion-button>
   </div>
 
   <div *ngIf="cita?.respuesta !== ''" class="existing-response">
-    <ion-label class="response-title">Respuesta</ion-label>
+    <ion-label class="response-title">{{ "modal-cita.res" | translate }}</ion-label>
     <p class="response-value">{{ cita?.respuesta }}</p>
     <a *ngIf="cita?.fileUrl != ''" [href]="cita?.fileUrl" download="Respuesta Cita" target="_blank" class="descarga"><ion-icon name="download-outline"></ion-icon></a>
   </div>
@@ -72,8 +72,8 @@
   <div class="textarea-container" *ngIf="activo && cita?.respuesta === ''">
     <textarea class="large-input" rows="5" [(ngModel)]="respuesta" placeholder="Escribe tu respuesta aquí..."></textarea>
     <input type="file" id="file" (change)="uploadFile($event)" accept=".pdf" style="display: none;"/>
-    <label for="file" class="custom-file-upload"><ion-icon name="cloud-upload-outline"></ion-icon> Subir archivo PDF</label>
+    <label for="file" class="custom-file-upload"><ion-icon name="cloud-upload-outline"></ion-icon>{{ "modal-cita.sub" | translate }}</label>
     <br>
-    <ion-button [disabled]="respuesta == ''" (click)="sendAnswer()" class="action-button" fill="outline">Enviar</ion-button>
+    <ion-button [disabled]="respuesta == ''" (click)="sendAnswer()" class="action-button" fill="outline">{{ "modal-cita.env" | translate }}</ion-button>
   </div>
 </ion-content>

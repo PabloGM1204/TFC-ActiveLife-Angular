@@ -7,11 +7,11 @@
 <ion-content>
   <form [formGroup]="form">
     <ion-item>
-      <ion-label position="stacked">Repeticiones <span style="color: red;">*</span></ion-label>
+      <ion-label position="stacked">{{ "item-exercise.rep" | translate }} <span style="color: red;">*</span></ion-label>
       <ion-input type="text" formControlName="repeticiones"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="stacked">Series <span style="color: red;">*</span></ion-label>
+      <ion-label position="stacked">{{ "item-exercise.ser" | translate }} <span style="color: red;">*</span></ion-label>
       <ion-input type="text" formControlName="serie"></ion-input>
     </ion-item>
   </form>

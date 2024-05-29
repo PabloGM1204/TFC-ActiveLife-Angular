@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar class="top-bar">
-    <ion-title class="center-title">Detalles del Ejercicio</ion-title>
+    <ion-title class="center-title">{{ "item-exercise.det" | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,22 +12,22 @@
 
     <ion-card-content>
       <div class="info-group">
-        <ion-label class="info-label">Tipo:</ion-label>
+        <ion-label class="info-label">{{ "item-exercise.tipo" | translate }}</ion-label>
         <p class="info-value">{{ exercise?.equipment }}</p>
       </div>
 
       <div class="info-group">
-        <ion-label class="info-label">Objetivo:</ion-label>
+        <ion-label class="info-label">{{ "item-exercise.obj" | translate }}</ion-label>
         <p class="info-value">{{ exercise?.target }}</p>
       </div>
 
       <div class="info-group">
-        <ion-label class="info-label">Músculos Secundarios:</ion-label>
+        <ion-label class="info-label">{{ "item-exercise.sec" | translate }}</ion-label>
         <p class="info-value">{{ exercise?.secondaryMuscles?.join(', ') }}</p>
       </div>
 
       <div class="info-group">
-        <ion-label class="info-label">Instrucciones:</ion-label>
+        <ion-label class="info-label">{{ "item-exercise.int" | translate }}</ion-label>
         <p class="info-value">
           <ul>
             <li *ngFor="let instruction of exercise?.instructions">{{ instruction }}</li>

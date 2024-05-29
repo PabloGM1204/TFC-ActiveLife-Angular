@@ -1,7 +1,7 @@
 <div class="modal-container">
-  <h2>¿Estás seguro?</h2>
+  <h2>{{ "confirm.titulo" | translate }}</h2>
   <div class="button-container">
-    <ion-button class="btn-no" (click)="cancel()" fill="outline">No</ion-button>
-    <ion-button class="btn-yes" color="danger" (click)="confirm()" fill="outline">Sí</ion-button>
+    <ion-button class="btn-no" (click)="cancel()" fill="outline">{{ "confirm.no" | translate }}</ion-button>
+    <ion-button class="btn-yes" color="danger" (click)="confirm()" fill="outline">{{ "confirm.si" | translate }}</ion-button>
   </div>
 </div>

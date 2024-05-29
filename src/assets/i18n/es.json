@@ -19,5 +19,115 @@
         "contraExp2": "Deben ser iguales",
         "nombreUsuario": "Nombre de usuario",
         "admin": "Administrador"
+    },
+    "menu": {
+        "home": "Inicio",
+        "rutinas": "Rutinas",
+        "citas": "Citas",
+        "usuarios": "Usuarios",
+        "perfil": "Perfil",
+        "logout": "Cerrar sesión"
+    },
+    "citas": {
+        "misCitas": "Mis citas",
+        "noAdmin": "Sin administrador",
+        "den": "Cita denegada",
+        "ace": "Cita aceptada",
+        "pas": "Cita pasada de fecha",
+        "sin": "Sin administrador",
+        "user": "Usuario",
+        "titulo": "Título",
+        "fecha": "Fecha",
+        "desc": "Descripción",
+        "acciones": "Acciones"
+    },
+    "crear": {
+        "crear": "Crear Rutina",
+        "nombre": "Nombre de la rutina",
+        "publico": "Público",
+        "desc": "Descripción",
+        "dia": "Día",
+        "lun": "Lunes",
+        "mar": "Martes",
+        "mie": "Miércoles",
+        "jue": "Jueves",
+        "vie": "Viernes",
+        "sab": "Sábado",
+        "dom": "Domingo",
+        "partes": "Partes del cuerpo"
+    },
+    "home": {
+        "titulo1": "Citas futuras",
+        "titulo1-2": "No tienes citas futuras",
+        "user": "Usuario",
+        "titulo": "Título",
+        "fecha": "Fecha",
+        "desc": "Descripción",
+        "titulo2": "Rutinas de hoy",
+        "titulo2-2": "No tienes rutinas para hoy",
+        "rutinas": "Rutinas"
+    },
+    "item-exercise": {
+        "equip": "Equipo:",
+        "obj": "Objetivo:",
+        "sec": "Musculos secundarios:",
+        "ser": "Series:",
+        "rep": "Repeticiones:",
+        "int": "Instrucciones",
+        "det": "Detalles del Ejercicio",
+        "tipo": "Tipo:"
+    },
+    "info-rutinas": {
+        "publico": "Público",
+        "lun": "Lunes",
+        "mar": "Martes",
+        "mie": "Miércoles",
+        "jue": "Jueves",
+        "vie": "Viernes",
+        "sab": "Sábado",
+        "dom": "Domingo",
+        "add": "Añadir ejercicio"
+    },
+    "profile": {
+        "nombre": "Nombre",
+        "des": "Descargar CSV"
+    },
+    "rutinas": {
+        "crear": "Crear Rutina",
+        "priv": "Privadas",
+        "pub": "Públicas"
+    },
+    "card-rutine": {
+        "num": "Numero de ejercicios:",
+        "des": "Descripción:",
+        "day": "Día:",
+        "part": "Partes del cuerpo"
+    },
+    "usuarios": {
+        "foto": "Foto",
+        "nombre": "Nombre",
+        "email": "E-mail",
+        "admin": "Admin",
+        "acciones": "Acciones",
+        "acp": "Aceptar",
+        "eln": "Elimnar"
+    },
+    "modal-cita": {
+        "titulo": "Detalles de la Cita",
+        "des": "Descripción:",
+        "est": "Estado:",
+        "fec": "Fecha de la Cita:",
+        "fech2": "Fecha de Solicitud:",
+        "enc": "Encargado:",
+        "user": "Usuario:",
+        "foto": "Foto",
+        "res": "Respuesta",
+        "sub": "Subir archivo PDF",
+        "env": "Enviar"
+    },
+    "confirm": {
+        "titulo": "¿Estás seguro?",
+        "no": "No",
+        "si": "Sí"
     }
 }

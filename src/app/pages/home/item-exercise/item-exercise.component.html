@@ -15,27 +15,27 @@
             <ion-card-subtitle>{{ exercise.bodyPart | primeraLetraMayus }}</ion-card-subtitle>
           </div>
           <div class="info-group">
-            <ion-label class="info-label">Equipment:</ion-label>
+            <ion-label class="info-label">{{ "item-exercise.equip" | translate }}</ion-label>
             <ion-text>{{ exercise.equipment }}</ion-text>
           </div>
           <div class="info-group">
-            <ion-label class="info-label">Target:</ion-label>
+            <ion-label class="info-label">{{ "item-exercise.obj" | translate }}</ion-label>
             <ion-text>{{ exercise.target }}</ion-text>
           </div>
           <div class="info-group">
-            <ion-label class="info-label">Secondary Muscles:</ion-label>
+            <ion-label class="info-label">{{ "item-exercise.sec" | translate }}</ion-label>
             <ion-text>{{ exercise.secondaryMuscles.join(', ') }}</ion-text>
           </div>
           <div class="info-group">
-            <ion-label class="info-label">Series:</ion-label>
+            <ion-label class="info-label">{{ "item-exercise.ser" | translate }}</ion-label>
             <ion-text>{{ exercise.serie }}</ion-text>
           </div>
           <div class="info-group">
-            <ion-label class="info-label">Repetitions:</ion-label>
+            <ion-label class="info-label">{{ "item-exercise.rep" | translate }}</ion-label>
             <ion-text>{{ exercise.repeticiones }}</ion-text>
           </div>
           <div class="info-group">
-            <ion-label class="info-label">Instructions</ion-label>
+            <ion-label class="info-label">{{ "item-exercise.int" | translate }}</ion-label>
             <p class="info-value">
               <ul>
                 <li *ngFor="let instruction of exercise.instructions">{{ instruction }}</li>

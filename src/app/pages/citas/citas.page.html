@@ -1,34 +1,34 @@
 <ion-content [fullscreen]="true" id="general" [ngClass]="{'pri': fondo === 'pri', 'sec': fondo == 'sec', 'img': fondo == 'img'}">
   <div class="botonera">
-    <ion-button (click)="misCitas()" [class.activo]="!publicCitas" [class.desactivado]="publicCitas">Mis citas</ion-button>
-    <ion-button (click)="noAdmins()" [class.activo]="publicCitas" [class.desactivado]="!publicCitas">Sin administrador</ion-button>
+    <ion-button (click)="misCitas()" [class.activo]="!publicCitas" [class.desactivado]="publicCitas">{{ "citas.misCitas" | translate }}</ion-button>
+    <ion-button (click)="noAdmins()" [class.activo]="publicCitas" [class.desactivado]="!publicCitas">{{ "citas.noAdmin" | translate }}</ion-button>
   </div>
   <!-- Leyenda de Colores -->
   <div class="leyenda">
     <div class="leyenda-item">
       <span class="cuadrado rojo"></span>
-      <ion-label>Cita denegada</ion-label>
+      <ion-label>{{ "citas.den" | translate }}</ion-label>
     </div>
     <div class="leyenda-item">
       <span class="cuadrado verde"></span>
-      <ion-label>Cita aceptada</ion-label>
+      <ion-label>{{ "citas.ace" | translate }}</ion-label>
     </div>
     <div class="leyenda-item">
       <span class="cuadrado gris"></span>
-      <ion-label>Cita pasada de fecha</ion-label>
+      <ion-label>{{ "citas.pas" | translate }}</ion-label>
     </div>
     <div class="leyenda-item">
       <span class="cuadrado sin-color"></span>
-      <ion-label>Sin administrador</ion-label>
+      <ion-label>{{ "citas.sin" | translate }}</ion-label>
     </div>
   </div>
   <ion-grid *ngIf="!publicCitas">
     <ion-row>
-      <ion-col size="2">Usuario</ion-col>
-      <ion-col size="2">Titulo</ion-col>
-      <ion-col size="2">Fecha</ion-col>
-      <ion-col size="2">Descripcion</ion-col>
-      <ion-col size="2">Acciones</ion-col>
+      <ion-col size="2">{{ "citas.user" | translate }}</ion-col>
+      <ion-col size="2">{{ "citas.titulo" | translate }}</ion-col>
+      <ion-col size="2">{{ "citas.fecha" | translate }}</ion-col>
+      <ion-col size="2">{{ "citas.desc" | translate }}</ion-col>
+      <ion-col size="2">{{ "citas.acciones" | translate }}</ion-col>
     </ion-row>
     <ion-row *ngFor="let cita of citas" [class.pasada]="getCitaDate(cita.fechaCita).pasada" [class.aceptada]="cita.estado == 'aceptado'" [class.denegado]="cita.estado == 'denegado'">
       <ion-col size="2">
@@ -55,11 +55,11 @@
   </ion-grid>
   <ion-grid *ngIf="publicCitas">
     <ion-row>
-      <ion-col size="2">Usuario</ion-col>
-      <ion-col size="2">Titulo</ion-col>
-      <ion-col size="2">Fecha</ion-col>
-      <ion-col size="2">Descripcion</ion-col>
-      <ion-col size="2">Acciones</ion-col>
+      <ion-col size="2">{{ "citas.user" | translate }}</ion-col>
+      <ion-col size="2">{{ "citas.titulo" | translate }}</ion-col>
+      <ion-col size="2">{{ "citas.fecha" | translate }}</ion-col>
+      <ion-col size="2">{{ "citas.desc" | translate }}</ion-col>
+      <ion-col size="2">{{ "citas.acciones" | translate }}</ion-col>
     </ion-row>
     <ion-row *ngFor="let cita of citasPublic" [class.pasada]="getCitaDate(cita.fechaCita).pasada">
       <ion-col size="2">

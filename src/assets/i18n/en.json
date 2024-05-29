@@ -19,5 +19,115 @@
         "contraExp2": "Thes must be the same",
         "nombreUsuario": "Username",
         "admin": "Administrator"
+    },
+    "menu": {
+        "home": "Home",
+        "rutinas": "Routines",
+        "citas": "Appointments",
+        "usuarios": "Users",
+        "perfil": "Profile",
+        "logout": "Logout"
+    },
+    "citas": {
+        "misCitas": "My Appointments",
+        "noAdmin": "No Administrator",
+        "den": "Appointment Denied",
+        "ace": "Appointment Accepted",
+        "pas": "Past Appointment",
+        "sin": "No Administrator",
+        "user": "User",
+        "titulo": "Title",
+        "fecha": "Date",
+        "desc": "Description",
+        "acciones": "Actions"
+    },
+    "crear": {
+        "crear": "Create Routine",
+        "nombre": "Routine Name",
+        "publico": "Public",
+        "desc": "Description",
+        "dia": "Day",
+        "lun": "Monday",
+        "mar": "Tuesday",
+        "mie": "Wednesday",
+        "jue": "Thursday",
+        "vie": "Friday",
+        "sab": "Saturday",
+        "dom": "Sunday",
+        "partes": "Body Parts"
+    },
+    "home": {
+        "titulo1": "Upcoming Appointments",
+        "titulo1-2": "You have no upcoming appointments",
+        "user": "User",
+        "titulo": "Title",
+        "fecha": "Date",
+        "desc": "Description",
+        "titulo2": "Today's Routines",
+        "titulo2-2": "You have no routines for today",
+        "rutinas": "Routines"
+    },
+    "item-exercise": {
+        "equip": "Equipment:",
+        "obj": "Objective:",
+        "sec": "Secondary Muscles:",
+        "ser": "Sets:",
+        "rep": "Repetitions:",
+        "int": "Instructions",
+        "det": "Exercise Details",
+        "tipo": "Type:"
+    },
+    "info-rutinas": {
+        "publico": "Public",
+        "lun": "Monday",
+        "mar": "Tuesday",
+        "mie": "Wednesday",
+        "jue": "Thursday",
+        "vie": "Friday",
+        "sab": "Saturday",
+        "dom": "Sunday",
+        "add": "Add Exercise"
+    },
+    "profile": {
+        "nombre": "Name",
+        "des": "Download CSV"
+    },
+    "rutinas": {
+        "crear": "Create Routine",
+        "priv": "Private",
+        "pub": "Public"
+    },
+    "card-rutine": {
+        "num": "Number of Exercises:",
+        "des": "Description:",
+        "day": "Day:",
+        "part": "Body Parts"
+    },
+    "usuarios": {
+        "foto": "Photo",
+        "nombre": "Name",
+        "email": "Email",
+        "admin": "Admin",
+        "acciones": "Actions",
+        "acp": "Accept",
+        "eln": "Delete"
+    },
+    "modal-cita": {
+        "titulo": "Appointment Details",
+        "des": "Description:",
+        "est": "Status:",
+        "fec": "Appointment Date:",
+        "fech2": "Request Date:",
+        "enc": "In Charge:",
+        "user": "User:",
+        "foto": "Photo",
+        "res": "Response",
+        "sub": "Upload PDF File",
+        "env": "Send"
+    },
+    "confirm": {
+        "titulo": "Are you sure?",
+        "no": "No",
+        "si": "Yes"
     }
 }

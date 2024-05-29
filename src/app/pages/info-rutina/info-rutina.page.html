@@ -13,7 +13,7 @@
         </ion-col>
         <ion-col size="4" class="ion-align-self-end">
           <ion-item lines="none">
-            <ion-label>Público</ion-label>
+            <ion-label>{{ "info-rutinas.publico" | translate }}</ion-label>
             <ion-toggle formControlName="public"></ion-toggle>
           </ion-item>
         </ion-col>
@@ -29,13 +29,13 @@
         <ion-col>
           <ion-item>
             <ion-select label="Días" placeholder="Elige un día" formControlName="day">
-              <ion-select-option value="Lunes">Lunes</ion-select-option>
-              <ion-select-option value="Martes">Martes</ion-select-option>
-              <ion-select-option value="Miercoles">Miercoles</ion-select-option>
-              <ion-select-option value="Jueves">Jueves</ion-select-option>
-              <ion-select-option value="Viernes">Viernes</ion-select-option>
-              <ion-select-option value="Sabado">Sabado</ion-select-option>
-              <ion-select-option value="Domingo">Domingo</ion-select-option>
+              <ion-select-option value="Lunes">{{ "info-rutinas.lun" | translate }}</ion-select-option>
+              <ion-select-option value="Martes">{{ "info-rutinas.mar" | translate }}</ion-select-option>
+              <ion-select-option value="Miercoles">{{ "info-rutinas.mie" | translate }}</ion-select-option>
+              <ion-select-option value="Jueves">{{ "info-rutinas.jue" | translate }}</ion-select-option>
+              <ion-select-option value="Viernes">{{ "info-rutinas.vie" | translate }}</ion-select-option>
+              <ion-select-option value="Sabado">{{ "info-rutinas.sab" | translate }}</ion-select-option>
+              <ion-select-option value="Domingo">{{ "info-rutinas.dom" | translate }}</ion-select-option>
             </ion-select>
           </ion-item>
         </ion-col>
@@ -43,7 +43,7 @@
     </ion-grid>
   </form>
   <div id="boton">
-    <ion-button (click)="openModal()" class="añadir">Añadir ejercicio</ion-button>
+    <ion-button (click)="openModal()" class="añadir">{{ "info-rutinas.add" | translate }}</ion-button>
   </div>
   <ng-container *ngFor="let exercise of exercises">
     <app-exercise-private [exercise]="exercise" (removeExerciseEvent)="removeExerciseToRutine($event, exercise)"></app-exercise-private>

@@ -1,16 +1,16 @@
 <ion-content [fullscreen]="true" id="general" [ngClass]="{'pri': fondo === 'pri', 'sec': fondo == 'sec', 'img': fondo == 'img'}">
   <div class="centro">
-    <h1 *ngIf="citas && citas.length > 0; else noCitas" class="titulo">Citas futuras</h1>
+    <h1 *ngIf="citas && citas.length > 0; else noCitas" class="titulo">{{ "home.titulo1" | translate}}</h1>
     <ng-template #noCitas>
-      <h1 class="titulo">No tienes citas futuras</h1>
+      <h1 class="titulo">{{ "home.titulo1-2" | translate}}</h1>
     </ng-template>
   </div>
   <ion-grid *ngIf="citas && citas.length > 0">
     <ion-row>
-      <ion-col size="2">Usuario</ion-col>
-      <ion-col size="3">Titulo</ion-col>
-      <ion-col size="3">Fecha</ion-col>
-      <ion-col size="3">Descripcion</ion-col>
+      <ion-col size="2">{{ "home.user" | translate}}</ion-col>
+      <ion-col size="3">{{ "home.titulo" | translate}}</ion-col>
+      <ion-col size="3">{{ "home.fecha" | translate}}</ion-col>
+      <ion-col size="3">{{ "home.desc" | translate}}</ion-col>
     </ion-row>
     <ion-row *ngFor="let cita of citas" [class.pasada]="getCitaDate(cita.fechaCita).pasada" [class.aceptada]="cita.estado == 'aceptado'" [class.denegado]="cita.estado == 'denegado'">
       <ion-col size="2">
@@ -22,13 +22,13 @@
     </ion-row>
   </ion-grid>
   <div class="centro">
-    <h1 *ngIf="rutinas && rutinas.length > 0; else noRutinas" class="titulo">Rutina de hoy</h1>
+    <h1 *ngIf="rutinas && rutinas.length > 0; else noRutinas" class="titulo">{{ "home.titulo2" | translate}}</h1>
     <ng-template #noRutinas>
-      <h1 class="titulo">No tienes rutinas</h1>
+      <h1 class="titulo">{{ "home.titulo2-2" | translate}}</h1>
     </ng-template>
   </div>
   <div class="centro">
-    <ion-button class="desactivado" fill="outline" (click)="goRutinas()"><ion-icon slot="start" name="barbell-outline" style="font-size: 32px;"></ion-icon>Rutinas</ion-button>
+    <ion-button class="desactivado" fill="outline" (click)="goRutinas()"><ion-icon slot="start" name="barbell-outline" style="font-size: 32px;"></ion-icon>{{ "home.rutinas" | translate}}</ion-button>
   </div>
   <ng-container *ngIf="rutinas.length != 0">
     <ng-container *ngFor="let exercise of exercises">
