@@ -51,15 +51,24 @@ ion-button.selected {
 }
 
 .pri-lang {
-    background: #fff2d6
+    background: #fff2d6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
   
 .sec-lang {
-    background: #9561ee
+    background: #9561ee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
   
 .img-lang {
-    background: #ffd45f
+    background: #ffd45f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .pri-item {
