@@ -124,6 +124,18 @@ ion-content{
 }
 
 @media (max-width: 600px) {
+
+    #general ion-grid {
+        padding: 0;
+        margin-bottom: 80px;
+    }
+
+    #general ion-row {
+        align-items: center;
+        border-bottom: 1px solid #ddd;
+        justify-content: space-between;
+    }
+
     .leyenda {
         flex-direction: column;
         align-items: center;
@@ -131,5 +143,17 @@ ion-content{
 
     .leyenda-item {
         justify-content: center;
+    }
+
+    ion-col {
+        max-width: 110px;
+    }
+
+    #general ion-col:nth-child(4) { /* Esconde la columna de acciones en pantallas pequeñas */
+        display: none;
+    }
+
+    .acciones {
+        color: transparent
     }
 }

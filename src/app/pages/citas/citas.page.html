@@ -28,7 +28,7 @@
       <ion-col size="2">{{ "citas.titulo" | translate }}</ion-col>
       <ion-col size="2">{{ "citas.fecha" | translate }}</ion-col>
       <ion-col size="2">{{ "citas.desc" | translate }}</ion-col>
-      <ion-col size="2">{{ "citas.acciones" | translate }}</ion-col>
+      <ion-col size="2" class="acciones">{{ "citas.acciones" | translate }}</ion-col>
     </ion-row>
     <ion-row *ngFor="let cita of citas" [class.pasada]="getCitaDate(cita.fechaCita).pasada" [class.aceptada]="cita.estado == 'aceptado'" [class.denegado]="cita.estado == 'denegado'">
       <ion-col size="2">
@@ -59,7 +59,7 @@
       <ion-col size="2">{{ "citas.titulo" | translate }}</ion-col>
       <ion-col size="2">{{ "citas.fecha" | translate }}</ion-col>
       <ion-col size="2">{{ "citas.desc" | translate }}</ion-col>
-      <ion-col size="2">{{ "citas.acciones" | translate }}</ion-col>
+      <ion-col size="2" class="acciones">{{ "citas.acciones" | translate }}</ion-col>
     </ion-row>
     <ion-row *ngFor="let cita of citasPublic" [class.pasada]="getCitaDate(cita.fechaCita).pasada">
       <ion-col size="2">

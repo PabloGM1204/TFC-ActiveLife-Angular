@@ -10,6 +10,7 @@ import { User } from 'src/app/core/interfaces/user';
 import { MessageService } from 'primeng/api';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BackgroundService } from 'src/app/core/services/background.service';
+import { CustomTranslateService } from 'src/app/core/services/custom-translate.service';
 
 @Component({
   selector: 'app-crear-rutina',
@@ -36,6 +37,7 @@ export class CrearRutinaPage implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private backgroundSvc: BackgroundService,
+    private langSvc: CustomTranslateService
   ) {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]],
@@ -143,11 +145,35 @@ export class CrearRutinaPage implements OnInit {
   }
 
   showBottomCenterGood() {
-    this.messageService.add({ key: 'bc', severity: 'success', summary: 'Success', detail: 'Ejercicio Añadido' });
+    this.langSvc.language$.subscribe(lang => {
+      switch(lang){
+        case 'es':
+          this.messageService.add({ key: 'bc', severity: 'success', summary: 'Success', detail: 'Ejercicio añadido' });
+          break;
+        case 'en':
+          this.messageService.add({ key: 'bc', severity: 'success', summary: 'Success', detail: 'Added exercise' });
+          break;
+        case 'it':
+          this.messageService.add({ key: 'bc', severity: 'success', summary: 'Success', detail: 'Aggiunto esercizio' });
+          break;
+      }
+    })
   }
 
   showBottomCenterBad(){
-    this.messageService.add({ key: 'er', severity: 'error', summary: 'Eliminado', detail: 'Ejercicio eliminado de la rutina' });
+    this.langSvc.language$.subscribe(lang => { 
+      switch(lang){
+        case 'es':
+          this.messageService.add({ key: 'er', severity: 'error', summary: 'Eliminado', detail: 'Ejercicio eliminado de la rutina' });
+          break;
+        case 'en':
+          this.messageService.add({ key: 'er', severity: 'error', summary: 'Eliminado', detail: 'Exercise removed from the routine' });
+          break;
+        case 'it':
+          this.messageService.add({ key: 'er', severity: 'error', summary: 'Eliminado', detail: 'Esercizio rimosso dalla routine' });
+          break;
+      }
+    })
   }
 
   isFormInvalid(): boolean {

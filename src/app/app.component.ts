@@ -81,25 +81,95 @@ export class AppComponent {
       const page = this.rotuer.url;
       switch (page) {
         case '/home':
-          this.infoText = 'Esta es la página de inicio donde veras las citas proximas que tienes y la rutina que te toca hoy.';
+          switch (this.lang) {
+            case 'es':
+              this.infoText = 'Esta es la página de inicio donde veras las citas proximas que tienes y la rutina que te toca hoy.';
+              break;
+            case 'en':
+              this.infoText = 'This is the home page where you will see the upcoming appointments you have and the routine you have today.';
+              break;
+            case 'it':
+              this.infoText = 'Questa è la home page in cui vedrai i prossimi appuntamenti che hai e la routine che hai oggi.';
+              break;
+          }
           break;
         case '/profile':
-          this.infoText = 'Página de perfil de usuario en la que puedes ver tus datos y cambiar tu foto de perfil.';
+          switch (this.lang) {
+            case 'es':
+              this.infoText = 'Página de perfil de usuario en la que puedes ver tus datos y cambiar tu foto de perfil.';
+              break;
+            case 'en':
+              this.infoText = 'User profile page where you can view your details and change your profile photo.';
+              break;
+            case 'it':
+              this.infoText = 'Pagina del profilo utente in cui puoi visualizzare i tuoi dettagli e modificare la foto del tuo profilo.';
+              break;
+          }
           break;
         case '/usuarios':
-          this.infoText = 'Página con la lista de todos los usuarios que se han registrado a los cuales puedes aceptar, denegar y borrar.';
+          switch (this.lang) {
+            case 'es':
+              this.infoText = 'Página con la lista de todos los usuarios que se han registrado a los cuales puedes aceptar, denegar y borrar.';
+              break;
+            case 'en':
+              this.infoText = 'Page with the list of all registered users whom you can accept, deny and delete.';
+              break;
+            case 'it':
+              this.infoText = "Pagina con l'elenco di tutti gli utenti registrati che puoi accettare, rifiutare ed eliminare.";
+              break;
+          }
           break;
         case '/citas':
-          this.infoText = 'Página en la que puedes aceptar, denegar, responder y obtener citas.';
+          switch (this.lang) {
+            case 'es':
+              this.infoText = 'Página en la que puedes aceptar, denegar, responder y obtener citas.';
+              break;
+            case 'en':
+              this.infoText = 'Page where you can accept, deny, respond and get appointments.';
+              break;
+            case 'it':
+              this.infoText = 'Pagina dove puoi accettare, rifiutare, rispondere e ottenere appuntamenti.';
+              break;
+          }
           break;
         case '/rutinas':
-          this.infoText = 'Página en la que puedes ver tus rutinas, crear nuevas, editarlas, borrarlas y copiar rutinas publicas.';
+          switch (this.lang) {
+            case 'es':
+              this.infoText = 'Página en la que puedes ver tus rutinas, crear nuevas, editarlas, borrarlas y copiar rutinas publicas.';
+              break;
+            case 'en':
+              this.infoText = 'Page where you can see your routines, create new ones, edit them, delete them and copy public routines.';
+              break;
+            case 'it':
+              this.infoText = 'Pagina in cui puoi vedere le tue routine, crearne di nuove, modificarle, eliminarle e copiare le routine pubbliche.';
+              break;
+          }
           break;
         case '/crear-rutina':
-          this.infoText = 'Completa el formulario con los campos obligatorios y añade ejercicios para crear tu rutina.';
+          switch (this.lang) {
+            case 'es':
+              this.infoText = 'Completa el formulario con los campos obligatorios y añade ejercicios para crear tu rutina.';
+              break;
+            case 'en':
+              this.infoText = 'Complete the form with the required fields and add exercises to create your routine.';
+              break;
+            case 'it':
+              this.infoText = 'Completa il modulo con i campi obbligatori e aggiungi esercizi per creare la tua routine.';
+              break;
+          }
           break;
         default:
-          this.infoText = 'Información genérica.';
+          switch (this.lang) {
+            case 'es':
+              this.infoText = 'Información genérica.';
+              break;
+            case 'en':
+              this.infoText = 'Generic information.';
+              break;
+            case 'it':
+              this.infoText = 'Informazioni generiche.';
+              break;
+          }
       }
     }
   }

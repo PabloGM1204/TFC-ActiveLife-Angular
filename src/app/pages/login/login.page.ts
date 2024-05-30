@@ -63,12 +63,36 @@ export class LoginPage implements OnInit {
       next: data => {
         console.log("Data que devuelve el login ", data)
         if(data.admin == false) {
-          this.presentModal("Para usar la aplicación como cliente debe usar el APK", (result)=>{
+          let info: string = "";
+            switch(this.lang){
+              case 'es':
+                info = "Para usar la aplicación como cliente debe usar el APK";
+                break;
+              case 'en':
+                info = "To use the application as a client you must use the APK";
+                break;
+              case 'it':
+                info = "Per utilizzare l'applicazione come client è necessario utilizzare l'APK";
+                break;
+            }
+          this.presentModal(info, (result)=>{
             console.log("Modal cerrado")
             //this.auth.logOut();
           });
         } else if (data.admin == true && data.aceptado == false) {
-          this.presentModal("Aun no tienes permisos para acceder a la aplicación", (result)=>{
+          let info: string = "";
+            switch(this.lang){
+              case 'es':
+                info = "Aun no tienes permisos para acceder a la aplicación";
+                break;
+              case 'en':
+                info = "You still do not have permissions to access the application";
+                break;
+              case 'it':
+                info = "Non hai ancora i permessi per accedere all'applicazione";
+                break;
+            }
+          this.presentModal(info, (result)=>{
             console.log("Modal cerrado")
             //this.auth.logOut();
           });
@@ -91,7 +115,19 @@ export class LoginPage implements OnInit {
       next: data => {
         console.log("Data que devuelve el registro ", data)
         if(data.admin == false) {
-          this.presentModal("Para usar la aplicación como cliente debe usar el APK", (result)=>{
+          let info: string = "";
+          switch(this.lang){
+            case 'es':
+              info = "Para usar la aplicación como cliente debe usar el APK";
+              break;
+            case 'en':
+              info = "To use the application as a client you must use the APK";
+              break;
+            case 'it':
+              info = "Per utilizzare l'applicazione come client è necessario utilizzare l'APK";
+              break;
+          }
+          this.presentModal(info, (result)=>{
             console.log("Modal cerrado")
             //this.auth.logOut();
           });

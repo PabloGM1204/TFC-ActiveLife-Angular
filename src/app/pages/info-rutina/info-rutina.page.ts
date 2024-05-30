@@ -8,6 +8,7 @@ import { Rutina } from 'src/app/core/interfaces/rutina';
 import { ModalController } from '@ionic/angular';
 import { ModalExerciseComponent } from './components/modal-exercise/modal-exercise.component';
 import { BackgroundService } from 'src/app/core/services/background.service';
+import { CustomTranslateService } from 'src/app/core/services/custom-translate.service';
 
 @Component({
   selector: 'app-info-rutina',
@@ -39,6 +40,7 @@ export class InfoRutinaPage implements OnInit {
     private modal: ModalController,
     private router: Router,
     private backgroundSvc: BackgroundService,
+    private langSvc: CustomTranslateService
   ) {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]],
@@ -141,11 +143,35 @@ export class InfoRutinaPage implements OnInit {
   }
 
   showBottomCenterGood() {
-    this.messageService.add({ key: 'bc', severity: 'success', summary: 'Success', detail: 'Ejercicio Añadido' });
+    this.langSvc.language$.subscribe(lang => {
+      switch(lang){
+        case 'es':
+          this.messageService.add({ key: 'bc', severity: 'success', summary: 'Success', detail: 'Ejercicio añadido' });
+          break;
+        case 'en':
+          this.messageService.add({ key: 'bc', severity: 'success', summary: 'Success', detail: 'Added exercise' });
+          break;
+        case 'it':
+          this.messageService.add({ key: 'bc', severity: 'success', summary: 'Success', detail: 'Aggiunto esercizio' });
+          break;
+      }
+    })
   }
 
   showBottomCenterBad(){
-    this.messageService.add({ key: 'er', severity: 'error', summary: 'Error', detail: 'Ejercicio eliminado de la rutina' });
+    this.langSvc.language$.subscribe(lang => { 
+      switch(lang){
+        case 'es':
+          this.messageService.add({ key: 'er', severity: 'error', summary: 'Eliminado', detail: 'Ejercicio eliminado de la rutina' });
+          break;
+        case 'en':
+          this.messageService.add({ key: 'er', severity: 'error', summary: 'Eliminado', detail: 'Exercise removed from the routine' });
+          break;
+        case 'it':
+          this.messageService.add({ key: 'er', severity: 'error', summary: 'Eliminado', detail: 'Esercizio rimosso dalla routine' });
+          break;
+      }
+    })
   }
 
 }

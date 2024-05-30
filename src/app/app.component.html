@@ -18,7 +18,7 @@
         <ion-item (click)="menu.close()" [routerLink]="['/rutinas']" button detail="false" [ngClass]="{'pri-item': fondo === 'pri', 'sec-item': fondo == 'sec', 'img-item': fondo == 'img'}"><ion-icon slot="start" name="barbell-outline"></ion-icon>{{ "menu.rutinas" | translate }}</ion-item>
         <ion-item (click)="menu.close()" [routerLink]="['/citas']" button detail="false" [ngClass]="{'pri-item': fondo === 'pri', 'sec-item': fondo == 'sec', 'img-item': fondo == 'img'}"><ion-icon slot="start" name="calendar-outline"></ion-icon>{{ "menu.citas" | translate }}</ion-item>
         <ion-item (click)="menu.close()" [routerLink]="['/usuarios']" button detail="false" [ngClass]="{'pri-item': fondo === 'pri', 'sec-item': fondo == 'sec', 'img-item': fondo == 'img'}"><ion-icon slot="start" name="people-outline"></ion-icon>{{ "menu.usuarios" | translate }}</ion-item>
-        <ion-item (click)="menu.close()" [routerLink]="['/profile']" button detail="false" [ngClass]="{'pri-item': fondo === 'pri', 'sec-item': fondo == 'sec', 'img-item': fondo == 'img'}"><ion-icon slot="start" name="person-circle-outline"></ion-icon>{{ "menu.logout" | translate }}</ion-item>
+        <ion-item (click)="menu.close()" [routerLink]="['/profile']" button detail="false" [ngClass]="{'pri-item': fondo === 'pri', 'sec-item': fondo == 'sec', 'img-item': fondo == 'img'}"><ion-icon slot="start" name="person-circle-outline"></ion-icon>{{ "menu.perfil" | translate }}</ion-item>
       </ion-list>
     </ion-content>
     <ion-buttons [ngClass]="{'pri-lang': fondo === 'pri', 'sec-lang': fondo == 'sec', 'img-lang': fondo == 'img'}">
