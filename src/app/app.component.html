@@ -37,7 +37,7 @@
 
   <div class="ion-page" id="main-content">
     <app-header *ngIf="auth.isLogged$ | async" 
-    [user]="user"></app-header>
+    [user]="(auth.user$|async)"></app-header>
     <ion-router-outlet></ion-router-outlet>
     <!-- Boton de información -->
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">

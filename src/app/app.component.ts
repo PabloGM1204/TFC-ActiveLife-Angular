@@ -17,6 +17,7 @@ export class AppComponent {
   infoText?: string;
   isLanding: boolean = false;
   fondo: string = "";
+  initialAuthResolved = false;
 
   constructor(
     public auth: AuthService,
@@ -33,17 +34,16 @@ export class AppComponent {
     });
     
     defineCustomElements(window);
-    this.auth.isLogged$.subscribe(logged => {
-      console.log(logged)
-      if(logged){
-        this.rotuer.navigate(['/home']);
-        this.auth.me().subscribe(_ => {
-          console.log("Usuario logeado "+_.name)
-          this.user = {
-            name: _.name,
-            email: _.email
-          }
-        })
+
+    this.auth.isLogged$.subscribe((logged) => {
+      if (this.initialAuthResolved) {
+        if (logged) {
+          this.rotuer.navigate(['/home']).catch(err => console.error(err));
+        } else {
+          this.rotuer.navigate(['/landing']).catch(err => console.error(err));
+        }
+      } else {
+        this.initialAuthResolved = true;
       }
     });
     this.translate.language$.subscribe(lang => {
