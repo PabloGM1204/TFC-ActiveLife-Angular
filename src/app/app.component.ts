@@ -44,8 +44,7 @@ export class AppComponent {
             email: _.email
           }
         })
-      } else
-        this.rotuer.navigate(['/landing'])
+      }
     });
     this.translate.language$.subscribe(lang => {
       this.lang = lang;
