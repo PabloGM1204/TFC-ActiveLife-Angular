@@ -23,12 +23,12 @@
       <p class="small-phrase">{{ "landing.infoCuenta" | translate }}</p>
     </div>
     <div class="right-content">
-      <img src="assets/imgs/logoActiveLife.png">
+      <img src="assets/imgs/logoActiveLife.png" class="logo">
     </div>
   </div>
   <div id="swiper">
     <h2 id="title2">{{ "landing.rutinasTitle" | translate }}</h2>
-    <swiper [config]="config">
+    <swiper [config]="config" style="margin-left: -50px;">
       <ng-template *ngFor="let rutina of rutinas" swiperSlide>
         <app-card-rutine [rutina]="rutina" class="rutina-slide"></app-card-rutine>
       </ng-template>
@@ -73,7 +73,7 @@
     </div>
     <h2 id="title3">{{ "landing.repoTfg" | translate }}</h2>
     <div class="container">
-      <p class="texto2">{{ "landing.repoInfo" | translate}}</p>
+      <p class="texto2" style="text-align: center;">{{ "landing.repoInfo" | translate}}</p>
     </div>
     <div class="container">
       <a href="https://github.com/PabloGM1204/TFG-ActiveLife" target="_blank"><ion-icon name="logo-github" slot="start" class="icon-color"></ion-icon></a>

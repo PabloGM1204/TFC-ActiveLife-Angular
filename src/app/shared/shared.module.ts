@@ -16,6 +16,7 @@ import { HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { createTranslateLoader } from '../core/translate/translate';
 import { AgrandarDirective } from './directives/agrandar.directive';
+import { LoadingComponent } from './components/loading/loading.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { AgrandarDirective } from './directives/agrandar.directive';
     CardRutineComponent,
     ModalCitaComponent,
     ModalConfirmComponent,
-    AgrandarDirective
+    AgrandarDirective,
+    LoadingComponent
   ],
   imports: [
     CommonModule,
@@ -65,6 +67,7 @@ import { AgrandarDirective } from './directives/agrandar.directive';
     CardRutineComponent,
     ModalCitaComponent,
     ModalConfirmComponent,
+    LoadingComponent,
     // Directivas
     AgrandarDirective,
     // Pipes

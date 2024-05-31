@@ -9,33 +9,33 @@
         <!-- Detalles del ejercicio -->
         <ion-col size="12" size-md="8" class="detalles-col">
           <div class="centro">
-            <ion-card-title>{{ exercise.name | primeraLetraMayus }}</ion-card-title>
+            <ion-card-title class="titulo">{{ exercise.name | primeraLetraMayus }}</ion-card-title>
           </div>
           <div class="centro">
-            <ion-card-subtitle>{{ exercise.bodyPart | primeraLetraMayus }}</ion-card-subtitle>
+            <ion-card-subtitle class="subtitle">{{ exercise.bodyPart | primeraLetraMayus }}</ion-card-subtitle>
           </div>
           <div class="info-group">
-            <ion-label class="info-label">{{ "item-exercise.equip" | translate }}</ion-label>
+            <ion-label class="info-label">{{ "item-exercise.equip" | translate }} </ion-label>
             <ion-text>{{ exercise.equipment }}</ion-text>
           </div>
           <div class="info-group">
-            <ion-label class="info-label">{{ "item-exercise.obj" | translate }}</ion-label>
+            <ion-label class="info-label">{{ "item-exercise.obj" | translate }} </ion-label>
             <ion-text>{{ exercise.target }}</ion-text>
           </div>
           <div class="info-group">
-            <ion-label class="info-label">{{ "item-exercise.sec" | translate }}</ion-label>
+            <ion-label class="info-label">{{ "item-exercise.sec" | translate }} </ion-label>
             <ion-text>{{ exercise.secondaryMuscles.join(', ') }}</ion-text>
           </div>
           <div class="info-group">
-            <ion-label class="info-label">{{ "item-exercise.ser" | translate }}</ion-label>
+            <ion-label class="info-label">{{ "item-exercise.ser" | translate }} </ion-label>
             <ion-text>{{ exercise.serie }}</ion-text>
           </div>
           <div class="info-group">
-            <ion-label class="info-label">{{ "item-exercise.rep" | translate }}</ion-label>
+            <ion-label class="info-label">{{ "item-exercise.rep" | translate }} </ion-label>
             <ion-text>{{ exercise.repeticiones }}</ion-text>
           </div>
           <div class="info-group">
-            <ion-label class="info-label">{{ "item-exercise.int" | translate }}</ion-label>
+            <ion-label class="info-label">{{ "item-exercise.int" | translate }} </ion-label>
             <p class="info-value">
               <ul>
                 <li *ngFor="let instruction of exercise.instructions">{{ instruction }}</li>

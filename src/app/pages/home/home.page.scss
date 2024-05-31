@@ -116,3 +116,15 @@ ion-content{
 .img {
   --background: linear-gradient(to top, #ffd45f, #ff6f91);
 }
+
+@media (max-width: 600px) {
+  ion-content {
+  --padding-top: 30px;
+
+  }
+
+  #general ion-grid {
+    padding: 0;
+    font-size: small;
+  }
+}

@@ -52,3 +52,25 @@ img {
     border: 2px solid #FF5C35;
     border-radius: 10px;
 }
+
+@media (max-width: 600px) {
+    .info-group {
+        display: block;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .imagen-col {
+        margin-top: -70px;
+    }
+
+    .titulo {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .subtitle{
+        margin-bottom: 10px;
+    }
+}

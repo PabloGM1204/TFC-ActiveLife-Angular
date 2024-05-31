@@ -2,6 +2,14 @@
     --background: url('/assets/imgs/background-gym.jpg') no-repeat center center / cover;
 }
 
+.login {
+    --color: #FF5C35;
+    --background: #ffffff;
+    --border-color: #FF5C35;
+    --border-width: 2px; 
+    font-weight: bold;
+}
+
 .container {
     margin: 0;
     padding: 0;
@@ -59,23 +67,23 @@ swiper {
 @media (max-width: 600px) {
     .container {
         flex-direction: column;
+        margin-top: -70px;
     }
 
     .left-content {
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
-        border-bottom-right-radius: 0px;
-        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
     }
 
     .left-content, .right-content {
         height: auto;
         margin-left: 0;
     }
+
     .right-content {
-        height: 150px;
-        margin-left: 0;
-        border-radius: 10px;
+        display: none;
     }
 
     swiper {

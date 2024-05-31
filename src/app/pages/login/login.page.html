@@ -14,8 +14,10 @@
     <div class="left-content">
       <app-login-form *ngIf="activateChange" (doLogin)="onLogin($event)"></app-login-form>
       <app-register-form *ngIf="!activateChange" (doRegister)="onRegister($event)"></app-register-form>
-      <ion-button expand="block" *ngIf="activateChange" (click)="changeComponent()" fill="clear" style="text-transform: none;">{{ 'login.botonReg' | translate }}</ion-button>
-      <ion-button expand="block" *ngIf="!activateChange" (click)="changeComponent()" fill="clear" style="text-transform: none;">{{ 'login.botonLog' | translate }}</ion-button>
+      <div class="bottom-buttons">
+        <ion-button expand="block" *ngIf="activateChange" (click)="changeComponent()" fill="clear" style="text-transform: none;" class="login">{{ 'login.botonReg' | translate }}</ion-button>
+        <ion-button expand="block" *ngIf="!activateChange" (click)="changeComponent()" fill="clear" style="text-transform: none;" class="login">{{ 'login.botonLog' | translate }}</ion-button>
+      </div>
     </div>
     <div class="right-content">
       <swiper [config]="config">

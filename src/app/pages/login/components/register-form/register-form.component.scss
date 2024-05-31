@@ -3,9 +3,17 @@
     align-items: center;
     margin-top: 10px;
     margin-bottom: 10px;
+    justify-content: space-between;
 }
   
 .admin-toggle span {
     margin-left: 20px;
     margin-right: 10px;
 }
+
+ion-button {
+    --color: #ffffff;
+    --background: #FF5C35;
+    font-weight: bold;
+}
+

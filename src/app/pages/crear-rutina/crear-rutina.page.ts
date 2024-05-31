@@ -122,7 +122,7 @@ export class CrearRutinaPage implements OnInit {
     this.rutinaSvc.addRutina(rutina).subscribe(
       (response: any) => {
         console.log("Rutina creada: ", response);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/rutinas']);
       },
       (error) => {
         console.error('Error al crear la rutina:', error);

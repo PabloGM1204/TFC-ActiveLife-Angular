@@ -1,0 +1,17 @@
+
+.imagen {
+    width: 100px;
+    height: 100px;
+    filter: grayscale(100%);
+    animation-name: example;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    background-color: transparent;
+  }
+  
+  @keyframes example {
+    0%   {filter: grayscale(100%);}
+    25%  {filter: grayscale(75%);}
+    50%  {filter: grayscale(50%);}
+    100% {filter: grayscale(0%);}
+  }

@@ -11,10 +11,10 @@
       <ion-col size="2"><ion-avatar><img [src]="user?.imageUrl" alt="Imagen del alumno"></ion-avatar></ion-col>
       <ion-col size="2">{{ user.username }}</ion-col>
       <ion-col size="2">{{ user.email }}</ion-col>
-      <ion-col size="2"><ion-icon color="success" *ngIf="user.admin" name="checkmark-outline"></ion-icon><ion-icon color="danger" *ngIf="!user.admin" name="close-outline"></ion-icon></ion-col>
-      <ion-col size="2">
-        <ion-button [disabled]="user.aceptado" *ngIf="user.admin" (click)="accept(user)">{{ "usuarios.acp" | translate }}</ion-button>
-        <ion-button *ngIf="!user.admin" (click)="deleteUser(user)" color="danger">{{ "usuarios.eln" | translate }}</ion-button>
+      <ion-col size="2" class="admin"><ion-icon color="success" *ngIf="user.admin" name="checkmark-outline"></ion-icon><ion-icon color="danger" *ngIf="!user.admin" name="close-outline"></ion-icon></ion-col>
+      <ion-col size="2" class="botones">
+        <ion-button [disabled]="user.aceptado" *ngIf="user.admin" (click)="accept(user)"><ion-icon name="add-outline"></ion-icon></ion-button>
+        <ion-button *ngIf="!user.admin" (click)="deleteUser(user)" color="danger"><ion-icon name="trash-outline"></ion-icon></ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

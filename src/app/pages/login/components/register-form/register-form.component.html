@@ -30,6 +30,6 @@
     <ion-toggle labelPlacement="stacked" formControlName="admin"></ion-toggle>
   </div>
   <div class="ion-text-end">
-    <ion-button expand="block" style="text-transform: none;" (click)="onSubmit()">{{ "login.botonReg" | translate }}</ion-button>
+    <ion-button expand="block" style="text-transform: none;" (click)="onSubmit()" [disabled]="!form.valid">{{ "login.botonReg" | translate }}</ion-button>
   </div>
 </form>

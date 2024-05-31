@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 import { User } from 'firebase/auth';
 import { Timestamp } from 'firebase/firestore';
 import { combineLatest, map } from 'rxjs';
@@ -11,6 +12,7 @@ import { CitasService } from 'src/app/core/services/citas.service';
 import { FirebaseService } from 'src/app/core/services/firebase/firebase.service';
 import { RutinaService } from 'src/app/core/services/rutina.service';
 import { UsersService } from 'src/app/core/services/users.service';
+import { LoadingComponent } from 'src/app/shared/components/loading/loading.component';
 
 @Component({
   selector: 'app-home',
@@ -28,9 +30,14 @@ export class HomePage implements OnInit {
     public citasSvc: CitasService,
     private userSvc: UsersService,
     private backgroundSvc: BackgroundService,
+    private modal: ModalController
   ) {}
 
   ngOnInit() {
+    var onDismiss = (result:any)=>{
+      console.log("Resultado del modal: ", result)
+    }
+    this.modalLoading(onDismiss)
     this.rutinaSvc.subscribeToRutinaCollection();
     this.userSvc.subscribeToUsersCollection();
     this.citasSvc.subscribeToCitasCollection();
@@ -115,6 +122,21 @@ export class HomePage implements OnInit {
   // Método para redirigir a la página de rutinas
   goRutinas() {
     this.router.navigate(['/rutinas']);
+  }
+
+
+  async modalLoading(onDismiss:(result:any)=>void){
+    const modal = await this.modal.create({
+      component: LoadingComponent,
+      cssClass:"modal-loading",
+      backdropDismiss: false
+    });
+    modal.present();
+    modal.onDidDismiss().then(result=>{
+      if(result && result.data){
+        onDismiss(result);
+      }
+    });
   }
 
 }

@@ -1,5 +1,6 @@
 #general {
     --ion-grid-column-padding: 8px;
+
 }
   
 #general ion-grid {
@@ -44,6 +45,10 @@
     margin-right: 8px;
 }
 
+.admin {
+    text-align: center;
+}
+
 ion-content{
     --background: linear-gradient(to top, #fff2d6, #B7ECEC);
 }
@@ -60,8 +65,26 @@ ion-content{
     --background: linear-gradient(to top, #ffd45f, #ff6f91);
 }
 
-@media (min-width: 576px) {
+@media (max-width: 600px) {
+    #general ion-grid {
+        margin-bottom: 80px;
+        padding: 0;
+        font-size: small;
+    }
+
+    #general ion-row {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #ddd;
+        justify-content: space-between;
+    }
+
     #general ion-button {
-      width: 100px;
+      width: 50px;
+    }
+
+    .botones {
+        display: flex;
+        justify-content: center;
     }
 }
