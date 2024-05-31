@@ -17,8 +17,20 @@ SwiperCore.use([EffectCoverflow]);
   styleUrls: ['./landing.page.scss'],
 })
 export class LandingPage implements OnInit {
+
+  /**
+  * Referencia al IonRouterOutlet para manejar la navegación dentro de un componente.
+  */
   @ViewChild(IonRouterOutlet, { static: true }) routerOutlet: IonRouterOutlet | undefined;
 
+  /**
+  * Constructor de la clase.
+  * @param router Servicio de enrutamiento para la navegación entre componentes.
+  * @param rutinaSvc Servicio para gestionar las rutinas.
+  * @param authSvc Servicio de autenticación.
+  * @param auth Servicio de autenticación para gestionar el estado de inicio de sesión.
+  * @param translate Servicio de traducción personalizado.
+  */
   constructor(
     private router: Router,
     private rutinaSvc: RutinaService,
@@ -27,42 +39,50 @@ export class LandingPage implements OnInit {
     public translate: CustomTranslateService
   ) { }
 
-  ionViewDidEnter() {
-    // Coloca aquí el código que deseas ejecutar cada vez que el usuario entra en esta página
-    console.log('El usuario ha entrado en esta página');
-    //this.rutinasFiltered();
-  }
-
+  // Variable para saber si el usuario está logueado
   loguead: Boolean | undefined;
 
+  /**
+  * Método que se ejecuta al inicializar el componente.
+  * Se suscribe al servicio de rutinas para obtener las rutinas disponibles.
+  * Se suscribe al estado de inicio de sesión para gestionar la autenticación del usuario.
+  * Se establece un temporizador para manejar la conexión anónima en caso de no haber usuario logeado.
+  * Se suscribe al servicio de traducción para actualizar el idioma del componente.
+  */
   ngOnInit() {
+    // Suscripción al servicio de rutinas para obtener las rutinas disponibles
     this.rutinaSvc.subscribeToRutinaCollection();
+    // Suscripción al estado de inicio de sesión para gestionar la autenticación del usuario
     this.auth.isLogged$.subscribe(logged => {
       console.log(logged);
       this.loguead = logged;
       
     });
+    // Temporizador para manejar la conexión anónima en caso de no haber usuario logeado
     setTimeout(() => {
       if (this.loguead) {
         console.log("Usuario logeado");
       } else {
         console.log("No hay usuario logeado");
+        // Conexión anónima
         this.authSvc.connectAnonymously().then(() => {
           console.log("Conexión anónima exitosa");
           this.rutinasFiltered();
         }).catch((error) => {
           console.log("Error en la conexión anónima: ", error);
+          // Cierre de sesión en caso de error en la conexión anónima
           this.auth.logOut();
           this.rutinasFiltered();
         });
       }
     }, 5000); // Espera 3 segundos (3000 milisegundos) antes de ejecutar el código dentro del setTimeout
+    // Suscripción al servicio de traducción para actualizar el idioma del componente
     this.translate.language$.subscribe(lang => {
       this.lang = lang;
     });
   }
 
-  // Configuración del swiper
+  // Configuración del swiper para que sea infinito y se vean 3 elementos
   config: SwiperOptions = {
     effect: 'coverflow',
     slidesPerView: 3,
@@ -78,12 +98,15 @@ export class LandingPage implements OnInit {
     initialSlide: 2,
   };
 
-  items: any[] = ['Elemento 1', 'Elemento 2', 'Elemento 3', 'Elemento 4', 'Elemento 5'];
-
-
+  // Variable para guardar las rutinas
   rutinas: Rutina[] = [];
 
-  // Filtrar las rutinas por las que son publicas
+  /**
+  * Filtra las rutinas disponibles para mostrar solo las públicas.
+  * Suscribe al servicio de rutinas para obtener las rutinas disponibles.
+  * Utiliza el operador pipe con el operador map para filtrar las rutinas públicas.
+  * Actualiza la lista de rutinas filtradas y la almacena en la propiedad rutinas.
+  */
   rutinasFiltered() {
     this.rutinaSvc.rutinas$.pipe(
       map(rutina => rutina.filter(rutina => rutina.public == true))
@@ -93,24 +116,29 @@ export class LandingPage implements OnInit {
       });
   }
 
-  // Método para ir al Login/Registro
+  /**
+  * Navega a la pagina de inicio de sesión.
+  */
   goLogReg(){
     this.router.navigate(['/login'])
   }
 
-  // Método para descargar el APK de la app
+  /**
+  * Método para descargar el APK.
+  */
   downloadAPK(){
     console.log("Descargar APK")
   }
 
-  // Método para ir a la página de about
-  goAbout(){
-    this.router.navigate(['/about'])
-  }
-
+  // Variable para guardar el idioma que la inicializo en español
   lang: string = "es";
 
-  // Método para cambiar el idioma
+  /**
+ * Cambia el idioma de la aplicación.
+ * 
+ * @param idioma El idioma al que se cambiará la aplicación.
+ * @returns false para evitar el comportamiento predeterminado del enlace.
+ */
   onLang(idioma: string) {
     console.log('Cambio de idioma');
     switch(idioma){

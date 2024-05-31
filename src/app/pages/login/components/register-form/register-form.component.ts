@@ -13,10 +13,17 @@ export class RegisterFormComponent  implements OnInit {
   // Evento de registro para enviarselo a la pagina
   @Output() doRegister = new EventEmitter<UserCredentials>();
 
+  // Formulario de registro
   form: FormGroup | null = null;
+
+  /**
+  * Constructor de la clase.
+  * Inicializa el formulario de registro con los campos necesarios y las validaciones correspondientes.
+  */
   constructor(
     private formBuilder: FormBuilder
   ) {
+    // Inicializa el formulario de registro con los campos y las validaciones correspondientes.
     this.form = this.formBuilder.group({
       nickname:['', [Validators.required]],
       email:['', [Validators.required, Validators.email]],
@@ -29,18 +36,29 @@ export class RegisterFormComponent  implements OnInit {
 
   ngOnInit() {}
 
-  // Método para cuando le al boton del registro y enviar el evento a la pagina de login
+  /**
+  * Método invocado al enviar el formulario de registro.
+  * Emite los datos del formulario de registro para su procesamiento.
+  */
   onSubmit(){
     console.log("Datos del registro: ", this.form?.value)
     this.doRegister.emit(this.form?.value)
   }
 
-  // Para comprobar si hay errores en los campos
+  /**
+  * Verifica si el control especificado en el formulario tiene errores de validación.
+  * @param controlName El nombre del control en el formulario.
+  * @returns true si el control tiene errores de validación, de lo contrario false. Si el control no se encuentra, devuelve undefined.
+  */
   hasError(controlName:string):boolean|undefined{
     return this.form?.get(controlName)?.invalid;
   }
 
-  // Para comprobar si ha tocado el campo
+  /**
+  * Verifica si el control especificado en el formulario ha sido tocado por el usuario.
+  * @param controlName El nombre del control en el formulario.
+  * @returns true si el control ha sido tocado, de lo contrario false. Si el control no se encuentra, devuelve undefined.
+  */
   hasTouched(controlName:string):boolean|undefined{
     return this.form?.get(controlName)?.touched;
   }

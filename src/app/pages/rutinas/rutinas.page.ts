@@ -14,8 +14,16 @@ import { RutinaService } from 'src/app/core/services/rutina.service';
 })
 export class RutinasPage implements OnInit {
 
+  // Variable para guardar el fondo de la página
   fondo: string = "";
 
+  /**
+  * Constructor de la clase.
+  * @param rutinaSvc Servicio para gestionar las rutinas.
+  * @param auth Servicio de autenticación.
+  * @param router Router para la navegación.
+  * @param backgroundSvc Servicio para gestionar el fondo de la aplicación.
+  */
   constructor(
     private rutinaSvc: RutinaService,
     public auth: AuthService,
@@ -32,6 +40,12 @@ export class RutinasPage implements OnInit {
   // Usuario
   user: any;
 
+  /**
+  * Método que se ejecuta al inicializarse el componente.
+  * Suscribe el componente a la colección de rutinas.
+  * Obtiene la información del usuario autenticado y filtra las rutinas asociadas a su UUID.
+  * Filtra las rutinas públicas disponibles.
+  */
   ngOnInit() {
     this.rutinaSvc.subscribeToRutinaCollection();
     this.auth.me().subscribe(_ => {
@@ -45,7 +59,10 @@ export class RutinasPage implements OnInit {
     });
   }
 
-  // Filtrar las rutinas por usuario
+  /**
+  * Filtra las rutinas asociadas al UUID del usuario especificado.
+  * @param uuid El UUID del usuario para filtrar las rutinas.
+  */
   rutinasFiltered(uuid: string) {
     this.rutinaSvc.rutinas$.pipe(
       map(rutina => rutina.filter(rutina => rutina.userUUID === uuid))
@@ -55,7 +72,9 @@ export class RutinasPage implements OnInit {
       });
   }
 
-  // Filtrar las rutinas por las que son publicas
+  /**
+  * Filtra las rutinas públicas.
+  */
   rutinasFilteredByPublic() {
     this.rutinaSvc.rutinas$.pipe(
       map(rutina => rutina.filter(rutina => rutina.public == true))
@@ -68,28 +87,40 @@ export class RutinasPage implements OnInit {
   // Variable para activar o no las rutinas publicas
   publicRutine: boolean = false;
 
-  // Método para activar las rutinas privadas
+  /**
+  * Oculta las rutinas públicas y muestra solo las privadas.
+  */
   privateRutines(){
     this.publicRutine = false;
   }
 
-  // Método para activar las rutinas publicas
+  /**
+  * Oculta las rutinas privadas y muestra solo las públicas.
+  */
   publicRutines(){
     this.publicRutine = true;
   }
 
-  // Método para eliminar una rutina
+  /**
+  * Elimina una rutina.
+  * @param rutina La rutina a eliminar.
+  */
   deleteRutine(rutina: Rutina){
     console.log("Eliminar rutina: ", rutina);
     this.rutinaSvc.deleteRutina(rutina);
   }
 
-  // Método para ir a crear una rutina
+  /**
+  * Navega hacia la página de creación de una nueva rutina.
+  */
   goCrearRutina() {
     this.router.navigate(['/crear-rutina']);
   }
 
-  // Método para copiar una rutina
+  /**
+  * Copia una rutina.
+  * @param rutina La rutina a copiar.
+  */
   copyExercise(rutina: any) {
     console.log('copiar rutina', rutina);
     let _rutina = {
@@ -100,7 +131,10 @@ export class RutinasPage implements OnInit {
     this.rutinaSvc.copyRutina(_rutina);
   }
 
-  // Par cambiar la rutina activa
+  /**
+  * Cambia el estado de una rutina.
+  * @param rutina La rutina a cambiar.
+  */
   changeRutina(rutina: any) {
     console.log('cambiar rutina', rutina);
     if (rutina.activo) {

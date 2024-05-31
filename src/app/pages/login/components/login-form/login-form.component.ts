@@ -9,13 +9,22 @@ import { UserCredentials } from 'src/app/core/interfaces/user-credentials';
 })
 export class LoginFormComponent  implements OnInit {
 
-  // Evento de login para enviarselo a la pagina
+  /**
+  * Evento emitido para iniciar sesión.
+  */
   @Output() doLogin = new EventEmitter<UserCredentials>();
 
+  // Formulario de login
   form: FormGroup | null = null;
+
+  /**
+  * Constructor de la clase.
+  * @param formBuilder Instancia de FormBuilder para construir el formulario de inicio de sesión.
+  */
   constructor(
     private formBuilder: FormBuilder
   ) {
+    // Formulario para el inicio de sesión.
     this.form = this.formBuilder.group({
       username: ['', [Validators.required]],
       password: ['', [Validators.required]]
@@ -24,7 +33,11 @@ export class LoginFormComponent  implements OnInit {
 
   ngOnInit() {}
 
-  // Envio los datos para el login y pongo el campo de la contraseña a vacio
+  /**
+  * Método invocado al enviar el formulario de inicio de sesión.
+  * Emite un evento para realizar el inicio de sesión con las credenciales ingresadas.
+  * También establece el valor del campo de contraseña en vacío después de enviar el formulario.
+  */
   onSubmit(){
     this.doLogin.emit(this.form?.value);
     this.form?.controls['password'].setValue('');

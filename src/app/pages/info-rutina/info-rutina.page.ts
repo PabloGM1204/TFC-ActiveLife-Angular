@@ -27,10 +27,24 @@ export class InfoRutinaPage implements OnInit {
   // Lista de ejercicios
   exercises: any[] = [];
 
+  // Lista de rutinas
   rutina: any[] = [];
 
+  // Variable para el fondo
   fondo: string = "";
 
+  /**
+  * Constructor de la clase.
+  * @param formBuilder Instancia de FormBuilder para la creación de formularios.
+  * @param apiSvc Servicio ApiService para realizar llamadas a la API.
+  * @param messageService Servicio MessageService para mostrar mensajes en la interfaz de usuario.
+  * @param route Instancia de ActivatedRoute para obtener información sobre la ruta activa.
+  * @param rutinaSvc Servicio RutinaService para manejar las rutinas.
+  * @param modal Controlador ModalController para mostrar y controlar los modales.
+  * @param router Instancia de Router para la navegación entre componentes y rutas.
+  * @param backgroundSvc Servicio BackgroundService para manejar el fondo de la aplicación.
+  * @param langSvc Servicio CustomTranslateService para la gestión de traducciones personalizadas.
+  */
   constructor(
     private formBuilder: FormBuilder,
     public apiSvc: ApiService,
@@ -42,6 +56,7 @@ export class InfoRutinaPage implements OnInit {
     private backgroundSvc: BackgroundService,
     private langSvc: CustomTranslateService
   ) {
+    // Inicialización del formulario con los campos requeridos y sus validadores
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]],
       day: ['', [Validators.required]],
@@ -50,16 +65,25 @@ export class InfoRutinaPage implements OnInit {
     });
   }
 
+  /**
+  * Método ngOnInit para inicializar la instancia de la clase.
+  */
   ngOnInit() {
+    // Obtiene el ID de la ruta activa desde los parámetros de la ruta
     this.id = this.route.snapshot.paramMap.get('id');
+    // Si se proporciona un ID válido, carga la rutina correspondiente
     if(this.id != null){
       this.loadRutine();
     }
+    // Se suscribe a cambios en el fondo de la aplicación
     this.backgroundSvc.background$.subscribe(fondo => {
       this.fondo = fondo;
     });
   }
 
+  /**
+  * Método loadRutine para cargar los datos de una rutina específica utilizando su ID.
+  */
   loadRutine(){
     console.log("ID de la rutina: ", this.id);
     this.rutinaSvc.getRutina(this.id).subscribe((rutina: any) => {
@@ -75,7 +99,9 @@ export class InfoRutinaPage implements OnInit {
     });
   }
 
-  // Método para actualizar la rutina
+  /**
+  * Método updateRutine para actualizar una rutina existente con los datos proporcionados en el formulario.
+  */
   updateRutine(){
     let rutina: any = {
       title: this.form.get('name')?.value,
@@ -90,7 +116,12 @@ export class InfoRutinaPage implements OnInit {
     this.router.navigate(['/rutinas']);
   }  
 
-  // Añadir ejercicio a la rutina
+  /**
+  * Añade un ejercicio a la rutina actual.
+  *
+  * @param data Datos adicionales a añadir al ejercicio.
+  * @param exercise Ejercicio a añadir a la rutina.
+  */
   addExerciseToRutine(data: any, exercise: any){
     console.log("Datos: ", data);
     console.log("Ejercicio: ", exercise);
@@ -104,7 +135,12 @@ export class InfoRutinaPage implements OnInit {
     console.log("Ejercicios: ", this.rutina);
   }
 
-  // Eliminar ejercicio de la rutina
+  /**
+  * Elimina un ejercicio de la rutina actual.
+  *
+  * @param data Datos adicionales del ejercicio.
+  * @param exercise Ejercicio a eliminar de la rutina.
+  */
   removeExerciseToRutine(data: any, exercise: any){
     console.log("Datos: ", data);
     console.log("Ejercicio: ", exercise);
@@ -113,7 +149,9 @@ export class InfoRutinaPage implements OnInit {
     console.log("Ejercicios: ", this.exercises);
   }
 
-  // Métodos para añadir y eliminar ejercicios de la rutina
+  /**
+  * Abre un modal para seleccionar ejercicios y los agrega a la rutina actual.
+  */
   openModal(){
     var onDismiss = (info: any) => {
       console.log("Datos: ", info);
@@ -125,7 +163,12 @@ export class InfoRutinaPage implements OnInit {
     this.presentForm(this.exercises, onDismiss);
   }
 
-  // Método para ver el modal de los ejercicios a añadir
+  /**
+  * Presenta un formulario modal para la selección de ejercicios.
+  * 
+  * @param data Los datos de los ejercicios a mostrar en el modal.
+  * @param onDismiss La función a ejecutar cuando se cierra el modal, pasando el resultado.
+  */
   async presentForm(data: any | null, onDismiss:(result:any)=>void){
     const modal = await this.modal.create({
       component: ModalExerciseComponent,
@@ -142,6 +185,10 @@ export class InfoRutinaPage implements OnInit {
     });
   }
 
+  /**
+  * Muestra un mensaje de éxito en la parte inferior centrada del componente de mensajes
+  * según el idioma seleccionado.
+  */
   showBottomCenterGood() {
     this.langSvc.language$.subscribe(lang => {
       switch(lang){
@@ -158,6 +205,10 @@ export class InfoRutinaPage implements OnInit {
     })
   }
 
+  /**
+  * Muestra un mensaje de error en la parte inferior centrada del componente de mensajes
+  * según el idioma seleccionado.
+  */
   showBottomCenterBad(){
     this.langSvc.language$.subscribe(lang => { 
       switch(lang){

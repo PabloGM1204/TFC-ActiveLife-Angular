@@ -22,12 +22,28 @@ export class CrearRutinaPage implements OnInit {
   // En el caso en el que reciba por la ruta el id de la rutina
   id: any;
 
+  // Variable para el formulario
   form: FormGroup;
 
+  // Variable para guardar el valor del usuario logueado
   user: User | undefined;
 
+  // Variable para el fondo
   fondo: string = "";
 
+  /**
+  * Constructor de la clase.
+  * 
+  * @param apiSvc Servicio de la API para realizar llamadas HTTP.
+  * @param rutinaSvc Servicio de rutinas para gestionar las rutinas.
+  * @param formBuilder Constructor para crear instancias de formularios.
+  * @param auth Servicio de autenticación para gestionar la autenticación de usuarios.
+  * @param messageService Servicio para mostrar mensajes y notificaciones.
+  * @param router Enrutador para la navegación dentro de la aplicación.
+  * @param route Objeto que proporciona información sobre la ruta activada actualmente.
+  * @param backgroundSvc Servicio para gestionar el fondo de la aplicación.
+  * @param langSvc Servicio para la gestión de la traducción personalizada.
+  */
   constructor(
     public apiSvc: ApiService,
     private rutinaSvc: RutinaService,
@@ -39,6 +55,7 @@ export class CrearRutinaPage implements OnInit {
     private backgroundSvc: BackgroundService,
     private langSvc: CustomTranslateService
   ) {
+    // Inicializa el formulario con los campos necesarios y las validaciones
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]],
       day: ['', [Validators.required]],
@@ -50,12 +67,17 @@ export class CrearRutinaPage implements OnInit {
   // Selec de los ejercicios
   secondSelect: boolean = false;
 
-  // Lista de ejercicios
+  // Lista de ejercicios de la rutina
   exercises: any[] = [];
 
+  // Lista de rutinas
   rutina: any[] = [];
 
-
+  /**
+  * Método del ciclo de vida de Angular que se ejecuta después de que Angular
+  * haya inicializado todas las propiedades de datos vinculadas al componente.
+  * Se utiliza para inicializar datos y realizar operaciones de configuración inicial.
+  */
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
     if(this.id != null){
@@ -70,7 +92,12 @@ export class CrearRutinaPage implements OnInit {
     });
   }
 
-  // Añadir ejercicio a la rutina
+  /**
+  * Método para agregar un ejercicio a la rutina.
+  * 
+  * @param data Los datos asociados al ejercicio.
+  * @param exercise El ejercicio que se va a agregar.
+  */
   addExerciseToRutine(data: any, exercise: any){
     console.log("Datos: ", data);
     console.log("Ejercicio: ", exercise);
@@ -84,7 +111,12 @@ export class CrearRutinaPage implements OnInit {
     console.log("Ejercicios: ", this.rutina);
   }
 
-  // Eliminar ejercicio de la rutina
+  /**
+  * Método para eliminar un ejercicio de la rutina.
+  * 
+  * @param data Los datos asociados al ejercicio.
+  * @param exercise El ejercicio que se va a eliminar.
+  */
   removeExerciseToRutine(data: any, exercise: any){
     console.log("Datos: ", data);
     console.log("Ejercicio: ", exercise);
@@ -93,7 +125,11 @@ export class CrearRutinaPage implements OnInit {
     console.log("Ejercicios: ", this.rutina);
   }
 
-  // Obtener los ejercicios por parte del cuerpo y activar el segundo select
+  /**
+  * Método para activar el segundo selector según el valor seleccionado en el primer selector.
+  * 
+  * @param event El evento que contiene el valor seleccionado en el primer selector.
+  */
   activateSecondSelect(event: any) {
     const value = event.detail.value;
     console.log("Valor selccionado ", value)
@@ -108,7 +144,9 @@ export class CrearRutinaPage implements OnInit {
     this.secondSelect = true;
   }
 
-  // Crear la rutina
+  /**
+  * Método para crear una nueva rutina con los datos proporcionados por el formulario.
+  */
   createRutine(){
     let rutina: Rutina = {
       title: this.form.get('name')?.value,
@@ -130,11 +168,14 @@ export class CrearRutinaPage implements OnInit {
     );
   }
 
+  /**
+  * Método para cargar una rutina existente según el ID proporcionado.
+  */
   loadRutine(){
     console.log("ID de la rutina: ", this.id);
     this.rutinaSvc.getRutina(this.id).subscribe((rutina: any) => {
       this.rutina = rutina;
-      // Inicializar el formulario con los datos de la rutina
+      // Inicializo el formulario con los datos de la rutina
       this.form.patchValue({
         name: rutina.title,
         day: rutina.day,
@@ -144,6 +185,10 @@ export class CrearRutinaPage implements OnInit {
     });
   }
 
+  /**
+  * Método para mostrar una notificación de éxito en la parte inferior central.
+  * Utiliza el idioma actual para determinar el mensaje de éxito mostrado.
+  */
   showBottomCenterGood() {
     this.langSvc.language$.subscribe(lang => {
       switch(lang){
@@ -160,8 +205,14 @@ export class CrearRutinaPage implements OnInit {
     })
   }
 
+  /**
+  * Método para mostrar una notificación de error en la parte inferior central.
+  * Utiliza el idioma actual para determinar el mensaje de error mostrado.
+  */
   showBottomCenterBad(){
+    // Suscribirse al idioma actual
     this.langSvc.language$.subscribe(lang => { 
+      // Seleccionar el mensaje de error según el idioma actual y agregar la notificación
       switch(lang){
         case 'es':
           this.messageService.add({ key: 'er', severity: 'error', summary: 'Eliminado', detail: 'Ejercicio eliminado de la rutina' });
@@ -176,7 +227,13 @@ export class CrearRutinaPage implements OnInit {
     })
   }
 
+  /**
+  * Método para verificar si el formulario es inválido o si no se ha agregado ningún ejercicio a la rutina.
+  * 
+  * @returns Un valor booleano que indica si el formulario es inválido o si no se ha agregado ningún ejercicio a la rutina.
+  */
   isFormInvalid(): boolean {
+     // Verificar si el formulario es inválido o si no se ha agregado ningún ejercicio a la rutina
     return this.form.invalid || this.rutina.length < 1;
   }
 

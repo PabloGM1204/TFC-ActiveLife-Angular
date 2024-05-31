@@ -7,6 +7,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class InfoModalComponent  implements OnInit {
 
+  /**
+  * Información pasada al componente como entrada.
+  */
   @Input() info: any;
 
   constructor() { }
