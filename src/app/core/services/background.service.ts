@@ -10,6 +10,11 @@ export class BackgroundService {
   private backgroundSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
   background$: Observable<any> = this.backgroundSubject.asObservable();
 
+  /**
+  * Método para establecer el fondo de la aplicación.
+  *
+  * @param background La URL o identificador del fondo a establecer.
+  */
   setBackground(background: string) {
     this.backgroundSubject.next(background);
   }

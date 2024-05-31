@@ -8,6 +8,11 @@ import { environment } from 'src/environments/environment';
 })
 export class ApiService {
 
+  /**
+  * Constructor de la clase.
+  * 
+  * @param http Cliente HTTP utilizado para realizar solicitudes HTTP.
+  */
   constructor(
     private http: HttpClient
   ) {
@@ -25,7 +30,10 @@ export class ApiService {
     'X-RapidAPI-Host' : 'exercisedb.p.rapidapi.com'
   });
 
-  // Realizar la petición para las partes del cuerpo
+  /**
+  * Método para obtener la lista de partes del cuerpo desde el servidor.
+  * Realiza una solicitud HTTP GET a la API.
+  */
   bodyPartList() {
     this.http.get(environment.apiUrl+'/bodyPartList', { headers: this.headers })
       .subscribe(
@@ -39,7 +47,12 @@ export class ApiService {
       );
   }
 
-  // Realizar la petición para los ejercicios por parte del cuerpo
+  /**
+  * Método para obtener ejercicios asociados a una parte del cuerpo específica desde el servidor.
+  *
+  * @param bodyPart La parte del cuerpo para la cual se desean obtener los ejercicios.
+  * @returns Un observable que emite un array de ejercicios asociados a la parte del cuerpo especificada.
+  */
   exerciseByBodyPart(bodyPart: string): Observable<any[]> {
     return this.http.get(environment.apiUrl+'/bodyPart/'+bodyPart, { headers: this.headers, params: {limit: 20} })
       .pipe(

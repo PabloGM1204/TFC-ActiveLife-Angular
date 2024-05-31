@@ -17,7 +17,11 @@ export class CitasService {
   private _citas: BehaviorSubject<Cita[]> = new BehaviorSubject<Cita[]>([]);
   citas$: Observable<Cita[]> = this._citas.asObservable();
 
-  // GetAll continuo de la colección de citas
+  /**
+  * Método para suscribirse a la colección de citas en Firebase.
+  *
+  * @returns Una función de cancelación de la suscripción o null si no se pudo suscribir.
+  */
   public subscribeToCitasCollection(): Unsubscribe | null {
     return this.firebaseSvc.subscribeToCollection('citas', this._citas, (snapshot: any) => {
       const data = snapshot.data();
@@ -39,13 +43,21 @@ export class CitasService {
     })
   }
 
-  // Actualizar datos de la cita
+  /**
+  * Método para actualizar una cita en la base de datos.
+  *
+  * @param cita La cita que se va a actualizar.
+  */
   public updateCita(cita: Cita) {
     console.log("Cita a actualizar: ", cita);
     from(this.firebaseSvc.updateDocument('citas', cita.id, cita))
   }
 
-  // Eliminar cita
+  /**
+  * Método para eliminar una cita de la base de datos.
+  *
+  * @param cita La cita que se va a eliminar.
+  */
   public deleteCita(cita: Cita) {
     console.log("Cita a eliminar: ", cita);
     from(this.firebaseSvc.deleteDocument('citas', cita.id))

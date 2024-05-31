@@ -12,6 +12,7 @@ export abstract class AuthService {
   protected _logged = new BehaviorSubject<boolean>(false);
   public isLogged$ = this._logged.asObservable();
 
+  // Observables que me van a dar los datos del usuario
   protected _user = new BehaviorSubject<User|null>(null);
   public user$ = this._user.asObservable();
 

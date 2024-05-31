@@ -9,6 +9,11 @@ import { Unsubscribe } from 'firebase/firestore';
 })
 export class RutinaService {
 
+  /**
+  * Constructor de la clase.
+  * 
+  * @param firebaseSvc Servicio de Firebase utilizado para diversas operaciones.
+  */
   constructor(
     private firebaseSvc: FirebaseService
   ) {}
@@ -17,12 +22,14 @@ export class RutinaService {
   private _rutinas: BehaviorSubject<Rutina[]> = new BehaviorSubject<Rutina[]>([]);
   rutinas$: Observable<Rutina[]> = this._rutinas.asObservable();
 
-  // GetAll continuo de la colección de rutinas
+  /**
+  * Método para suscribirse a la colección de rutinas en Firebase.
+  *
+  * @returns Una función de cancelación de la suscripción o null si no se pudo suscribir.
+  */
   public subscribeToRutinaCollection(): Unsubscribe | null {
     return this.firebaseSvc.subscribeToCollection('rutinas', this._rutinas, (snapshot: any) => {
       const data = snapshot.data();
-      //console.log("Datos del documento: ", data, " uuid: ", snapshot);
-
       return {
         title: data.title,
         userUUID: data.userUUID,
@@ -36,7 +43,12 @@ export class RutinaService {
     })
   }
 
-  // Obtener una rutina por su uuid
+  /**
+  * Método para obtener una rutina específica de la base de datos.
+  *
+  * @param id El identificador de la rutina que se desea obtener.
+  * @returns Un observable que emite la rutina solicitada.
+  */
   public getRutina(id: any): Observable<Rutina> {
     return from(this.firebaseSvc.getDocument('rutinas', id)).pipe(
       map((rutina: any) => {
@@ -62,7 +74,12 @@ export class RutinaService {
     );
   }
 
-  // Metodo para crear una rutina
+  /**
+  * Método para agregar una nueva rutina a la base de datos.
+  *
+  * @param _rutina La rutina que se va a agregar.
+  * @returns Un observable que emite la rutina agregada, incluyendo su identificador único (UUID).
+  */
   public addRutina(_rutina: Rutina): Observable<Rutina> {
     let newRutina = {
       title: _rutina.title,
@@ -84,7 +101,12 @@ export class RutinaService {
     )
   }
 
-  // Metodo para actualizar una rutina
+  /**
+  * Método para actualizar una rutina existente en la base de datos.
+  *
+  * @param rutina La rutina que se va a actualizar.
+  * @returns Un observable que indica el estado de la actualización.
+  */
   public updateRutina(rutina: Rutina): Observable<void> {
     let updateRutina = {
       title: rutina.title ? rutina.title : '',
@@ -99,12 +121,22 @@ export class RutinaService {
     return from(this.firebaseSvc.updateDocument('rutinas', rutina.id, updateRutina))
   }
 
-  // Metodo para elimnar una rutina
+  /**
+  * Método para eliminar una rutina de la base de datos.
+  *
+  * @param rutina La rutina que se va a eliminar.
+  * @returns Un observable que indica el estado de la eliminación.
+  */
   public deleteRutina(rutina: Rutina) {
     from(this.firebaseSvc.deleteDocument('rutinas', rutina.id))
   }
 
-  // Método para copiar una rutina publica y guardarla como privada
+  /**
+  * Método para copiar una rutina y agregarla como una nueva rutina en la base de datos.
+  *
+  * @param rutina La rutina que se va a copiar.
+  * @returns Un observable que indica el estado de la creación de la nueva rutina.
+  */
   public copyRutina(rutina: Rutina) {
     console.log('copiar rutina', rutina);
     from(this.firebaseSvc.createDocument('rutinas', rutina))

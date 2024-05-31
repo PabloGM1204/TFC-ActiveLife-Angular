@@ -7,11 +7,23 @@ import { FirebaseService } from './firebase.service';
 
 export class FirebaseMediaService extends MediaService{
 
+  /**
+  * Constructor de la clase.
+  * 
+  * @param firebase Servicio de Firebase utilizado para diversas operaciones.
+  */
   constructor(
     private firebase:FirebaseService
   ) { 
     super();
   }
+
+  /**
+  * Método para cargar un archivo Blob al servicio de Firebase.
+  *
+  * @param blob El archivo Blob que se va a cargar.
+  * @returns Un observable que emite un array de objetos Media después de cargar el archivo.
+  */
   public upload(blob:Blob):Observable<Media[]>{
     return new Observable(obs=>{
       this.firebase.imageUpload(blob).then(data=>{

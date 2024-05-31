@@ -7,6 +7,11 @@ import { FirebaseService, FirebaseUserCredential } from './firebase.service';
 
 export class FirebaseAuthService extends AuthService{
 
+  /**
+  * Constructor de la clase.
+  * 
+  * @param firebaseSvc Servicio de Firebase utilizado para manejar la autenticación y los datos del usuario.
+  */
   constructor(
     private firebaseSvc:FirebaseService
   ) { 
@@ -33,6 +38,12 @@ export class FirebaseAuthService extends AuthService{
     })
   }
 
+  /**
+  * Método para iniciar sesión con las credenciales del usuario.
+  *
+  * @param credentials Las credenciales del usuario, incluyendo nombre de usuario y contraseña.
+  * @returns Un observable que emite datos del usuario al iniciar sesión exitosamente o un error en caso de fallo.
+  */
   public login(credentials:UserCredentials):Observable<any>{
       return new Observable<any>(subscr=>{
         this.firebaseSvc.connectUserWithEmailAndPassword(credentials.username, credentials.password).then((credentials:FirebaseUserCredential|null)=>{
@@ -53,6 +64,12 @@ export class FirebaseAuthService extends AuthService{
       });
   }
 
+  /**
+  * Método para registrar un nuevo usuario con la información proporcionada.
+  *
+  * @param info La información de registro del usuario, incluyendo correo electrónico y contraseña.
+  * @returns Un observable que emite los datos del usuario registrado exitosamente o un error en caso de fallo.
+  */
   public register(info:UserRegisterInfo):Observable<any|null>{
     return new Observable<any>(subscr=>{
       this.firebaseSvc.createUserWithEmailAndPassword(info.email, info.password).then((credentials:FirebaseUserCredential|null)=>{
@@ -74,6 +91,13 @@ export class FirebaseAuthService extends AuthService{
     });
   }
 
+  /**
+  * Método privado que realiza operaciones adicionales después del registro del usuario.
+  *
+  * @param info La información del usuario, incluyendo su UUID y otros datos necesarios.
+  * @returns Un observable que emite el resultado de la creación del documento del usuario en Firebase.
+  * @throws Error en caso de que no se proporcione un UUID en la información del usuario.
+  */
   private postRegister(info:any):Observable<any>{
     if(info.uuid){
       console.log(info)
@@ -87,6 +111,12 @@ export class FirebaseAuthService extends AuthService{
     throw new Error('Error inesperado');
   }
 
+  /**
+  * Método que obtiene los datos del usuario actualmente autenticado.
+  *
+  * @returns Un observable que emite los datos del usuario si está autenticado.
+  * @throws Error en caso de que el usuario no esté conectado.
+  */
   public me():Observable<any>{
     if(this.firebaseSvc.user?.uid)
       return from(this.firebaseSvc.getDocument('users', this.firebaseSvc.user.uid)).pipe(map(data=>{
@@ -105,10 +135,21 @@ export class FirebaseAuthService extends AuthService{
       throw new Error('User is not connected');
   }
 
+  /**
+  * Método que cierra la sesión del usuario actualmente autenticado.
+  *
+  * @returns Un observable que emite el resultado del cierre de sesión.
+  */
   public logOut(): Observable<any> {
     return from(this.firebaseSvc.signOut(false));
   }
 
+  /**
+  * Método que elimina la cuenta del usuario con el ID especificado.
+  *
+  * @param id El ID del usuario cuya cuenta será eliminada.
+  * @returns Un observable que emite void al completar la eliminación de la cuenta.
+  */
   public override deleteAccount(id: number): Observable<void> {
     return new Observable<void>
   }

@@ -1,6 +1,12 @@
 import { AbstractControl, FormControl, ValidationErrors, ValidatorFn } from "@angular/forms";
 export class PasswordValidation {
     
+    /**
+    * Función estática para validar la fortaleza de una contraseña según un protocolo establecido.
+    *
+    * @param controlName Nombre del control que contiene el valor de la contraseña.
+    * @returns Una función validadora que devuelve un objeto de errores si la contraseña no cumple con el protocolo, o null si es válida.
+    */
     public static passwordProto(controlName:string=''): ValidatorFn {
         return (control: AbstractControl): ValidationErrors | null => {
             let password = '';
@@ -16,6 +22,14 @@ export class PasswordValidation {
             }  
         }
     }
+
+    /**
+    * Función estática para validar que dos campos de contraseña coincidan.
+    *
+    * @param passwordControlName Nombre del control que contiene el valor de la contraseña.
+    * @param confirmControlName Nombre del control que contiene el valor de confirmación de la contraseña.
+    * @returns Una función validadora que devuelve un objeto de errores si las contraseñas no coinciden, o null si coinciden.
+    */
     public static passwordMatch(passwordControlName:string, confirmControlName:string):ValidatorFn{
         return (control: AbstractControl): ValidationErrors | null => {
             const password = control.get(passwordControlName)?.value;
@@ -44,4 +58,4 @@ export class PasswordValidation {
             }
         }
     }
-  }
+}
