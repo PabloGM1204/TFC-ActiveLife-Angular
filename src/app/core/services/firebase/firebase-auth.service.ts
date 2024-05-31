@@ -82,6 +82,7 @@ export class FirebaseAuthService extends AuthService{
         email:info.email,
         admin: info.admin,
         aceptado: false,
+        uuid: info.uuid,
     }, info.uuid))}
     throw new Error('Error inesperado');
   }
