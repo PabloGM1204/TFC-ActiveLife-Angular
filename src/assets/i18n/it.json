@@ -18,7 +18,8 @@
         "contraExp": "La tua password potrebbe essere corretta",
         "contraExp2": "Devono essere uguali",
         "nombreUsuario": "Nome utente",
-        "admin": "Amministratore"
+        "admin": "Amministratore",
+        "error": "Email o password sbagliate"
     },
     "menu": {
         "home": "Inizio",

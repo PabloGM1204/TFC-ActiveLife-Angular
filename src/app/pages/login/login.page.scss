@@ -64,6 +64,11 @@ swiper {
     border-bottom-right-radius: 10px;
 }
 
+.error-message {
+    color: red;
+    font-size: 12px;
+}
+
 @media (max-width: 600px) {
     .container {
         flex-direction: column;

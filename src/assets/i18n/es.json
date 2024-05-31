@@ -18,7 +18,8 @@
         "contraExp": "Tu contraseña podría ser corregida",
         "contraExp2": "Deben ser iguales",
         "nombreUsuario": "Nombre de usuario",
-        "admin": "Administrador"
+        "admin": "Administrador",
+        "error": "Correo o contraseña incorrectos"
     },
     "menu": {
         "home": "Inicio",
