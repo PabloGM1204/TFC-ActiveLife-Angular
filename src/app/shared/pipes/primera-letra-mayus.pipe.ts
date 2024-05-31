@@ -5,7 +5,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class PrimeraLetraMayusPipe implements PipeTransform {
 
-  // Metodo que recibe un string y pone la primera letra en mayuscula
+  /**
+  * Capitaliza la primera letra de cada palabra en una cadena de texto.
+  * @param text La cadena de texto que se capitalizará.
+  * @returns La cadena de texto con la primera letra de cada palabra en mayúscula.
+  */
   transform(text: string | undefined): string {
     if (!text) {
       return "";

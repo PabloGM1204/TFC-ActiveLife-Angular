@@ -7,6 +7,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class InfoTooltipComponent {
   
+  /**
+   * Texto de información que se mostrará en el tooltip.
+   */
   @Input() infoText?: string;
   
 }

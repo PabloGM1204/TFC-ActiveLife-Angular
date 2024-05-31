@@ -12,31 +12,56 @@ import { BackgroundService } from './core/services/background.service';
 })
 export class AppComponent {
 
+  // Variable para el usuario
   user: any | undefined
+
+  // Variable para mostrar el tooltip
   showTooltip = false;
+
+  // Variable para el texto del tooltip
   infoText?: string;
+
+  // Variable para saber si estamos en la landing
   isLanding: boolean = false;
+
+  // Variable para el fondo
   fondo: string = "";
+
+  // Variable para saber si la autenticación inicial ha sido resuelta
   initialAuthResolved = false;
 
+  /**
+  * Crea una instancia del componente AppComponent.
+  * @param auth El servicio de autenticación.
+  * @param rotuer El enrutador de la aplicación.
+  * @param translate El servicio de traducción personalizado.
+  * @param backgroundSvc El servicio de fondo.
+  */
   constructor(
     public auth: AuthService,
     private rotuer: Router,
     public translate: CustomTranslateService,
     private backgroundSvc: BackgroundService,
   ) {
+    // Suscribirse a eventos de cambio de URL en el enrutador
     this.rotuer.events.subscribe(() => {
+      // Verificar si la URL actual corresponde a la página de inicio o inicio de sesión
       this.isLanding = this.rotuer.url === '/landing' || this.rotuer.url === '/login';
     });
 
+    // Suscribirse a cambios en el fondo
     this.backgroundSvc.background$.subscribe(fondo => {
       this.fondo = fondo;
     });
     
+    // Definir elementos personalizados para su uso en la aplicación
     defineCustomElements(window);
 
+    // Suscribirse a cambios en el estado de inicio de sesión
     this.auth.isLogged$.subscribe((logged) => {
+      // Verificar si la autorización inicial ya se ha resuelto
       if (this.initialAuthResolved) {
+        // Redirigir a la página de inicio o de inicio de sesión según el estado de inicio de sesión
         if (logged) {
           this.rotuer.navigate(['/home']).catch(err => console.error(err));
         } else {
@@ -46,18 +71,24 @@ export class AppComponent {
         this.initialAuthResolved = true;
       }
     });
+
+    // Suscribirse a cambios en el idioma
     this.translate.language$.subscribe(lang => {
       this.lang = lang;
     });
   }
 
-
   // Variable para el idioma
   lang: string = "es";
 
-  // Método para cambiar el idioma
+  /**
+  * Gestiona el cambio de idioma en la aplicación.
+  * @param idioma El idioma seleccionado.
+  * @returns `false` para evitar la recarga de la página.
+  */
   onLang(idioma: string) {
     console.log('Cambio de idioma');
+    // Establecer el idioma seleccionado
     switch(idioma){
       case 'es':
         this.lang='es';
@@ -69,13 +100,17 @@ export class AppComponent {
         this.lang='it';
         break;
     }
+    // Aplicar el idioma seleccionado mediante el servicio de traducción
     this.translate.use(this.lang);
     return false; 
   }
 
+  /**
+  * Alternar la visibilidad del tooltip.
+  */
   toggleTooltip() {
     this.showTooltip = !this.showTooltip;
-
+    // Actualizar el texto del tooltip dependiendo del idioma seleccionado
     if (this.showTooltip) {
       const page = this.rotuer.url;
       switch (page) {
@@ -173,7 +208,10 @@ export class AppComponent {
     }
   }
 
-  // Método para cerrar sesión
+  /**
+  * Cerrar sesión del usuario.
+  * Redirige al usuario a la página de inicio.
+  */
   onSingOut(){
     this.auth.logOut().subscribe(_=>{
       this.rotuer.navigate(['/landing']);

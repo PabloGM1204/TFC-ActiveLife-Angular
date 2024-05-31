@@ -8,14 +8,18 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent  implements OnInit {
 
+  /**
+  * Entrada del usuario que se mostrará en el componente.
+  */
   @Input() user: any | undefined;
-  constructor(
-    private router: Router
-  ) { }
+
+  constructor( private router: Router ) { }
 
   ngOnInit() {}
 
-  // Metodo para ir al perfil
+  /**
+  * Redirige a la página de perfil del usuario.
+  */
   onProfile(){
     this.router.navigate(['/profile'])
   }
