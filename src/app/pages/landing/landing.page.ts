@@ -23,6 +23,8 @@ export class LandingPage implements OnInit {
   */
   @ViewChild(IonRouterOutlet, { static: true }) routerOutlet: IonRouterOutlet | undefined;
 
+  linkAPK = "https://firebasestorage.googleapis.com/v0/b/activelife-74fc2.appspot.com/o/apk%2Fapp-debug.zip?alt=media&token=b143deeb-1e5b-4308-b4bb-cf7572639bda";
+
   /**
   * Class constructor.
   * @param router Routing service for navigation between components.

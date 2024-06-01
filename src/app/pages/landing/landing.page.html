@@ -18,7 +18,7 @@
       <div>
         <ion-button class="orange-button" (click)="goLogReg()">{{ "landing.login/registro" | translate }}</ion-button>
         <br>
-        <ion-button class="orange-button-white" fill="outline" (click)="downloadAPK()">APK</ion-button>
+        <ion-button class="orange-button-white" fill="outline" (click)="downloadAPK()"><a [href]="linkAPK" download="APK del admin" target="_blank" style="color: #FF5C35; text-decoration: none;">APK</a></ion-button>
       </div>
       <p class="small-phrase">{{ "landing.infoCuenta" | translate }}</p>
     </div>
