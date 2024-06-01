@@ -7,12 +7,13 @@ import { User } from '../../interfaces/user';
 })
 export abstract class AuthService {
 
-  // Observables que me van a indicar si el usuario se ha logeado o no
-  // es de tipo booleano ya que si es verdadero dara el paso a la siguiente página, ademas lo tenemos en falso por defecto por seguridad
+  // Observables that will indicate whether the user has logged in or not.
+  // It is of boolean type because if it is true, it will allow passage to the next page. 
+  // Additionally, it is set to false by default for security reasons.
   protected _logged = new BehaviorSubject<boolean>(false);
   public isLogged$ = this._logged.asObservable();
 
-  // Observables que me van a dar los datos del usuario
+  // Observables that will provide user data.
   protected _user = new BehaviorSubject<User|null>(null);
   public user$ = this._user.asObservable();
 

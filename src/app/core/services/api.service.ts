@@ -9,9 +9,9 @@ import { environment } from 'src/environments/environment';
 export class ApiService {
 
   /**
-  * Constructor de la clase.
+  * Constructor of the class.
   * 
-  * @param http Cliente HTTP utilizado para realizar solicitudes HTTP.
+  * @param http HTTP client used to make HTTP requests.
   */
   constructor(
     private http: HttpClient
@@ -19,20 +19,21 @@ export class ApiService {
     this.bodyPartList();
   }
 
-  // Lista las parte del cuerpo
+  // Lists the body parts.
   bodyList: any[] = [];
-  // Lista de los ejercicios por parte del cuerpo
+
+  // List of exercises by body part.
   excerciseList: any[] = [];
 
-  // Cabecera de la petición
+  // Request header.
   headers = new HttpHeaders({
     'X-RapidAPI-Key': '27f783e675msh276e623085c63bdp14f781jsn07e6c51d8ff5',
     'X-RapidAPI-Host' : 'exercisedb.p.rapidapi.com'
   });
 
   /**
-  * Método para obtener la lista de partes del cuerpo desde el servidor.
-  * Realiza una solicitud HTTP GET a la API.
+  * Method to retrieve the list of body parts from the server.
+  * Sends an HTTP GET request to the API.
   */
   bodyPartList() {
     this.http.get(environment.apiUrl+'/bodyPartList', { headers: this.headers })
@@ -48,10 +49,10 @@ export class ApiService {
   }
 
   /**
-  * Método para obtener ejercicios asociados a una parte del cuerpo específica desde el servidor.
+  * Method to retrieve exercises associated with a specific body part from the server.
   *
-  * @param bodyPart La parte del cuerpo para la cual se desean obtener los ejercicios.
-  * @returns Un observable que emite un array de ejercicios asociados a la parte del cuerpo especificada.
+  * @param bodyPart The body part for which exercises are desired.
+  * @returns An observable that emits an array of exercises associated with the specified body part.
   */
   exerciseByBodyPart(bodyPart: string): Observable<any[]> {
     return this.http.get(environment.apiUrl+'/bodyPart/'+bodyPart, { headers: this.headers, params: {limit: 20} })

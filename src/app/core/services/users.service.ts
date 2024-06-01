@@ -10,22 +10,22 @@ import { User } from '../interfaces/user';
 export class UsersService {
 
   /**
-  * Constructor de la clase.
+  * Constructor of the class.
   * 
-  * @param firebaseSvc Servicio de Firebase utilizado para diversas operaciones.
+  * @param firebaseSvc Firebase service used for various operations.
   */
   constructor(
     private firebaseSvc: FirebaseService
   ) { }
 
-  // Lista de usuarios
+  // Users list.
   private _users: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
   users$: Observable<User[]> = this._users.asObservable();
 
   /**
-  * Método para suscribirse a la colección de usuarios en Firebase.
+  * Method to subscribe to the collection of users in Firebase.
   *
-  * @returns Una función de cancelación de la suscripción o null si no se pudo suscribir.
+  * @returns A cancellation function for the subscription or null if subscription failed.
   */
   public subscribeToUsersCollection(): Unsubscribe | null {
     return this.firebaseSvc.subscribeToCollection('users', this._users, (snapshot: any) => {
@@ -43,10 +43,10 @@ export class UsersService {
   }
 
   /**
-  * Método para actualizar un usuario en la base de datos.
+  * Method to update a user in the database.
   *
-  * @param user El usuario que se va a actualizar.
-  * @returns Un observable que indica el estado de la actualización.
+  * @param user The user to be updated.
+  * @returns An observable indicating the status of the update.
   */
   public updateUser(user: any) {
     console.log("Usuario a actualizar: ", user);
@@ -54,20 +54,20 @@ export class UsersService {
   }
 
   /**
-  * Método para aceptar a un usuario en la base de datos.
+  * Method to accept a user in the database.
   *
-  * @param user El usuario que se va a aceptar.
-  * @returns Un observable que indica el estado de la aceptación.
+  * @param user The user to be accepted.
+  * @returns An observable indicating the status of the acceptance.
   */
   public acceptUser(user: User) {
     from(this.firebaseSvc.updateDocumentField('users', user.uuid, 'aceptado', true))
   }
 
   /**
-  * Método para eliminar un usuario de la base de datos.
+  * Method to delete a user from the database.
   *
-  * @param user El usuario que se va a eliminar.
-  * @returns Un observable que indica el estado de la eliminación.
+  * @param user The user to be deleted.
+  * @returns An observable indicating the status of the deletion.
   */
   public deleteUser(user: User) {
     from(this.firebaseSvc.deleteDocument('users', user.uuid))

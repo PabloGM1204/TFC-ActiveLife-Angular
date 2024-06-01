@@ -10,22 +10,22 @@ import { Unsubscribe } from 'firebase/firestore';
 export class RutinaService {
 
   /**
-  * Constructor de la clase.
+  * Constructor of the class.
   * 
-  * @param firebaseSvc Servicio de Firebase utilizado para diversas operaciones.
+  * @param firebaseSvc Firebase service used for various operations.
   */
   constructor(
     private firebaseSvc: FirebaseService
   ) {}
 
-  // Lista de rutinas
+  // List of routines.
   private _rutinas: BehaviorSubject<Rutina[]> = new BehaviorSubject<Rutina[]>([]);
   rutinas$: Observable<Rutina[]> = this._rutinas.asObservable();
 
   /**
-  * Método para suscribirse a la colección de rutinas en Firebase.
+  * Method to subscribe to the collection of routines in Firebase.
   *
-  * @returns Una función de cancelación de la suscripción o null si no se pudo suscribir.
+  * @returns A cancellation function for the subscription or null if subscription failed.
   */
   public subscribeToRutinaCollection(): Unsubscribe | null {
     return this.firebaseSvc.subscribeToCollection('rutinas', this._rutinas, (snapshot: any) => {
@@ -44,10 +44,10 @@ export class RutinaService {
   }
 
   /**
-  * Método para obtener una rutina específica de la base de datos.
+  * Method to retrieve a specific routine from the database.
   *
-  * @param id El identificador de la rutina que se desea obtener.
-  * @returns Un observable que emite la rutina solicitada.
+  * @param id The identifier of the routine to retrieve.
+  * @returns An observable that emits the requested routine.
   */
   public getRutina(id: any): Observable<Rutina> {
     return from(this.firebaseSvc.getDocument('rutinas', id)).pipe(
@@ -75,10 +75,10 @@ export class RutinaService {
   }
 
   /**
-  * Método para agregar una nueva rutina a la base de datos.
+  * Method to add a new routine to the database.
   *
-  * @param _rutina La rutina que se va a agregar.
-  * @returns Un observable que emite la rutina agregada, incluyendo su identificador único (UUID).
+  * @param _rutina The routine to be added.
+  * @returns An observable that emits the added routine, including its unique identifier (UUID).
   */
   public addRutina(_rutina: Rutina): Observable<Rutina> {
     let newRutina = {
@@ -102,10 +102,10 @@ export class RutinaService {
   }
 
   /**
-  * Método para actualizar una rutina existente en la base de datos.
+  * Method to update an existing routine in the database.
   *
-  * @param rutina La rutina que se va a actualizar.
-  * @returns Un observable que indica el estado de la actualización.
+  * @param rutina The routine to be updated.
+  * @returns An observable indicating the status of the update.
   */
   public updateRutina(rutina: Rutina): Observable<void> {
     let updateRutina = {
@@ -122,20 +122,20 @@ export class RutinaService {
   }
 
   /**
-  * Método para eliminar una rutina de la base de datos.
+  * Method to delete a routine from the database.
   *
-  * @param rutina La rutina que se va a eliminar.
-  * @returns Un observable que indica el estado de la eliminación.
+  * @param rutina The routine to be deleted.
+  * @returns An observable indicating the status of the deletion.
   */
   public deleteRutina(rutina: Rutina) {
     from(this.firebaseSvc.deleteDocument('rutinas', rutina.id))
   }
 
   /**
-  * Método para copiar una rutina y agregarla como una nueva rutina en la base de datos.
+  * Method to copy a routine and add it as a new routine in the database.
   *
-  * @param rutina La rutina que se va a copiar.
-  * @returns Un observable que indica el estado de la creación de la nueva rutina.
+  * @param rutina The routine to be copied.
+  * @returns An observable indicating the status of creating the new routine.
   */
   public copyRutina(rutina: Rutina) {
     console.log('copiar rutina', rutina);

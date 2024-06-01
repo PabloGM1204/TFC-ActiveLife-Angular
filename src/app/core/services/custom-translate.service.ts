@@ -7,14 +7,14 @@ import { BehaviorSubject, Observable, lastValueFrom, tap } from 'rxjs';
 })
 export class CustomTranslateService {
   
-  // Observable que me va a indicar el idioma actual de la aplicación
+  // Observable that will indicate the current language of the application.
   private _language:BehaviorSubject<string> = new BehaviorSubject<string>('es');
   public language$ = this._language.asObservable();
 
   /**
-  * Constructor de la clase.
+  * Constructor of the class.
   * 
-  * @param translate Servicio de traducción utilizado para manejar las traducciones en la aplicación.
+  * @param translate Translation service used to handle translations in the application.
   */
   constructor(
     private translate:TranslateService
@@ -23,8 +23,8 @@ export class CustomTranslateService {
   }
 
   /**
-  * Método privado para inicializar el servicio de traducción.
-  * Agrega los idiomas admitidos y establece el idioma predeterminado.
+  * Private method to initialize the translation service.
+  * Adds supported languages and sets the default language.
   */
   private async init(){
     this.translate.addLangs(['es','en', 'it']);
@@ -32,9 +32,9 @@ export class CustomTranslateService {
   }
 
   /**
-  * Método para cambiar el idioma de la aplicación.
+  * Method to change the language of the application.
   *
-  * @param language El nuevo idioma que se utilizará en la aplicación.
+  * @param language The new language to be used in the application.
   */
   use(language:string){
     lastValueFrom(this.translate.use(language)).then(_=>{
@@ -45,10 +45,10 @@ export class CustomTranslateService {
   }
 
   /**
-  * Método para obtener una traducción para una clave específica.
+  * Method to retrieve a translation for a specific key.
   *
-  * @param key La clave de la traducción que se desea obtener.
-  * @returns Un observable que emite la traducción asociada a la clave especificada.
+  * @param key The key of the translation to retrieve.
+  * @returns An observable that emits the translation associated with the specified key.
   */
   get(key:string):Observable<string>{
     return this.translate.get(key);

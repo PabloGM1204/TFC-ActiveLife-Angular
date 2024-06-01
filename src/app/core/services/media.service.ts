@@ -8,10 +8,10 @@ import { Observable } from 'rxjs';
 })
 export abstract class MediaService {  
   /**
-  * Método abstracto para cargar un archivo Blob.
+  * Abstract method to upload a Blob file.
   *
-  * @param blob El archivo Blob que se va a cargar.
-  * @returns Un observable que emite un array de resultados después de cargar el archivo.
+  * @param blob The Blob file to be uploaded.
+  * @returns An observable that emits an array of results after the file is uploaded.
   */
   public abstract upload(blob:Blob):Observable<any[]>;
 }

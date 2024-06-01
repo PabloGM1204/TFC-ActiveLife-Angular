@@ -8,9 +8,9 @@ import { FirebaseService, FirebaseUserCredential } from './firebase.service';
 export class FirebaseAuthService extends AuthService{
 
   /**
-  * Constructor de la clase.
+  * Constructor of the class.
   * 
-  * @param firebaseSvc Servicio de Firebase utilizado para manejar la autenticación y los datos del usuario.
+  * @param firebaseSvc Firebase service used to handle user authentication and data.
   */
   constructor(
     private firebaseSvc:FirebaseService
@@ -39,10 +39,10 @@ export class FirebaseAuthService extends AuthService{
   }
 
   /**
-  * Método para iniciar sesión con las credenciales del usuario.
+  * Method to log in with user credentials.
   *
-  * @param credentials Las credenciales del usuario, incluyendo nombre de usuario y contraseña.
-  * @returns Un observable que emite datos del usuario al iniciar sesión exitosamente o un error en caso de fallo.
+  * @param credentials User credentials, including username and password.
+  * @returns An observable that emits user data upon successful login or an error in case of failure.
   */
   public login(credentials:UserCredentials):Observable<any>{
       return new Observable<any>(subscr=>{
@@ -65,10 +65,10 @@ export class FirebaseAuthService extends AuthService{
   }
 
   /**
-  * Método para registrar un nuevo usuario con la información proporcionada.
+  * Method to register a new user with the provided information.
   *
-  * @param info La información de registro del usuario, incluyendo correo electrónico y contraseña.
-  * @returns Un observable que emite los datos del usuario registrado exitosamente o un error en caso de fallo.
+  * @param info User registration information, including email and password.
+  * @returns An observable that emits data of the user successfully registered or an error in case of failure.
   */
   public register(info:UserRegisterInfo):Observable<any|null>{
     return new Observable<any>(subscr=>{
@@ -92,11 +92,11 @@ export class FirebaseAuthService extends AuthService{
   }
 
   /**
-  * Método privado que realiza operaciones adicionales después del registro del usuario.
+  * Private method that performs additional operations after user registration.
   *
-  * @param info La información del usuario, incluyendo su UUID y otros datos necesarios.
-  * @returns Un observable que emite el resultado de la creación del documento del usuario en Firebase.
-  * @throws Error en caso de que no se proporcione un UUID en la información del usuario.
+  * @param info User information, including their UUID and other necessary data.
+  * @returns An observable that emits the result of creating the user document in Firebase.
+  * @throws Error if no UUID is provided in the user information.
   */
   private postRegister(info:any):Observable<any>{
     if(info.uuid){
@@ -112,10 +112,10 @@ export class FirebaseAuthService extends AuthService{
   }
 
   /**
-  * Método que obtiene los datos del usuario actualmente autenticado.
+  * Method that retrieves data of the currently authenticated user.
   *
-  * @returns Un observable que emite los datos del usuario si está autenticado.
-  * @throws Error en caso de que el usuario no esté conectado.
+  * @returns An observable that emits the user data if authenticated.
+  * @throws Error if the user is not logged in.
   */
   public me():Observable<any>{
     if(this.firebaseSvc.user?.uid)
@@ -136,19 +136,19 @@ export class FirebaseAuthService extends AuthService{
   }
 
   /**
-  * Método que cierra la sesión del usuario actualmente autenticado.
+  * Method that logs out the currently authenticated user.
   *
-  * @returns Un observable que emite el resultado del cierre de sesión.
+  * @returns An observable that emits the result of the logout.
   */
   public logOut(): Observable<any> {
     return from(this.firebaseSvc.signOut(false));
   }
 
   /**
-  * Método que elimina la cuenta del usuario con el ID especificado.
+  * Method that deletes the account of the user with the specified ID.
   *
-  * @param id El ID del usuario cuya cuenta será eliminada.
-  * @returns Un observable que emite void al completar la eliminación de la cuenta.
+  * @param id The ID of the user whose account will be deleted.
+  * @returns An observable that emits void upon completing the account deletion.
   */
   public override deleteAccount(id: number): Observable<void> {
     return new Observable<void>

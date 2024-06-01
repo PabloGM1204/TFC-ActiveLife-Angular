@@ -9,10 +9,10 @@ import { AuthService } from '../services/auth/auth.service';
 export class AuthGuard implements CanActivate {
 
   /**
-  * Constructor de la clase.
+  * Constructor of the class.
   * 
-  * @param auth Servicio de autenticación utilizado para manejar la autenticación del usuario.
-  * @param router Servicio de enrutamiento utilizado para navegar entre diferentes vistas de la aplicación.
+  * @param auth Authentication service used to handle user authentication.
+  * @param router Routing service used to navigate between different views of the application.
   */
   constructor(
     private auth: AuthService,
@@ -20,11 +20,11 @@ export class AuthGuard implements CanActivate {
   ) {}
 
   /**
-  * Método que determina si una ruta se puede acceder o no.
+  * Method that determines whether a route can be accessed or not.
   *
-  * @param route Información sobre la ruta activada actualmente.
-  * @param state Estado del router en el momento de la activación de la ruta.
-  * @returns Un observable, una promesa o un valor booleano o UrlTree que indica si la ruta puede ser activada.
+  * @param route Information about the currently activated route.
+  * @param state Router state at the time the route is activated.
+  * @returns An observable, a promise, or a boolean value or UrlTree indicating whether the route can be activated.
   */
   canActivate(
     route: ActivatedRouteSnapshot,

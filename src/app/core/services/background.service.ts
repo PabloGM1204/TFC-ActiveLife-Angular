@@ -6,14 +6,14 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class BackgroundService {
 
-  // Lista de citas
+  // Background.
   private backgroundSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
   background$: Observable<any> = this.backgroundSubject.asObservable();
 
   /**
-  * Método para establecer el fondo de la aplicación.
+  * Method to set the background of the application.
   *
-  * @param background La URL o identificador del fondo a establecer.
+  * @param background The URL or identifier of the background to set.
   */
   setBackground(background: string) {
     this.backgroundSubject.next(background);

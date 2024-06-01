@@ -2,10 +2,10 @@ import { AbstractControl, FormControl, ValidationErrors, ValidatorFn } from "@an
 export class PasswordValidation {
     
     /**
-    * Función estática para validar la fortaleza de una contraseña según un protocolo establecido.
+    * Static function to validate the strength of a password according to a specified protocol.
     *
-    * @param controlName Nombre del control que contiene el valor de la contraseña.
-    * @returns Una función validadora que devuelve un objeto de errores si la contraseña no cumple con el protocolo, o null si es válida.
+    * @param controlName Name of the control containing the password value.
+    * @returns A validation function that returns an error object if the password does not meet the protocol, or null if it is valid.
     */
     public static passwordProto(controlName:string=''): ValidatorFn {
         return (control: AbstractControl): ValidationErrors | null => {
@@ -24,11 +24,11 @@ export class PasswordValidation {
     }
 
     /**
-    * Función estática para validar que dos campos de contraseña coincidan.
+    * Static function to validate that two password fields match.
     *
-    * @param passwordControlName Nombre del control que contiene el valor de la contraseña.
-    * @param confirmControlName Nombre del control que contiene el valor de confirmación de la contraseña.
-    * @returns Una función validadora que devuelve un objeto de errores si las contraseñas no coinciden, o null si coinciden.
+    * @param passwordControlName Name of the control containing the password value.
+    * @param confirmControlName Name of the control containing the password confirmation value.
+    * @returns A validation function that returns an error object if the passwords do not match, or null if they match.
     */
     public static passwordMatch(passwordControlName:string, confirmControlName:string):ValidatorFn{
         return (control: AbstractControl): ValidationErrors | null => {
