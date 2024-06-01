@@ -1,0 +1,1449 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>activelife documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">activelife documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  RutinasPage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/rutinas/rutinas.page.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-rutinas</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./rutinas.page.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./rutinas.page.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#auth" >auth</a>
+                            </li>
+                            <li>
+                                <a href="#fondo" >fondo</a>
+                            </li>
+                            <li>
+                                <a href="#publicRutine" >publicRutine</a>
+                            </li>
+                            <li>
+                                <a href="#rutinas" >rutinas</a>
+                            </li>
+                            <li>
+                                <a href="#rutinasPublic" >rutinasPublic</a>
+                            </li>
+                            <li>
+                                <a href="#user" >user</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#changeRutina" >changeRutina</a>
+                            </li>
+                            <li>
+                                <a href="#copyExercise" >copyExercise</a>
+                            </li>
+                            <li>
+                                <a href="#deleteRutine" >deleteRutine</a>
+                            </li>
+                            <li>
+                                <a href="#goCrearRutina" >goCrearRutina</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#privateRutines" >privateRutines</a>
+                            </li>
+                            <li>
+                                <a href="#publicRutines" >publicRutines</a>
+                            </li>
+                            <li>
+                                <a href="#rutinasFiltered" >rutinasFiltered</a>
+                            </li>
+                            <li>
+                                <a href="#rutinasFilteredByPublic" >rutinasFilteredByPublic</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(rutinaSvc: <a href="../injectables/RutinaService.html" target="_self">RutinaService</a>, auth: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, router: Router, backgroundSvc: <a href="../injectables/BackgroundService.html" target="_self">BackgroundService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/rutinas/rutinas.page.ts:18</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Class constructor.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>rutinaSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RutinaService.html" target="_self" >RutinaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Service to manage routines.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>auth</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Authentication service.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Router for navigation.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>backgroundSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BackgroundService.html" target="_self" >BackgroundService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Service to manage the application&#39;s background.</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeRutina"></a>
+                    <span class="name">
+                        <span ><b>changeRutina</b></span>
+                        <a href="#changeRutina"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>changeRutina(rutina: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="138"
+                                    class="link-to-prism">src/app/pages/rutinas/rutinas.page.ts:138</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Changes the status of a routine.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rutina</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The routine to change.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="copyExercise"></a>
+                    <span class="name">
+                        <span ><b>copyExercise</b></span>
+                        <a href="#copyExercise"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>copyExercise(rutina: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="124"
+                                    class="link-to-prism">src/app/pages/rutinas/rutinas.page.ts:124</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Copies a routine.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rutina</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The routine to copy.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteRutine"></a>
+                    <span class="name">
+                        <span ><b>deleteRutine</b></span>
+                        <a href="#deleteRutine"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteRutine(rutina: <a href="../interfaces/Rutina.html" target="_self">Rutina</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="108"
+                                    class="link-to-prism">src/app/pages/rutinas/rutinas.page.ts:108</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Deletes a routine.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rutina</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Rutina.html" target="_self" >Rutina</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The routine to delete.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goCrearRutina"></a>
+                    <span class="name">
+                        <span ><b>goCrearRutina</b></span>
+                        <a href="#goCrearRutina"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goCrearRutina()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="116"
+                                    class="link-to-prism">src/app/pages/rutinas/rutinas.page.ts:116</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Navigates to the page for creating a new routine.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="49"
+                                    class="link-to-prism">src/app/pages/rutinas/rutinas.page.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Method that runs when the component is initialized.
+Subscribes the component to the routines collection.
+Obtains the authenticated user&#39;s information and filters the routines associated with their UUID.
+Filters the available public routines.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="privateRutines"></a>
+                    <span class="name">
+                        <span ><b>privateRutines</b></span>
+                        <a href="#privateRutines"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>privateRutines()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="93"
+                                    class="link-to-prism">src/app/pages/rutinas/rutinas.page.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Hides the public routines and only shows the private ones.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="publicRutines"></a>
+                    <span class="name">
+                        <span ><b>publicRutines</b></span>
+                        <a href="#publicRutines"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>publicRutines()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="100"
+                                    class="link-to-prism">src/app/pages/rutinas/rutinas.page.ts:100</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Hides the private routines and only shows the public ones.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rutinasFiltered"></a>
+                    <span class="name">
+                        <span ><b>rutinasFiltered</b></span>
+                        <a href="#rutinasFiltered"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>rutinasFiltered(uuid: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="66"
+                                    class="link-to-prism">src/app/pages/rutinas/rutinas.page.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Filters the routines associated with the specified user&#39;s UUID.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>uuid</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The UUID of the user to filter the routines.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rutinasFilteredByPublic"></a>
+                    <span class="name">
+                        <span ><b>rutinasFilteredByPublic</b></span>
+                        <a href="#rutinasFilteredByPublic"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>rutinasFilteredByPublic()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="78"
+                                    class="link-to-prism">src/app/pages/rutinas/rutinas.page.ts:78</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Filters the public routines.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="auth"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>auth</b></span>
+                        <a href="#auth"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/pages/rutinas/rutinas.page.ts:29</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">Authentication service.</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fondo"></a>
+                    <span class="name">
+                        <span ><b>fondo</b></span>
+                        <a href="#fondo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/rutinas/rutinas.page.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="publicRutine"></a>
+                    <span class="name">
+                        <span ><b>publicRutine</b></span>
+                        <a href="#publicRutine"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">src/app/pages/rutinas/rutinas.page.ts:88</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rutinas"></a>
+                    <span class="name">
+                        <span ><b>rutinas</b></span>
+                        <a href="#rutinas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Rutina.html" target="_self" >Rutina[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/pages/rutinas/rutinas.page.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rutinasPublic"></a>
+                    <span class="name">
+                        <span ><b>rutinasPublic</b></span>
+                        <a href="#rutinasPublic"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Rutina.html" target="_self" >Rutina[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/pages/rutinas/rutinas.page.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="user"></a>
+                    <span class="name">
+                        <span ><b>user</b></span>
+                        <a href="#user"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/pages/rutinas/rutinas.page.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { map } from &#x27;rxjs&#x27;;
+import { Rutina } from &#x27;src/app/core/interfaces/rutina&#x27;;
+import { ApiService } from &#x27;src/app/core/services/api.service&#x27;;
+import { AuthService } from &#x27;src/app/core/services/auth/auth.service&#x27;;
+import { BackgroundService } from &#x27;src/app/core/services/background.service&#x27;;
+import { RutinaService } from &#x27;src/app/core/services/rutina.service&#x27;;
+
+@Component({
+  selector: &#x27;app-rutinas&#x27;,
+  templateUrl: &#x27;./rutinas.page.html&#x27;,
+  styleUrls: [&#x27;./rutinas.page.scss&#x27;],
+})
+export class RutinasPage implements OnInit {
+
+  // Variable to store the background of the page.
+  fondo: string &#x3D; &quot;&quot;;
+
+  /**
+  * Class constructor.
+  * @param rutinaSvc Service to manage routines.
+  * @param auth Authentication service.
+  * @param router Router for navigation.
+  * @param backgroundSvc Service to manage the application&#x27;s background.
+  */
+  constructor(
+    private rutinaSvc: RutinaService,
+    public auth: AuthService,
+    private router: Router,
+    private backgroundSvc: BackgroundService,
+  ) { }
+
+  // List of private routines.
+  rutinas: Rutina[] &#x3D; [];
+
+  // List of public routines.
+  rutinasPublic: Rutina[] &#x3D; [];
+
+  // User.
+  user: any;
+
+  /**
+  * Method that runs when the component is initialized.
+  * Subscribes the component to the routines collection.
+  * Obtains the authenticated user&#x27;s information and filters the routines associated with their UUID.
+  * Filters the available public routines.
+  */
+  ngOnInit() {
+    this.rutinaSvc.subscribeToRutinaCollection();
+    this.auth.me().subscribe(_ &#x3D;&gt; {
+      this.user &#x3D; _;
+      console.log(&quot;Usuario logeado &quot;+ _.uuid);
+      this.rutinasFiltered(_.uuid);
+      this.rutinasFilteredByPublic();
+    });
+    this.backgroundSvc.background$.subscribe(fondo &#x3D;&gt; {
+      this.fondo &#x3D; fondo;
+    });
+  }
+
+  /**
+  * Filters the routines associated with the specified user&#x27;s UUID.
+  * @param uuid The UUID of the user to filter the routines.
+  */
+  rutinasFiltered(uuid: string) {
+    this.rutinaSvc.rutinas$.pipe(
+      map(rutina &#x3D;&gt; rutina.filter(rutina &#x3D;&gt; rutina.userUUID &#x3D;&#x3D;&#x3D; uuid))
+      ).subscribe(filteredRutinas &#x3D;&gt; {
+        this.rutinas &#x3D; filteredRutinas;
+        console.log(&quot;RESULTADO DE LAS RUTINAS FILTRADAS: &quot;, this.rutinas);
+      });
+  }
+
+  /**
+  * Filters the public routines.
+  */
+  rutinasFilteredByPublic() {
+    this.rutinaSvc.rutinas$.pipe(
+      map(rutina &#x3D;&gt; rutina.filter(rutina &#x3D;&gt; rutina.public &#x3D;&#x3D; true))
+      ).subscribe(filteredRutinas &#x3D;&gt; {
+        this.rutinasPublic &#x3D; filteredRutinas;
+        console.log(&quot;RESULTADO DE LAS RUTINAS PUBLICAS: &quot;, this.rutinasPublic);
+      });
+  }
+
+  // Variable to enable or disable public routines.
+  publicRutine: boolean &#x3D; false;
+
+  /**
+  * Hides the public routines and only shows the private ones.
+  */
+  privateRutines(){
+    this.publicRutine &#x3D; false;
+  }
+
+  /**
+  * Hides the private routines and only shows the public ones.
+  */
+  publicRutines(){
+    this.publicRutine &#x3D; true;
+  }
+
+  /**
+  * Deletes a routine.
+  * @param rutina The routine to delete.
+  */
+  deleteRutine(rutina: Rutina){
+    console.log(&quot;Eliminar rutina: &quot;, rutina);
+    this.rutinaSvc.deleteRutina(rutina);
+  }
+
+  /**
+  * Navigates to the page for creating a new routine.
+  */
+  goCrearRutina() {
+    this.router.navigate([&#x27;/crear-rutina&#x27;]);
+  }
+
+  /**
+  * Copies a routine.
+  * @param rutina The routine to copy.
+  */
+  copyExercise(rutina: any) {
+    console.log(&#x27;copiar rutina&#x27;, rutina);
+    let _rutina &#x3D; {
+      ...rutina,
+      userUUID: this.user.uuid,
+      public: false
+    }
+    this.rutinaSvc.copyRutina(_rutina);
+  }
+
+  /**
+  * Changes the status of a routine.
+  * @param rutina The routine to change.
+  */
+  changeRutina(rutina: any) {
+    console.log(&#x27;cambiar rutina&#x27;, rutina);
+    if (rutina.activo) {
+      this.rutinas.forEach(otherRutina &#x3D;&gt; {
+        if (otherRutina.day &#x3D;&#x3D;&#x3D; rutina.day &amp;&amp; otherRutina !&#x3D;&#x3D; rutina &amp;&amp; otherRutina.activo) {
+          otherRutina.activo &#x3D; false;
+        }
+        this.rutinaSvc.updateRutina(rutina);
+        this.rutinaSvc.updateRutina(otherRutina);
+      });
+    } else {
+      this.rutinaSvc.updateRutina(rutina);
+    }
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-content [fullscreen]&#x3D;&quot;true&quot; [ngClass]&#x3D;&quot;{&#x27;pri&#x27;: fondo &#x3D;&#x3D;&#x3D; &#x27;pri&#x27;, &#x27;sec&#x27;: fondo &#x3D;&#x3D; &#x27;sec&#x27;, &#x27;img&#x27;: fondo &#x3D;&#x3D; &#x27;img&#x27;}&quot;&gt;
+  &lt;div class&#x3D;&quot;crear-boton&quot;&gt;
+    &lt;ion-button (click)&#x3D;&quot;goCrearRutina()&quot; fill&#x3D;&quot;outline&quot;&gt;{{ &quot;rutinas.crear&quot; | translate }}&lt;/ion-button&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;button-container&quot;&gt;
+    &lt;ion-button (click)&#x3D;&quot;privateRutines()&quot; [class.activo]&#x3D;&quot;!publicRutine&quot; [class.desactivado]&#x3D;&quot;publicRutine&quot;&gt;{{ &quot;rutinas.priv&quot; | translate }}&lt;/ion-button&gt;
+    &lt;ion-button (click)&#x3D;&quot;publicRutines()&quot; [class.activo]&#x3D;&quot;publicRutine&quot; [class.desactivado]&#x3D;&quot;!publicRutine&quot;&gt;{{ &quot;rutinas.pub&quot; | translate }}&lt;/ion-button&gt;
+  &lt;/div&gt;
+  &lt;!-- Cards de las rutinas privadas --&gt;
+  &lt;ng-container *ngIf&#x3D;&quot;!publicRutine&quot;&gt;
+    &lt;div class&#x3D;&quot;rutinas-container&quot;&gt;
+      &lt;ng-container *ngFor&#x3D;&quot;let rutina of rutinas&quot;&gt;
+        &lt;app-card-rutine-private 
+          [rutina]&#x3D;&quot;rutina&quot; 
+          (deleteRutina)&#x3D;&quot;deleteRutine(rutina)&quot;
+          (changeRutina)&#x3D;&quot;changeRutina(rutina)&quot;&gt;
+        &lt;/app-card-rutine-private&gt;
+      &lt;/ng-container&gt;
+    &lt;/div&gt;
+  &lt;/ng-container&gt;
+  &lt;!-- Cards de las rutinas publicas --&gt;
+  &lt;ng-container *ngIf&#x3D;&quot;publicRutine&quot;&gt;
+    &lt;div class&#x3D;&quot;rutinas-container&quot;&gt;
+      &lt;ng-container *ngFor&#x3D;&quot;let rutina of rutinasPublic&quot;&gt;
+        &lt;app-card-rutine (copyExerciseEvent)&#x3D;&quot;copyExercise(rutina)&quot; [rutina]&#x3D;&quot;rutina&quot;&gt;&lt;/app-card-rutine&gt;
+      &lt;/ng-container&gt;
+    &lt;/div&gt;
+  &lt;/ng-container&gt;
+&lt;/ion-content&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./rutinas.page.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">ion-content{
+    --padding-top: 75px;
+    --background: linear-gradient(to top, #fff2d6, #B7ECEC);
+}
+
+.crear-boton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.crear-boton ion-button {
+    --color: #FF5C35;
+    --background: #ffffff;
+    --border-color: #FF5C35;
+    --border-width: 2px; 
+    font-weight: bold;
+    width: 170px;
+    height: 50px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.activo {
+    --color: #ffffff;
+    --background: #FF5C35;
+    font-weight: bold;
+    width: 170px;
+    height: 50px;
+}
+
+.desactivado {
+    --color: #FF5C35;
+    --background: #ffffff;
+    --border-color: #FF5C35;
+    --border-width: 2px; 
+    font-weight: bold;
+    width: 170px;
+    height: 50px;
+}
+
+.rutinas-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que las cartas se envuelvan en la siguiente fila si no caben en una fila */
+    gap: 10px; /* Espacio entre las cartas, ajusta según tus necesidades */
+}
+  
+.rutinas-container app-card-rutine-private, app-card-rutine {
+    flex: 0 0 470px; /* Ancho específico de cada carta, ajusta según tus necesidades */
+    margin: 5px; /* Espacio alrededor de cada carta */  
+}
+.pri {
+    --background: linear-gradient(to top, #fff2d6, #B7ECEC);
+}
+  
+.sec {
+    --background: linear-gradient(to top, #9561ee, #1db6ef);
+}
+  
+.img {
+    --background: linear-gradient(to top, #ffd45f, #ff6f91);
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-content [fullscreen]="true" [ngClass]="{\'pri\': fondo === \'pri\', \'sec\': fondo == \'sec\', \'img\': fondo == \'img\'}">  <div class="crear-boton">    <ion-button (click)="goCrearRutina()" fill="outline">{{ "rutinas.crear" | translate }}</ion-button>  </div>  <div class="button-container">    <ion-button (click)="privateRutines()" [class.activo]="!publicRutine" [class.desactivado]="publicRutine">{{ "rutinas.priv" | translate }}</ion-button>    <ion-button (click)="publicRutines()" [class.activo]="publicRutine" [class.desactivado]="!publicRutine">{{ "rutinas.pub" | translate }}</ion-button>  </div>  <!-- Cards de las rutinas privadas -->  <ng-container *ngIf="!publicRutine">    <div class="rutinas-container">      <ng-container *ngFor="let rutina of rutinas">        <app-card-rutine-private           [rutina]="rutina"           (deleteRutina)="deleteRutine(rutina)"          (changeRutina)="changeRutina(rutina)">        </app-card-rutine-private>      </ng-container>    </div>  </ng-container>  <!-- Cards de las rutinas publicas -->  <ng-container *ngIf="publicRutine">    <div class="rutinas-container">      <ng-container *ngFor="let rutina of rutinasPublic">        <app-card-rutine (copyExerciseEvent)="copyExercise(rutina)" [rutina]="rutina"></app-card-rutine>      </ng-container>    </div>  </ng-container></ion-content></div>'
+    var COMPONENTS = [{'name': 'AddExerciseComponent', 'selector': 'app-add-exercise'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CardExerciseComponent', 'selector': 'app-card-exercise'},{'name': 'CardRutineComponent', 'selector': 'app-card-rutine'},{'name': 'CardRutinePrivateComponent', 'selector': 'app-card-rutine-private'},{'name': 'CitasPage', 'selector': 'app-citas'},{'name': 'CrearRutinaPage', 'selector': 'app-crear-rutina'},{'name': 'DetalleExerciseComponent', 'selector': 'app-detalle-exercise'},{'name': 'ExercisePrivateComponent', 'selector': 'app-exercise-private'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoModalComponent', 'selector': 'app-info-modal'},{'name': 'InfoRutinaPage', 'selector': 'app-info-rutina'},{'name': 'InfoTooltipComponent', 'selector': 'app-info-tooltip'},{'name': 'ItemExerciseComponent', 'selector': 'app-item-exercise'},{'name': 'LandingPage', 'selector': 'app-landing'},{'name': 'LoadingComponent', 'selector': 'app-loading'},{'name': 'LoginFormComponent', 'selector': 'app-login-form'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'ModalCitaComponent', 'selector': 'app-modal-cita'},{'name': 'ModalConfirmComponent', 'selector': 'app-modal-confirm'},{'name': 'ModalExerciseComponent', 'selector': 'app-modal-exercise'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterFormComponent', 'selector': 'app-register-form'},{'name': 'RutinasPage', 'selector': 'app-rutinas'},{'name': 'UsuariosPage', 'selector': 'app-usuarios'}];
+    var DIRECTIVES = [{'name': 'AgrandarDirective', 'selector': '[appAgrandar]'}];
+    var ACTUAL_COMPONENT = {'name': 'RutinasPage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'RutinasPage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

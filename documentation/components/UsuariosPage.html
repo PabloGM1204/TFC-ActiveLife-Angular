@@ -1,0 +1,1507 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>activelife documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">activelife documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  UsuariosPage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/usuarios/usuarios.page.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-usuarios</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./usuarios.page.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./usuarios.page.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#filteredUsers$" >filteredUsers$</a>
+                            </li>
+                            <li>
+                                <a href="#fondo" >fondo</a>
+                            </li>
+                            <li>
+                                <a href="#searchTerm" >searchTerm</a>
+                            </li>
+                            <li>
+                                <a href="#showAdminsOnly" >showAdminsOnly</a>
+                            </li>
+                            <li>
+                                <a href="#showNonAdminsOnly" >showNonAdminsOnly</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#userSvc" >userSvc</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#accept" >accept</a>
+                            </li>
+                            <li>
+                                <a href="#deleteUser" >deleteUser</a>
+                            </li>
+                            <li>
+                                <a href="#filterUsers" >filterUsers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#modalConfirm" >modalConfirm</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onAdminCheckboxChanged" >onAdminCheckboxChanged</a>
+                            </li>
+                            <li>
+                                <a href="#onNonAdminCheckboxChanged" >onNonAdminCheckboxChanged</a>
+                            </li>
+                            <li>
+                                <a href="#onSearchTermChanged" >onSearchTermChanged</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(userSvc: <a href="../injectables/UsersService.html" target="_self">UsersService</a>, modal: ModalController, backgroundSvc: <a href="../injectables/BackgroundService.html" target="_self">BackgroundService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/pages/usuarios/usuarios.page.ts:27</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Component&#39;s constructor.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>userSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UsersService.html" target="_self" >UsersService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>User service to handle user information.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>modal</td>
+                                                  
+                                                        <td>
+                                                                    <code>ModalController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Modal controller to open and manage modals.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>backgroundSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BackgroundService.html" target="_self" >BackgroundService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Background service to manage the component&#39;s background.</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="accept"></a>
+                    <span class="name">
+                        <span ><b>accept</b></span>
+                        <a href="#accept"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>accept(user: <a href="../interfaces/User.html" target="_self">User</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="134"
+                                    class="link-to-prism">src/app/pages/usuarios/usuarios.page.ts:134</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Method to accept a user.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The user who is going to be accepted.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteUser"></a>
+                    <span class="name">
+                        <span ><b>deleteUser</b></span>
+                        <a href="#deleteUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteUser(user: <a href="../interfaces/User.html" target="_self">User</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="144"
+                                    class="link-to-prism">src/app/pages/usuarios/usuarios.page.ts:144</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Method to delete a user.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The user who is going to be deleted.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filterUsers"></a>
+                    <span class="name">
+                        <span ><b>filterUsers</b></span>
+                        <a href="#filterUsers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>filterUsers(users: <a href="../interfaces/User.html" target="_self">User[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="66"
+                                    class="link-to-prism">src/app/pages/usuarios/usuarios.page.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Filters a list of users according to the search term and display options.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>users</td>
+                                            <td>
+                                                            <code><a href="../interfaces/User.html" target="_self" >User[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The list of users to filter.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >User[]</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>The list of users filtered according to the search term and display options.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modalConfirm"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>modalConfirm</b></span>
+                        <a href="#modalConfirm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>modalConfirm(onDismiss: (result: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>) => void)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="162"
+                                    class="link-to-prism">src/app/pages/usuarios/usuarios.page.ts:162</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Method to display a confirmation modal.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>onDismiss</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Function that runs when the modal is closed, receives the result of the modal as a parameter.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="46"
+                                    class="link-to-prism">src/app/pages/usuarios/usuarios.page.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Method that runs when the component is initialized.
+Subscribes to the user service to get the collection of users.
+Subscribes to the background service to update the component&#39;s background.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onAdminCheckboxChanged"></a>
+                    <span class="name">
+                        <span ><b>onAdminCheckboxChanged</b></span>
+                        <a href="#onAdminCheckboxChanged"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onAdminCheckboxChanged()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="100"
+                                    class="link-to-prism">src/app/pages/usuarios/usuarios.page.ts:100</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Handles the change in the state of the admin checkbox.
+If only admins are being shown, it deactivates the option to show non-admins.
+Updates the list of filtered users according to the changes in the checkbox state.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onNonAdminCheckboxChanged"></a>
+                    <span class="name">
+                        <span ><b>onNonAdminCheckboxChanged</b></span>
+                        <a href="#onNonAdminCheckboxChanged"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onNonAdminCheckboxChanged()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="117"
+                                    class="link-to-prism">src/app/pages/usuarios/usuarios.page.ts:117</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Handles the change in the state of the non-admin checkbox.
+If only non-admins are being shown, it deactivates the option to show admins.
+Updates the list of filtered users according to the changes in the checkbox state.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSearchTermChanged"></a>
+                    <span class="name">
+                        <span ><b>onSearchTermChanged</b></span>
+                        <a href="#onSearchTermChanged"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSearchTermChanged()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="86"
+                                    class="link-to-prism">src/app/pages/usuarios/usuarios.page.ts:86</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates the list of filtered users when the search term changes.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filteredUsers$"></a>
+                    <span class="name">
+                        <span ><b>filteredUsers$</b></span>
+                        <a href="#filteredUsers$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Observable&lt;any[]&gt;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/pages/usuarios/usuarios.page.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fondo"></a>
+                    <span class="name">
+                        <span ><b>fondo</b></span>
+                        <a href="#fondo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/pages/usuarios/usuarios.page.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchTerm"></a>
+                    <span class="name">
+                        <span ><b>searchTerm</b></span>
+                        <a href="#searchTerm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/pages/usuarios/usuarios.page.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showAdminsOnly"></a>
+                    <span class="name">
+                        <span ><b>showAdminsOnly</b></span>
+                        <a href="#showAdminsOnly"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/pages/usuarios/usuarios.page.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showNonAdminsOnly"></a>
+                    <span class="name">
+                        <span ><b>showNonAdminsOnly</b></span>
+                        <a href="#showNonAdminsOnly"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/pages/usuarios/usuarios.page.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userSvc"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>userSvc</b></span>
+                        <a href="#userSvc"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/UsersService.html" target="_self" >UsersService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/pages/usuarios/usuarios.page.ts:36</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">User service to handle user information.</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { ModalController } from &#x27;@ionic/angular&#x27;;
+import { Observable, combineLatest, map, startWith } from &#x27;rxjs&#x27;;
+import { User } from &#x27;src/app/core/interfaces/user&#x27;;
+import { BackgroundService } from &#x27;src/app/core/services/background.service&#x27;;
+import { UsersService } from &#x27;src/app/core/services/users.service&#x27;;
+import { ModalConfirmComponent } from &#x27;src/app/shared/components/modal-confirm/modal-confirm.component&#x27;;
+
+@Component({
+  selector: &#x27;app-usuarios&#x27;,
+  templateUrl: &#x27;./usuarios.page.html&#x27;,
+  styleUrls: [&#x27;./usuarios.page.scss&#x27;],
+})
+export class UsuariosPage implements OnInit {
+
+  // Variable to store the background of the page.
+  fondo: string &#x3D; &quot;&quot;;
+
+  // Variable for the search term.
+  searchTerm: string &#x3D; &#x27;&#x27;;
+
+  // Observable of filtered users.
+  filteredUsers$!: Observable&lt;any[]&gt;;
+
+  // Variable for the state of the admin checkbox.
+  showAdminsOnly: boolean &#x3D; false;
+  showNonAdminsOnly: boolean &#x3D; false;
+
+  /**
+  * Component&#x27;s constructor.
+  * @param userSvc User service to handle user information.
+  * @param modal Modal controller to open and manage modals.
+  * @param backgroundSvc Background service to manage the component&#x27;s background.
+  */
+  constructor(
+    public userSvc: UsersService,
+    private modal: ModalController,
+    private backgroundSvc: BackgroundService,
+  ) { }
+
+  /**
+  * Method that runs when the component is initialized.
+  * Subscribes to the user service to get the collection of users.
+  * Subscribes to the background service to update the component&#x27;s background.
+  */
+  ngOnInit() {
+    this.userSvc.subscribeToUsersCollection();
+    this.backgroundSvc.background$.subscribe(fondo &#x3D;&gt; {
+      this.fondo &#x3D; fondo;
+    });
+
+    // Initialize the observable of filtered users.
+    this.filteredUsers$ &#x3D; combineLatest([
+      this.userSvc.users$,
+      this.userSvc.users$.pipe(startWith(&#x27;&#x27;))
+    ]).pipe(
+      map(([users]) &#x3D;&gt; this.filterUsers(users))
+    );
+  }
+
+  /**
+  * Filters a list of users according to the search term and display options.
+  * @param users - The list of users to filter.
+  * @returns The list of users filtered according to the search term and display options.
+  */
+  filterUsers(users: User[]): User[] {
+    let filteredUsers &#x3D; users;
+    if (this.searchTerm) {
+      const searchTermLower &#x3D; this.searchTerm.toLowerCase();
+      filteredUsers &#x3D; filteredUsers.filter(user &#x3D;&gt;
+        user.username.toLowerCase().includes(searchTermLower) ||
+        user.email.toLowerCase().includes(searchTermLower)
+      );
+    }
+    if (this.showAdminsOnly) {
+      filteredUsers &#x3D; filteredUsers.filter(user &#x3D;&gt; user.admin);
+    } else if (this.showNonAdminsOnly) {
+      filteredUsers &#x3D; filteredUsers.filter(user &#x3D;&gt; !user.admin);
+    }
+    return filteredUsers;
+  }
+
+  /**
+  * Updates the list of filtered users when the search term changes.
+  */
+  onSearchTermChanged() {
+    this.filteredUsers$ &#x3D; combineLatest([
+      this.userSvc.users$,
+      this.userSvc.users$.pipe(startWith(&#x27;&#x27;))
+    ]).pipe(
+      map(([users]) &#x3D;&gt; this.filterUsers(users))
+    );
+  }
+
+  /**
+  * Handles the change in the state of the admin checkbox.
+  * If only admins are being shown, it deactivates the option to show non-admins.
+  * Updates the list of filtered users according to the changes in the checkbox state.
+  */
+  onAdminCheckboxChanged() {
+    if (this.showAdminsOnly) {
+      this.showNonAdminsOnly &#x3D; false;
+    }
+    this.filteredUsers$ &#x3D; combineLatest([
+      this.userSvc.users$,
+      this.userSvc.users$.pipe(startWith(&#x27;&#x27;))
+    ]).pipe(
+      map(([users]) &#x3D;&gt; this.filterUsers(users))
+    );
+  }
+
+  /**
+  * Handles the change in the state of the non-admin checkbox.
+  * If only non-admins are being shown, it deactivates the option to show admins.
+  * Updates the list of filtered users according to the changes in the checkbox state.
+  */
+  onNonAdminCheckboxChanged() {
+    if (this.showNonAdminsOnly) {
+      this.showAdminsOnly &#x3D; false;
+    }
+    this.filteredUsers$ &#x3D; combineLatest([
+      this.userSvc.users$,
+      this.userSvc.users$.pipe(startWith(&#x27;&#x27;))
+    ]).pipe(
+      map(([users]) &#x3D;&gt; this.filterUsers(users))
+    );
+  }
+
+  /**
+  * Method to accept a user.
+  * 
+  * @param user The user who is going to be accepted.
+  */
+  accept(user: User){
+    console.log(&quot;Aceptar usuario: &quot;, user)
+    this.userSvc.acceptUser(user)
+  }
+
+  /**
+  * Method to delete a user.
+  * 
+  * @param user The user who is going to be deleted.
+  */
+  deleteUser(user: User){
+    var onDismiss &#x3D; (result:any)&#x3D;&gt;{
+      console.log(&quot;Resultado del modal: &quot;, result)
+      if(result.data){
+        console.log(&quot;Eliminar usuario: &quot;, user)
+        this.userSvc.deleteUser(user)
+      } else {
+        console.log(&quot;Cancelar borrado&quot;)
+      }
+    }
+    this.modalConfirm(onDismiss)
+  }
+
+  /**
+  * Method to display a confirmation modal.
+  * 
+  * @param onDismiss Function that runs when the modal is closed, receives the result of the modal as a parameter.
+  */
+  async modalConfirm(onDismiss:(result:any)&#x3D;&gt;void){
+    const modal &#x3D; await this.modal.create({
+      component: ModalConfirmComponent,
+      cssClass:&quot;modal-boton&quot;
+    });
+    modal.present();
+    modal.onDidDismiss().then(result&#x3D;&gt;{
+      if(result &amp;&amp; result.data){
+        onDismiss(result);
+      }
+    });
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-content [fullscreen]&#x3D;&quot;true&quot; id&#x3D;&quot;general&quot; [ngClass]&#x3D;&quot;{&#x27;pri&#x27;: fondo &#x3D;&#x3D;&#x3D; &#x27;pri&#x27;, &#x27;sec&#x27;: fondo &#x3D;&#x3D; &#x27;sec&#x27;, &#x27;img&#x27;: fondo &#x3D;&#x3D; &#x27;img&#x27;}&quot;&gt;
+  &lt;div class&#x3D;&quot;searchbar-container&quot;&gt;
+    &lt;ion-searchbar [(ngModel)]&#x3D;&quot;searchTerm&quot; (ionInput)&#x3D;&quot;onSearchTermChanged()&quot; class&#x3D;&quot;custom-searchbar&quot; placeholder&#x3D;&quot;Busca usuarios...&quot;&gt;&lt;/ion-searchbar&gt;
+    &lt;div class&#x3D;&quot;checkboxes-container&quot;&gt;
+      &lt;ion-item lines&#x3D;&quot;none&quot;&gt;
+        &lt;ion-label&gt;Admins &lt;/ion-label&gt;
+        &lt;ion-checkbox [(ngModel)]&#x3D;&quot;showAdminsOnly&quot; (ionChange)&#x3D;&quot;onAdminCheckboxChanged()&quot;&gt;&lt;/ion-checkbox&gt;
+      &lt;/ion-item&gt;
+      &lt;ion-item lines&#x3D;&quot;none&quot;&gt;
+        &lt;ion-label&gt;Clientes &lt;/ion-label&gt;
+        &lt;ion-checkbox [(ngModel)]&#x3D;&quot;showNonAdminsOnly&quot; (ionChange)&#x3D;&quot;onNonAdminCheckboxChanged()&quot;&gt;&lt;/ion-checkbox&gt;
+      &lt;/ion-item&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;ion-grid&gt;
+    &lt;ion-row&gt;
+      &lt;ion-col size&#x3D;&quot;2&quot;&gt;{{ &quot;usuarios.foto&quot; | translate }}&lt;/ion-col&gt;
+      &lt;ion-col size&#x3D;&quot;2&quot;&gt;{{ &quot;usuarios.nombre&quot; | translate }}&lt;/ion-col&gt;
+      &lt;ion-col size&#x3D;&quot;2&quot;&gt;{{ &quot;usuarios.email&quot; | translate }}&lt;/ion-col&gt;
+      &lt;ion-col size&#x3D;&quot;2&quot; class&#x3D;&quot;admin&quot;&gt;{{ &quot;usuarios.admin&quot; | translate }}&lt;/ion-col&gt;
+      &lt;ion-col size&#x3D;&quot;2&quot;&gt;{{ &quot;usuarios.acciones&quot; | translate }}&lt;/ion-col&gt;
+    &lt;/ion-row&gt;
+    &lt;ion-row [class.odd-row]&#x3D;&quot;index % 2 &#x3D;&#x3D;&#x3D; 0&quot; [class.even-row]&#x3D;&quot;index % 2 !&#x3D;&#x3D; 0&quot; *ngFor&#x3D;&quot;let user of filteredUsers$ | async; let index &#x3D; index&quot;&gt;
+      &lt;ion-col size&#x3D;&quot;2&quot;&gt;&lt;ion-avatar&gt;&lt;img [src]&#x3D;&quot;user?.imageUrl&quot; alt&#x3D;&quot;Imagen del alumno&quot;&gt;&lt;/ion-avatar&gt;&lt;/ion-col&gt;
+      &lt;ion-col size&#x3D;&quot;2&quot;&gt;{{ user.username }}&lt;/ion-col&gt;
+      &lt;ion-col size&#x3D;&quot;2&quot;&gt;{{ user.email }}&lt;/ion-col&gt;
+      &lt;ion-col size&#x3D;&quot;2&quot; class&#x3D;&quot;admin&quot;&gt;&lt;ion-icon color&#x3D;&quot;success&quot; *ngIf&#x3D;&quot;user.admin&quot; name&#x3D;&quot;checkmark-outline&quot;&gt;&lt;/ion-icon&gt;&lt;ion-icon color&#x3D;&quot;danger&quot; *ngIf&#x3D;&quot;!user.admin&quot; name&#x3D;&quot;close-outline&quot;&gt;&lt;/ion-icon&gt;&lt;/ion-col&gt;
+      &lt;ion-col size&#x3D;&quot;2&quot; class&#x3D;&quot;botones&quot;&gt;
+        &lt;ion-button [disabled]&#x3D;&quot;user.aceptado&quot; *ngIf&#x3D;&quot;user.admin&quot; (click)&#x3D;&quot;accept(user)&quot;&gt;&lt;ion-icon name&#x3D;&quot;add-outline&quot;&gt;&lt;/ion-icon&gt;&lt;/ion-button&gt;
+        &lt;ion-button *ngIf&#x3D;&quot;!user.admin&quot; (click)&#x3D;&quot;deleteUser(user)&quot; color&#x3D;&quot;danger&quot;&gt;&lt;ion-icon name&#x3D;&quot;trash-outline&quot;&gt;&lt;/ion-icon&gt;&lt;/ion-button&gt;
+      &lt;/ion-col&gt;
+    &lt;/ion-row&gt;
+  &lt;/ion-grid&gt;
+&lt;/ion-content&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./usuarios.page.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">#general {
+    --ion-grid-column-padding: 8px;
+
+}
+  
+#general ion-grid {
+    padding: 16px;
+    margin-top: 110px;
+}
+  
+#general ion-row {
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    justify-content: center;
+}
+  
+#general ion-col {
+    padding: 10px 0;
+}
+  
+#general ion-row:first-child {
+    font-weight: bold;
+    color: white;
+    background-color: #053464;
+}
+  
+#general ion-button {
+    margin-right: 8px;
+    --padding-start: 0;
+    --padding-end: 0;
+    width: 100px;
+    height: 50px;
+}
+  
+#general ion-icon {
+    font-size: 1.2em;
+}
+
+.acciones-container {
+    display: flex;
+    align-items: center;
+}
+  
+.acciones-container span {
+    margin-right: 8px;
+}
+
+.admin {
+    text-align: center;
+}
+
+ion-content{
+    --background: linear-gradient(to top, #fff2d6, #B7ECEC);
+}
+
+.pri {
+    --background: linear-gradient(to top, #fff2d6, #B7ECEC);
+}
+  
+.sec {
+    --background: linear-gradient(to top, #9561ee, #1db6ef);
+}
+  
+.img {
+    --background: linear-gradient(to top, #ffd45f, #ff6f91);
+}
+
+.searchbar-container {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    z-index: 10;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+}
+  
+.custom-searchbar {
+    width: 300px;
+    margin-right: 20px;
+    border-radius: 4px;
+}
+  
+.checkboxes-container {
+    display: flex;
+    align-items: center;
+}
+  
+ion-item {
+    margin: 0 10px;
+    --background: transparent;
+    --padding-start: 0px;
+}
+  
+ion-grid {
+    margin-top: 100px;
+}
+
+ion-label {
+    margin-right: 10px;
+}
+
+@media (max-width: 600px) {
+    #general ion-grid {
+        margin-top: 220px;
+        margin-bottom: 80px;
+        padding: 0;
+        font-size: small;
+    }
+
+    #general ion-row {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #ddd;
+        justify-content: space-between;
+    }
+
+    #general ion-button {
+      width: 50px;
+    }
+
+    .botones {
+        display: flex;
+        justify-content: center;
+    }
+
+    .searchbar-container {
+        position: absolute;
+        margin-top: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .custom-searchbar {
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    .checkboxes-container {
+        flex-direction: column;
+    }
+    
+    ion-item {
+        margin: 5px 0;
+    }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-content [fullscreen]="true" id="general" [ngClass]="{\'pri\': fondo === \'pri\', \'sec\': fondo == \'sec\', \'img\': fondo == \'img\'}">  <div class="searchbar-container">    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearchTermChanged()" class="custom-searchbar" placeholder="Busca usuarios..."></ion-searchbar>    <div class="checkboxes-container">      <ion-item lines="none">        <ion-label>Admins </ion-label>        <ion-checkbox [(ngModel)]="showAdminsOnly" (ionChange)="onAdminCheckboxChanged()"></ion-checkbox>      </ion-item>      <ion-item lines="none">        <ion-label>Clientes </ion-label>        <ion-checkbox [(ngModel)]="showNonAdminsOnly" (ionChange)="onNonAdminCheckboxChanged()"></ion-checkbox>      </ion-item>    </div>  </div>  <ion-grid>    <ion-row>      <ion-col size="2">{{ "usuarios.foto" | translate }}</ion-col>      <ion-col size="2">{{ "usuarios.nombre" | translate }}</ion-col>      <ion-col size="2">{{ "usuarios.email" | translate }}</ion-col>      <ion-col size="2" class="admin">{{ "usuarios.admin" | translate }}</ion-col>      <ion-col size="2">{{ "usuarios.acciones" | translate }}</ion-col>    </ion-row>    <ion-row [class.odd-row]="index % 2 === 0" [class.even-row]="index % 2 !== 0" *ngFor="let user of filteredUsers$ | async; let index = index">      <ion-col size="2"><ion-avatar><img [src]="user?.imageUrl" alt="Imagen del alumno"></ion-avatar></ion-col>      <ion-col size="2">{{ user.username }}</ion-col>      <ion-col size="2">{{ user.email }}</ion-col>      <ion-col size="2" class="admin"><ion-icon color="success" *ngIf="user.admin" name="checkmark-outline"></ion-icon><ion-icon color="danger" *ngIf="!user.admin" name="close-outline"></ion-icon></ion-col>      <ion-col size="2" class="botones">        <ion-button [disabled]="user.aceptado" *ngIf="user.admin" (click)="accept(user)"><ion-icon name="add-outline"></ion-icon></ion-button>        <ion-button *ngIf="!user.admin" (click)="deleteUser(user)" color="danger"><ion-icon name="trash-outline"></ion-icon></ion-button>      </ion-col>    </ion-row>  </ion-grid></ion-content></div>'
+    var COMPONENTS = [{'name': 'AddExerciseComponent', 'selector': 'app-add-exercise'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CardExerciseComponent', 'selector': 'app-card-exercise'},{'name': 'CardRutineComponent', 'selector': 'app-card-rutine'},{'name': 'CardRutinePrivateComponent', 'selector': 'app-card-rutine-private'},{'name': 'CitasPage', 'selector': 'app-citas'},{'name': 'CrearRutinaPage', 'selector': 'app-crear-rutina'},{'name': 'DetalleExerciseComponent', 'selector': 'app-detalle-exercise'},{'name': 'ExercisePrivateComponent', 'selector': 'app-exercise-private'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoModalComponent', 'selector': 'app-info-modal'},{'name': 'InfoRutinaPage', 'selector': 'app-info-rutina'},{'name': 'InfoTooltipComponent', 'selector': 'app-info-tooltip'},{'name': 'ItemExerciseComponent', 'selector': 'app-item-exercise'},{'name': 'LandingPage', 'selector': 'app-landing'},{'name': 'LoadingComponent', 'selector': 'app-loading'},{'name': 'LoginFormComponent', 'selector': 'app-login-form'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'ModalCitaComponent', 'selector': 'app-modal-cita'},{'name': 'ModalConfirmComponent', 'selector': 'app-modal-confirm'},{'name': 'ModalExerciseComponent', 'selector': 'app-modal-exercise'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterFormComponent', 'selector': 'app-register-form'},{'name': 'RutinasPage', 'selector': 'app-rutinas'},{'name': 'UsuariosPage', 'selector': 'app-usuarios'}];
+    var DIRECTIVES = [{'name': 'AgrandarDirective', 'selector': '[appAgrandar]'}];
+    var ACTUAL_COMPONENT = {'name': 'UsuariosPage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'UsuariosPage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

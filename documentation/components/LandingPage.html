@@ -1,0 +1,1406 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>activelife documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">activelife documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  LandingPage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/landing/landing.page.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-landing</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./landing.page.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./landing.page.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#config" >config</a>
+                            </li>
+                            <li>
+                                <a href="#lang" >lang</a>
+                            </li>
+                            <li>
+                                <a href="#loguead" >loguead</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#routerOutlet" >routerOutlet</a>
+                            </li>
+                            <li>
+                                <a href="#rutinas" >rutinas</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#translate" >translate</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#downloadAPK" >downloadAPK</a>
+                            </li>
+                            <li>
+                                <a href="#goLogReg" >goLogReg</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onLang" >onLang</a>
+                            </li>
+                            <li>
+                                <a href="#rutinasFiltered" >rutinasFiltered</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(router: Router, rutinaSvc: <a href="../injectables/RutinaService.html" target="_self">RutinaService</a>, authSvc: <a href="../injectables/FirebaseService.html" target="_self">FirebaseService</a>, auth: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, translate: <a href="../injectables/CustomTranslateService.html" target="_self">CustomTranslateService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/pages/landing/landing.page.ts:24</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Class constructor.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Routing service for navigation between components.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>rutinaSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RutinaService.html" target="_self" >RutinaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Service to manage routines.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>authSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FirebaseService.html" target="_self" >FirebaseService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Authentication service.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>auth</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Authentication service to manage login state.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>translate</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomTranslateService.html" target="_self" >CustomTranslateService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Custom translation service.</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="downloadAPK"></a>
+                    <span class="name">
+                        <span ><b>downloadAPK</b></span>
+                        <a href="#downloadAPK"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>downloadAPK()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="129"
+                                    class="link-to-prism">src/app/pages/landing/landing.page.ts:129</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Method to download the APK.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goLogReg"></a>
+                    <span class="name">
+                        <span ><b>goLogReg</b></span>
+                        <a href="#goLogReg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goLogReg()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="122"
+                                    class="link-to-prism">src/app/pages/landing/landing.page.ts:122</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Navigates to the login page.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="52"
+                                    class="link-to-prism">src/app/pages/landing/landing.page.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Method that runs when initializing the component.
+Subscribes to the routine service to get the available routines.
+Subscribes to the login state to manage user authentication.
+Sets a timer to handle anonymous connection in case there is no logged in user.
+Subscribes to the translation service to update the component&#39;s language.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onLang"></a>
+                    <span class="name">
+                        <span ><b>onLang</b></span>
+                        <a href="#onLang"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onLang(idioma: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="142"
+                                    class="link-to-prism">src/app/pages/landing/landing.page.ts:142</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Changes the language of the application.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>idioma</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The language to which the application will be changed.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>false to prevent the default behavior of the link.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rutinasFiltered"></a>
+                    <span class="name">
+                        <span ><b>rutinasFiltered</b></span>
+                        <a href="#rutinasFiltered"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>rutinasFiltered()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="110"
+                                    class="link-to-prism">src/app/pages/landing/landing.page.ts:110</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Filters the available routines to display only the public ones.
+Subscribes to the routine service to get the available routines.
+Uses the pipe operator with the map operator to filter the public routines.
+Updates the list of filtered routines and stores it in the rutinas property.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="config"></a>
+                    <span class="name">
+                        <span ><b>config</b></span>
+                        <a href="#config"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>SwiperOptions</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    effect: &#x27;coverflow&#x27;,
+    slidesPerView: 3,
+    centeredSlides: true,
+    coverflowEffect: {
+      rotate: 50,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: false,
+    },
+    loop: true,
+    initialSlide: 2,
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/app/pages/landing/landing.page.ts:86</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="lang"></a>
+                    <span class="name">
+                        <span ><b>lang</b></span>
+                        <a href="#lang"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;es&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="134" class="link-to-prism">src/app/pages/landing/landing.page.ts:134</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loguead"></a>
+                    <span class="name">
+                        <span ><b>loguead</b></span>
+                        <a href="#loguead"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Boolean | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/pages/landing/landing.page.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="routerOutlet"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>routerOutlet</b></span>
+                        <a href="#routerOutlet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>IonRouterOutlet | undefined</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(IonRouterOutlet, {static: true})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/pages/landing/landing.page.ts:24</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Reference to the IonRouterOutlet to handle navigation within a component.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rutinas"></a>
+                    <span class="name">
+                        <span ><b>rutinas</b></span>
+                        <a href="#rutinas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Rutina.html" target="_self" >Rutina[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">src/app/pages/landing/landing.page.ts:102</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="translate"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>translate</b></span>
+                        <a href="#translate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/CustomTranslateService.html" target="_self" >CustomTranslateService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/pages/landing/landing.page.ts:39</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">Custom translation service.</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { IonRouterOutlet } from &#x27;@ionic/angular&#x27;;
+import { map } from &#x27;rxjs&#x27;;
+import { Rutina } from &#x27;src/app/core/interfaces/rutina&#x27;;
+import { AuthService } from &#x27;src/app/core/services/auth/auth.service&#x27;;
+import { CustomTranslateService } from &#x27;src/app/core/services/custom-translate.service&#x27;;
+import { FirebaseService } from &#x27;src/app/core/services/firebase/firebase.service&#x27;;
+import { RutinaService } from &#x27;src/app/core/services/rutina.service&#x27;;
+import { SwiperOptions } from &#x27;swiper&#x27;;
+import SwiperCore, { EffectCoverflow } from &#x27;swiper&#x27;;
+
+SwiperCore.use([EffectCoverflow]);
+@Component({
+  selector: &#x27;app-landing&#x27;,
+  templateUrl: &#x27;./landing.page.html&#x27;,
+  styleUrls: [&#x27;./landing.page.scss&#x27;],
+})
+export class LandingPage implements OnInit {
+
+  /**
+  * Reference to the IonRouterOutlet to handle navigation within a component.
+  */
+  @ViewChild(IonRouterOutlet, { static: true }) routerOutlet: IonRouterOutlet | undefined;
+
+  /**
+  * Class constructor.
+  * @param router Routing service for navigation between components.
+  * @param rutinaSvc Service to manage routines.
+  * @param authSvc Authentication service.
+  * @param auth Authentication service to manage login state.
+  * @param translate Custom translation service.
+  */
+  constructor(
+    private router: Router,
+    private rutinaSvc: RutinaService,
+    private authSvc: FirebaseService,
+    private auth: AuthService,
+    public translate: CustomTranslateService
+  ) { }
+
+  // Variable to know if the user is logged in.
+  loguead: Boolean | undefined;
+
+  /**
+  * Method that runs when initializing the component.
+  * Subscribes to the routine service to get the available routines.
+  * Subscribes to the login state to manage user authentication.
+  * Sets a timer to handle anonymous connection in case there is no logged in user.
+  * Subscribes to the translation service to update the component&#x27;s language.
+  */
+  ngOnInit() {
+    // Subscription to the routine service to get the available routines.
+    this.rutinaSvc.subscribeToRutinaCollection();
+    // Subscription to the login state to manage user authentication.
+    this.auth.isLogged$.subscribe(logged &#x3D;&gt; {
+      console.log(logged);
+      this.loguead &#x3D; logged;
+      
+    });
+    // Timer to handle anonymous connection in case there is no logged in user.
+    setTimeout(() &#x3D;&gt; {
+      if (this.loguead) {
+        console.log(&quot;Usuario logeado&quot;);
+      } else {
+        console.log(&quot;No hay usuario logeado&quot;);
+        // Anonymous connection.
+        this.authSvc.connectAnonymously().then(() &#x3D;&gt; {
+          console.log(&quot;Conexión anónima exitosa&quot;);
+          this.rutinasFiltered();
+        }).catch((error) &#x3D;&gt; {
+          console.log(&quot;Error en la conexión anónima: &quot;, error);
+          // Log out in case of error in the anonymous connection.
+          this.auth.logOut();
+          this.rutinasFiltered();
+        });
+      }
+    }, 5000);
+    // Subscription to the translation service to update the component&#x27;s language.
+    this.translate.language$.subscribe(lang &#x3D;&gt; {
+      this.lang &#x3D; lang;
+    });
+  }
+
+  // Configuration of the swiper to be infinite and display 3 elements.
+  config: SwiperOptions &#x3D; {
+    effect: &#x27;coverflow&#x27;,
+    slidesPerView: 3,
+    centeredSlides: true,
+    coverflowEffect: {
+      rotate: 50,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: false,
+    },
+    loop: true,
+    initialSlide: 2,
+  };
+
+  // Variable to store the routine.
+  rutinas: Rutina[] &#x3D; [];
+
+  /**
+  * Filters the available routines to display only the public ones.
+  * Subscribes to the routine service to get the available routines.
+  * Uses the pipe operator with the map operator to filter the public routines.
+  * Updates the list of filtered routines and stores it in the rutinas property.
+  */
+  rutinasFiltered() {
+    this.rutinaSvc.rutinas$.pipe(
+      map(rutina &#x3D;&gt; rutina.filter(rutina &#x3D;&gt; rutina.public &#x3D;&#x3D; true))
+      ).subscribe(filteredRutinas &#x3D;&gt; {
+        this.rutinas &#x3D; filteredRutinas;
+        console.log(&quot;RESULTADO DE LAS RUTINAS FILTRADAS: &quot;, this.rutinas);
+      });
+  }
+
+  /**
+  * Navigates to the login page.
+  */
+  goLogReg(){
+    this.router.navigate([&#x27;/login&#x27;])
+  }
+
+  /**
+  * Method to download the APK.
+  */
+  downloadAPK(){
+    console.log(&quot;Descargar APK&quot;)
+  }
+
+  // Variable to store the language, initialized in Spanish.
+  lang: string &#x3D; &quot;es&quot;;
+
+  /**
+  * Changes the language of the application.
+  * 
+  * @param idioma The language to which the application will be changed.
+  * @returns false to prevent the default behavior of the link.
+  */
+  onLang(idioma: string) {
+    console.log(&#x27;Cambio de idioma&#x27;);
+    switch(idioma){
+      case &#x27;es&#x27;:
+        this.lang&#x3D;&#x27;es&#x27;;
+        break;
+      case &#x27;en&#x27;:
+        this.lang&#x3D;&#x27;en&#x27;;
+        break;
+      case &#x27;it&#x27;:
+        this.lang&#x3D;&#x27;it&#x27;;
+        break;
+    }
+    this.translate.use(this.lang);
+    return false; 
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-content [fullscreen]&#x3D;&quot;true&quot;&gt;
+  &lt;ion-buttons class&#x3D;&quot;fixed-flags&quot;&gt;
+    &lt;ion-button (click)&#x3D;&quot;onLang(&#x27;es&#x27;)&quot; [ngClass]&#x3D;&quot;{&#x27;selected&#x27;: lang &#x3D;&#x3D;&#x3D; &#x27;es&#x27;, &#x27;not-selected&#x27;: lang !&#x3D;&#x3D; &#x27;es&#x27;}&quot; appAgrandar&gt;
+      &lt;img src&#x3D;&quot;assets/imgs/flags/bandera.png&quot; class&#x3D;&quot;flag-icon&quot;&gt;
+    &lt;/ion-button&gt;
+    &lt;ion-button (click)&#x3D;&quot;onLang(&#x27;en&#x27;)&quot; [ngClass]&#x3D;&quot;{&#x27;selected&#x27;: lang &#x3D;&#x3D;&#x3D; &#x27;en&#x27;, &#x27;not-selected&#x27;: lang !&#x3D;&#x3D; &#x27;en&#x27;}&quot; appAgrandar&gt;
+      &lt;img src&#x3D;&quot;assets/imgs/flags/reino-unido.png&quot; class&#x3D;&quot;flag-icon&quot;&gt;
+    &lt;/ion-button&gt;
+    &lt;ion-button (click)&#x3D;&quot;onLang(&#x27;it&#x27;)&quot; [ngClass]&#x3D;&quot;{&#x27;selected&#x27;: lang &#x3D;&#x3D;&#x3D; &#x27;it&#x27;, &#x27;not-selected&#x27;: lang !&#x3D;&#x3D; &#x27;it&#x27;}&quot; appAgrandar&gt;
+      &lt;img src&#x3D;&quot;assets/imgs/flags/italia.png&quot; class&#x3D;&quot;flag-icon&quot;&gt;
+    &lt;/ion-button&gt;
+  &lt;/ion-buttons&gt;
+  
+  &lt;div class&#x3D;&quot;container&quot;&gt;
+    &lt;div class&#x3D;&quot;left-content&quot;&gt;
+      &lt;h1 id&#x3D;&quot;title&quot;&gt;ActiveLife&lt;/h1&gt;
+      &lt;p&gt;{{ &quot;landing.infoApp&quot; | translate }}&lt;/p&gt;
+      &lt;div&gt;
+        &lt;ion-button class&#x3D;&quot;orange-button&quot; (click)&#x3D;&quot;goLogReg()&quot;&gt;{{ &quot;landing.login/registro&quot; | translate }}&lt;/ion-button&gt;
+        &lt;br&gt;
+        &lt;ion-button class&#x3D;&quot;orange-button-white&quot; fill&#x3D;&quot;outline&quot; (click)&#x3D;&quot;downloadAPK()&quot;&gt;APK&lt;/ion-button&gt;
+      &lt;/div&gt;
+      &lt;p class&#x3D;&quot;small-phrase&quot;&gt;{{ &quot;landing.infoCuenta&quot; | translate }}&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;right-content&quot;&gt;
+      &lt;img src&#x3D;&quot;assets/imgs/logoActiveLife.png&quot; class&#x3D;&quot;logo&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div id&#x3D;&quot;swiper&quot;&gt;
+    &lt;h2 id&#x3D;&quot;title2&quot;&gt;{{ &quot;landing.rutinasTitle&quot; | translate }}&lt;/h2&gt;
+    &lt;swiper [config]&#x3D;&quot;config&quot;&gt;
+      &lt;ng-template *ngFor&#x3D;&quot;let rutina of rutinas&quot; swiperSlide&gt;
+        &lt;app-card-rutine [rutina]&#x3D;&quot;rutina&quot; class&#x3D;&quot;rutina-slide&quot;&gt;&lt;/app-card-rutine&gt;
+      &lt;/ng-template&gt;
+    &lt;/swiper&gt;
+  &lt;/div&gt;
+  &lt;div id&#x3D;&quot;fondo-azul&quot;&gt;
+    &lt;h2 id&#x3D;&quot;title3&quot;&gt;{{ &quot;landing.creadoresTitle&quot; | translate }}&lt;/h2&gt;
+    &lt;p&gt;{{ &quot;landing.creadoresInfo&quot; | translate }}&lt;/p&gt;
+    &lt;div id&#x3D;&quot;container2&quot;&gt;
+        &lt;div class&#x3D;&quot;left-content2&quot;&gt;
+          &lt;h1 id&#x3D;&quot;titulo&quot;&gt;Pablo García Muñoz&lt;/h1&gt;
+          &lt;p class&#x3D;&quot;texto&quot;&gt;{{ &quot;landing.creadoresVida&quot; | translate }}&lt;/p&gt;
+          &lt;div class&#x3D;&quot;items&quot;&gt;
+            &lt;ion-item class&#x3D;&quot;social-item&quot; lines&#x3D;&quot;none&quot;&gt;
+              &lt;a href&#x3D;&quot;https://github.com/PabloGM1204&quot; target&#x3D;&quot;_blank&quot;&gt;&lt;ion-icon name&#x3D;&quot;logo-github&quot; slot&#x3D;&quot;start&quot; class&#x3D;&quot;icon-color&quot;&gt;&lt;/ion-icon&gt;&lt;/a&gt;
+            &lt;/ion-item&gt;
+            &lt;ion-item class&#x3D;&quot;social-item&quot; lines&#x3D;&quot;none&quot;&gt;
+              &lt;a href&#x3D;&quot;https://instagram.com/mr__sockss/&quot; target&#x3D;&quot;_blank&quot;&gt;&lt;ion-icon name&#x3D;&quot;logo-instagram&quot; slot&#x3D;&quot;start&quot; class&#x3D;&quot;icon-color&quot;&gt;&lt;/ion-icon&gt;&lt;/a&gt;
+            &lt;/ion-item&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;right-content2&quot;&gt;
+            &lt;img src&#x3D;&quot;assets/imgs/about/imgPablo.jpg&quot; class&#x3D;&quot;foto&quot; alt&#x3D;&quot;Foto de Pablo García Muñoz&quot;&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div id&#x3D;&quot;container2&quot;&gt;
+      &lt;div class&#x3D;&quot;left-content2&quot;&gt;
+        &lt;img src&#x3D;&quot;assets/imgs/about/imgAntonio.png&quot; class&#x3D;&quot;foto&quot; alt&#x3D;&quot;Foto de Antonio Luis Garcia&quot;&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;right-content2&quot;&gt;
+        &lt;h1 id&#x3D;&quot;titulo&quot;&gt;Antonio Luis Garcia&lt;/h1&gt;
+        &lt;p class&#x3D;&quot;texto2&quot;&gt;{{ &quot;landing.creadoresVida&quot; | translate }}&lt;/p&gt;
+        &lt;div class&#x3D;&quot;items&quot;&gt;
+          &lt;ion-item class&#x3D;&quot;social-item&quot; lines&#x3D;&quot;none&quot;&gt;
+            &lt;a href&#x3D;&quot;https://github.com/AntonioLuisGarcia&quot; target&#x3D;&quot;_blank&quot;&gt;&lt;ion-icon name&#x3D;&quot;logo-github&quot; slot&#x3D;&quot;start&quot; class&#x3D;&quot;icon-color&quot;&gt;&lt;/ion-icon&gt;&lt;/a&gt;
+          &lt;/ion-item&gt;
+          &lt;ion-item class&#x3D;&quot;social-item&quot; lines&#x3D;&quot;none&quot;&gt;
+            &lt;a href&#x3D;&quot;https://instagram.com/antoniogar39/&quot; target&#x3D;&quot;_blank&quot;&gt;&lt;ion-icon name&#x3D;&quot;logo-instagram&quot; slot&#x3D;&quot;start&quot; class&#x3D;&quot;icon-color&quot;&gt;&lt;/ion-icon&gt;&lt;/a&gt;
+          &lt;/ion-item&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;h2 id&#x3D;&quot;title3&quot;&gt;{{ &quot;landing.repoTfg&quot; | translate }}&lt;/h2&gt;
+    &lt;div class&#x3D;&quot;container&quot;&gt;
+      &lt;p class&#x3D;&quot;texto2&quot; style&#x3D;&quot;text-align: center;&quot;&gt;{{ &quot;landing.repoInfo&quot; | translate}}&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;container&quot;&gt;
+      &lt;a href&#x3D;&quot;https://github.com/PabloGM1204/TFG-ActiveLife&quot; target&#x3D;&quot;_blank&quot;&gt;&lt;ion-icon name&#x3D;&quot;logo-github&quot; slot&#x3D;&quot;start&quot; class&#x3D;&quot;icon-color&quot;&gt;&lt;/ion-icon&gt;&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/ion-content&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./landing.page.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">ion-content {
+    --background: linear-gradient(to top, #fff2d6, #B7ECEC);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    //background-color: #FEF4EA;
+}
+  
+.left-content {
+    width: 500px;
+    padding: 20px;
+}
+  
+.right-content {
+    width: 500px;
+    padding: 20px;
+}
+
+#title{
+    font-size: 50px;
+    font-weight: bold;
+    color: rgb(33, 51, 67);
+    font-family: &quot;Times New Roman&quot;;
+}
+
+#titulo{
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(33, 51, 67);
+    font-family: &quot;Times New Roman&quot;;
+}
+
+.small-phrase {
+    font-size: 14px;
+}
+
+.orange-button {
+    --color: #ffffff;
+    --background: #FF5C35;
+    font-weight: bold;
+    width: 250px;
+    height: 50px;
+}
+
+.orange-button-white {
+    --color: #FF5C35;
+    --background: #ffffff;
+    --border-color: #FF5C35;
+    --border-width: 2px; 
+    font-weight: bold;
+    width: 150px;
+    height: 50px;
+}
+
+#title2 {
+    text-align: center;
+    font-family: &#x27;Didot&#x27;;
+    font-weight: bold;
+    color: #ffffff;
+    padding-top: 10px;
+    margin-bottom: 30px;
+    margin-top: 0;
+    font-size: 50px;
+}
+
+#title3 {
+    font-family: &#x27;Didot&#x27;, serif;
+    font-weight: bold;
+    color: #333333;
+    padding-top: 20px;
+    margin-bottom: 30px;
+    margin-top: 0;
+    font-size: 50px;
+}
+
+#fondo-azul {
+    text-align: center;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+#swiper {
+    background-image: url(&#x27;/assets/imgs/background-gym.jpg&#x27;);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: fit-content;
+    padding-bottom: 30px;
+}
+
+#container2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.left-content2, .right-content2 {
+    flex: 1 1 300px;
+    padding: 20px;
+    max-width: 500px;
+}
+
+.foto {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.texto {
+    text-align: justify;
+}
+
+.texto2 {
+    text-align: justify;
+}
+
+p.texto, p.texto2 {
+    font-family: &#x27;Arial&#x27;, sans-serif;
+    font-size: 1em;
+    color: #555555;
+    text-align: justify;
+}
+  
+.items {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+  
+.social-item {
+    flex: 1;
+    --ion-item-background: transparent;
+}
+
+.icon-color {
+    font-size: 32px;
+    color: #FF5C35;
+}
+
+.fixed-flags {
+    position: fixed;
+    top: 10px; /* Ajusta este valor según sea necesario */
+    right: 10px; /* Ajusta este valor según sea necesario */
+    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+    display: flex;
+    gap: 5px; /* Espaciado entre los botones */
+}
+
+.flag-icon {
+    width: 40px; /* Ajusta el tamaño según tus necesidades */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+  
+ion-button.not-selected {
+    opacity: 0.5; /* Ajusta la opacidad según lo necesario */
+}
+  
+ion-button.selected {
+    opacity: 1; /* El botón seleccionado se verá normal */
+}
+
+ion-toolbar {
+    --background: #FF5C35;
+}
+  
+
+@media (max-width: 600px) {
+    .left-content, .right-content {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    #container2 {
+        flex-direction: column;
+    }
+
+    .logo {
+        margin-top: 30px;
+    }
+
+    .rutina-slide {
+        height: 100px;
+    }
+
+    swiper {
+        margin-left: -50px;
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-content [fullscreen]="true">  <ion-buttons class="fixed-flags">    <ion-button (click)="onLang(\'es\')" [ngClass]="{\'selected\': lang === \'es\', \'not-selected\': lang !== \'es\'}" appAgrandar>      <img src="assets/imgs/flags/bandera.png" class="flag-icon">    </ion-button>    <ion-button (click)="onLang(\'en\')" [ngClass]="{\'selected\': lang === \'en\', \'not-selected\': lang !== \'en\'}" appAgrandar>      <img src="assets/imgs/flags/reino-unido.png" class="flag-icon">    </ion-button>    <ion-button (click)="onLang(\'it\')" [ngClass]="{\'selected\': lang === \'it\', \'not-selected\': lang !== \'it\'}" appAgrandar>      <img src="assets/imgs/flags/italia.png" class="flag-icon">    </ion-button>  </ion-buttons>    <div class="container">    <div class="left-content">      <h1 id="title">ActiveLife</h1>      <p>{{ "landing.infoApp" | translate }}</p>      <div>        <ion-button class="orange-button" (click)="goLogReg()">{{ "landing.login/registro" | translate }}</ion-button>        <br>        <ion-button class="orange-button-white" fill="outline" (click)="downloadAPK()">APK</ion-button>      </div>      <p class="small-phrase">{{ "landing.infoCuenta" | translate }}</p>    </div>    <div class="right-content">      <img src="assets/imgs/logoActiveLife.png" class="logo">    </div>  </div>  <div id="swiper">    <h2 id="title2">{{ "landing.rutinasTitle" | translate }}</h2>    <swiper [config]="config">      <ng-template *ngFor="let rutina of rutinas" swiperSlide>        <app-card-rutine [rutina]="rutina" class="rutina-slide"></app-card-rutine>      </ng-template>    </swiper>  </div>  <div id="fondo-azul">    <h2 id="title3">{{ "landing.creadoresTitle" | translate }}</h2>    <p>{{ "landing.creadoresInfo" | translate }}</p>    <div id="container2">        <div class="left-content2">          <h1 id="titulo">Pablo García Muñoz</h1>          <p class="texto">{{ "landing.creadoresVida" | translate }}</p>          <div class="items">            <ion-item class="social-item" lines="none">              <a href="https://github.com/PabloGM1204" target="_blank"><ion-icon name="logo-github" slot="start" class="icon-color"></ion-icon></a>            </ion-item>            <ion-item class="social-item" lines="none">              <a href="https://instagram.com/mr__sockss/" target="_blank"><ion-icon name="logo-instagram" slot="start" class="icon-color"></ion-icon></a>            </ion-item>          </div>        </div>        <div class="right-content2">            <img src="assets/imgs/about/imgPablo.jpg" class="foto" alt="Foto de Pablo García Muñoz">        </div>    </div>    <div id="container2">      <div class="left-content2">        <img src="assets/imgs/about/imgAntonio.png" class="foto" alt="Foto de Antonio Luis Garcia">      </div>      <div class="right-content2">        <h1 id="titulo">Antonio Luis Garcia</h1>        <p class="texto2">{{ "landing.creadoresVida" | translate }}</p>        <div class="items">          <ion-item class="social-item" lines="none">            <a href="https://github.com/AntonioLuisGarcia" target="_blank"><ion-icon name="logo-github" slot="start" class="icon-color"></ion-icon></a>          </ion-item>          <ion-item class="social-item" lines="none">            <a href="https://instagram.com/antoniogar39/" target="_blank"><ion-icon name="logo-instagram" slot="start" class="icon-color"></ion-icon></a>          </ion-item>        </div>      </div>    </div>    <h2 id="title3">{{ "landing.repoTfg" | translate }}</h2>    <div class="container">      <p class="texto2" style="text-align: center;">{{ "landing.repoInfo" | translate}}</p>    </div>    <div class="container">      <a href="https://github.com/PabloGM1204/TFG-ActiveLife" target="_blank"><ion-icon name="logo-github" slot="start" class="icon-color"></ion-icon></a>    </div></div></ion-content></div>'
+    var COMPONENTS = [{'name': 'AddExerciseComponent', 'selector': 'app-add-exercise'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CardExerciseComponent', 'selector': 'app-card-exercise'},{'name': 'CardRutineComponent', 'selector': 'app-card-rutine'},{'name': 'CardRutinePrivateComponent', 'selector': 'app-card-rutine-private'},{'name': 'CitasPage', 'selector': 'app-citas'},{'name': 'CrearRutinaPage', 'selector': 'app-crear-rutina'},{'name': 'DetalleExerciseComponent', 'selector': 'app-detalle-exercise'},{'name': 'ExercisePrivateComponent', 'selector': 'app-exercise-private'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoModalComponent', 'selector': 'app-info-modal'},{'name': 'InfoRutinaPage', 'selector': 'app-info-rutina'},{'name': 'InfoTooltipComponent', 'selector': 'app-info-tooltip'},{'name': 'ItemExerciseComponent', 'selector': 'app-item-exercise'},{'name': 'LandingPage', 'selector': 'app-landing'},{'name': 'LoadingComponent', 'selector': 'app-loading'},{'name': 'LoginFormComponent', 'selector': 'app-login-form'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'ModalCitaComponent', 'selector': 'app-modal-cita'},{'name': 'ModalConfirmComponent', 'selector': 'app-modal-confirm'},{'name': 'ModalExerciseComponent', 'selector': 'app-modal-exercise'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterFormComponent', 'selector': 'app-register-form'},{'name': 'RutinasPage', 'selector': 'app-rutinas'},{'name': 'UsuariosPage', 'selector': 'app-usuarios'}];
+    var DIRECTIVES = [{'name': 'AgrandarDirective', 'selector': '[appAgrandar]'}];
+    var ACTUAL_COMPONENT = {'name': 'LandingPage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'LandingPage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

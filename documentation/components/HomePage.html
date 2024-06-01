@@ -1,0 +1,1505 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>activelife documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">activelife documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  HomePage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/home/home.page.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-home</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>home.page.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>home.page.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#auth" >auth</a>
+                            </li>
+                            <li>
+                                <a href="#citas" >citas</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#citasSvc" >citasSvc</a>
+                            </li>
+                            <li>
+                                <a href="#exercises" >exercises</a>
+                            </li>
+                            <li>
+                                <a href="#fondo" >fondo</a>
+                            </li>
+                            <li>
+                                <a href="#rutinas" >rutinas</a>
+                            </li>
+                            <li>
+                                <a href="#user" >user</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#citasFiltered" >citasFiltered</a>
+                            </li>
+                            <li>
+                                <a href="#getCitaDate" >getCitaDate</a>
+                            </li>
+                            <li>
+                                <a href="#goRutinas" >goRutinas</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#modalLoading" >modalLoading</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#rutinasFiltered" >rutinasFiltered</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(auth: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, router: Router, rutinaSvc: <a href="../injectables/RutinaService.html" target="_self">RutinaService</a>, citasSvc: <a href="../injectables/CitasService.html" target="_self">CitasService</a>, userSvc: <a href="../injectables/UsersService.html" target="_self">UsersService</a>, backgroundSvc: <a href="../injectables/BackgroundService.html" target="_self">BackgroundService</a>, modal: ModalController)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/home/home.page.ts:25</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Class constructor.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>auth</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Authentication service used to manage user authentication.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>The router used for navigation within the application.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>rutinaSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RutinaService.html" target="_self" >RutinaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Service used for routine management.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>citasSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CitasService.html" target="_self" >CitasService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Service used for appointment management.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>userSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UsersService.html" target="_self" >UsersService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Service used for user management.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>backgroundSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BackgroundService.html" target="_self" >BackgroundService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Service used to manage the application&#39;s background.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>modal</td>
+                                                  
+                                                        <td>
+                                                                    <code>ModalController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Controller used to create and manage modalities within the application.</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="citasFiltered"></a>
+                    <span class="name">
+                        <span ><b>citasFiltered</b></span>
+                        <a href="#citasFiltered"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>citasFiltered(uuid: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="117"
+                                    class="link-to-prism">src/app/pages/home/home.page.ts:117</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Filters the current user&#39;s appointments based on the status, the person in charge, and the date of the appointment.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>uuid</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The unique identifier of the current user.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCitaDate"></a>
+                    <span class="name">
+                        <span ><b>getCitaDate</b></span>
+                        <a href="#getCitaDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getCitaDate(timestamp: Timestamp)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="144"
+                                    class="link-to-prism">src/app/pages/home/home.page.ts:144</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Gets the formatted date and time from a Timestamp object and determines whether the appointment is past or not.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>timestamp</td>
+                                            <td>
+                                                        <code>Timestamp</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The Timestamp object representing the date and time of the appointment.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>literal type</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>An object containing the formatted date and time and an indicator of whether the appointment is past or not.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goRutinas"></a>
+                    <span class="name">
+                        <span ><b>goRutinas</b></span>
+                        <a href="#goRutinas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goRutinas()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="155"
+                                    class="link-to-prism">src/app/pages/home/home.page.ts:155</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Redirects the user to the routines page.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modalLoading"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>modalLoading</b></span>
+                        <a href="#modalLoading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>modalLoading(onDismiss: (result: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>) => void)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="163"
+                                    class="link-to-prism">src/app/pages/home/home.page.ts:163</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Opens a loading modal and waits for it to close to execute the specified action.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>onDismiss</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The action to execute when the modal closes.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="54"
+                                    class="link-to-prism">src/app/pages/home/home.page.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Method called after Angular initializes the components of the class.
+It subscribes to the authentication service to get information about the authenticated user.
+It also subscribes to the routine, appointment, and user management services to receive updates.
+It initializes the application&#39;s background and loads filtered data depending on the logged-in user.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rutinasFiltered"></a>
+                    <span class="name">
+                        <span ><b>rutinasFiltered</b></span>
+                        <a href="#rutinasFiltered"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>rutinasFiltered(uuid: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="89"
+                                    class="link-to-prism">src/app/pages/home/home.page.ts:89</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Filters the current user&#39;s routines based on the current day and active status.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>uuid</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The unique identifier of the current user.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="auth"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>auth</b></span>
+                        <a href="#auth"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/pages/home/home.page.ts:39</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">Authentication service used to manage user authentication.</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="citas"></a>
+                    <span class="name">
+                        <span ><b>citas</b></span>
+                        <a href="#citas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Cita.html" target="_self" >Cita[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="110" class="link-to-prism">src/app/pages/home/home.page.ts:110</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="citasSvc"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>citasSvc</b></span>
+                        <a href="#citasSvc"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/CitasService.html" target="_self" >CitasService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/pages/home/home.page.ts:42</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">Service used for appointment management.</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="exercises"></a>
+                    <span class="name">
+                        <span ><b>exercises</b></span>
+                        <a href="#exercises"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">src/app/pages/home/home.page.ts:107</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fondo"></a>
+                    <span class="name">
+                        <span ><b>fondo</b></span>
+                        <a href="#fondo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/home/home.page.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rutinas"></a>
+                    <span class="name">
+                        <span ><b>rutinas</b></span>
+                        <a href="#rutinas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Rutina.html" target="_self" >Rutina[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/pages/home/home.page.ts:82</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="user"></a>
+                    <span class="name">
+                        <span ><b>user</b></span>
+                        <a href="#user"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/app/pages/home/home.page.ts:79</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { ModalController } from &#x27;@ionic/angular&#x27;;
+import { User } from &#x27;firebase/auth&#x27;;
+import { Timestamp } from &#x27;firebase/firestore&#x27;;
+import { combineLatest, map } from &#x27;rxjs&#x27;;
+import { Cita } from &#x27;src/app/core/interfaces/cita&#x27;;
+import { Rutina } from &#x27;src/app/core/interfaces/rutina&#x27;;
+import { AuthService } from &#x27;src/app/core/services/auth/auth.service&#x27;;
+import { BackgroundService } from &#x27;src/app/core/services/background.service&#x27;;
+import { CitasService } from &#x27;src/app/core/services/citas.service&#x27;;
+import { FirebaseService } from &#x27;src/app/core/services/firebase/firebase.service&#x27;;
+import { RutinaService } from &#x27;src/app/core/services/rutina.service&#x27;;
+import { UsersService } from &#x27;src/app/core/services/users.service&#x27;;
+import { LoadingComponent } from &#x27;src/app/shared/components/loading/loading.component&#x27;;
+
+@Component({
+  selector: &#x27;app-home&#x27;,
+  templateUrl: &#x27;home.page.html&#x27;,
+  styleUrls: [&#x27;home.page.scss&#x27;],
+})
+export class HomePage implements OnInit {
+
+  // Variable for the background.
+  fondo: string &#x3D; &quot;&quot;;
+
+  /**
+  * Class constructor.
+  * 
+  * @param auth Authentication service used to manage user authentication.
+  * @param router The router used for navigation within the application.
+  * @param rutinaSvc Service used for routine management.
+  * @param citasSvc Service used for appointment management.
+  * @param userSvc Service used for user management.
+  * @param backgroundSvc Service used to manage the application&#x27;s background.
+  * @param modal Controller used to create and manage modalities within the application.
+  */
+  constructor(
+    public auth: AuthService,
+    private router: Router,
+    private rutinaSvc: RutinaService,
+    public citasSvc: CitasService,
+    private userSvc: UsersService,
+    private backgroundSvc: BackgroundService,
+    private modal: ModalController
+  ) {}
+
+  /**
+  * Method called after Angular initializes the components of the class.
+  * It subscribes to the authentication service to get information about the authenticated user.
+  * It also subscribes to the routine, appointment, and user management services to receive updates.
+  * It initializes the application&#x27;s background and loads filtered data depending on the logged-in user.
+  */
+  ngOnInit() {
+    // Callback function to handle the closure of the loading modal.
+    var onDismiss &#x3D; (result:any)&#x3D;&gt;{
+      console.log(&quot;Resultado del modal: &quot;, result)
+    }
+    // Display loading modal.
+    this.modalLoading(onDismiss)
+    this.rutinaSvc.subscribeToRutinaCollection();
+    this.userSvc.subscribeToUsersCollection();
+    this.citasSvc.subscribeToCitasCollection();
+    // Get information about the authenticated user.
+    this.auth.me().subscribe(_ &#x3D;&gt; {
+      console.log(&quot;Usuario logeado &quot;+ _.uuid);
+      this.user &#x3D; _;
+      // Filter and load data related to the appointments and routines of the logged-in user.
+      this.citasFiltered(_.uuid);
+      this.rutinasFiltered(_.uuid);
+      this.backgroundSvc.setBackground(_.fondo);
+    })
+    this.backgroundSvc.background$.subscribe(fondo &#x3D;&gt; {
+      this.fondo &#x3D; fondo;
+    });
+  }
+
+  // Variable to store the user data.
+  user: any
+
+  // List of private routines.
+  rutinas: Rutina[] &#x3D; [];
+
+  /**
+  * Filters the current user&#x27;s routines based on the current day and active status.
+  * 
+  * @param uuid The unique identifier of the current user.
+  */
+  rutinasFiltered(uuid: string) {
+    // Get the current day in Spanish.
+    const days &#x3D; [&#x27;Domingo&#x27;, &#x27;Lunes&#x27;, &#x27;Martes&#x27;, &#x27;Miercoles&#x27;, &#x27;Jueves&#x27;, &#x27;Viernes&#x27;, &#x27;Sabado&#x27;];
+    const today &#x3D; days[new Date().getDay()];
+    console.log(&quot;Día actual: &quot;, today);
+    // Filter the routines.
+    this.rutinaSvc.rutinas$.pipe(
+      map(rutina &#x3D;&gt; rutina.filter(rutina &#x3D;&gt; rutina.userUUID &#x3D;&#x3D;&#x3D; uuid &amp;&amp; rutina.day &#x3D;&#x3D; today &amp;&amp; rutina.activo &#x3D;&#x3D; true))
+      ).subscribe(filteredRutinas &#x3D;&gt; {
+        this.rutinas &#x3D; filteredRutinas;
+        filteredRutinas.forEach(rutina &#x3D;&gt; {
+          this.exercises &#x3D; rutina.exercises;
+        })
+        console.log(&quot;RESULTADO DE LAS RUTINAS FILTRADAS: &quot;, this.rutinas);
+    });
+  }
+
+  // List of exercises.
+  exercises: any[] &#x3D; [];
+
+  // List of private routines.
+  citas: Cita[] &#x3D; [];
+
+  /**
+  * Filters the current user&#x27;s appointments based on the status, the person in charge, and the date of the appointment.
+  * 
+  * @param uuid The unique identifier of the current user.
+  */
+  citasFiltered(uuid: string) {
+    // Combine the data sources of appointments and users to filter the appointments.
+      combineLatest([this.citasSvc.citas$, this.userSvc.users$]).pipe(
+        map(([citas, users]) &#x3D;&gt; 
+          citas
+            // Filter the current user&#x27;s appointments that are accepted and whose appointment date is after the current date.
+            .filter(cita &#x3D;&gt; cita?.encargadoUuid &#x3D;&#x3D; uuid &amp;&amp; cita?.estado &#x3D;&#x3D; &#x27;aceptado&#x27; &amp;&amp; cita?.fechaCita.toDate() &gt; new Date()).map(cita &#x3D;&gt; {
+              const user &#x3D; users.find(user &#x3D;&gt; user.uuid &#x3D;&#x3D;&#x3D; cita.userUUID);
+              return {
+                ...cita,
+                clienteFoto: user?.imageUrl ? user?.imageUrl : &quot;https://firebasestorage.googleapis.com/v0/b/fir-project-91ee3.appspot.com/o/images%2Fprofile.png?alt&#x3D;media&amp;token&#x3D;cf7e68cc-c045-4fa3-978b-8281d42fcd51&quot;
+              };
+            })
+        )
+      ).subscribe(filteredCitas &#x3D;&gt; {
+        // Assign the filtered appointments to the appointments array and log the result to the console.
+        this.citas &#x3D; filteredCitas;
+        console.log(&quot;RESULTADO DE LAS CITAS FILTRADAS: &quot;, this.citas);
+      });
+  }
+
+  /**
+  * Gets the formatted date and time from a Timestamp object and determines whether the appointment is past or not.
+  * 
+  * @param timestamp The Timestamp object representing the date and time of the appointment.
+  * @returns An object containing the formatted date and time and an indicator of whether the appointment is past or not.
+  */
+  getCitaDate(timestamp: Timestamp): { fechaFormateada: string, pasada: boolean } {
+    const citaDate &#x3D; timestamp.toDate();
+    const currentDate &#x3D; new Date();
+    const pasada &#x3D; citaDate &lt; currentDate;
+    const fechaFormateada &#x3D; citaDate.toLocaleString();
+    return { fechaFormateada, pasada };
+  }
+
+  /**
+  * Redirects the user to the routines page.
+  */
+  goRutinas() {
+    this.router.navigate([&#x27;/rutinas&#x27;]);
+  }
+
+  /**
+  * Opens a loading modal and waits for it to close to execute the specified action.
+  * @param onDismiss The action to execute when the modal closes.
+  */
+  async modalLoading(onDismiss:(result:any)&#x3D;&gt;void){
+    const modal &#x3D; await this.modal.create({
+      component: LoadingComponent,
+      cssClass:&quot;modal-loading&quot;,
+      backdropDismiss: false
+    });
+    modal.present();
+    modal.onDidDismiss().then(result&#x3D;&gt;{
+      if(result &amp;&amp; result.data){
+        onDismiss(result);
+      }
+    });
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-content [fullscreen]&#x3D;&quot;true&quot; id&#x3D;&quot;general&quot; [ngClass]&#x3D;&quot;{&#x27;pri&#x27;: fondo &#x3D;&#x3D;&#x3D; &#x27;pri&#x27;, &#x27;sec&#x27;: fondo &#x3D;&#x3D; &#x27;sec&#x27;, &#x27;img&#x27;: fondo &#x3D;&#x3D; &#x27;img&#x27;}&quot;&gt;
+  &lt;div class&#x3D;&quot;centro&quot;&gt;
+    &lt;h1 *ngIf&#x3D;&quot;citas &amp;&amp; citas.length &gt; 0; else noCitas&quot; class&#x3D;&quot;titulo&quot;&gt;{{ &quot;home.titulo1&quot; | translate}}&lt;/h1&gt;
+    &lt;ng-template #noCitas&gt;
+      &lt;h1 class&#x3D;&quot;titulo&quot;&gt;{{ &quot;home.titulo1-2&quot; | translate}}&lt;/h1&gt;
+    &lt;/ng-template&gt;
+  &lt;/div&gt;
+  &lt;ion-grid *ngIf&#x3D;&quot;citas &amp;&amp; citas.length &gt; 0&quot;&gt;
+    &lt;ion-row&gt;
+      &lt;ion-col size&#x3D;&quot;2&quot;&gt;{{ &quot;home.user&quot; | translate}}&lt;/ion-col&gt;
+      &lt;ion-col size&#x3D;&quot;3&quot;&gt;{{ &quot;home.titulo&quot; | translate}}&lt;/ion-col&gt;
+      &lt;ion-col size&#x3D;&quot;3&quot;&gt;{{ &quot;home.fecha&quot; | translate}}&lt;/ion-col&gt;
+      &lt;ion-col size&#x3D;&quot;3&quot;&gt;{{ &quot;home.desc&quot; | translate}}&lt;/ion-col&gt;
+    &lt;/ion-row&gt;
+    &lt;ion-row *ngFor&#x3D;&quot;let cita of citas&quot; [class.pasada]&#x3D;&quot;getCitaDate(cita.fechaCita).pasada&quot; [class.aceptada]&#x3D;&quot;cita.estado &#x3D;&#x3D; &#x27;aceptado&#x27;&quot; [class.denegado]&#x3D;&quot;cita.estado &#x3D;&#x3D; &#x27;denegado&#x27;&quot;&gt;
+      &lt;ion-col size&#x3D;&quot;2&quot;&gt;
+        &lt;img [src]&#x3D;&quot;cita.clienteFoto&quot; alt&#x3D;&quot;Foto del encargado&quot; style&#x3D;&quot;width: 50px; height: 50px; border-radius: 50%;&quot; /&gt;
+      &lt;/ion-col&gt;
+      &lt;ion-col size&#x3D;&quot;3&quot;&gt;{{ cita.titulo | primeraLetraMayus }}&lt;/ion-col&gt;
+      &lt;ion-col size&#x3D;&quot;3&quot;&gt;{{ getCitaDate(cita.fechaCita).fechaFormateada }}&lt;/ion-col&gt;
+      &lt;ion-col size&#x3D;&quot;3&quot;&gt;{{ cita.descripcion | truncamiento:40 | primeraLetraMayus }}&lt;/ion-col&gt;
+    &lt;/ion-row&gt;
+  &lt;/ion-grid&gt;
+  &lt;div class&#x3D;&quot;centro&quot;&gt;
+    &lt;h1 *ngIf&#x3D;&quot;rutinas &amp;&amp; rutinas.length &gt; 0; else noRutinas&quot; class&#x3D;&quot;titulo&quot;&gt;{{ &quot;home.titulo2&quot; | translate}}&lt;/h1&gt;
+    &lt;ng-template #noRutinas&gt;
+      &lt;h1 class&#x3D;&quot;titulo&quot;&gt;{{ &quot;home.titulo2-2&quot; | translate}}&lt;/h1&gt;
+    &lt;/ng-template&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;centro&quot;&gt;
+    &lt;ion-button class&#x3D;&quot;desactivado&quot; fill&#x3D;&quot;outline&quot; (click)&#x3D;&quot;goRutinas()&quot;&gt;&lt;ion-icon slot&#x3D;&quot;start&quot; name&#x3D;&quot;barbell-outline&quot; style&#x3D;&quot;font-size: 32px;&quot;&gt;&lt;/ion-icon&gt;{{ &quot;home.rutinas&quot; | translate}}&lt;/ion-button&gt;
+  &lt;/div&gt;
+  &lt;ng-container *ngIf&#x3D;&quot;rutinas.length !&#x3D; 0&quot;&gt;
+    &lt;ng-container *ngFor&#x3D;&quot;let exercise of exercises&quot;&gt;
+      &lt;app-item-exercise [exercise]&#x3D;&quot;exercise&quot;&gt;&lt;/app-item-exercise&gt;
+    &lt;/ng-container&gt;
+  &lt;/ng-container&gt;
+&lt;/ion-content&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>home.page.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.titulo {
+  font-size: 50px;
+  font-weight: bold;
+  color: rgb(33, 51, 67);
+  font-family: &quot;Times New Roman&quot;;
+  text-align: center;
+}
+
+#general {
+  --ion-grid-column-padding: 8px;
+}
+
+#general ion-grid {
+  padding: 16px;
+}
+
+#general ion-row {
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  justify-content: center;
+}
+
+#general ion-col {
+  padding: 10px 0;
+}
+
+#general ion-row:first-child {
+  font-weight: bold;
+  background-color: #053464;
+  color: white;
+}
+
+#general ion-icon {
+  font-size: 1.2em;
+}
+
+ion-content{
+  --padding-top: 70px;
+  --background: linear-gradient(to top, #fff2d6, #B7ECEC);
+}
+
+.centro {
+  display: flex;
+  justify-content: center;
+}
+
+.activo {
+  --color: #ffffff;
+  --background: #FF5C35;
+  font-weight: bold;
+  width: 170px;
+  height: 50px;
+}
+
+.desactivado {
+  --color: #FF5C35;
+  --background: #ffffff;
+  --border-color: #FF5C35;
+  --border-width: 2px; 
+  font-weight: bold;
+  width: 170px;
+  height: 50px;
+}
+
+.leyenda {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.leyenda-item {
+  display: flex;
+  align-items: center;
+  border-bottom: none;
+  padding: 10px;
+}
+
+.cuadrado {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.cuadrado.rojo {
+  background-color: #FF0000;
+  border: 1px solid #000;
+}
+
+.cuadrado.verde {
+  background-color: #00CC00;
+  border: 1px solid #000;
+}
+
+.cuadrado.gris {
+  background-color: #808080;
+  border: 1px solid #000;
+}
+
+.cuadrado.sin-color {
+  background-color: transparent;
+  border: 1px solid #000;
+}
+
+.content {
+  display: inline;
+}
+
+.pri {
+  --background: linear-gradient(to top, #fff2d6, #B7ECEC);
+}
+
+.sec {
+  --background: linear-gradient(to top, #9561ee, #1db6ef);
+}
+
+.img {
+  --background: linear-gradient(to top, #ffd45f, #ff6f91);
+}
+
+@media (max-width: 600px) {
+  ion-content {
+  --padding-top: 30px;
+
+  }
+
+  #general ion-grid {
+    padding: 0;
+    font-size: small;
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-content [fullscreen]="true" id="general" [ngClass]="{\'pri\': fondo === \'pri\', \'sec\': fondo == \'sec\', \'img\': fondo == \'img\'}">  <div class="centro">    <h1 *ngIf="citas && citas.length > 0; else noCitas" class="titulo">{{ "home.titulo1" | translate}}</h1>    <ng-template #noCitas>      <h1 class="titulo">{{ "home.titulo1-2" | translate}}</h1>    </ng-template>  </div>  <ion-grid *ngIf="citas && citas.length > 0">    <ion-row>      <ion-col size="2">{{ "home.user" | translate}}</ion-col>      <ion-col size="3">{{ "home.titulo" | translate}}</ion-col>      <ion-col size="3">{{ "home.fecha" | translate}}</ion-col>      <ion-col size="3">{{ "home.desc" | translate}}</ion-col>    </ion-row>    <ion-row *ngFor="let cita of citas" [class.pasada]="getCitaDate(cita.fechaCita).pasada" [class.aceptada]="cita.estado == \'aceptado\'" [class.denegado]="cita.estado == \'denegado\'">      <ion-col size="2">        <img [src]="cita.clienteFoto" alt="Foto del encargado" style="width: 50px; height: 50px; border-radius: 50%;" />      </ion-col>      <ion-col size="3">{{ cita.titulo | primeraLetraMayus }}</ion-col>      <ion-col size="3">{{ getCitaDate(cita.fechaCita).fechaFormateada }}</ion-col>      <ion-col size="3">{{ cita.descripcion | truncamiento:40 | primeraLetraMayus }}</ion-col>    </ion-row>  </ion-grid>  <div class="centro">    <h1 *ngIf="rutinas && rutinas.length > 0; else noRutinas" class="titulo">{{ "home.titulo2" | translate}}</h1>    <ng-template #noRutinas>      <h1 class="titulo">{{ "home.titulo2-2" | translate}}</h1>    </ng-template>  </div>  <div class="centro">    <ion-button class="desactivado" fill="outline" (click)="goRutinas()"><ion-icon slot="start" name="barbell-outline" style="font-size: 32px;"></ion-icon>{{ "home.rutinas" | translate}}</ion-button>  </div>  <ng-container *ngIf="rutinas.length != 0">    <ng-container *ngFor="let exercise of exercises">      <app-item-exercise [exercise]="exercise"></app-item-exercise>    </ng-container>  </ng-container></ion-content></div>'
+    var COMPONENTS = [{'name': 'AddExerciseComponent', 'selector': 'app-add-exercise'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CardExerciseComponent', 'selector': 'app-card-exercise'},{'name': 'CardRutineComponent', 'selector': 'app-card-rutine'},{'name': 'CardRutinePrivateComponent', 'selector': 'app-card-rutine-private'},{'name': 'CitasPage', 'selector': 'app-citas'},{'name': 'CrearRutinaPage', 'selector': 'app-crear-rutina'},{'name': 'DetalleExerciseComponent', 'selector': 'app-detalle-exercise'},{'name': 'ExercisePrivateComponent', 'selector': 'app-exercise-private'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoModalComponent', 'selector': 'app-info-modal'},{'name': 'InfoRutinaPage', 'selector': 'app-info-rutina'},{'name': 'InfoTooltipComponent', 'selector': 'app-info-tooltip'},{'name': 'ItemExerciseComponent', 'selector': 'app-item-exercise'},{'name': 'LandingPage', 'selector': 'app-landing'},{'name': 'LoadingComponent', 'selector': 'app-loading'},{'name': 'LoginFormComponent', 'selector': 'app-login-form'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'ModalCitaComponent', 'selector': 'app-modal-cita'},{'name': 'ModalConfirmComponent', 'selector': 'app-modal-confirm'},{'name': 'ModalExerciseComponent', 'selector': 'app-modal-exercise'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterFormComponent', 'selector': 'app-register-form'},{'name': 'RutinasPage', 'selector': 'app-rutinas'},{'name': 'UsuariosPage', 'selector': 'app-usuarios'}];
+    var DIRECTIVES = [{'name': 'AgrandarDirective', 'selector': '[appAgrandar]'}];
+    var ACTUAL_COMPONENT = {'name': 'HomePage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'HomePage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

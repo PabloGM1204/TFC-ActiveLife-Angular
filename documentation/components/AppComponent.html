@@ -1,0 +1,1277 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>activelife documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">activelife documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AppComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/app.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-root</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>app.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>app.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#auth" >auth</a>
+                            </li>
+                            <li>
+                                <a href="#fondo" >fondo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#infoText" >infoText</a>
+                            </li>
+                            <li>
+                                <a href="#initialAuthResolved" >initialAuthResolved</a>
+                            </li>
+                            <li>
+                                <a href="#isLanding" >isLanding</a>
+                            </li>
+                            <li>
+                                <a href="#lang" >lang</a>
+                            </li>
+                            <li>
+                                <a href="#showTooltip" >showTooltip</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#translate" >translate</a>
+                            </li>
+                            <li>
+                                <a href="#user" >user</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#onLang" >onLang</a>
+                            </li>
+                            <li>
+                                <a href="#onSingOut" >onSingOut</a>
+                            </li>
+                            <li>
+                                <a href="#toggleTooltip" >toggleTooltip</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(auth: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, rotuer: Router, translate: <a href="../injectables/CustomTranslateService.html" target="_self">CustomTranslateService</a>, backgroundSvc: <a href="../injectables/BackgroundService.html" target="_self">BackgroundService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/app.component.ts:31</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Creates an instance of the AppComponent component.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>auth</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>The authentication service.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>rotuer</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>The application router.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>translate</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomTranslateService.html" target="_self" >CustomTranslateService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>The custom translation service.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>backgroundSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BackgroundService.html" target="_self" >BackgroundService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>The background service.</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onLang"></a>
+                    <span class="name">
+                        <span ><b>onLang</b></span>
+                        <a href="#onLang"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onLang(idioma: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="89"
+                                    class="link-to-prism">src/app/app.component.ts:89</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Manages the change of language in the application.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>idioma</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The selected language.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p><code>false</code> to prevent the page from reloading.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSingOut"></a>
+                    <span class="name">
+                        <span ><b>onSingOut</b></span>
+                        <a href="#onSingOut"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSingOut()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="215"
+                                    class="link-to-prism">src/app/app.component.ts:215</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Log out the user.
+Redirects the user to the home page.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleTooltip"></a>
+                    <span class="name">
+                        <span ><b>toggleTooltip</b></span>
+                        <a href="#toggleTooltip"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleTooltip()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="111"
+                                    class="link-to-prism">src/app/app.component.ts:111</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Toggle the visibility of the tooltip.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="auth"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>auth</b></span>
+                        <a href="#auth"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/app.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">The authentication service.</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fondo"></a>
+                    <span class="name">
+                        <span ><b>fondo</b></span>
+                        <a href="#fondo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/app.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="infoText"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>infoText</b></span>
+                        <a href="#infoText"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/app.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initialAuthResolved"></a>
+                    <span class="name">
+                        <span ><b>initialAuthResolved</b></span>
+                        <a href="#initialAuthResolved"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/app.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isLanding"></a>
+                    <span class="name">
+                        <span ><b>isLanding</b></span>
+                        <a href="#isLanding"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/app.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="lang"></a>
+                    <span class="name">
+                        <span ><b>lang</b></span>
+                        <a href="#lang"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;es&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/app.component.ts:82</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showTooltip"></a>
+                    <span class="name">
+                        <span ><b>showTooltip</b></span>
+                        <a href="#showTooltip"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/app.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="translate"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>translate</b></span>
+                        <a href="#translate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/CustomTranslateService.html" target="_self" >CustomTranslateService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/app.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">The custom translation service.</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="user"></a>
+                    <span class="name">
+                        <span ><b>user</b></span>
+                        <a href="#user"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/app.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { AuthService } from &#x27;./core/services/auth/auth.service&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { defineCustomElements } from &#x27;@ionic/pwa-elements/loader&#x27;;
+import { ModalController } from &#x27;@ionic/angular&#x27;;
+import { CustomTranslateService } from &#x27;./core/services/custom-translate.service&#x27;;
+import { BackgroundService } from &#x27;./core/services/background.service&#x27;;
+@Component({
+  selector: &#x27;app-root&#x27;,
+  templateUrl: &#x27;app.component.html&#x27;,
+  styleUrls: [&#x27;app.component.scss&#x27;],
+})
+export class AppComponent {
+
+  // Variable for the user.
+  user: any | undefined
+
+  // Variable to display the tooltip.
+  showTooltip &#x3D; false;
+
+  // Variable for the tooltip text.
+  infoText?: string;
+
+  // Variable to determine if we are on the landing page.
+  isLanding: boolean &#x3D; false;
+
+  // Variable for the background.
+  fondo: string &#x3D; &quot;&quot;;
+
+  // Variable to determine if initial authentication has been resolved.
+  initialAuthResolved &#x3D; false;
+
+  /**
+  * Creates an instance of the AppComponent component.
+  * @param auth The authentication service.
+  * @param rotuer The application router.
+  * @param translate The custom translation service.
+  * @param backgroundSvc The background service.
+  */
+  constructor(
+    public auth: AuthService,
+    private rotuer: Router,
+    public translate: CustomTranslateService,
+    private backgroundSvc: BackgroundService,
+  ) {
+    // Subscribe to URL change events in the router.
+    this.rotuer.events.subscribe(() &#x3D;&gt; {
+      // Check if the current URL corresponds to the home or login page.
+      this.isLanding &#x3D; this.rotuer.url &#x3D;&#x3D;&#x3D; &#x27;/landing&#x27; || this.rotuer.url &#x3D;&#x3D;&#x3D; &#x27;/login&#x27;;
+    });
+
+    // Subscribe to background changes.
+    this.backgroundSvc.background$.subscribe(fondo &#x3D;&gt; {
+      this.fondo &#x3D; fondo;
+    });
+    
+    // Define custom elements for use in the application.
+    defineCustomElements(window);
+
+    // Subscribe to changes in the login status.
+    this.auth.isLogged$.subscribe((logged) &#x3D;&gt; {
+      // Check if the initial authorization has already been resolved.
+      if (this.initialAuthResolved) {
+        // Redirect to the home or login page based on the login status.
+        if (logged) {
+          this.rotuer.navigate([&#x27;/home&#x27;]).catch(err &#x3D;&gt; console.error(err));
+        } else {
+          this.rotuer.navigate([&#x27;/landing&#x27;]).catch(err &#x3D;&gt; console.error(err));
+        }
+      } else {
+        this.initialAuthResolved &#x3D; true;
+      }
+    });
+
+    // Subscribe to changes in the language.
+    this.translate.language$.subscribe(lang &#x3D;&gt; {
+      this.lang &#x3D; lang;
+    });
+  }
+
+  // Variable for the language.
+  lang: string &#x3D; &quot;es&quot;;
+
+  /**
+  * Manages the change of language in the application.
+  * @param idioma The selected language.
+  * @returns &#x60;false&#x60; to prevent the page from reloading.
+  */
+  onLang(idioma: string) {
+    console.log(&#x27;Cambio de idioma&#x27;);
+    // Set the selected language.
+    switch(idioma){
+      case &#x27;es&#x27;:
+        this.lang&#x3D;&#x27;es&#x27;;
+        break;
+      case &#x27;en&#x27;:
+        this.lang&#x3D;&#x27;en&#x27;;
+        break;
+      case &#x27;it&#x27;:
+        this.lang&#x3D;&#x27;it&#x27;;
+        break;
+    }
+    // Apply the selected language using the translation service.
+    this.translate.use(this.lang);
+    return false; 
+  }
+
+  /**
+  * Toggle the visibility of the tooltip.
+  */
+  toggleTooltip() {
+    this.showTooltip &#x3D; !this.showTooltip;
+    // Update the tooltip text depending on the selected language
+    if (this.showTooltip) {
+      const page &#x3D; this.rotuer.url;
+      switch (page) {
+        case &#x27;/home&#x27;:
+          switch (this.lang) {
+            case &#x27;es&#x27;:
+              this.infoText &#x3D; &#x27;Esta es la página de inicio donde veras las citas proximas que tienes y la rutina que te toca hoy.&#x27;;
+              break;
+            case &#x27;en&#x27;:
+              this.infoText &#x3D; &#x27;This is the home page where you will see the upcoming appointments you have and the routine you have today.&#x27;;
+              break;
+            case &#x27;it&#x27;:
+              this.infoText &#x3D; &#x27;Questa è la home page in cui vedrai i prossimi appuntamenti che hai e la routine che hai oggi.&#x27;;
+              break;
+          }
+          break;
+        case &#x27;/profile&#x27;:
+          switch (this.lang) {
+            case &#x27;es&#x27;:
+              this.infoText &#x3D; &#x27;Página de perfil de usuario en la que puedes ver tus datos y cambiar tu foto de perfil.&#x27;;
+              break;
+            case &#x27;en&#x27;:
+              this.infoText &#x3D; &#x27;User profile page where you can view your details and change your profile photo.&#x27;;
+              break;
+            case &#x27;it&#x27;:
+              this.infoText &#x3D; &#x27;Pagina del profilo utente in cui puoi visualizzare i tuoi dettagli e modificare la foto del tuo profilo.&#x27;;
+              break;
+          }
+          break;
+        case &#x27;/usuarios&#x27;:
+          switch (this.lang) {
+            case &#x27;es&#x27;:
+              this.infoText &#x3D; &#x27;Página con la lista de todos los usuarios que se han registrado a los cuales puedes aceptar, denegar y borrar.&#x27;;
+              break;
+            case &#x27;en&#x27;:
+              this.infoText &#x3D; &#x27;Page with the list of all registered users whom you can accept, deny and delete.&#x27;;
+              break;
+            case &#x27;it&#x27;:
+              this.infoText &#x3D; &quot;Pagina con l&#x27;elenco di tutti gli utenti registrati che puoi accettare, rifiutare ed eliminare.&quot;;
+              break;
+          }
+          break;
+        case &#x27;/citas&#x27;:
+          switch (this.lang) {
+            case &#x27;es&#x27;:
+              this.infoText &#x3D; &#x27;Página en la que puedes aceptar, denegar, responder y obtener citas.&#x27;;
+              break;
+            case &#x27;en&#x27;:
+              this.infoText &#x3D; &#x27;Page where you can accept, deny, respond and get appointments.&#x27;;
+              break;
+            case &#x27;it&#x27;:
+              this.infoText &#x3D; &#x27;Pagina dove puoi accettare, rifiutare, rispondere e ottenere appuntamenti.&#x27;;
+              break;
+          }
+          break;
+        case &#x27;/rutinas&#x27;:
+          switch (this.lang) {
+            case &#x27;es&#x27;:
+              this.infoText &#x3D; &#x27;Página en la que puedes ver tus rutinas, crear nuevas, editarlas, borrarlas y copiar rutinas publicas.&#x27;;
+              break;
+            case &#x27;en&#x27;:
+              this.infoText &#x3D; &#x27;Page where you can see your routines, create new ones, edit them, delete them and copy public routines.&#x27;;
+              break;
+            case &#x27;it&#x27;:
+              this.infoText &#x3D; &#x27;Pagina in cui puoi vedere le tue routine, crearne di nuove, modificarle, eliminarle e copiare le routine pubbliche.&#x27;;
+              break;
+          }
+          break;
+        case &#x27;/crear-rutina&#x27;:
+          switch (this.lang) {
+            case &#x27;es&#x27;:
+              this.infoText &#x3D; &#x27;Completa el formulario con los campos obligatorios y añade ejercicios para crear tu rutina.&#x27;;
+              break;
+            case &#x27;en&#x27;:
+              this.infoText &#x3D; &#x27;Complete the form with the required fields and add exercises to create your routine.&#x27;;
+              break;
+            case &#x27;it&#x27;:
+              this.infoText &#x3D; &#x27;Completa il modulo con i campi obbligatori e aggiungi esercizi per creare la tua routine.&#x27;;
+              break;
+          }
+          break;
+        default:
+          switch (this.lang) {
+            case &#x27;es&#x27;:
+              this.infoText &#x3D; &#x27;Información genérica.&#x27;;
+              break;
+            case &#x27;en&#x27;:
+              this.infoText &#x3D; &#x27;Generic information.&#x27;;
+              break;
+            case &#x27;it&#x27;:
+              this.infoText &#x3D; &#x27;Informazioni generiche.&#x27;;
+              break;
+          }
+      }
+    }
+  }
+
+  /**
+  * Log out the user.
+  * Redirects the user to the home page.
+  */
+  onSingOut(){
+    this.auth.logOut().subscribe(_&#x3D;&gt;{
+      this.rotuer.navigate([&#x27;/landing&#x27;]);
+    })
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-app&gt;
+  &lt;!-- Cabecera de la pagina --&gt;
+  &lt;ion-menu #menu contentId&#x3D;&quot;main-content&quot; class&#x3D;&quot;custom-menu&quot;&gt;
+    &lt;ion-header&gt;
+      &lt;ion-toolbar&gt;
+        &lt;ion-buttons slot&#x3D;&quot;start&quot;&gt;
+          &lt;ion-button (click)&#x3D;&quot;menu.close()&quot;&gt;&lt;ion-icon slot&#x3D;&quot;icon-only&quot; name&#x3D;&quot;close&quot;&gt;&lt;/ion-icon&gt;&lt;/ion-button&gt;
+        &lt;/ion-buttons&gt;
+        &lt;ion-thumbnail slot&#x3D;&quot;start&quot;&gt;
+          &lt;img alt&#x3D;&quot;logo edutrack&quot; src&#x3D;&quot;assets/imgs/logoActiveLife.png&quot;/&gt;
+        &lt;/ion-thumbnail&gt;
+        &lt;ion-title&gt;ActiveLife&lt;/ion-title&gt;
+      &lt;/ion-toolbar&gt;
+    &lt;/ion-header&gt;
+    &lt;ion-content [ngClass]&#x3D;&quot;{&#x27;pri&#x27;: fondo &#x3D;&#x3D;&#x3D; &#x27;pri&#x27;, &#x27;sec&#x27;: fondo &#x3D;&#x3D; &#x27;sec&#x27;, &#x27;img&#x27;: fondo &#x3D;&#x3D; &#x27;img&#x27;}&quot;&gt;
+      &lt;ion-list&gt;
+        &lt;ion-item (click)&#x3D;&quot;menu.close()&quot; [routerLink]&#x3D;&quot;[&#x27;/home&#x27;]&quot; button detail&#x3D;&quot;false&quot; [ngClass]&#x3D;&quot;{&#x27;pri-item&#x27;: fondo &#x3D;&#x3D;&#x3D; &#x27;pri&#x27;, &#x27;sec-item&#x27;: fondo &#x3D;&#x3D; &#x27;sec&#x27;, &#x27;img-item&#x27;: fondo &#x3D;&#x3D; &#x27;img&#x27;}&quot;&gt;&lt;ion-icon slot&#x3D;&quot;start&quot; name&#x3D;&quot;home&quot;&gt;&lt;/ion-icon&gt;{{ &quot;menu.home&quot; | translate }}&lt;/ion-item&gt;
+        &lt;ion-item (click)&#x3D;&quot;menu.close()&quot; [routerLink]&#x3D;&quot;[&#x27;/rutinas&#x27;]&quot; button detail&#x3D;&quot;false&quot; [ngClass]&#x3D;&quot;{&#x27;pri-item&#x27;: fondo &#x3D;&#x3D;&#x3D; &#x27;pri&#x27;, &#x27;sec-item&#x27;: fondo &#x3D;&#x3D; &#x27;sec&#x27;, &#x27;img-item&#x27;: fondo &#x3D;&#x3D; &#x27;img&#x27;}&quot;&gt;&lt;ion-icon slot&#x3D;&quot;start&quot; name&#x3D;&quot;barbell-outline&quot;&gt;&lt;/ion-icon&gt;{{ &quot;menu.rutinas&quot; | translate }}&lt;/ion-item&gt;
+        &lt;ion-item (click)&#x3D;&quot;menu.close()&quot; [routerLink]&#x3D;&quot;[&#x27;/citas&#x27;]&quot; button detail&#x3D;&quot;false&quot; [ngClass]&#x3D;&quot;{&#x27;pri-item&#x27;: fondo &#x3D;&#x3D;&#x3D; &#x27;pri&#x27;, &#x27;sec-item&#x27;: fondo &#x3D;&#x3D; &#x27;sec&#x27;, &#x27;img-item&#x27;: fondo &#x3D;&#x3D; &#x27;img&#x27;}&quot;&gt;&lt;ion-icon slot&#x3D;&quot;start&quot; name&#x3D;&quot;calendar-outline&quot;&gt;&lt;/ion-icon&gt;{{ &quot;menu.citas&quot; | translate }}&lt;/ion-item&gt;
+        &lt;ion-item (click)&#x3D;&quot;menu.close()&quot; [routerLink]&#x3D;&quot;[&#x27;/usuarios&#x27;]&quot; button detail&#x3D;&quot;false&quot; [ngClass]&#x3D;&quot;{&#x27;pri-item&#x27;: fondo &#x3D;&#x3D;&#x3D; &#x27;pri&#x27;, &#x27;sec-item&#x27;: fondo &#x3D;&#x3D; &#x27;sec&#x27;, &#x27;img-item&#x27;: fondo &#x3D;&#x3D; &#x27;img&#x27;}&quot;&gt;&lt;ion-icon slot&#x3D;&quot;start&quot; name&#x3D;&quot;people-outline&quot;&gt;&lt;/ion-icon&gt;{{ &quot;menu.usuarios&quot; | translate }}&lt;/ion-item&gt;
+        &lt;ion-item (click)&#x3D;&quot;menu.close()&quot; [routerLink]&#x3D;&quot;[&#x27;/profile&#x27;]&quot; button detail&#x3D;&quot;false&quot; [ngClass]&#x3D;&quot;{&#x27;pri-item&#x27;: fondo &#x3D;&#x3D;&#x3D; &#x27;pri&#x27;, &#x27;sec-item&#x27;: fondo &#x3D;&#x3D; &#x27;sec&#x27;, &#x27;img-item&#x27;: fondo &#x3D;&#x3D; &#x27;img&#x27;}&quot;&gt;&lt;ion-icon slot&#x3D;&quot;start&quot; name&#x3D;&quot;person-circle-outline&quot;&gt;&lt;/ion-icon&gt;{{ &quot;menu.perfil&quot; | translate }}&lt;/ion-item&gt;
+      &lt;/ion-list&gt;
+    &lt;/ion-content&gt;
+    &lt;ion-buttons [ngClass]&#x3D;&quot;{&#x27;pri-lang&#x27;: fondo &#x3D;&#x3D;&#x3D; &#x27;pri&#x27;, &#x27;sec-lang&#x27;: fondo &#x3D;&#x3D; &#x27;sec&#x27;, &#x27;img-lang&#x27;: fondo &#x3D;&#x3D; &#x27;img&#x27;}&quot;&gt;
+      &lt;ion-button (click)&#x3D;&quot;onLang(&#x27;es&#x27;)&quot; [ngClass]&#x3D;&quot;{&#x27;selected&#x27;: lang &#x3D;&#x3D;&#x3D; &#x27;es&#x27;, &#x27;not-selected&#x27;: lang !&#x3D;&#x3D; &#x27;es&#x27;}&quot; appAgrandar&gt;
+        &lt;img src&#x3D;&quot;assets/imgs/flags/bandera.png&quot; class&#x3D;&quot;flag-icon&quot;&gt;
+      &lt;/ion-button&gt;
+      &lt;ion-button (click)&#x3D;&quot;onLang(&#x27;en&#x27;)&quot; [ngClass]&#x3D;&quot;{&#x27;selected&#x27;: lang &#x3D;&#x3D;&#x3D; &#x27;en&#x27;, &#x27;not-selected&#x27;: lang !&#x3D;&#x3D; &#x27;en&#x27;}&quot; appAgrandar&gt;
+        &lt;img src&#x3D;&quot;assets/imgs/flags/reino-unido.png&quot; class&#x3D;&quot;flag-icon&quot;&gt;
+      &lt;/ion-button&gt;
+      &lt;ion-button (click)&#x3D;&quot;onLang(&#x27;it&#x27;)&quot; [ngClass]&#x3D;&quot;{&#x27;selected&#x27;: lang &#x3D;&#x3D;&#x3D; &#x27;it&#x27;, &#x27;not-selected&#x27;: lang !&#x3D;&#x3D; &#x27;it&#x27;}&quot; appAgrandar&gt;
+        &lt;img src&#x3D;&quot;assets/imgs/flags/italia.png&quot; class&#x3D;&quot;flag-icon&quot;&gt;
+      &lt;/ion-button&gt;
+    &lt;/ion-buttons&gt;
+    &lt;ion-item (click)&#x3D;&quot;onSingOut()&quot; (click)&#x3D;&quot;menu.close()&quot; button detail&#x3D;&quot;false&quot; color&#x3D;&quot;danger&quot;&gt;&lt;ion-icon slot&#x3D;&quot;start&quot; name&#x3D;&quot;log-out-outline&quot;&gt;&lt;/ion-icon&gt;{{ &quot;menu.logout&quot; | translate}}&lt;/ion-item&gt;
+  &lt;/ion-menu&gt;
+
+  &lt;div class&#x3D;&quot;ion-page&quot; id&#x3D;&quot;main-content&quot;&gt;
+    &lt;app-header *ngIf&#x3D;&quot;auth.isLogged$ | async&quot; 
+    [user]&#x3D;&quot;(auth.user$|async)&quot;&gt;&lt;/app-header&gt;
+    &lt;ion-router-outlet&gt;&lt;/ion-router-outlet&gt;
+    &lt;!-- Boton de información --&gt;
+    &lt;ion-fab vertical&#x3D;&quot;bottom&quot; horizontal&#x3D;&quot;end&quot; slot&#x3D;&quot;fixed&quot;&gt;
+      &lt;ion-fab-button *ngIf&#x3D;&quot;!isLanding&quot; (click)&#x3D;&quot;toggleTooltip()&quot; class&#x3D;&quot;info-button&quot;&gt;
+        &lt;ion-icon name&#x3D;&quot;information-circle&quot;&gt;&lt;/ion-icon&gt;
+      &lt;/ion-fab-button&gt;
+    &lt;/ion-fab&gt;
+    &lt;app-info-tooltip *ngIf&#x3D;&quot;showTooltip&quot; [infoText]&#x3D;&quot;infoText&quot;&gt;&lt;/app-info-tooltip&gt;
+  &lt;/div&gt;
+&lt;/ion-app&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>app.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">ion-fab {
+    margin: 16px;
+}
+
+.info-button {
+    --color: #ffffff;
+    --background: #FF5C35;
+    font-weight: bold;
+}
+
+ion-toolbar{
+    --background: #FF9333;
+}
+
+ion-list {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    background-color: linear-gradient(to top, #fff2d6, #B7ECEC);
+}
+
+.fixed-flags {
+    //--background: #FFF2D6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flag-icon {
+    width: 40px; /* Ajusta el tamaño según tus necesidades */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+  
+ion-button.not-selected {
+    opacity: 0.5; /* Ajusta la opacidad según lo necesario */
+}
+  
+ion-button.selected {
+    opacity: 1; /* El botón seleccionado se verá normal */
+}
+
+.pri {
+    --background: linear-gradient(to top, #fff2d6, #B7ECEC);
+}
+  
+.sec {
+    --background: linear-gradient(to top, #9561ee, #1db6ef);
+}
+  
+.img {
+    --background: linear-gradient(to top, #ffd45f, #ff6f91);
+}
+
+.pri-lang {
+    background: #fff2d6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.sec-lang {
+    background: #9561ee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.img-lang {
+    background: #ffd45f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pri-item {
+    --background: #D5EFE3
+}
+  
+.sec-item {
+    --background: #4F92EE
+}
+  
+.img-item {
+    --background: #FF9A7C
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-app>  <!-- Cabecera de la pagina -->  <ion-menu #menu contentId="main-content" class="custom-menu">    <ion-header>      <ion-toolbar>        <ion-buttons slot="start">          <ion-button (click)="menu.close()"><ion-icon slot="icon-only" name="close"></ion-icon></ion-button>        </ion-buttons>        <ion-thumbnail slot="start">          <img alt="logo edutrack" src="assets/imgs/logoActiveLife.png"/>        </ion-thumbnail>        <ion-title>ActiveLife</ion-title>      </ion-toolbar>    </ion-header>    <ion-content [ngClass]="{\'pri\': fondo === \'pri\', \'sec\': fondo == \'sec\', \'img\': fondo == \'img\'}">      <ion-list>        <ion-item (click)="menu.close()" [routerLink]="[\'/home\']" button detail="false" [ngClass]="{\'pri-item\': fondo === \'pri\', \'sec-item\': fondo == \'sec\', \'img-item\': fondo == \'img\'}"><ion-icon slot="start" name="home"></ion-icon>{{ "menu.home" | translate }}</ion-item>        <ion-item (click)="menu.close()" [routerLink]="[\'/rutinas\']" button detail="false" [ngClass]="{\'pri-item\': fondo === \'pri\', \'sec-item\': fondo == \'sec\', \'img-item\': fondo == \'img\'}"><ion-icon slot="start" name="barbell-outline"></ion-icon>{{ "menu.rutinas" | translate }}</ion-item>        <ion-item (click)="menu.close()" [routerLink]="[\'/citas\']" button detail="false" [ngClass]="{\'pri-item\': fondo === \'pri\', \'sec-item\': fondo == \'sec\', \'img-item\': fondo == \'img\'}"><ion-icon slot="start" name="calendar-outline"></ion-icon>{{ "menu.citas" | translate }}</ion-item>        <ion-item (click)="menu.close()" [routerLink]="[\'/usuarios\']" button detail="false" [ngClass]="{\'pri-item\': fondo === \'pri\', \'sec-item\': fondo == \'sec\', \'img-item\': fondo == \'img\'}"><ion-icon slot="start" name="people-outline"></ion-icon>{{ "menu.usuarios" | translate }}</ion-item>        <ion-item (click)="menu.close()" [routerLink]="[\'/profile\']" button detail="false" [ngClass]="{\'pri-item\': fondo === \'pri\', \'sec-item\': fondo == \'sec\', \'img-item\': fondo == \'img\'}"><ion-icon slot="start" name="person-circle-outline"></ion-icon>{{ "menu.perfil" | translate }}</ion-item>      </ion-list>    </ion-content>    <ion-buttons [ngClass]="{\'pri-lang\': fondo === \'pri\', \'sec-lang\': fondo == \'sec\', \'img-lang\': fondo == \'img\'}">      <ion-button (click)="onLang(\'es\')" [ngClass]="{\'selected\': lang === \'es\', \'not-selected\': lang !== \'es\'}" appAgrandar>        <img src="assets/imgs/flags/bandera.png" class="flag-icon">      </ion-button>      <ion-button (click)="onLang(\'en\')" [ngClass]="{\'selected\': lang === \'en\', \'not-selected\': lang !== \'en\'}" appAgrandar>        <img src="assets/imgs/flags/reino-unido.png" class="flag-icon">      </ion-button>      <ion-button (click)="onLang(\'it\')" [ngClass]="{\'selected\': lang === \'it\', \'not-selected\': lang !== \'it\'}" appAgrandar>        <img src="assets/imgs/flags/italia.png" class="flag-icon">      </ion-button>    </ion-buttons>    <ion-item (click)="onSingOut()" (click)="menu.close()" button detail="false" color="danger"><ion-icon slot="start" name="log-out-outline"></ion-icon>{{ "menu.logout" | translate}}</ion-item>  </ion-menu>  <div class="ion-page" id="main-content">    <app-header *ngIf="auth.isLogged$ | async"     [user]="(auth.user$|async)"></app-header>    <ion-router-outlet></ion-router-outlet>    <!-- Boton de información -->    <ion-fab vertical="bottom" horizontal="end" slot="fixed">      <ion-fab-button *ngIf="!isLanding" (click)="toggleTooltip()" class="info-button">        <ion-icon name="information-circle"></ion-icon>      </ion-fab-button>    </ion-fab>    <app-info-tooltip *ngIf="showTooltip" [infoText]="infoText"></app-info-tooltip>  </div></ion-app></div>'
+    var COMPONENTS = [{'name': 'AddExerciseComponent', 'selector': 'app-add-exercise'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CardExerciseComponent', 'selector': 'app-card-exercise'},{'name': 'CardRutineComponent', 'selector': 'app-card-rutine'},{'name': 'CardRutinePrivateComponent', 'selector': 'app-card-rutine-private'},{'name': 'CitasPage', 'selector': 'app-citas'},{'name': 'CrearRutinaPage', 'selector': 'app-crear-rutina'},{'name': 'DetalleExerciseComponent', 'selector': 'app-detalle-exercise'},{'name': 'ExercisePrivateComponent', 'selector': 'app-exercise-private'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoModalComponent', 'selector': 'app-info-modal'},{'name': 'InfoRutinaPage', 'selector': 'app-info-rutina'},{'name': 'InfoTooltipComponent', 'selector': 'app-info-tooltip'},{'name': 'ItemExerciseComponent', 'selector': 'app-item-exercise'},{'name': 'LandingPage', 'selector': 'app-landing'},{'name': 'LoadingComponent', 'selector': 'app-loading'},{'name': 'LoginFormComponent', 'selector': 'app-login-form'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'ModalCitaComponent', 'selector': 'app-modal-cita'},{'name': 'ModalConfirmComponent', 'selector': 'app-modal-confirm'},{'name': 'ModalExerciseComponent', 'selector': 'app-modal-exercise'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterFormComponent', 'selector': 'app-register-form'},{'name': 'RutinasPage', 'selector': 'app-rutinas'},{'name': 'UsuariosPage', 'selector': 'app-usuarios'}];
+    var DIRECTIVES = [{'name': 'AgrandarDirective', 'selector': '[appAgrandar]'}];
+    var ACTUAL_COMPONENT = {'name': 'AppComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AppComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,1266 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>activelife documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">activelife documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ModalExerciseComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/info-rutina/components/modal-exercise/modal-exercise.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-modal-exercise</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./modal-exercise.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./modal-exercise.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#active" >active</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#apiSvc" >apiSvc</a>
+                            </li>
+                            <li>
+                                <a href="#exercises" >exercises</a>
+                            </li>
+                            <li>
+                                <a href="#rutina" >rutina</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#activateSecondSelect" >activateSecondSelect</a>
+                            </li>
+                            <li>
+                                <a href="#addExerciseToRutine" >addExerciseToRutine</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#removeExerciseToRutine" >removeExerciseToRutine</a>
+                            </li>
+                            <li>
+                                <a href="#showBottomCenterBad" >showBottomCenterBad</a>
+                            </li>
+                            <li>
+                                <a href="#showBottomCenterGood" >showBottomCenterGood</a>
+                            </li>
+                            <li>
+                                <a href="#updateExercises" >updateExercises</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(apiSvc: <a href="../injectables/ApiService.html" target="_self">ApiService</a>, messageService: MessageService, modal: ModalController, langSvc: <a href="../injectables/CustomTranslateService.html" target="_self">CustomTranslateService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/pages/info-rutina/components/modal-exercise/modal-exercise.component.ts:12</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Component constructor.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>apiSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ApiService.html" target="_self" >ApiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Service to make calls to the API.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>messageService</td>
+                                                  
+                                                        <td>
+                                                                    <code>MessageService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Service to display messages in the interface.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>modal</td>
+                                                  
+                                                        <td>
+                                                                    <code>ModalController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Controller to open and manage modals.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>langSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomTranslateService.html" target="_self" >CustomTranslateService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Service to manage custom translation.</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="activateSecondSelect"></a>
+                    <span class="name">
+                        <span ><b>activateSecondSelect</b></span>
+                        <a href="#activateSecondSelect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>activateSecondSelect(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="43"
+                                    class="link-to-prism">src/app/pages/info-rutina/components/modal-exercise/modal-exercise.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Activates the secondary exercise selection based on the selected body part.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Event that contains the selected value.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addExerciseToRutine"></a>
+                    <span class="name">
+                        <span ><b>addExerciseToRutine</b></span>
+                        <a href="#addExerciseToRutine"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addExerciseToRutine(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, exercise: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="64"
+                                    class="link-to-prism">src/app/pages/info-rutina/components/modal-exercise/modal-exercise.component.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Adds an exercise to the current routine with the provided data.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Additional data of the exercise.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>exercise</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Exercise to add to the routine.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="28"
+                                    class="link-to-prism">src/app/pages/info-rutina/components/modal-exercise/modal-exercise.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeExerciseToRutine"></a>
+                    <span class="name">
+                        <span ><b>removeExerciseToRutine</b></span>
+                        <a href="#removeExerciseToRutine"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeExerciseToRutine(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, exercise: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="85"
+                                    class="link-to-prism">src/app/pages/info-rutina/components/modal-exercise/modal-exercise.component.ts:85</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Removes an exercise from the current routine.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Additional data related to the exercise.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>exercise</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The exercise to be removed from the routine.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showBottomCenterBad"></a>
+                    <span class="name">
+                        <span ><b>showBottomCenterBad</b></span>
+                        <a href="#showBottomCenterBad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showBottomCenterBad()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="131"
+                                    class="link-to-prism">src/app/pages/info-rutina/components/modal-exercise/modal-exercise.component.ts:131</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Displays an error message at the bottom center of the message component
+according to the selected language.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showBottomCenterGood"></a>
+                    <span class="name">
+                        <span ><b>showBottomCenterGood</b></span>
+                        <a href="#showBottomCenterGood"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showBottomCenterGood()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="109"
+                                    class="link-to-prism">src/app/pages/info-rutina/components/modal-exercise/modal-exercise.component.ts:109</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Displays a success message at the bottom center of the message component
+according to the selected language.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateExercises"></a>
+                    <span class="name">
+                        <span ><b>updateExercises</b></span>
+                        <a href="#updateExercises"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateExercises()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="99"
+                                    class="link-to-prism">src/app/pages/info-rutina/components/modal-exercise/modal-exercise.component.ts:99</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates the exercises of the routine and closes the modal.
+Displays the updated list of exercises in the console.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="active"></a>
+                    <span class="name">
+                        <span ><b>active</b></span>
+                        <a href="#active"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/pages/info-rutina/components/modal-exercise/modal-exercise.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="apiSvc"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>apiSvc</b></span>
+                        <a href="#apiSvc"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/ApiService.html" target="_self" >ApiService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/pages/info-rutina/components/modal-exercise/modal-exercise.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">Service to make calls to the API.</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="exercises"></a>
+                    <span class="name">
+                        <span ><b>exercises</b></span>
+                        <a href="#exercises"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/pages/info-rutina/components/modal-exercise/modal-exercise.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rutina"></a>
+                    <span class="name">
+                        <span ><b>rutina</b></span>
+                        <a href="#rutina"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/pages/info-rutina/components/modal-exercise/modal-exercise.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { ModalController } from &#x27;@ionic/angular&#x27;;
+import { MessageService } from &#x27;primeng/api&#x27;;
+import { ApiService } from &#x27;src/app/core/services/api.service&#x27;;
+import { CustomTranslateService } from &#x27;src/app/core/services/custom-translate.service&#x27;;
+
+@Component({
+  selector: &#x27;app-modal-exercise&#x27;,
+  templateUrl: &#x27;./modal-exercise.component.html&#x27;,
+  styleUrls: [&#x27;./modal-exercise.component.scss&#x27;],
+})
+export class ModalExerciseComponent  implements OnInit {
+
+  /**
+  * Component constructor.
+  * @param apiSvc Service to make calls to the API.
+  * @param messageService Service to display messages in the interface.
+  * @param modal Controller to open and manage modals.
+  * @param langSvc Service to manage custom translation.
+  */
+  constructor(
+    public apiSvc: ApiService,
+    private messageService: MessageService,
+    private modal: ModalController,
+    private langSvc: CustomTranslateService
+  ) {}
+
+  ngOnInit() {}
+
+  // Variable for the exercises of the routines.
+  exercises: any[] &#x3D; [];
+
+  // Variable to activate the second select.
+  active: boolean &#x3D; false;
+
+  // Variable for the routine.
+  rutina: any[] &#x3D; [];
+
+  /**
+  * Activates the secondary exercise selection based on the selected body part.
+  * @param event Event that contains the selected value.
+  */
+  activateSecondSelect(event: any) {
+    const value &#x3D; event.detail.value;
+    console.log(&quot;Valor selccionado &quot;, value)
+    // Gets the exercises based on the selected body part.
+    this.apiSvc.exerciseByBodyPart(value).subscribe(
+      (reponse: any) &#x3D;&gt; {
+        // Assigns the obtained exercises to the corresponding property.
+        this.exercises &#x3D; reponse;
+        this.active &#x3D; true;
+      },
+      (error) &#x3D;&gt; {
+        console.error(&#x27;Error al obtener el ejercicio:&#x27;, error);
+      }
+    );
+  }
+
+  /**
+  * Adds an exercise to the current routine with the provided data.
+  * @param data Additional data of the exercise.
+  * @param exercise Exercise to add to the routine.
+  */
+  addExerciseToRutine(data: any, exercise: any){
+    console.log(&quot;Datos: &quot;, data);
+    console.log(&quot;Ejercicio: &quot;, exercise);
+    // Combines the additional data with the exercise data.
+    let _exercise &#x3D; {
+      ...exercise,
+      ...data
+    }
+    console.log(&quot;Ejercicio con datos: &quot;, _exercise);
+    // Adds the modified exercise to the routine.
+    this.rutina.push(_exercise);
+    // Displays a success notification.
+    this.showBottomCenterGood();
+    console.log(&quot;Ejercicios: &quot;, this.rutina);
+  }
+
+  /**
+  * Removes an exercise from the current routine.
+  * @param data Additional data related to the exercise.
+  * @param exercise The exercise to be removed from the routine.
+  */
+  removeExerciseToRutine(data: any, exercise: any){
+    console.log(&quot;Datos: &quot;, data);
+    console.log(&quot;Ejercicio: &quot;, exercise);
+    // Displays an error notification.
+    this.showBottomCenterBad();
+    // Filters the exercises to remove the specified exercise.
+    this.rutina &#x3D; this.rutina.filter((item) &#x3D;&gt; item.id !&#x3D;&#x3D; exercise.id);
+    console.log(&quot;Ejercicios: &quot;, this.rutina);
+  }
+
+  /**
+  * Updates the exercises of the routine and closes the modal.
+  * Displays the updated list of exercises in the console.
+  */
+  updateExercises(){
+    console.log(&quot;Ejercicios: &quot;, this.exercises);
+    // Closes the modal and passes the updated list of exercises as a result.
+    this.modal.dismiss(this.rutina)
+  }
+
+  /**
+  * Displays a success message at the bottom center of the message component
+  * according to the selected language.
+  */
+  showBottomCenterGood() {
+    // Subscription to the language service to get the current language.
+    this.langSvc.language$.subscribe(lang &#x3D;&gt; {
+      // Switch to handle the different languages.
+      switch(lang){
+        case &#x27;es&#x27;:
+          this.messageService.add({ key: &#x27;bc&#x27;, severity: &#x27;success&#x27;, summary: &#x27;Success&#x27;, detail: &#x27;Ejercicio añadido&#x27; });
+          break;
+        case &#x27;en&#x27;:
+          this.messageService.add({ key: &#x27;bc&#x27;, severity: &#x27;success&#x27;, summary: &#x27;Success&#x27;, detail: &#x27;Added exercise&#x27; });
+          break;
+        case &#x27;it&#x27;:
+          this.messageService.add({ key: &#x27;bc&#x27;, severity: &#x27;success&#x27;, summary: &#x27;Success&#x27;, detail: &#x27;Aggiunto esercizio&#x27; });
+          break;
+      }
+    })
+  }
+
+  /**
+  * Displays an error message at the bottom center of the message component
+  * according to the selected language.
+  */
+  showBottomCenterBad(){
+    // Subscription to the language service to get the current language.
+    this.langSvc.language$.subscribe(lang &#x3D;&gt; { 
+      switch(lang){
+        case &#x27;es&#x27;:
+          this.messageService.add({ key: &#x27;er&#x27;, severity: &#x27;error&#x27;, summary: &#x27;Eliminado&#x27;, detail: &#x27;Ejercicio eliminado de la rutina&#x27; });
+          break;
+        case &#x27;en&#x27;:
+          this.messageService.add({ key: &#x27;er&#x27;, severity: &#x27;error&#x27;, summary: &#x27;Eliminado&#x27;, detail: &#x27;Exercise removed from the routine&#x27; });
+          break;
+        case &#x27;it&#x27;:
+          this.messageService.add({ key: &#x27;er&#x27;, severity: &#x27;error&#x27;, summary: &#x27;Eliminado&#x27;, detail: &#x27;Esercizio rimosso dalla routine&#x27; });
+          break;
+      }
+    })
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-content&gt;
+  &lt;div class&#x3D;&quot;sticky-container&quot;&gt;
+    &lt;div class&#x3D;&quot;boton&quot;&gt;
+      &lt;ion-button (click)&#x3D;&quot;updateExercises()&quot; class&#x3D;&quot;crear&quot; fill&#x3D;&quot;outline&quot;&gt;&lt;ion-icon name&#x3D;&quot;add-outline&quot;&gt;&lt;/ion-icon&gt;&lt;/ion-button&gt;
+    &lt;/div&gt;
+    &lt;ion-item&gt;
+      &lt;ion-select label&#x3D;&quot;Body Parts&quot; placeholder&#x3D;&quot;Select one part&quot; (ionChange)&#x3D;&quot;activateSecondSelect($event)&quot;&gt;
+        &lt;ion-select-option *ngFor&#x3D;&quot;let part of apiSvc.bodyList&quot;&gt;{{ part }}&lt;/ion-select-option&gt;
+      &lt;/ion-select&gt;
+    &lt;/ion-item&gt;
+  &lt;/div&gt;
+  
+  &lt;div class&#x3D;&quot;scrollable-container&quot;&gt;
+    &lt;ng-container *ngFor&#x3D;&quot;let exercise of exercises&quot;&gt;
+      &lt;app-card-exercise class&#x3D;&quot;card&quot; [exercise]&#x3D;&quot;exercise&quot; *ngIf&#x3D;&quot;active&quot; 
+        (addExerciseEvent)&#x3D;&quot;addExerciseToRutine($event, exercise)&quot; 
+        (removeExerciseEvent)&#x3D;&quot;removeExerciseToRutine($event, exercise)&quot;&gt;
+      &lt;/app-card-exercise&gt;
+    &lt;/ng-container&gt;
+  &lt;/div&gt;
+&lt;/ion-content&gt;
+
+&lt;p-toast position&#x3D;&quot;bottom-center&quot; key&#x3D;&quot;bc&quot;&gt;&lt;/p-toast&gt;
+&lt;p-toast position&#x3D;&quot;bottom-center&quot; key&#x3D;&quot;er&quot;&gt;&lt;/p-toast&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./modal-exercise.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">ion-content {
+    --background: linear-gradient(to top, #fff2d6, #B7ECEC);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.boton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.crear {
+    --color: #FF5C35;
+    --background: #ffffff;
+    --border-color: #FF5C35;
+    --border-width: 2px; 
+    font-weight: bold;
+    width: 150px;
+    height: 50px;
+}
+
+.card {
+    width: 20px;
+    display: ruby;
+}
+
+ion-item {
+    --background: none;
+    margin: 20px;
+}
+
+.sticky-container {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #FF6945;
+}
+
+.scrollable-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    padding-top: 0px;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-content>  <div class="sticky-container">    <div class="boton">      <ion-button (click)="updateExercises()" class="crear" fill="outline"><ion-icon name="add-outline"></ion-icon></ion-button>    </div>    <ion-item>      <ion-select label="Body Parts" placeholder="Select one part" (ionChange)="activateSecondSelect($event)">        <ion-select-option *ngFor="let part of apiSvc.bodyList">{{ part }}</ion-select-option>      </ion-select>    </ion-item>  </div>    <div class="scrollable-container">    <ng-container *ngFor="let exercise of exercises">      <app-card-exercise class="card" [exercise]="exercise" *ngIf="active"         (addExerciseEvent)="addExerciseToRutine($event, exercise)"         (removeExerciseEvent)="removeExerciseToRutine($event, exercise)">      </app-card-exercise>    </ng-container>  </div></ion-content><p-toast position="bottom-center" key="bc"></p-toast><p-toast position="bottom-center" key="er"></p-toast></div>'
+    var COMPONENTS = [{'name': 'AddExerciseComponent', 'selector': 'app-add-exercise'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CardExerciseComponent', 'selector': 'app-card-exercise'},{'name': 'CardRutineComponent', 'selector': 'app-card-rutine'},{'name': 'CardRutinePrivateComponent', 'selector': 'app-card-rutine-private'},{'name': 'CitasPage', 'selector': 'app-citas'},{'name': 'CrearRutinaPage', 'selector': 'app-crear-rutina'},{'name': 'DetalleExerciseComponent', 'selector': 'app-detalle-exercise'},{'name': 'ExercisePrivateComponent', 'selector': 'app-exercise-private'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoModalComponent', 'selector': 'app-info-modal'},{'name': 'InfoRutinaPage', 'selector': 'app-info-rutina'},{'name': 'InfoTooltipComponent', 'selector': 'app-info-tooltip'},{'name': 'ItemExerciseComponent', 'selector': 'app-item-exercise'},{'name': 'LandingPage', 'selector': 'app-landing'},{'name': 'LoadingComponent', 'selector': 'app-loading'},{'name': 'LoginFormComponent', 'selector': 'app-login-form'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'ModalCitaComponent', 'selector': 'app-modal-cita'},{'name': 'ModalConfirmComponent', 'selector': 'app-modal-confirm'},{'name': 'ModalExerciseComponent', 'selector': 'app-modal-exercise'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterFormComponent', 'selector': 'app-register-form'},{'name': 'RutinasPage', 'selector': 'app-rutinas'},{'name': 'UsuariosPage', 'selector': 'app-usuarios'}];
+    var DIRECTIVES = [{'name': 'AgrandarDirective', 'selector': '[appAgrandar]'}];
+    var ACTUAL_COMPONENT = {'name': 'ModalExerciseComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ModalExerciseComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

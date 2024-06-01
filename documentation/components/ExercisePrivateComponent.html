@@ -1,0 +1,715 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>activelife documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">activelife documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ExercisePrivateComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/info-rutina/components/exercise-private/exercise-private.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-exercise-private</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./exercise-private.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./exercise-private.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#removeExercise" >removeExercise</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#exercise" >exercise</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#removeExerciseEvent" >removeExerciseEvent</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/info-rutina/components/exercise-private/exercise-private.component.ts:18</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="exercise"></a>
+                        <b>exercise</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/pages/info-rutina/components/exercise-private/exercise-private.component.ts:13</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The exercise received as input for the component.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="removeExerciseEvent"></a>
+                        <b>removeExerciseEvent</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/info-rutina/components/exercise-private/exercise-private.component.ts:18</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Event emitted when a request to remove an exercise is made.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="22"
+                                    class="link-to-prism">src/app/pages/info-rutina/components/exercise-private/exercise-private.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeExercise"></a>
+                    <span class="name">
+                        <span ><b>removeExercise</b></span>
+                        <a href="#removeExercise"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeExercise(exercise: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="28"
+                                    class="link-to-prism">src/app/pages/info-rutina/components/exercise-private/exercise-private.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Emits an event to request the removal of an exercise.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>exercise</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The exercise to be removed.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EventEmitter, Input, OnInit, Output } from &#x27;@angular/core&#x27;;
+
+@Component({
+  selector: &#x27;app-exercise-private&#x27;,
+  templateUrl: &#x27;./exercise-private.component.html&#x27;,
+  styleUrls: [&#x27;./exercise-private.component.scss&#x27;],
+})
+export class ExercisePrivateComponent  implements OnInit {
+
+  /**
+  * The exercise received as input for the component.
+  */
+  @Input() exercise: any;
+
+  /**
+  * Event emitted when a request to remove an exercise is made.
+  */
+  @Output() removeExerciseEvent: EventEmitter&lt;any&gt; &#x3D; new EventEmitter&lt;any&gt;();
+
+  constructor() { }
+
+  ngOnInit() {}
+
+  /**
+  * Emits an event to request the removal of an exercise.
+  * @param exercise The exercise to be removed.
+  */
+  removeExercise(exercise: any){
+    console.log(&quot;Eliminar ejercicio: &quot;, exercise);
+    this.removeExerciseEvent.emit(exercise);
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-card class&#x3D;&quot;card-con-borde&quot;&gt;
+  &lt;ion-card-content&gt;
+    &lt;ion-grid&gt;
+      &lt;ion-row&gt;
+        &lt;!-- Imagen del ejercicio --&gt;
+        &lt;ion-col size&#x3D;&quot;12&quot; size-md&#x3D;&quot;4&quot; class&#x3D;&quot;imagen-col&quot;&gt;
+          &lt;img [src]&#x3D;&quot;exercise?.gifUrl&quot; alt&#x3D;&quot;Exercise&quot;&gt;
+        &lt;/ion-col&gt;
+        &lt;!-- Detalles del ejercicio --&gt;
+        &lt;ion-col size&#x3D;&quot;12&quot; size-md&#x3D;&quot;8&quot; class&#x3D;&quot;detalles-col&quot;&gt;
+          &lt;div class&#x3D;&quot;centro&quot;&gt;
+            &lt;ion-card-title&gt;{{ exercise.name | primeraLetraMayus }}&lt;/ion-card-title&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;centro&quot;&gt;
+            &lt;ion-card-subtitle&gt;{{ exercise.bodyPart | primeraLetraMayus }}&lt;/ion-card-subtitle&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;info-group&quot;&gt;
+            &lt;ion-label class&#x3D;&quot;info-label&quot;&gt;{{ &quot;item-exercise.equip&quot; | translate }}&lt;/ion-label&gt;
+            &lt;ion-text&gt;{{ exercise.equipment }}&lt;/ion-text&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;info-group&quot;&gt;
+            &lt;ion-label class&#x3D;&quot;info-label&quot;&gt;{{ &quot;item-exercise.obj&quot; | translate }}&lt;/ion-label&gt;
+            &lt;ion-text&gt;{{ exercise.target }}&lt;/ion-text&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;info-group&quot;&gt;
+            &lt;ion-label class&#x3D;&quot;info-label&quot;&gt;{{ &quot;item-exercise.sec&quot; | translate }}&lt;/ion-label&gt;
+            &lt;ion-text&gt;{{ exercise.secondaryMuscles.join(&#x27;, &#x27;) }}&lt;/ion-text&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;info-group&quot;&gt;
+            &lt;ion-label class&#x3D;&quot;info-label&quot;&gt;{{ &quot;item-exercise.ser&quot; | translate }}&lt;/ion-label&gt;
+            &lt;ion-text&gt;{{ exercise.serie }}&lt;/ion-text&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;info-group&quot;&gt;
+            &lt;ion-label class&#x3D;&quot;info-label&quot;&gt;{{ &quot;item-exercise.rep&quot; | translate }}&lt;/ion-label&gt;
+            &lt;ion-text&gt;{{ exercise.repeticiones }}&lt;/ion-text&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;info-group&quot;&gt;
+            &lt;ion-label class&#x3D;&quot;info-label&quot;&gt;{{ &quot;item-exercise.int&quot; | translate }}&lt;/ion-label&gt;
+            &lt;p class&#x3D;&quot;info-value&quot;&gt;
+              &lt;ul&gt;
+                &lt;li *ngFor&#x3D;&quot;let instruction of exercise.instructions&quot;&gt;{{ instruction }}&lt;/li&gt;
+              &lt;/ul&gt;
+          &lt;/div&gt;
+        &lt;/ion-col&gt;
+      &lt;/ion-row&gt;
+    &lt;/ion-grid&gt;
+  &lt;/ion-card-content&gt;
+  &lt;div id&#x3D;&quot;boton&quot;&gt;
+    &lt;ion-button (click)&#x3D;&quot;removeExercise(exercise)&quot; color&#x3D;&quot;danger&quot;&gt;&lt;ion-icon name&#x3D;&quot;trash-outline&quot;&gt;&lt;/ion-icon&gt;&lt;/ion-button&gt;
+  &lt;/div&gt;
+&lt;/ion-card&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./exercise-private.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">ion-card.card-con-borde {
+    position: relative;
+    margin: 20px;
+    padding: 20px;
+    background: #C4EDE8;
+    border: 2px solid #FF5C35; /* Establece el color y el grosor del borde */
+    border-radius: 10px; /* Añade un radio al borde para esquinas redondeadas */
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2); /* Añade sombra para el efecto de desplazamiento */
+  }
+
+#boton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ion-button {
+    width: 150px;
+    height: 50px;
+    padding-bottom: 25px;
+}
+
+.centro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+  
+.info-label {
+    font-weight: bold;
+    color: #555;
+    flex: 1;
+}
+  
+.info-value {
+    font-size: 1em;
+    color: #777;
+    flex: 2;
+    margin-left: 10px;
+}
+
+img {
+    max-width: 100%; 
+    margin-top: 80px;
+    border: 2px solid #FF5C35;
+    border-radius: 10px;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-card class="card-con-borde">  <ion-card-content>    <ion-grid>      <ion-row>        <!-- Imagen del ejercicio -->        <ion-col size="12" size-md="4" class="imagen-col">          <img [src]="exercise?.gifUrl" alt="Exercise">        </ion-col>        <!-- Detalles del ejercicio -->        <ion-col size="12" size-md="8" class="detalles-col">          <div class="centro">            <ion-card-title>{{ exercise.name | primeraLetraMayus }}</ion-card-title>          </div>          <div class="centro">            <ion-card-subtitle>{{ exercise.bodyPart | primeraLetraMayus }}</ion-card-subtitle>          </div>          <div class="info-group">            <ion-label class="info-label">{{ "item-exercise.equip" | translate }}</ion-label>            <ion-text>{{ exercise.equipment }}</ion-text>          </div>          <div class="info-group">            <ion-label class="info-label">{{ "item-exercise.obj" | translate }}</ion-label>            <ion-text>{{ exercise.target }}</ion-text>          </div>          <div class="info-group">            <ion-label class="info-label">{{ "item-exercise.sec" | translate }}</ion-label>            <ion-text>{{ exercise.secondaryMuscles.join(\', \') }}</ion-text>          </div>          <div class="info-group">            <ion-label class="info-label">{{ "item-exercise.ser" | translate }}</ion-label>            <ion-text>{{ exercise.serie }}</ion-text>          </div>          <div class="info-group">            <ion-label class="info-label">{{ "item-exercise.rep" | translate }}</ion-label>            <ion-text>{{ exercise.repeticiones }}</ion-text>          </div>          <div class="info-group">            <ion-label class="info-label">{{ "item-exercise.int" | translate }}</ion-label>            <p class="info-value">              <ul>                <li *ngFor="let instruction of exercise.instructions">{{ instruction }}</li>              </ul>          </div>        </ion-col>      </ion-row>    </ion-grid>  </ion-card-content>  <div id="boton">    <ion-button (click)="removeExercise(exercise)" color="danger"><ion-icon name="trash-outline"></ion-icon></ion-button>  </div></ion-card></div>'
+    var COMPONENTS = [{'name': 'AddExerciseComponent', 'selector': 'app-add-exercise'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CardExerciseComponent', 'selector': 'app-card-exercise'},{'name': 'CardRutineComponent', 'selector': 'app-card-rutine'},{'name': 'CardRutinePrivateComponent', 'selector': 'app-card-rutine-private'},{'name': 'CitasPage', 'selector': 'app-citas'},{'name': 'CrearRutinaPage', 'selector': 'app-crear-rutina'},{'name': 'DetalleExerciseComponent', 'selector': 'app-detalle-exercise'},{'name': 'ExercisePrivateComponent', 'selector': 'app-exercise-private'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoModalComponent', 'selector': 'app-info-modal'},{'name': 'InfoRutinaPage', 'selector': 'app-info-rutina'},{'name': 'InfoTooltipComponent', 'selector': 'app-info-tooltip'},{'name': 'ItemExerciseComponent', 'selector': 'app-item-exercise'},{'name': 'LandingPage', 'selector': 'app-landing'},{'name': 'LoadingComponent', 'selector': 'app-loading'},{'name': 'LoginFormComponent', 'selector': 'app-login-form'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'ModalCitaComponent', 'selector': 'app-modal-cita'},{'name': 'ModalConfirmComponent', 'selector': 'app-modal-confirm'},{'name': 'ModalExerciseComponent', 'selector': 'app-modal-exercise'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterFormComponent', 'selector': 'app-register-form'},{'name': 'RutinasPage', 'selector': 'app-rutinas'},{'name': 'UsuariosPage', 'selector': 'app-usuarios'}];
+    var DIRECTIVES = [{'name': 'AgrandarDirective', 'selector': '[appAgrandar]'}];
+    var ACTUAL_COMPONENT = {'name': 'ExercisePrivateComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ExercisePrivateComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

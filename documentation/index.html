@@ -1,0 +1,295 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>activelife documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="./" class="navbar-brand">activelife documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content getting-started">
+                   <div class="content-data">
+
+<p>﻿# TFG-ActiveLife</p>
+<h2>Video de como funciona</h2>
+<ul>
+<li><a href="https://youtu.be/eENalVjWBjs">Enlace al video</a></li>
+</ul>
+<h2>Diario TFC</h2>
+<p><strong>Marzo 18, 2024</strong></p>
+<ul>
+<li>Comencé el proyecto y lo conecté al repositorio de Git para mantener todo organizado desde el principio.</li>
+</ul>
+<p><strong>Marzo 20, 2024</strong></p>
+<ul>
+<li>Estructuré el proyecto y configuré Firebase para la gestión de datos.</li>
+<li>Implementé el sistema de registro y login para que los usuarios puedan acceder fácilmente al sistema.</li>
+</ul>
+<p><strong>Marzo 22, 2024</strong></p>
+<ul>
+<li>Desarrollé el login y el registro, incluyendo la opción de autologin para una experiencia más cómoda.</li>
+<li>Creé los formularios de login/registro y los adapté según la acción del usuario.</li>
+</ul>
+<p><strong>Marzo 24, 2024</strong></p>
+<ul>
+<li>Implementé el sistema para aceptar nuevos usuarios y visualizar todos los registrados.</li>
+<li>Añadí la opción para registrarse como administrador o cliente, haciéndolo cómodo con un toggle.</li>
+</ul>
+<p><strong>Marzo 25, 2024</strong></p>
+<ul>
+<li>Creé el repositorio del Anteproyecto y organicé todo para la presentación (<a href="https://github.com/PabloGM1204/TFG-ActiveLife">https://github.com/PabloGM1204/TFG-ActiveLife</a>).</li>
+<li>Elaboré el Anteproyecto en Notion y lo trasladé al repositorio, junto con un <a href="https://github.com/PabloGM1204/TFG-ActiveLife/blob/main/README.md">README.md</a> para mantener a todos informados.</li>
+</ul>
+<p><strong>Marzo 26, 2024</strong></p>
+<ul>
+<li>Finalicé los ajustes en el repositorio del Anteproyecto para cumplir con los requisitos establecidos y lo envié a los profesores para esperar a su corrección.</li>
+</ul>
+<p><strong>Abril 9, 2024</strong></p>
+<ul>
+<li>Inicié el diseño del proyecto en Figma, definiendo la apariencia del proyecto en Angular mientras el anteproyecto esta siendo corregido.</li>
+</ul>
+<p><strong>Abril 12, 2024</strong></p>
+<ul>
+<li>Continué trabajando en el diseño en Figma, aclarando ideas y tomando decisiones para avanzar.</li>
+</ul>
+<p><strong>Abril 15, 2024</strong></p>
+<ul>
+<li>Viendo que los profesores no nos dicen nada sobre el Anteproyecto decidimos Antonio y yo empezar a desarrollarlo.</li>
+<li>Realicé ajustes para mejorar la gestión de usuarios.</li>
+</ul>
+<p><strong>Abril 17, 2024</strong></p>
+<ul>
+<li>Implementé una API de ejercicios (<a href="https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb/">https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb/</a>) la cual es gratis hasta cierto punto pero los resultados nos lo devuelve en Ingles (Nuestro tutor David dijo que no había problema) pero aun los datos que nos devuelve son con imágenes y todo por lo que está muy bien.</li>
+</ul>
+<p><strong>Abril 18, 2024</strong></p>
+<ul>
+<li>Hice que los usuarios creen sus propias rutinas y puedan buscar los ejercicios según sus preferencias de zonas (espalda, piernas, pecho, etc).</li>
+</ul>
+<p><strong>Abril 20, 2024</strong></p>
+<ul>
+<li>Permití que las rutinas al crearlas un admin pueda o no ser publicas para en el caso de serlas que el cliente y la landing page puedan verlas y añadí notificaciones visuales para mejorar la experiencia del usuario.</li>
+</ul>
+<p><strong>Abril 23, 2024</strong></p>
+<ul>
+<li>Personalicé el swiper para adaptarlo a las necesidades del proyecto y lo integré en la página de inicio.</li>
+</ul>
+<p><strong>Abril 24, 2024</strong></p>
+<ul>
+<li>Habilité la edición de rutinas existentes y diferencié entre rutinas públicas y privadas para un mayor control.</li>
+<li>Añadí notificaciones visuales para informar a los usuarios sobre acciones relacionadas con las rutinas.</li>
+</ul>
+<p><strong>Abril 25, 2024</strong></p>
+<ul>
+<li>Corregí algunos problemas con el perfil de usuario y añadí la opción de subir una foto de perfil.</li>
+</ul>
+<p><strong>Abril 29, 2024</strong></p>
+<ul>
+<li>Creé el servicio de citas para gestionarlas y responderlas.</li>
+</ul>
+<p><strong>Mayo 1, 2024</strong></p>
+<ul>
+<li>Implementé la capacidad para que los usuarios acepten, rechacen y vean detalles de las citas, y para que los administradores las gestionen fácilmente.</li>
+</ul>
+<p><strong>Mayo 2, 2024</strong></p>
+<ul>
+<li>Mejoré el diseño del swiper en la página de login y solucioné problemas con las citas.</li>
+</ul>
+<p><strong>Mayo 4, 2024</strong></p>
+<ul>
+<li>Realicé algunos cambios visuales en la página de inicio para mejorar su apariencia.</li>
+</ul>
+<p><strong>Mayo 5, 2024</strong></p>
+<ul>
+<li>Añadí estilo a la página de inicio y a los formularios de registro y login para hacerlos más atractivos.</li>
+</ul>
+<p><strong>Mayo 6, 2024</strong></p>
+<ul>
+<li>Mejoré el diseño del swiper en la página de login y del componente de login y registro.</li>
+</ul>
+<p><strong>Mayo 7, 2024</strong></p>
+<ul>
+<li>Solucioné problemas con el autologin para facilitar el inicio de sesión ya que había un problema con el inicio de sesión anonimo.</li>
+</ul>
+<p><strong>Mayo 8, 2024</strong></p>
+<ul>
+<li>Preparé la entrega del checkpoint con el diario, webgrafia, video.</li>
+<li>Mejoré el css de la página de usuarios (Posibles cambios en el futuro).</li>
+</ul>
+<p><strong>Mayo 9, 2024</strong></p>
+<ul>
+<li>Añado el modal para los distinto usuarios que se loguean y aun no tienen los permisos necesarios para entrar.</li>
+<li>Mejoro el css de la Landing.</li>
+<li>Creo el video para despues actualizar el README.md con el mismo.</li>
+</ul>
+<h2>Webgrafía</h2>
+<ul>
+<li><a href="https://swiperjs.com/element">Swiper documentation</a></li>
+<li><a href="https://www.youtube.com/watch?app=desktop&v=XcvieKvmI5A">Swiper video</a></li>
+<li><a href="https://primeng.org/toast">Toast</a></li>
+<li><a href="https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb/">Api de ejercicios</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

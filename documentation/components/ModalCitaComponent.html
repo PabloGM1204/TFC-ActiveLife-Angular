@@ -1,0 +1,1242 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>activelife documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">activelife documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ModalCitaComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/shared/components/modal-cita/modal-cita.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-modal-cita</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./modal-cita.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./modal-cita.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#activo" >activo</a>
+                            </li>
+                            <li>
+                                <a href="#resp" >resp</a>
+                            </li>
+                            <li>
+                                <a href="#respuesta" >respuesta</a>
+                            </li>
+                            <li>
+                                <a href="#selectedFile" >selectedFile</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#activateAnswer" >activateAnswer</a>
+                            </li>
+                            <li>
+                                <a href="#dismissModal" >dismissModal</a>
+                            </li>
+                            <li>
+                                <a href="#getCitaDate" >getCitaDate</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#sendAnswer" >sendAnswer</a>
+                            </li>
+                            <li>
+                                <a href="#uploadFile" >uploadFile</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cita" >cita</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(modalController: ModalController)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/shared/components/modal-cita/modal-cita.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>modalController</td>
+                                                  
+                                                        <td>
+                                                                    <code>ModalController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cita"></a>
+                        <b>cita</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Cita.html" target="_self" >Cita | undefined</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/shared/components/modal-cita/modal-cita.component.ts:17</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Input of the appointment to be displayed in the component.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="activateAnswer"></a>
+                    <span class="name">
+                        <span ><b>activateAnswer</b></span>
+                        <a href="#activateAnswer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>activateAnswer()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="50"
+                                    class="link-to-prism">src/app/shared/components/modal-cita/modal-cita.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Enables or disables the response to the appointment.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dismissModal"></a>
+                    <span class="name">
+                        <span ><b>dismissModal</b></span>
+                        <a href="#dismissModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>dismissModal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="40"
+                                    class="link-to-prism">src/app/shared/components/modal-cita/modal-cita.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Closes the current modal.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCitaDate"></a>
+                    <span class="name">
+                        <span ><b>getCitaDate</b></span>
+                        <a href="#getCitaDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getCitaDate(timestamp: Timestamp)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="59"
+                                    class="link-to-prism">src/app/shared/components/modal-cita/modal-cita.component.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Gets the formatted date of an appointment.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>timestamp</td>
+                                            <td>
+                                                        <code>Timestamp</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The timestamp of the appointment.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A string with the formatted date and time.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="30"
+                                    class="link-to-prism">src/app/shared/components/modal-cita/modal-cita.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Initializes the component and checks if an appointment with an assigned attendant has been received.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sendAnswer"></a>
+                    <span class="name">
+                        <span ><b>sendAnswer</b></span>
+                        <a href="#sendAnswer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>sendAnswer()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="80"
+                                    class="link-to-prism">src/app/shared/components/modal-cita/modal-cita.component.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Sends the response to the appointment and closes the modal.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="uploadFile"></a>
+                    <span class="name">
+                        <span ><b>uploadFile</b></span>
+                        <a href="#uploadFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>uploadFile(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="73"
+                                    class="link-to-prism">src/app/shared/components/modal-cita/modal-cita.component.ts:73</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Handles the upload of a selected file.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The file change event.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="activo"></a>
+                    <span class="name">
+                        <span ><b>activo</b></span>
+                        <a href="#activo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/shared/components/modal-cita/modal-cita.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resp"></a>
+                    <span class="name">
+                        <span ><b>resp</b></span>
+                        <a href="#resp"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/shared/components/modal-cita/modal-cita.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="respuesta"></a>
+                    <span class="name">
+                        <span ><b>respuesta</b></span>
+                        <a href="#respuesta"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | undefined</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/shared/components/modal-cita/modal-cita.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedFile"></a>
+                    <span class="name">
+                        <span ><b>selectedFile</b></span>
+                        <a href="#selectedFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>File | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/shared/components/modal-cita/modal-cita.component.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnInit } from &#x27;@angular/core&#x27;;
+import { ModalController } from &#x27;@ionic/angular&#x27;;
+import { Cita } from &#x27;src/app/core/interfaces/cita&#x27;;
+import { Timestamp } from &#x27;firebase/firestore&#x27;;
+import { finalize } from &#x27;rxjs&#x27;;
+
+@Component({
+  selector: &#x27;app-modal-cita&#x27;,
+  templateUrl: &#x27;./modal-cita.component.html&#x27;,
+  styleUrls: [&#x27;./modal-cita.component.scss&#x27;],
+})
+export class ModalCitaComponent  implements OnInit {
+
+  /**
+  * Input of the appointment to be displayed in the component.
+  */
+  @Input() cita: Cita | undefined;
+
+  // Response to the appointment.
+  respuesta: string | undefined &#x3D; &#x27;&#x27;;
+
+  constructor( private modalController: ModalController ) { }
+
+  // Boolean to know if the appointment has a response.
+  resp: boolean &#x3D; false;
+
+  /**
+  * Initializes the component and checks if an appointment with an assigned attendant has been received.
+  */
+  ngOnInit() {
+    console.log(&quot;Cita recibida: &quot;, this.cita);
+    if(this.cita?.encargadoUuid){
+      this.resp &#x3D; true;
+    }
+  }
+
+  /**
+  * Closes the current modal.
+  */
+  dismissModal() {
+    this.modalController.dismiss();
+  }
+
+  // Boolean to know if the appointment has a response.
+  activo: boolean &#x3D; false;
+  
+  /**
+  * Enables or disables the response to the appointment.
+  */
+  activateAnswer() {
+    this.activo &#x3D; !this.activo;
+  }
+
+  /**
+  * Gets the formatted date of an appointment.
+  * @param timestamp The timestamp of the appointment.
+  * @returns A string with the formatted date and time.
+  */
+  getCitaDate(timestamp: Timestamp): string {
+    // Convierte el Timestamp a un objeto Date
+    const date &#x3D; timestamp.toDate(); 
+    // Devuelve una cadena con la fecha y hora formateada
+    return date.toLocaleString(); 
+  }
+
+  // Uploaded file.
+  selectedFile: File | null &#x3D; null;
+
+  /**
+  * Handles the upload of a selected file.
+  * @param event The file change event.
+  */
+  uploadFile(event: any) {
+    this.selectedFile &#x3D; event.target.files[0];
+  }
+
+  /**
+  * Sends the response to the appointment and closes the modal.
+  */
+  sendAnswer() {
+    console.log(&quot;Respuesta: &quot;, this.respuesta);
+    // If the appointment exists, I add the response to it.
+    if(this.cita){
+      this.cita.respuesta &#x3D; this.respuesta;
+    }
+    console.log(&quot;Cita a responder: &quot;, this.cita);
+    // Closes the modal and returns the appointment with the response plus the file.
+    this.modalController.dismiss({...this.cita, file: this.selectedFile});
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-header&gt;
+  &lt;ion-toolbar class&#x3D;&quot;topbar&quot;&gt;
+    &lt;ion-title&gt;{{ &quot;modal-cita.titulo&quot; | translate }}&lt;/ion-title&gt;
+    &lt;ion-buttons slot&#x3D;&quot;end&quot;&gt;
+      &lt;ion-button (click)&#x3D;&quot;dismissModal()&quot;&gt;&lt;ion-icon name&#x3D;&quot;close-outline&quot;&gt;&lt;/ion-icon&gt;&lt;/ion-button&gt;
+    &lt;/ion-buttons&gt;
+  &lt;/ion-toolbar&gt;
+&lt;/ion-header&gt;
+
+&lt;ion-content&gt;
+  &lt;ion-card class&#x3D;&quot;custom-card&quot;&gt;
+    &lt;div class&#x3D;&quot;cliente-foto-container&quot;&gt;
+      &lt;img [src]&#x3D;&quot;cita?.clienteFoto&quot; alt&#x3D;&quot;Foto del cliente&quot; class&#x3D;&quot;cliente-foto&quot; /&gt;
+    &lt;/div&gt;
+    &lt;ion-card-header class&#x3D;&quot;card-header&quot;&gt;
+      &lt;ion-card-title class&#x3D;&quot;card-title&quot;&gt;{{ cita?.titulo }}&lt;/ion-card-title&gt;
+    &lt;/ion-card-header&gt;
+
+    &lt;ion-card-content&gt;
+
+      &lt;div class&#x3D;&quot;info-group&quot;&gt;
+        &lt;ion-label class&#x3D;&quot;info-label&quot;&gt;{{ &quot;modal-cita.des&quot; | translate }}&lt;/ion-label&gt;
+        &lt;p class&#x3D;&quot;info-value&quot;&gt;{{ cita?.descripcion }}&lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;info-group&quot;&gt;
+        &lt;ion-label class&#x3D;&quot;info-label&quot;&gt;{{ &quot;modal-cita.est&quot; | translate }}&lt;/ion-label&gt;
+        &lt;p class&#x3D;&quot;info-value&quot;&gt;{{ cita?.estado }}&lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;info-group&quot;&gt;
+        &lt;ion-label class&#x3D;&quot;info-label&quot;&gt;{{ &quot;modal-cita.fec&quot; | translate }}&lt;/ion-label&gt;
+        &lt;p class&#x3D;&quot;info-value&quot;&gt;{{ getCitaDate(cita?.fechaCita) }}&lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;info-group&quot;&gt;
+        &lt;ion-label class&#x3D;&quot;info-label&quot;&gt;{{ &quot;modal-cita.fech2&quot; | translate }}&lt;/ion-label&gt;
+        &lt;p class&#x3D;&quot;info-value&quot;&gt;{{ getCitaDate(cita?.fechaSolicitud) }}&lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;info-group&quot;&gt;
+        &lt;ion-label class&#x3D;&quot;info-label&quot;&gt;{{ &quot;modal-cita.enc&quot; | translate }}&lt;/ion-label&gt;
+        &lt;p class&#x3D;&quot;info-value&quot;&gt;{{ cita?.encargadoNombre }}&lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;info-group&quot;&gt;
+        &lt;ion-label class&#x3D;&quot;info-label&quot;&gt;{{ &quot;modal-cita.user&quot; | translate }}&lt;/ion-label&gt;
+        &lt;p class&#x3D;&quot;info-value&quot;&gt;{{ cita?.clienteNombre }}&lt;/p&gt;
+      &lt;/div&gt;
+      
+      &lt;div class&#x3D;&quot;centrar&quot;&gt;
+        &lt;ion-label *ngIf&#x3D;&quot;cita?.imagen&quot; class&#x3D;&quot;info-label&quot;&gt;{{ &quot;modal-cita.foto&quot; | translate }}&lt;/ion-label&gt;
+      &lt;/div&gt;
+      &lt;br&gt;
+      &lt;div class&#x3D;&quot;centrar&quot;&gt;
+        &lt;img *ngIf&#x3D;&quot;cita?.imagen&quot; [src]&#x3D;&quot;cita?.imagen&quot; alt&#x3D;&quot;Foto de la cita&quot; class&#x3D;&quot;cita-foto&quot; /&gt;
+      &lt;/div&gt;
+
+    &lt;/ion-card-content&gt;
+  &lt;/ion-card&gt;
+
+  &lt;div class&#x3D;&quot;button-group&quot; *ngIf&#x3D;&quot;cita?.encargadoNombre !&#x3D;&#x3D; &#x27;Ninguno&#x27;&quot;&gt;
+    &lt;ion-button [disabled]&#x3D;&quot;cita?.respuesta !&#x3D;&#x3D; &#x27;&#x27;&quot; (click)&#x3D;&quot;activateAnswer()&quot; class&#x3D;&quot;action-button&quot; fill&#x3D;&quot;outline&quot;&gt;{{ &quot;modal-cita.res&quot; | translate }}&lt;/ion-button&gt;
+  &lt;/div&gt;
+
+  &lt;div *ngIf&#x3D;&quot;cita?.respuesta !&#x3D;&#x3D; &#x27;&#x27;&quot; class&#x3D;&quot;existing-response&quot;&gt;
+    &lt;ion-label class&#x3D;&quot;response-title&quot;&gt;{{ &quot;modal-cita.res&quot; | translate }}&lt;/ion-label&gt;
+    &lt;p class&#x3D;&quot;response-value&quot;&gt;{{ cita?.respuesta }}&lt;/p&gt;
+    &lt;a *ngIf&#x3D;&quot;cita?.fileUrl !&#x3D; &#x27;&#x27;&quot; [href]&#x3D;&quot;cita?.fileUrl&quot; download&#x3D;&quot;Respuesta Cita&quot; target&#x3D;&quot;_blank&quot; class&#x3D;&quot;descarga&quot;&gt;&lt;ion-icon name&#x3D;&quot;download-outline&quot;&gt;&lt;/ion-icon&gt;&lt;/a&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;textarea-container&quot; *ngIf&#x3D;&quot;activo &amp;&amp; cita?.respuesta &#x3D;&#x3D;&#x3D; &#x27;&#x27;&quot;&gt;
+    &lt;textarea class&#x3D;&quot;large-input&quot; rows&#x3D;&quot;5&quot; [(ngModel)]&#x3D;&quot;respuesta&quot; placeholder&#x3D;&quot;Escribe tu respuesta aquí...&quot;&gt;&lt;/textarea&gt;
+    &lt;input type&#x3D;&quot;file&quot; id&#x3D;&quot;file&quot; (change)&#x3D;&quot;uploadFile($event)&quot; accept&#x3D;&quot;.pdf&quot; style&#x3D;&quot;display: none;&quot;/&gt;
+    &lt;label for&#x3D;&quot;file&quot; class&#x3D;&quot;custom-file-upload&quot;&gt;&lt;ion-icon name&#x3D;&quot;cloud-upload-outline&quot;&gt;&lt;/ion-icon&gt;{{ &quot;modal-cita.sub&quot; | translate }}&lt;/label&gt;
+    &lt;br&gt;
+    &lt;ion-button [disabled]&#x3D;&quot;respuesta &#x3D;&#x3D; &#x27;&#x27;&quot; (click)&#x3D;&quot;sendAnswer()&quot; class&#x3D;&quot;action-button&quot; fill&#x3D;&quot;outline&quot;&gt;{{ &quot;modal-cita.env&quot; | translate }}&lt;/ion-button&gt;
+  &lt;/div&gt;
+&lt;/ion-content&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./modal-cita.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.topbar {
+    --background: #FF6945;
+    --color: white;
+}
+
+.cliente-foto-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+}
+  
+.cliente-foto {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #FF6945;
+}
+
+ion-content {
+    --background: linear-gradient(to top, #fff2d6, #B7ECEC);
+
+}
+
+.custom-card {
+    --background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    --background: linear-gradient(to top, #fff2d6, #B7ECEC);
+}
+  
+.card-header {
+    text-align: center;
+}
+  
+.card-title {
+    font-size: 1.5em;
+    color: #333;
+    font-weight: bold;
+}
+  
+.info-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+  
+.info-label {
+    font-weight: bold;
+    color: #555;
+    flex: 1;
+}
+  
+.info-value {
+    font-size: 1em;
+    color: #777;
+    flex: 2;
+    margin-left: 10px;
+}
+  
+.button-group {
+    display: flex;
+    justify-content: center;
+}
+  
+.action-button {
+    --color: #FF5C35;
+    --background: #ffffff;
+    --border-color: #FF5C35;
+    --border-width: 2px; 
+    font-weight: bold;
+    width: 150px;
+    height: 50px;
+}
+
+.action-button2 {
+    margin-top: 10px;
+    --color: #ffffff;
+    --background: #FF5C35;
+    font-weight: bold;
+    width: 250px;
+    height: 50px;
+}
+  
+.textarea-container {
+    margin-top: 5px;
+    text-align: center;
+}
+  
+.large-input {
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1em;
+    resize: none;
+}
+
+.existing-response {
+    margin-top: 20px;
+    text-align: center;
+}
+  
+.response-title {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #333;
+}
+  
+.response-value {
+    font-size: 1em;
+    color: #777;
+    margin-top: 10px;
+}
+
+.descarga {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #FF5C35;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+  
+.custom-file-upload:hover {
+    background-color: #3171e0;
+}
+
+.descarga ion-icon {
+    color: #FF5C35;
+    font-size: 2em;
+}
+
+.centrar {
+    display: grid;
+    justify-content: center;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar class="topbar">    <ion-title>{{ "modal-cita.titulo" | translate }}</ion-title>    <ion-buttons slot="end">      <ion-button (click)="dismissModal()"><ion-icon name="close-outline"></ion-icon></ion-button>    </ion-buttons>  </ion-toolbar></ion-header><ion-content>  <ion-card class="custom-card">    <div class="cliente-foto-container">      <img [src]="cita?.clienteFoto" alt="Foto del cliente" class="cliente-foto" />    </div>    <ion-card-header class="card-header">      <ion-card-title class="card-title">{{ cita?.titulo }}</ion-card-title>    </ion-card-header>    <ion-card-content>      <div class="info-group">        <ion-label class="info-label">{{ "modal-cita.des" | translate }}</ion-label>        <p class="info-value">{{ cita?.descripcion }}</p>      </div>      <div class="info-group">        <ion-label class="info-label">{{ "modal-cita.est" | translate }}</ion-label>        <p class="info-value">{{ cita?.estado }}</p>      </div>      <div class="info-group">        <ion-label class="info-label">{{ "modal-cita.fec" | translate }}</ion-label>        <p class="info-value">{{ getCitaDate(cita?.fechaCita) }}</p>      </div>      <div class="info-group">        <ion-label class="info-label">{{ "modal-cita.fech2" | translate }}</ion-label>        <p class="info-value">{{ getCitaDate(cita?.fechaSolicitud) }}</p>      </div>      <div class="info-group">        <ion-label class="info-label">{{ "modal-cita.enc" | translate }}</ion-label>        <p class="info-value">{{ cita?.encargadoNombre }}</p>      </div>      <div class="info-group">        <ion-label class="info-label">{{ "modal-cita.user" | translate }}</ion-label>        <p class="info-value">{{ cita?.clienteNombre }}</p>      </div>            <div class="centrar">        <ion-label *ngIf="cita?.imagen" class="info-label">{{ "modal-cita.foto" | translate }}</ion-label>      </div>      <br>      <div class="centrar">        <img *ngIf="cita?.imagen" [src]="cita?.imagen" alt="Foto de la cita" class="cita-foto" />      </div>    </ion-card-content>  </ion-card>  <div class="button-group" *ngIf="cita?.encargadoNombre !== \'Ninguno\'">    <ion-button [disabled]="cita?.respuesta !== \'\'" (click)="activateAnswer()" class="action-button" fill="outline">{{ "modal-cita.res" | translate }}</ion-button>  </div>  <div *ngIf="cita?.respuesta !== \'\'" class="existing-response">    <ion-label class="response-title">{{ "modal-cita.res" | translate }}</ion-label>    <p class="response-value">{{ cita?.respuesta }}</p>    <a *ngIf="cita?.fileUrl != \'\'" [href]="cita?.fileUrl" download="Respuesta Cita" target="_blank" class="descarga"><ion-icon name="download-outline"></ion-icon></a>  </div>  <div class="textarea-container" *ngIf="activo && cita?.respuesta === \'\'">    <textarea class="large-input" rows="5" [(ngModel)]="respuesta" placeholder="Escribe tu respuesta aquí..."></textarea>    <input type="file" id="file" (change)="uploadFile($event)" accept=".pdf" style="display: none;"/>    <label for="file" class="custom-file-upload"><ion-icon name="cloud-upload-outline"></ion-icon>{{ "modal-cita.sub" | translate }}</label>    <br>    <ion-button [disabled]="respuesta == \'\'" (click)="sendAnswer()" class="action-button" fill="outline">{{ "modal-cita.env" | translate }}</ion-button>  </div></ion-content></div>'
+    var COMPONENTS = [{'name': 'AddExerciseComponent', 'selector': 'app-add-exercise'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CardExerciseComponent', 'selector': 'app-card-exercise'},{'name': 'CardRutineComponent', 'selector': 'app-card-rutine'},{'name': 'CardRutinePrivateComponent', 'selector': 'app-card-rutine-private'},{'name': 'CitasPage', 'selector': 'app-citas'},{'name': 'CrearRutinaPage', 'selector': 'app-crear-rutina'},{'name': 'DetalleExerciseComponent', 'selector': 'app-detalle-exercise'},{'name': 'ExercisePrivateComponent', 'selector': 'app-exercise-private'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoModalComponent', 'selector': 'app-info-modal'},{'name': 'InfoRutinaPage', 'selector': 'app-info-rutina'},{'name': 'InfoTooltipComponent', 'selector': 'app-info-tooltip'},{'name': 'ItemExerciseComponent', 'selector': 'app-item-exercise'},{'name': 'LandingPage', 'selector': 'app-landing'},{'name': 'LoadingComponent', 'selector': 'app-loading'},{'name': 'LoginFormComponent', 'selector': 'app-login-form'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'ModalCitaComponent', 'selector': 'app-modal-cita'},{'name': 'ModalConfirmComponent', 'selector': 'app-modal-confirm'},{'name': 'ModalExerciseComponent', 'selector': 'app-modal-exercise'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterFormComponent', 'selector': 'app-register-form'},{'name': 'RutinasPage', 'selector': 'app-rutinas'},{'name': 'UsuariosPage', 'selector': 'app-usuarios'}];
+    var DIRECTIVES = [{'name': 'AgrandarDirective', 'selector': '[appAgrandar]'}];
+    var ACTUAL_COMPONENT = {'name': 'ModalCitaComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ModalCitaComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

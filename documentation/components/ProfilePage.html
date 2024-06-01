@@ -1,0 +1,1602 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>activelife documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">activelife documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ProfilePage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/profile/profile.page.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-profile</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./profile.page.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./profile.page.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_firebaseService" >_firebaseService</a>
+                            </li>
+                            <li>
+                                <a href="#capturedImage" >capturedImage</a>
+                            </li>
+                            <li>
+                                <a href="#fondo" >fondo</a>
+                            </li>
+                            <li>
+                                <a href="#form" >form</a>
+                            </li>
+                            <li>
+                                <a href="#formActive" >formActive</a>
+                            </li>
+                            <li>
+                                <a href="#user" >user</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#activeForm" >activeForm</a>
+                            </li>
+                            <li>
+                                <a href="#changeBackground" >changeBackground</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#downloadCSV" >downloadCSV</a>
+                            </li>
+                            <li>
+                                <a href="#exportData" >exportData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#jsonToCSV" >jsonToCSV</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#takePicture" >takePicture</a>
+                            </li>
+                            <li>
+                                <a href="#updateUserName" >updateUserName</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(formBuilder: FormBuilder, auth: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, userSvc: <a href="../injectables/UsersService.html" target="_self">UsersService</a>, mediaSvc: <a href="../injectables/MediaService.html" target="_self">MediaService</a>, _firebaseService: <a href="../injectables/FirebaseService.html" target="_self">FirebaseService</a>, backgroundSvc: <a href="../injectables/BackgroundService.html" target="_self">BackgroundService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/pages/profile/profile.page.ts:23</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Class constructor.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>formBuilder</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>Service to create instances of reactive forms.</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>auth</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>Authentication service to handle user authentication operations.</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>userSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UsersService.html" target="_self" >UsersService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>Service to handle operations related to users.</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>mediaSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MediaService.html" target="_self" >MediaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>Service to handle operations related to media (images, videos, etc.).</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>_firebaseService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FirebaseService.html" target="_self" >FirebaseService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>Service to interact with Firebase.</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>backgroundSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BackgroundService.html" target="_self" >BackgroundService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>Service to handle the application&#39;s background.</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="activeForm"></a>
+                    <span class="name">
+                        <span ><b>activeForm</b></span>
+                        <a href="#activeForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>activeForm()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="114"
+                                    class="link-to-prism">src/app/pages/profile/profile.page.ts:114</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Method to toggle the activation of the form.
+Changes the state of the formActive variable between true and false.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeBackground"></a>
+                    <span class="name">
+                        <span ><b>changeBackground</b></span>
+                        <a href="#changeBackground"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>changeBackground(fondo: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="136"
+                                    class="link-to-prism">src/app/pages/profile/profile.page.ts:136</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Changes the application background with the provided value.
+Updates the background in the background service and also in the user&#39;s data.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>fondo</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The new background to be applied.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="downloadCSV"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>downloadCSV</b></span>
+                        <a href="#downloadCSV"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>downloadCSV(csvContent: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, filename: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="203"
+                                    class="link-to-prism">src/app/pages/profile/profile.page.ts:203</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Initiates the download of a CSV file.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>csvContent</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The CSV content that is going to be downloaded.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>filename</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The name of the CSV file.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="exportData"></a>
+                    <span class="name">
+                        <span ><b>exportData</b></span>
+                        <a href="#exportData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>exportData()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="152"
+                                    class="link-to-prism">src/app/pages/profile/profile.page.ts:152</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Method to export data in CSV format.
+It obtains data from Firebase, converts it to CSV format, and initiates CSV file downloads.</p>
+<p>This method obtains data from Firebase using FirebaseService, converts it to CSV format,
+and initiates the download of CSV files for each data set.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="jsonToCSV"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>jsonToCSV</b></span>
+                        <a href="#jsonToCSV"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>jsonToCSV(dataObject: literal type)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="173"
+                                    class="link-to-prism">src/app/pages/profile/profile.page.ts:173</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Converts JSON data to CSV format.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dataObject</td>
+                                            <td>
+                                                        <code>literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The JSON data object that is going to be converted to CSV.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>literal type</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>An object that contains the CSV content for each data set.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="55"
+                                    class="link-to-prism">src/app/pages/profile/profile.page.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>ngOnInit method.</p>
+<p>Angular lifecycle method that runs once the component has been initialized.
+It obtains the authenticated user&#39;s data and updates the form and component properties.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="takePicture"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>takePicture</b></span>
+                        <a href="#takePicture"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>takePicture()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="86"
+                                    class="link-to-prism">src/app/pages/profile/profile.page.ts:86</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Method to capture an image using the device&#39;s camera.
+Once captured, the image is converted to Blob and uploaded to the server.
+Finally, the image URL is updated in the user&#39;s profile.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateUserName"></a>
+                    <span class="name">
+                        <span ><b>updateUserName</b></span>
+                        <a href="#updateUserName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateUserName()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="122"
+                                    class="link-to-prism">src/app/pages/profile/profile.page.ts:122</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates the username with the value entered in the form.
+After updating the user, it toggles the form state.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_firebaseService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>_firebaseService</b></span>
+                        <a href="#_firebaseService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/FirebaseService.html" target="_self" >FirebaseService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/pages/profile/profile.page.ts:40</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">- Service to interact with Firebase.</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="capturedImage"></a>
+                    <span class="name">
+                        <span ><b>capturedImage</b></span>
+                        <a href="#capturedImage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/app/pages/profile/profile.page.ts:79</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fondo"></a>
+                    <span class="name">
+                        <span ><b>fondo</b></span>
+                        <a href="#fondo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="129" class="link-to-prism">src/app/pages/profile/profile.page.ts:129</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="form"></a>
+                    <span class="name">
+                        <span ><b>form</b></span>
+                        <a href="#form"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/pages/profile/profile.page.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formActive"></a>
+                    <span class="name">
+                        <span ><b>formActive</b></span>
+                        <a href="#formActive"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">src/app/pages/profile/profile.page.ts:108</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="user"></a>
+                    <span class="name">
+                        <span ><b>user</b></span>
+                        <a href="#user"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/pages/profile/profile.page.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Renderer2 } from &#x27;@angular/core&#x27;;
+import { Camera, CameraResultType } from &#x27;@capacitor/camera&#x27;;
+import { dataURLtoBlob } from &#x27;src/app/core/helpers/blob&#x27;;
+import { AuthService } from &#x27;src/app/core/services/auth/auth.service&#x27;;
+import { FirebaseService } from &#x27;src/app/core/services/firebase/firebase.service&#x27;;
+import { MediaService } from &#x27;src/app/core/services/media.service&#x27;;
+import { UsersService } from &#x27;src/app/core/services/users.service&#x27;;
+import { ModalController } from &#x27;@ionic/angular&#x27;;
+import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { BackgroundService } from &#x27;src/app/core/services/background.service&#x27;;
+
+@Component({
+  selector: &#x27;app-profile&#x27;,
+  templateUrl: &#x27;./profile.page.html&#x27;,
+  styleUrls: [&#x27;./profile.page.scss&#x27;],
+})
+export class ProfilePage implements OnInit {
+
+  // Variable to store user data.
+  user: any | undefined;
+
+  // Form to update the user&#x27;s name.
+  form: FormGroup;
+
+  /**
+  * Class constructor.
+  *
+  * @param formBuilder - Service to create instances of reactive forms.
+  * @param auth - Authentication service to handle user authentication operations.
+  * @param userSvc - Service to handle operations related to users.
+  * @param mediaSvc - Service to handle operations related to media (images, videos, etc.).
+  * @param _firebaseService - Service to interact with Firebase.
+  * @param backgroundSvc - Service to handle the application&#x27;s background.
+  */
+  constructor(
+    private formBuilder: FormBuilder,
+    private auth: AuthService,
+    private userSvc: UsersService,
+    private mediaSvc: MediaService,
+    public _firebaseService: FirebaseService,
+    private backgroundSvc: BackgroundService,
+  ) {
+    // Initializes the reactive form with a required &#x27;name&#x27; field
+    this.form &#x3D; this.formBuilder.group({
+      name: [&#x27;&#x27;, [Validators.required]]
+    });
+  }
+
+  /**
+  * ngOnInit method.
+  *
+  * Angular lifecycle method that runs once the component has been initialized.
+  * It obtains the authenticated user&#x27;s data and updates the form and component properties.
+  */
+  ngOnInit() {
+    // Obtains the authenticated user&#x27;s data.
+    this.auth.me().subscribe(_ &#x3D;&gt; {
+      console.log(&quot;Usuario All rigght &quot;, _);
+      // Assigns the user&#x27;s data to the &#x27;user&#x27; property of the component.
+      this.user &#x3D; {
+        uuid: _.uuid,
+        username: _.name,
+        email: _.email,
+        imageUrl: _?.photo ? _?.photo : &quot;https://firebasestorage.googleapis.com/v0/b/fir-project-91ee3.appspot.com/o/images%2Fprofile.png?alt&#x3D;media&amp;token&#x3D;cf7e68cc-c045-4fa3-978b-8281d42fcd51&quot;,
+        fondo: _?.fondo ? _?.fondo : &quot;pri&quot;
+      }
+      // Updates the value of the &#x27;name&#x27; field in the form with the username.
+      this.form.patchValue({
+        name: this.user.username
+      });
+      // Assigns the URL of the captured image and the user&#x27;s background.
+      this.capturedImage &#x3D; this.user.imageUrl;
+      this.fondo &#x3D; this.user.fondo;
+      console.log(&quot;Usuario logeado &quot;,  this.user);
+    })
+  }
+
+  // Captured image.
+  capturedImage: any | undefined;
+
+  /**
+  * Method to capture an image using the device&#x27;s camera.
+  * Once captured, the image is converted to Blob and uploaded to the server.
+  * Finally, the image URL is updated in the user&#x27;s profile.
+  */
+  async takePicture() {
+    // Captures an image using the device&#x27;s camera.
+    const image &#x3D; await Camera.getPhoto({
+      quality: 90,
+      allowEditing: true,
+      resultType: CameraResultType.Uri
+    });
+    // Saves the captured image in the &#x27;capturedImage&#x27; variable.
+    this.capturedImage &#x3D; image.webPath;
+    console.log(&quot;Imagen capturada: &quot;, this.capturedImage);
+    // Converts the captured image to Blob and uploads it to the server.
+    dataURLtoBlob(this.capturedImage, (blob: Blob) &#x3D;&gt; {
+      this.mediaSvc.upload(blob).subscribe({
+        next: (media: any) &#x3D;&gt; {
+          this.user.imageUrl &#x3D; media[0].url_thumbnail;
+          this.userSvc.updateUser(this.user);
+        }
+      })
+    });
+  }
+
+  // Variable to display the form
+  formActive: boolean &#x3D; false;
+
+  /**
+  * Method to toggle the activation of the form.
+  * Changes the state of the formActive variable between true and false.
+  */
+  activeForm(){
+    this.formActive &#x3D; !this.formActive;
+  }
+
+  /**
+  * Updates the username with the value entered in the form.
+  * After updating the user, it toggles the form state.
+  */
+  updateUserName() {
+    this.user.username &#x3D; this.form.value.name;
+    this.userSvc.updateUser(this.user);
+    this.activeForm();
+  }
+
+  // Variable for the application background.
+  fondo: string &#x3D; &quot;&quot;;
+
+  /**
+  * Changes the application background with the provided value.
+  * Updates the background in the background service and also in the user&#x27;s data.
+  * @param fondo The new background to be applied.
+  */
+  changeBackground(fondo: string) {
+    console.log(&quot;Fondo: &quot;, fondo);
+    this.fondo &#x3D; fondo;
+    this.backgroundSvc.setBackground(fondo);
+    this.user.fondo &#x3D; fondo;
+    this.userSvc.updateUser(this.user);
+  }
+
+  /**
+  * Method to export data in CSV format.
+  * It obtains data from Firebase, converts it to CSV format, and initiates CSV file downloads.
+  *
+  * @remarks
+  * This method obtains data from Firebase using FirebaseService, converts it to CSV format,
+  * and initiates the download of CSV files for each data set.
+  */
+  exportData(): void {
+    this._firebaseService
+      .getAllData()
+      .then((dataObject) &#x3D;&gt; {
+        const csvFiles &#x3D; this.jsonToCSV(dataObject);
+        for (const key in csvFiles) {
+          if (csvFiles.hasOwnProperty(key)) {
+            const csvContent &#x3D; csvFiles[key];
+            this.downloadCSV(csvContent, &#x60;${key}.csv&#x60;);
+          }
+        }
+      })
+      .catch((error) &#x3D;&gt; console.error(&#x27;Failed to fetch data&#x27;, error));
+  }
+
+  
+  /**
+  * Converts JSON data to CSV format.
+  * @param dataObject - The JSON data object that is going to be converted to CSV.
+  * @returns An object that contains the CSV content for each data set.
+  */
+  public jsonToCSV(dataObject: { [key: string]: any[] }): {
+    [key: string]: string;
+  } {
+    const csvFiles: { [key: string]: string } &#x3D; {};
+
+    for (const key in dataObject) {
+      if (dataObject.hasOwnProperty(key) &amp;&amp; dataObject[key].length &gt; 0) {
+        const headers &#x3D; Object.keys(dataObject[key][0]);
+        const csvRows &#x3D; dataObject[key].map((row) &#x3D;&gt;
+          headers
+            .map((fieldName) &#x3D;&gt;
+              JSON.stringify(row[fieldName], (key, value) &#x3D;&gt;
+                value &#x3D;&#x3D; null ? &#x27;&#x27; : value
+              )
+            )
+            .join(&#x27;,&#x27;)
+        );
+        csvRows.unshift(headers.join(&#x27;,&#x27;));
+        csvFiles[key] &#x3D; csvRows.join(&#x27;\r\n&#x27;);
+      }
+    }
+    return csvFiles;
+  }
+
+  /**
+   * Initiates the download of a CSV file.
+   *
+   * @param csvContent - The CSV content that is going to be downloaded.
+   * @param filename - The name of the CSV file.
+   */
+  public downloadCSV(csvContent: string, filename: string): void {
+    if (!csvContent) {
+      console.error(&#x27;No CSV content available for download.&#x27;);
+      return;
+    }
+    const blob &#x3D; new Blob([csvContent], { type: &#x27;text/csv;charset&#x3D;utf-8;&#x27; });
+    const url &#x3D; URL.createObjectURL(blob);
+    const link &#x3D; document.createElement(&#x27;a&#x27;);
+    link.href &#x3D; url;
+    link.download &#x3D; filename;
+    link.style.display &#x3D; &#x27;none&#x27;;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-content [fullscreen]&#x3D;&quot;true&quot; [ngClass]&#x3D;&quot;{&#x27;pri&#x27;: fondo &#x3D;&#x3D;&#x3D; &#x27;pri&#x27;, &#x27;sec&#x27;: fondo &#x3D;&#x3D; &#x27;sec&#x27;, &#x27;img&#x27;: fondo &#x3D;&#x3D; &#x27;img&#x27;}&quot;&gt;
+  &lt;ion-card class&#x3D;&quot;info-card&quot;&gt;
+    &lt;ion-card-header&gt;
+      &lt;div class&#x3D;&quot;header-container&quot;&gt;
+        &lt;ion-avatar class&#x3D;&quot;avatar&quot;&gt;
+          &lt;img [src]&#x3D;&quot;capturedImage&quot; alt&#x3D;&quot;Imagen del alumno&quot;&gt;
+        &lt;/ion-avatar&gt;
+        &lt;br&gt;
+        &lt;div class&#x3D;&quot;contenedor&quot;&gt;
+          &lt;ion-button class&#x3D;&quot;orange-button-white&quot; (click)&#x3D;&quot;takePicture()&quot; fill&#x3D;&quot;outline&quot;&gt;&lt;ion-icon name&#x3D;&quot;camera-outline&quot;&gt;&lt;/ion-icon&gt;&lt;/ion-button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;ion-card-title class&#x3D;&quot;titulo&quot;&gt;{{ user?.username }}&lt;/ion-card-title&gt;
+    &lt;/ion-card-header&gt;
+
+    &lt;ion-card-content class&#x3D;&quot;card-content&quot;&gt;
+      &lt;div class&#x3D;&quot;info-row&quot;&gt;
+        &lt;ion-label class&#x3D;&quot;label&quot;&gt;{{ &quot;profile.nombre&quot; | translate }}&lt;/ion-label&gt;
+        &lt;br *ngIf&#x3D;&quot;!formActive&quot;&gt;
+        &lt;ion-text class&#x3D;&quot;info&quot; *ngIf&#x3D;&quot;!formActive&quot;&gt;{{ user?.username }}&lt;/ion-text&gt;
+        &lt;form [formGroup]&#x3D;&quot;form&quot; *ngIf&#x3D;&quot;formActive&quot;&gt;
+          &lt;br&gt;
+          &lt;ion-item class&#x3D;&quot;item&quot;&gt;
+            &lt;ion-input type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;name&quot;&gt;&lt;/ion-input&gt;
+          &lt;/ion-item&gt;
+        &lt;/form&gt;
+        &lt;br&gt;
+        &lt;ion-button (click)&#x3D;&quot;activeForm()&quot; *ngIf&#x3D;&quot;!formActive&quot; class&#x3D;&quot;orange-button-white2&quot; fill&#x3D;&quot;outline&quot;&gt;&lt;ion-icon name&#x3D;&quot;pencil-outline&quot;&gt;&lt;/ion-icon&gt;&lt;/ion-button&gt;
+        &lt;div *ngIf&#x3D;&quot;formActive&quot;&gt;
+          &lt;ion-button (click)&#x3D;&quot;updateUserName()&quot; class&#x3D;&quot;orange-button-white2&quot; fill&#x3D;&quot;outline&quot;&gt;&lt;ion-icon name&#x3D;&quot;save-outline&quot;&gt;&lt;/ion-icon&gt;&lt;/ion-button&gt;
+          &lt;ion-button (click)&#x3D;&quot;activeForm()&quot; class&#x3D;&quot;orange-button-white2&quot; fill&#x3D;&quot;outline&quot;&gt;&lt;ion-icon name&#x3D;&quot;close-outline&quot; color&#x3D;&quot;danger&quot;&gt;&lt;/ion-icon&gt;&lt;/ion-button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;info-row&quot;&gt;
+        &lt;ion-label class&#x3D;&quot;label&quot;&gt;E-mail&lt;/ion-label&gt;
+        &lt;br&gt;
+        &lt;ion-text class&#x3D;&quot;info&quot;&gt;{{ user?.email }}&lt;/ion-text&gt;
+      &lt;/div&gt;
+    &lt;/ion-card-content&gt;
+  &lt;/ion-card&gt;
+  &lt;div class&#x3D;&quot;centrar&quot;&gt;
+    &lt;ion-button (click)&#x3D;&quot;exportData()&quot; class&#x3D;&quot;orange-button2&quot;&gt;{{ &quot;profile.des&quot; | translate }}&lt;/ion-button&gt;
+  &lt;/div&gt;
+  &lt;ion-buttons class&#x3D;&quot;fixed-flags&quot;&gt;
+    &lt;ion-button (click)&#x3D;&quot;changeBackground(&#x27;pri&#x27;)&quot; [ngClass]&#x3D;&quot;{&#x27;selected&#x27;: fondo &#x3D;&#x3D;&#x3D; &#x27;pri&#x27;, &#x27;not-selected&#x27;: fondo !&#x3D;&#x3D; &#x27;pri&#x27;}&quot; appAgrandar&gt;
+      &lt;img src&#x3D;&quot;assets/imgs/fondos/Fondo-principal.png&quot; class&#x3D;&quot;flag-icon&quot;&gt;
+    &lt;/ion-button&gt;
+    &lt;ion-button (click)&#x3D;&quot;changeBackground(&#x27;sec&#x27;)&quot; [ngClass]&#x3D;&quot;{&#x27;selected&#x27;: fondo &#x3D;&#x3D;&#x3D; &#x27;sec&#x27;, &#x27;not-selected&#x27;: fondo !&#x3D;&#x3D; &#x27;sec&#x27;}&quot; appAgrandar&gt;
+      &lt;img src&#x3D;&quot;assets/imgs/fondos/Fondo-secundario.png&quot; class&#x3D;&quot;flag-icon&quot;&gt;
+    &lt;/ion-button&gt;
+    &lt;ion-button (click)&#x3D;&quot;changeBackground(&#x27;img&#x27;)&quot; [ngClass]&#x3D;&quot;{&#x27;selected&#x27;: fondo &#x3D;&#x3D;&#x3D; &#x27;img&#x27;, &#x27;not-selected&#x27;: fondo !&#x3D;&#x3D; &#x27;img&#x27;}&quot; appAgrandar&gt;
+      &lt;img src&#x3D;&quot;assets/imgs/fondos/Fondo-tercero.png&quot; class&#x3D;&quot;flag-icon&quot;&gt;
+    &lt;/ion-button&gt;
+  &lt;/ion-buttons&gt;
+&lt;/ion-content&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./profile.page.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">ion-content{
+    --background: linear-gradient(to top, #fff2d6, #B7ECEC);
+}
+
+.info-card {
+    border: #FF5C35 2px solid;
+    margin-top: 75px;
+    width: 500px;
+    height: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    --background: linear-gradient(to top, #fff2d6, #B7ECEC);
+}
+
+.header-container {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.avatar {
+    border: #FF5C35 2px solid;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    height: 200px;
+    margin-bottom: -10px;
+}
+
+.contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.orange-button-white {
+    --color: #FF5C35;
+    --background: #ffffff;
+    --border-color: #FF5C35;
+    --border-width: 2px; 
+    font-weight: bold;
+    width: 150px;
+    height: 50px;
+}
+
+.titulo {
+    margin-bottom: 10px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.label {
+    font-weight: bold;
+}
+
+.info-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.orange-button2 {
+    --color: #ffffff;
+    --background: #FF5C35;
+    font-weight: bold;
+    width: 250px;
+    height: 50px;
+}
+
+.orange-button-white2 {
+    --color: #FF5C35;
+    --background: #ffffff;
+    --border-color: #FF5C35;
+    --border-width: 2px; 
+    font-weight: bold;
+}
+
+.item {
+    --background: none;
+}
+
+ion-input {
+    text-align: center;
+}
+
+.centrar{
+    display: flex;
+    justify-content: center;
+}
+
+.fixed-flags {
+    --background: #FFF2D6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flag-icon {
+    width: 40px; /* Ajusta el tamaño según tus necesidades */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+  
+ion-button.not-selected {
+    opacity: 0.5; /* Ajusta la opacidad según lo necesario */
+}
+  
+ion-button.selected {
+    opacity: 1; /* El botón seleccionado se verá normal */
+}
+
+.pri {
+    --background: linear-gradient(to top, #fff2d6, #B7ECEC);
+}
+
+.sec {
+    --background: linear-gradient(to top, #9561ee, #1db6ef);
+}
+
+.img {
+    --background: linear-gradient(to top, #ffd45f, #ff6f91);
+}
+
+@media (max-width: 600px) {
+    .info-card {
+        margin-top: 75px;
+        width: 300px;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+        --background: linear-gradient(to top, #fff2d6, #B7ECEC);
+    }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-content [fullscreen]="true" [ngClass]="{\'pri\': fondo === \'pri\', \'sec\': fondo == \'sec\', \'img\': fondo == \'img\'}">  <ion-card class="info-card">    <ion-card-header>      <div class="header-container">        <ion-avatar class="avatar">          <img [src]="capturedImage" alt="Imagen del alumno">        </ion-avatar>        <br>        <div class="contenedor">          <ion-button class="orange-button-white" (click)="takePicture()" fill="outline"><ion-icon name="camera-outline"></ion-icon></ion-button>        </div>      </div>      <ion-card-title class="titulo">{{ user?.username }}</ion-card-title>    </ion-card-header>    <ion-card-content class="card-content">      <div class="info-row">        <ion-label class="label">{{ "profile.nombre" | translate }}</ion-label>        <br *ngIf="!formActive">        <ion-text class="info" *ngIf="!formActive">{{ user?.username }}</ion-text>        <form [formGroup]="form" *ngIf="formActive">          <br>          <ion-item class="item">            <ion-input type="text" formControlName="name"></ion-input>          </ion-item>        </form>        <br>        <ion-button (click)="activeForm()" *ngIf="!formActive" class="orange-button-white2" fill="outline"><ion-icon name="pencil-outline"></ion-icon></ion-button>        <div *ngIf="formActive">          <ion-button (click)="updateUserName()" class="orange-button-white2" fill="outline"><ion-icon name="save-outline"></ion-icon></ion-button>          <ion-button (click)="activeForm()" class="orange-button-white2" fill="outline"><ion-icon name="close-outline" color="danger"></ion-icon></ion-button>        </div>      </div>      <div class="info-row">        <ion-label class="label">E-mail</ion-label>        <br>        <ion-text class="info">{{ user?.email }}</ion-text>      </div>    </ion-card-content>  </ion-card>  <div class="centrar">    <ion-button (click)="exportData()" class="orange-button2">{{ "profile.des" | translate }}</ion-button>  </div>  <ion-buttons class="fixed-flags">    <ion-button (click)="changeBackground(\'pri\')" [ngClass]="{\'selected\': fondo === \'pri\', \'not-selected\': fondo !== \'pri\'}" appAgrandar>      <img src="assets/imgs/fondos/Fondo-principal.png" class="flag-icon">    </ion-button>    <ion-button (click)="changeBackground(\'sec\')" [ngClass]="{\'selected\': fondo === \'sec\', \'not-selected\': fondo !== \'sec\'}" appAgrandar>      <img src="assets/imgs/fondos/Fondo-secundario.png" class="flag-icon">    </ion-button>    <ion-button (click)="changeBackground(\'img\')" [ngClass]="{\'selected\': fondo === \'img\', \'not-selected\': fondo !== \'img\'}" appAgrandar>      <img src="assets/imgs/fondos/Fondo-tercero.png" class="flag-icon">    </ion-button>  </ion-buttons></ion-content></div>'
+    var COMPONENTS = [{'name': 'AddExerciseComponent', 'selector': 'app-add-exercise'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CardExerciseComponent', 'selector': 'app-card-exercise'},{'name': 'CardRutineComponent', 'selector': 'app-card-rutine'},{'name': 'CardRutinePrivateComponent', 'selector': 'app-card-rutine-private'},{'name': 'CitasPage', 'selector': 'app-citas'},{'name': 'CrearRutinaPage', 'selector': 'app-crear-rutina'},{'name': 'DetalleExerciseComponent', 'selector': 'app-detalle-exercise'},{'name': 'ExercisePrivateComponent', 'selector': 'app-exercise-private'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoModalComponent', 'selector': 'app-info-modal'},{'name': 'InfoRutinaPage', 'selector': 'app-info-rutina'},{'name': 'InfoTooltipComponent', 'selector': 'app-info-tooltip'},{'name': 'ItemExerciseComponent', 'selector': 'app-item-exercise'},{'name': 'LandingPage', 'selector': 'app-landing'},{'name': 'LoadingComponent', 'selector': 'app-loading'},{'name': 'LoginFormComponent', 'selector': 'app-login-form'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'ModalCitaComponent', 'selector': 'app-modal-cita'},{'name': 'ModalConfirmComponent', 'selector': 'app-modal-confirm'},{'name': 'ModalExerciseComponent', 'selector': 'app-modal-exercise'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterFormComponent', 'selector': 'app-register-form'},{'name': 'RutinasPage', 'selector': 'app-rutinas'},{'name': 'UsuariosPage', 'selector': 'app-usuarios'}];
+    var DIRECTIVES = [{'name': 'AgrandarDirective', 'selector': '[appAgrandar]'}];
+    var ACTUAL_COMPONENT = {'name': 'ProfilePage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ProfilePage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

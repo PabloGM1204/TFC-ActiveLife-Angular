@@ -1,0 +1,1716 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>activelife documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">activelife documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  CrearRutinaPage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/crear-rutina/crear-rutina.page.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-crear-rutina</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./crear-rutina.page.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./crear-rutina.page.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#apiSvc" >apiSvc</a>
+                            </li>
+                            <li>
+                                <a href="#exercises" >exercises</a>
+                            </li>
+                            <li>
+                                <a href="#fondo" >fondo</a>
+                            </li>
+                            <li>
+                                <a href="#form" >form</a>
+                            </li>
+                            <li>
+                                <a href="#id" >id</a>
+                            </li>
+                            <li>
+                                <a href="#rutina" >rutina</a>
+                            </li>
+                            <li>
+                                <a href="#secondSelect" >secondSelect</a>
+                            </li>
+                            <li>
+                                <a href="#user" >user</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#activateSecondSelect" >activateSecondSelect</a>
+                            </li>
+                            <li>
+                                <a href="#addExerciseToRutine" >addExerciseToRutine</a>
+                            </li>
+                            <li>
+                                <a href="#createRutine" >createRutine</a>
+                            </li>
+                            <li>
+                                <a href="#isFormInvalid" >isFormInvalid</a>
+                            </li>
+                            <li>
+                                <a href="#loadRutine" >loadRutine</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#removeExerciseToRutine" >removeExerciseToRutine</a>
+                            </li>
+                            <li>
+                                <a href="#showBottomCenterBad" >showBottomCenterBad</a>
+                            </li>
+                            <li>
+                                <a href="#showBottomCenterGood" >showBottomCenterGood</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(apiSvc: <a href="../injectables/ApiService.html" target="_self">ApiService</a>, rutinaSvc: <a href="../injectables/RutinaService.html" target="_self">RutinaService</a>, formBuilder: FormBuilder, auth: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, messageService: MessageService, router: Router, route: ActivatedRoute, backgroundSvc: <a href="../injectables/BackgroundService.html" target="_self">BackgroundService</a>, langSvc: <a href="../injectables/CustomTranslateService.html" target="_self">CustomTranslateService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/pages/crear-rutina/crear-rutina.page.ts:32</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Class constructor.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>apiSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ApiService.html" target="_self" >ApiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>API service to make HTTP calls.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>rutinaSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RutinaService.html" target="_self" >RutinaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Routine service to manage routines.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>formBuilder</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Constructor to create form instances.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>auth</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Authentication service to manage user authentication.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>messageService</td>
+                                                  
+                                                        <td>
+                                                                    <code>MessageService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Service to display messages and notifications.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Router for navigation within the application.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Object that provides information about the currently activated route.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>backgroundSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BackgroundService.html" target="_self" >BackgroundService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Service to manage the application&#39;s background.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>langSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomTranslateService.html" target="_self" >CustomTranslateService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Service for managing custom translation.</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="activateSecondSelect"></a>
+                    <span class="name">
+                        <span ><b>activateSecondSelect</b></span>
+                        <a href="#activateSecondSelect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>activateSecondSelect(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="133"
+                                    class="link-to-prism">src/app/pages/crear-rutina/crear-rutina.page.ts:133</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Method to activate the second selector based on the value selected in the first selector.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The event that contains the value selected in the first selector.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addExerciseToRutine"></a>
+                    <span class="name">
+                        <span ><b>addExerciseToRutine</b></span>
+                        <a href="#addExerciseToRutine"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addExerciseToRutine(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, exercise: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="101"
+                                    class="link-to-prism">src/app/pages/crear-rutina/crear-rutina.page.ts:101</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Method to add an exercise to the routine.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The data associated with the exercise.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>exercise</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The exercise to be added.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createRutine"></a>
+                    <span class="name">
+                        <span ><b>createRutine</b></span>
+                        <a href="#createRutine"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createRutine()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="150"
+                                    class="link-to-prism">src/app/pages/crear-rutina/crear-rutina.page.ts:150</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Method to create a new routine with the data provided by the form.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isFormInvalid"></a>
+                    <span class="name">
+                        <span ><b>isFormInvalid</b></span>
+                        <a href="#isFormInvalid"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isFormInvalid()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="235"
+                                    class="link-to-prism">src/app/pages/crear-rutina/crear-rutina.page.ts:235</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Method to check if the form is invalid or if no exercise has been added to the routine.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A boolean value indicating whether the form is invalid or if no exercise has been added to the routine.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadRutine"></a>
+                    <span class="name">
+                        <span ><b>loadRutine</b></span>
+                        <a href="#loadRutine"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadRutine()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="174"
+                                    class="link-to-prism">src/app/pages/crear-rutina/crear-rutina.page.ts:174</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Method to load an existing routine based on the provided ID.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="81"
+                                    class="link-to-prism">src/app/pages/crear-rutina/crear-rutina.page.ts:81</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Angular lifecycle method that runs after Angular
+has initialized all data-bound properties of the component.
+It is used to initialize data and perform initial configuration operations.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeExerciseToRutine"></a>
+                    <span class="name">
+                        <span ><b>removeExerciseToRutine</b></span>
+                        <a href="#removeExerciseToRutine"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeExerciseToRutine(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, exercise: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="120"
+                                    class="link-to-prism">src/app/pages/crear-rutina/crear-rutina.page.ts:120</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Method to remove an exercise from the routine.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The data associated with the exercise.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>exercise</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The exercise to be removed.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showBottomCenterBad"></a>
+                    <span class="name">
+                        <span ><b>showBottomCenterBad</b></span>
+                        <a href="#showBottomCenterBad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showBottomCenterBad()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="212"
+                                    class="link-to-prism">src/app/pages/crear-rutina/crear-rutina.page.ts:212</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Method to display an error notification at the bottom center.
+It uses the current language to determine the error message displayed.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showBottomCenterGood"></a>
+                    <span class="name">
+                        <span ><b>showBottomCenterGood</b></span>
+                        <a href="#showBottomCenterGood"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showBottomCenterGood()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="192"
+                                    class="link-to-prism">src/app/pages/crear-rutina/crear-rutina.page.ts:192</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Method to display a success notification at the bottom center.
+It uses the current language to determine the success message displayed.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="apiSvc"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>apiSvc</b></span>
+                        <a href="#apiSvc"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/ApiService.html" target="_self" >ApiService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/pages/crear-rutina/crear-rutina.page.ts:48</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">API service to make HTTP calls.</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="exercises"></a>
+                    <span class="name">
+                        <span ><b>exercises</b></span>
+                        <a href="#exercises"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/pages/crear-rutina/crear-rutina.page.ts:71</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fondo"></a>
+                    <span class="name">
+                        <span ><b>fondo</b></span>
+                        <a href="#fondo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/pages/crear-rutina/crear-rutina.page.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="form"></a>
+                    <span class="name">
+                        <span ><b>form</b></span>
+                        <a href="#form"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/pages/crear-rutina/crear-rutina.page.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="id"></a>
+                    <span class="name">
+                        <span ><b>id</b></span>
+                        <a href="#id"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/pages/crear-rutina/crear-rutina.page.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rutina"></a>
+                    <span class="name">
+                        <span ><b>rutina</b></span>
+                        <a href="#rutina"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/app/pages/crear-rutina/crear-rutina.page.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="secondSelect"></a>
+                    <span class="name">
+                        <span ><b>secondSelect</b></span>
+                        <a href="#secondSelect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/pages/crear-rutina/crear-rutina.page.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="user"></a>
+                    <span class="name">
+                        <span ><b>user</b></span>
+                        <a href="#user"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/User.html" target="_self" >User | undefined</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/pages/crear-rutina/crear-rutina.page.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnInit } from &#x27;@angular/core&#x27;;
+import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { map } from &#x27;rxjs&#x27;;
+import { Rutina } from &#x27;src/app/core/interfaces/rutina&#x27;;
+import { ApiService } from &#x27;src/app/core/services/api.service&#x27;;
+import { AuthService } from &#x27;src/app/core/services/auth/auth.service&#x27;;
+import { RutinaService } from &#x27;src/app/core/services/rutina.service&#x27;;
+import { ToastModule } from &#x27;primeng/toast&#x27;;
+import { User } from &#x27;src/app/core/interfaces/user&#x27;;
+import { MessageService } from &#x27;primeng/api&#x27;;
+import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
+import { BackgroundService } from &#x27;src/app/core/services/background.service&#x27;;
+import { CustomTranslateService } from &#x27;src/app/core/services/custom-translate.service&#x27;;
+
+@Component({
+  selector: &#x27;app-crear-rutina&#x27;,
+  templateUrl: &#x27;./crear-rutina.page.html&#x27;,
+  styleUrls: [&#x27;./crear-rutina.page.scss&#x27;],
+})
+export class CrearRutinaPage implements OnInit {
+
+  // In the case where the routine id is received through the route.
+  id: any;
+
+  // Variable for the form.
+  form: FormGroup;
+
+  // Variable to store the value of the logged in user.
+  user: User | undefined;
+
+  // Variable for the background.
+  fondo: string &#x3D; &quot;&quot;;
+
+  /**
+  * Class constructor.
+  * 
+  * @param apiSvc API service to make HTTP calls.
+  * @param rutinaSvc Routine service to manage routines.
+  * @param formBuilder Constructor to create form instances.
+  * @param auth Authentication service to manage user authentication.
+  * @param messageService Service to display messages and notifications.
+  * @param router Router for navigation within the application.
+  * @param route Object that provides information about the currently activated route.
+  * @param backgroundSvc Service to manage the application&#x27;s background.
+  * @param langSvc Service for managing custom translation.
+  */
+  constructor(
+    public apiSvc: ApiService,
+    private rutinaSvc: RutinaService,
+    private formBuilder: FormBuilder,
+    private auth: AuthService,
+    private messageService: MessageService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private backgroundSvc: BackgroundService,
+    private langSvc: CustomTranslateService
+  ) {
+    // Initializes the form with the necessary fields and validations.
+    this.form &#x3D; this.formBuilder.group({
+      name: [&#x27;&#x27;, [Validators.required]],
+      day: [&#x27;&#x27;, [Validators.required]],
+      public: [false, [Validators.required]],
+      description: [&#x27;&#x27;]
+    });
+  }
+
+  // Selection of the exercises.
+  secondSelect: boolean &#x3D; false;
+
+  // List of exercises in the routine.
+  exercises: any[] &#x3D; [];
+
+  // List of rutines.
+  rutina: any[] &#x3D; [];
+
+  /**
+  * Angular lifecycle method that runs after Angular
+  * has initialized all data-bound properties of the component.
+  * It is used to initialize data and perform initial configuration operations.
+  */
+  ngOnInit() {
+    this.id &#x3D; this.route.snapshot.paramMap.get(&#x27;id&#x27;);
+    if(this.id !&#x3D; null){
+      this.loadRutine();
+    }
+    this.auth.me().subscribe(_ &#x3D;&gt; {
+      console.log(&quot;Usuario logeado &quot;+ _.uuid);
+      this.user &#x3D; _;
+    })
+    this.backgroundSvc.background$.subscribe(fondo &#x3D;&gt; {
+      this.fondo &#x3D; fondo;
+    });
+  }
+
+  /**
+  * Method to add an exercise to the routine.
+  * 
+  * @param data The data associated with the exercise.
+  * @param exercise The exercise to be added.
+  */
+  addExerciseToRutine(data: any, exercise: any){
+    console.log(&quot;Datos: &quot;, data);
+    console.log(&quot;Ejercicio: &quot;, exercise);
+    let _exercise &#x3D; {
+      ...exercise,
+      ...data
+    }
+    console.log(&quot;Ejercicio con datos: &quot;, _exercise);
+    this.rutina.push(_exercise);
+    this.showBottomCenterGood();
+    console.log(&quot;Ejercicios: &quot;, this.rutina);
+  }
+
+  /**
+  * Method to remove an exercise from the routine.
+  * 
+  * @param data The data associated with the exercise.
+  * @param exercise The exercise to be removed.
+  */
+  removeExerciseToRutine(data: any, exercise: any){
+    console.log(&quot;Datos: &quot;, data);
+    console.log(&quot;Ejercicio: &quot;, exercise);
+    this.showBottomCenterBad();
+    this.rutina &#x3D; this.rutina.filter((item) &#x3D;&gt; item.id !&#x3D;&#x3D; exercise.id);
+    console.log(&quot;Ejercicios: &quot;, this.rutina);
+  }
+
+  /**
+  * Method to activate the second selector based on the value selected in the first selector.
+  * 
+  * @param event The event that contains the value selected in the first selector.
+  */
+  activateSecondSelect(event: any) {
+    const value &#x3D; event.detail.value;
+    console.log(&quot;Valor selccionado &quot;, value)
+    this.apiSvc.exerciseByBodyPart(value).subscribe(
+      (reponse: any) &#x3D;&gt; {
+        this.exercises &#x3D; reponse;
+      },
+      (error) &#x3D;&gt; {
+        console.error(&#x27;Error al obtener el ejercicio:&#x27;, error);
+      }
+    );
+    this.secondSelect &#x3D; true;
+  }
+
+  /**
+  * Method to create a new routine with the data provided by the form.
+  */
+  createRutine(){
+    let rutina: Rutina &#x3D; {
+      title: this.form.get(&#x27;name&#x27;)?.value,
+      userUUID: this.user!.uuid,
+      exercises: this.rutina,
+      public: this.form.get(&#x27;public&#x27;)?.value,
+      day: this.form.get(&#x27;day&#x27;)?.value,
+      description: this.form.get(&#x27;description&#x27;)?.value
+    }
+    console.log(&quot;Rutina: &quot;, rutina);
+    this.rutinaSvc.addRutina(rutina).subscribe(
+      (response: any) &#x3D;&gt; {
+        console.log(&quot;Rutina creada: &quot;, response);
+        this.router.navigate([&#x27;/rutinas&#x27;]);
+      },
+      (error) &#x3D;&gt; {
+        console.error(&#x27;Error al crear la rutina:&#x27;, error);
+      }
+    );
+  }
+
+  /**
+  * Method to load an existing routine based on the provided ID.
+  */
+  loadRutine(){
+    console.log(&quot;ID de la rutina: &quot;, this.id);
+    this.rutinaSvc.getRutina(this.id).subscribe((rutina: any) &#x3D;&gt; {
+      this.rutina &#x3D; rutina;
+      // Initialize the form with the routine data
+      this.form.patchValue({
+        name: rutina.title,
+        day: rutina.day,
+        public: rutina.public,
+        description: rutina.description
+      });
+    });
+  }
+
+  /**
+  * Method to display a success notification at the bottom center.
+  * It uses the current language to determine the success message displayed.
+  */
+  showBottomCenterGood() {
+    this.langSvc.language$.subscribe(lang &#x3D;&gt; {
+      switch(lang){
+        case &#x27;es&#x27;:
+          this.messageService.add({ key: &#x27;bc&#x27;, severity: &#x27;success&#x27;, summary: &#x27;Success&#x27;, detail: &#x27;Ejercicio añadido&#x27; });
+          break;
+        case &#x27;en&#x27;:
+          this.messageService.add({ key: &#x27;bc&#x27;, severity: &#x27;success&#x27;, summary: &#x27;Success&#x27;, detail: &#x27;Added exercise&#x27; });
+          break;
+        case &#x27;it&#x27;:
+          this.messageService.add({ key: &#x27;bc&#x27;, severity: &#x27;success&#x27;, summary: &#x27;Success&#x27;, detail: &#x27;Aggiunto esercizio&#x27; });
+          break;
+      }
+    })
+  }
+
+  /**
+  * Method to display an error notification at the bottom center.
+  * It uses the current language to determine the error message displayed.
+  */
+  showBottomCenterBad(){
+    // Subscribe to the current language.
+    this.langSvc.language$.subscribe(lang &#x3D;&gt; { 
+      // Select the error message based on the current language and add the notification.
+      switch(lang){
+        case &#x27;es&#x27;:
+          this.messageService.add({ key: &#x27;er&#x27;, severity: &#x27;error&#x27;, summary: &#x27;Eliminado&#x27;, detail: &#x27;Ejercicio eliminado de la rutina&#x27; });
+          break;
+        case &#x27;en&#x27;:
+          this.messageService.add({ key: &#x27;er&#x27;, severity: &#x27;error&#x27;, summary: &#x27;Eliminado&#x27;, detail: &#x27;Exercise removed from the routine&#x27; });
+          break;
+        case &#x27;it&#x27;:
+          this.messageService.add({ key: &#x27;er&#x27;, severity: &#x27;error&#x27;, summary: &#x27;Eliminado&#x27;, detail: &#x27;Esercizio rimosso dalla routine&#x27; });
+          break;
+      }
+    })
+  }
+
+  /**
+  * Method to check if the form is invalid or if no exercise has been added to the routine.
+  * 
+  * @returns A boolean value indicating whether the form is invalid or if no exercise has been added to the routine.
+  */
+  isFormInvalid(): boolean {
+    // Check if the form is invalid or if no exercise has been added to the routine.
+    return this.form.invalid || this.rutina.length &lt; 1;
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-content [fullscreen]&#x3D;&quot;true&quot; [ngClass]&#x3D;&quot;{&#x27;pri&#x27;: fondo &#x3D;&#x3D;&#x3D; &#x27;pri&#x27;, &#x27;sec&#x27;: fondo &#x3D;&#x3D; &#x27;sec&#x27;, &#x27;img&#x27;: fondo &#x3D;&#x3D; &#x27;img&#x27;}&quot;&gt;
+  &lt;div id&#x3D;&quot;boton&quot;&gt;
+    &lt;ion-button (click)&#x3D;&quot;createRutine()&quot; class&#x3D;&quot;crear&quot; fill&#x3D;&quot;outline&quot; [disabled]&#x3D;&quot;isFormInvalid()&quot;&gt;{{ &quot;crear.crear&quot; | translate }}&lt;/ion-button&gt;
+  &lt;/div&gt;
+
+  &lt;form [formGroup]&#x3D;&quot;form&quot; class&#x3D;&quot;form-container&quot;&gt;
+    &lt;ion-grid&gt;
+      &lt;ion-row&gt;
+        &lt;ion-col size&#x3D;&quot;8&quot;&gt;
+          &lt;ion-item&gt;
+            &lt;ion-label position&#x3D;&quot;stacked&quot;&gt;{{ &quot;crear.nombre&quot; | translate }} &lt;span style&#x3D;&quot;color: red&quot;&gt;*&lt;/span&gt;&lt;/ion-label&gt;
+            &lt;ion-input formControlName&#x3D;&quot;name&quot; type&#x3D;&quot;text&quot;&gt;&lt;/ion-input&gt;
+          &lt;/ion-item&gt;
+        &lt;/ion-col&gt;
+        &lt;ion-col size&#x3D;&quot;4&quot; class&#x3D;&quot;ion-align-self-end toggle-container&quot;&gt;
+          &lt;ion-item lines&#x3D;&quot;none&quot;&gt;
+            &lt;ion-label&gt;{{ &quot;crear.publico&quot; | translate }}&lt;/ion-label&gt;
+            &lt;ion-toggle formControlName&#x3D;&quot;public&quot;&gt;&lt;/ion-toggle&gt;
+          &lt;/ion-item&gt;
+        &lt;/ion-col&gt;
+      &lt;/ion-row&gt;
+      &lt;ion-row&gt;
+        &lt;ion-col&gt;
+          &lt;ion-item&gt;
+            &lt;ion-label position&#x3D;&quot;stacked&quot;&gt;{{ &quot;crear.desc&quot; | translate }}&lt;/ion-label&gt;
+            &lt;ion-input formControlName&#x3D;&quot;description&quot; type&#x3D;&quot;text&quot;&gt;&lt;/ion-input&gt;
+          &lt;/ion-item&gt;
+        &lt;/ion-col&gt;
+      &lt;/ion-row&gt;
+      &lt;ion-row&gt;
+        &lt;ion-col&gt;
+          &lt;ion-item&gt;
+            &lt;ion-label&gt;{{ &quot;crear.dia&quot; | translate }} &lt;span style&#x3D;&quot;color: red&quot;&gt;*&lt;/span&gt;&lt;/ion-label&gt;
+            &lt;ion-select placeholder&#x3D;&quot;Elige un día&quot; formControlName&#x3D;&quot;day&quot;&gt;
+              &lt;ion-select-option value&#x3D;&quot;Lunes&quot;&gt;{{ &quot;crear.lun&quot; | translate }}&lt;/ion-select-option&gt;
+              &lt;ion-select-option value&#x3D;&quot;Martes&quot;&gt;{{ &quot;crear.mar&quot; | translate }}&lt;/ion-select-option&gt;
+              &lt;ion-select-option value&#x3D;&quot;Miercoles&quot;&gt;{{ &quot;crear.mie&quot; | translate }}&lt;/ion-select-option&gt;
+              &lt;ion-select-option value&#x3D;&quot;Jueves&quot;&gt;{{ &quot;crear.jue&quot; | translate }}&lt;/ion-select-option&gt;
+              &lt;ion-select-option value&#x3D;&quot;Viernes&quot;&gt;{{ &quot;crear.vie&quot; | translate }}&lt;/ion-select-option&gt;
+              &lt;ion-select-option value&#x3D;&quot;Sabado&quot;&gt;{{ &quot;crear.sab&quot; | translate }}&lt;/ion-select-option&gt;
+              &lt;ion-select-option value&#x3D;&quot;Domingo&quot;&gt;{{ &quot;crear.dom&quot; | translate }}&lt;/ion-select-option&gt;
+            &lt;/ion-select&gt;
+          &lt;/ion-item&gt;
+        &lt;/ion-col&gt;
+        &lt;ion-col&gt;
+          &lt;ion-item&gt;
+            &lt;ion-label&gt;{{ &quot;crear.partes&quot; | translate }}&lt;/ion-label&gt;
+            &lt;ion-select placeholder&#x3D;&quot;Select one part&quot; (ionChange)&#x3D;&quot;activateSecondSelect($event)&quot;&gt;
+              &lt;ion-select-option *ngFor&#x3D;&quot;let part of apiSvc.bodyList&quot;&gt;{{ part }}&lt;/ion-select-option&gt;
+            &lt;/ion-select&gt;
+          &lt;/ion-item&gt;
+        &lt;/ion-col&gt;
+      &lt;/ion-row&gt;
+    &lt;/ion-grid&gt;
+  &lt;/form&gt;
+
+  &lt;div class&#x3D;&quot;exercise-list&quot;&gt;
+    &lt;ng-container *ngFor&#x3D;&quot;let exercise of exercises&quot;&gt;
+      &lt;app-card-exercise class&#x3D;&quot;card&quot; [exercise]&#x3D;&quot;exercise&quot; 
+        (addExerciseEvent)&#x3D;&quot;addExerciseToRutine($event, exercise)&quot; 
+        (removeExerciseEvent)&#x3D;&quot;removeExerciseToRutine($event, exercise)&quot;&gt;
+      &lt;/app-card-exercise&gt;
+    &lt;/ng-container&gt;
+  &lt;/div&gt;
+
+  &lt;p-toast position&#x3D;&quot;bottom-center&quot; key&#x3D;&quot;bc&quot;&gt;&lt;/p-toast&gt;
+  &lt;p-toast position&#x3D;&quot;bottom-center&quot; key&#x3D;&quot;er&quot;&gt;&lt;/p-toast&gt;
+&lt;/ion-content&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./crear-rutina.page.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">ion-content {
+    --padding-top: 75px;
+    --background: linear-gradient(to top, #fff2d6, #B7ECEC);
+}
+
+#boton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.crear {
+    --color: #FF5C35;
+    --background: #ffffff;
+    --border-color: #FF5C35;
+    --border-width: 2px; 
+    font-weight: bold;
+    width: 150px;
+    height: 50px;
+}
+
+.card {
+    width: 20px;
+    display: ruby;
+}
+
+.form-container {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.exercise-list {
+    margin-top: 20px;
+}
+  
+ion-grid {
+    --ion-grid-padding: 0;
+}
+
+ion-col {
+    padding: 0;
+}
+
+ion-item {
+    margin-bottom: 16px;
+    --background: none;
+}
+
+.pri {
+    --background: linear-gradient(to top, #fff2d6, #B7ECEC);
+}
+  
+.sec {
+    --background: linear-gradient(to top, #9561ee, #1db6ef);
+}
+  
+.img {
+    --background: linear-gradient(to top, #ffd45f, #ff6f91);
+}
+
+@media (max-width: 576px) {
+    .toggle-container ion-item {
+      display: inline-flex;
+      align-items: flex-start;
+    }
+  
+    .toggle-container ion-label,
+    .toggle-container ion-toggle {
+      margin-bottom: 8px;
+    }
+  }</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-content [fullscreen]="true" [ngClass]="{\'pri\': fondo === \'pri\', \'sec\': fondo == \'sec\', \'img\': fondo == \'img\'}">  <div id="boton">    <ion-button (click)="createRutine()" class="crear" fill="outline" [disabled]="isFormInvalid()">{{ "crear.crear" | translate }}</ion-button>  </div>  <form [formGroup]="form" class="form-container">    <ion-grid>      <ion-row>        <ion-col size="8">          <ion-item>            <ion-label position="stacked">{{ "crear.nombre" | translate }} <span style="color: red">*</span></ion-label>            <ion-input formControlName="name" type="text"></ion-input>          </ion-item>        </ion-col>        <ion-col size="4" class="ion-align-self-end toggle-container">          <ion-item lines="none">            <ion-label>{{ "crear.publico" | translate }}</ion-label>            <ion-toggle formControlName="public"></ion-toggle>          </ion-item>        </ion-col>      </ion-row>      <ion-row>        <ion-col>          <ion-item>            <ion-label position="stacked">{{ "crear.desc" | translate }}</ion-label>            <ion-input formControlName="description" type="text"></ion-input>          </ion-item>        </ion-col>      </ion-row>      <ion-row>        <ion-col>          <ion-item>            <ion-label>{{ "crear.dia" | translate }} <span style="color: red">*</span></ion-label>            <ion-select placeholder="Elige un día" formControlName="day">              <ion-select-option value="Lunes">{{ "crear.lun" | translate }}</ion-select-option>              <ion-select-option value="Martes">{{ "crear.mar" | translate }}</ion-select-option>              <ion-select-option value="Miercoles">{{ "crear.mie" | translate }}</ion-select-option>              <ion-select-option value="Jueves">{{ "crear.jue" | translate }}</ion-select-option>              <ion-select-option value="Viernes">{{ "crear.vie" | translate }}</ion-select-option>              <ion-select-option value="Sabado">{{ "crear.sab" | translate }}</ion-select-option>              <ion-select-option value="Domingo">{{ "crear.dom" | translate }}</ion-select-option>            </ion-select>          </ion-item>        </ion-col>        <ion-col>          <ion-item>            <ion-label>{{ "crear.partes" | translate }}</ion-label>            <ion-select placeholder="Select one part" (ionChange)="activateSecondSelect($event)">              <ion-select-option *ngFor="let part of apiSvc.bodyList">{{ part }}</ion-select-option>            </ion-select>          </ion-item>        </ion-col>      </ion-row>    </ion-grid>  </form>  <div class="exercise-list">    <ng-container *ngFor="let exercise of exercises">      <app-card-exercise class="card" [exercise]="exercise"         (addExerciseEvent)="addExerciseToRutine($event, exercise)"         (removeExerciseEvent)="removeExerciseToRutine($event, exercise)">      </app-card-exercise>    </ng-container>  </div>  <p-toast position="bottom-center" key="bc"></p-toast>  <p-toast position="bottom-center" key="er"></p-toast></ion-content></div>'
+    var COMPONENTS = [{'name': 'AddExerciseComponent', 'selector': 'app-add-exercise'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CardExerciseComponent', 'selector': 'app-card-exercise'},{'name': 'CardRutineComponent', 'selector': 'app-card-rutine'},{'name': 'CardRutinePrivateComponent', 'selector': 'app-card-rutine-private'},{'name': 'CitasPage', 'selector': 'app-citas'},{'name': 'CrearRutinaPage', 'selector': 'app-crear-rutina'},{'name': 'DetalleExerciseComponent', 'selector': 'app-detalle-exercise'},{'name': 'ExercisePrivateComponent', 'selector': 'app-exercise-private'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoModalComponent', 'selector': 'app-info-modal'},{'name': 'InfoRutinaPage', 'selector': 'app-info-rutina'},{'name': 'InfoTooltipComponent', 'selector': 'app-info-tooltip'},{'name': 'ItemExerciseComponent', 'selector': 'app-item-exercise'},{'name': 'LandingPage', 'selector': 'app-landing'},{'name': 'LoadingComponent', 'selector': 'app-loading'},{'name': 'LoginFormComponent', 'selector': 'app-login-form'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'ModalCitaComponent', 'selector': 'app-modal-cita'},{'name': 'ModalConfirmComponent', 'selector': 'app-modal-confirm'},{'name': 'ModalExerciseComponent', 'selector': 'app-modal-exercise'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterFormComponent', 'selector': 'app-register-form'},{'name': 'RutinasPage', 'selector': 'app-rutinas'},{'name': 'UsuariosPage', 'selector': 'app-usuarios'}];
+    var DIRECTIVES = [{'name': 'AgrandarDirective', 'selector': '[appAgrandar]'}];
+    var ACTUAL_COMPONENT = {'name': 'CrearRutinaPage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'CrearRutinaPage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
