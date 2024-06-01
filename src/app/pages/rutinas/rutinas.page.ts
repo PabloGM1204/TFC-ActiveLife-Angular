@@ -14,15 +14,15 @@ import { RutinaService } from 'src/app/core/services/rutina.service';
 })
 export class RutinasPage implements OnInit {
 
-  // Variable para guardar el fondo de la página
+  // Variable to store the background of the page.
   fondo: string = "";
 
   /**
-  * Constructor de la clase.
-  * @param rutinaSvc Servicio para gestionar las rutinas.
-  * @param auth Servicio de autenticación.
-  * @param router Router para la navegación.
-  * @param backgroundSvc Servicio para gestionar el fondo de la aplicación.
+  * Class constructor.
+  * @param rutinaSvc Service to manage routines.
+  * @param auth Authentication service.
+  * @param router Router for navigation.
+  * @param backgroundSvc Service to manage the application's background.
   */
   constructor(
     private rutinaSvc: RutinaService,
@@ -31,20 +31,20 @@ export class RutinasPage implements OnInit {
     private backgroundSvc: BackgroundService,
   ) { }
 
-  // Lista de rutinas privadas
+  // List of private routines.
   rutinas: Rutina[] = [];
 
-  // Lista de rutinas publicas
+  // List of public routines.
   rutinasPublic: Rutina[] = [];
 
-  // Usuario
+  // User.
   user: any;
 
   /**
-  * Método que se ejecuta al inicializarse el componente.
-  * Suscribe el componente a la colección de rutinas.
-  * Obtiene la información del usuario autenticado y filtra las rutinas asociadas a su UUID.
-  * Filtra las rutinas públicas disponibles.
+  * Method that runs when the component is initialized.
+  * Subscribes the component to the routines collection.
+  * Obtains the authenticated user's information and filters the routines associated with their UUID.
+  * Filters the available public routines.
   */
   ngOnInit() {
     this.rutinaSvc.subscribeToRutinaCollection();
@@ -60,8 +60,8 @@ export class RutinasPage implements OnInit {
   }
 
   /**
-  * Filtra las rutinas asociadas al UUID del usuario especificado.
-  * @param uuid El UUID del usuario para filtrar las rutinas.
+  * Filters the routines associated with the specified user's UUID.
+  * @param uuid The UUID of the user to filter the routines.
   */
   rutinasFiltered(uuid: string) {
     this.rutinaSvc.rutinas$.pipe(
@@ -73,7 +73,7 @@ export class RutinasPage implements OnInit {
   }
 
   /**
-  * Filtra las rutinas públicas.
+  * Filters the public routines.
   */
   rutinasFilteredByPublic() {
     this.rutinaSvc.rutinas$.pipe(
@@ -84,26 +84,26 @@ export class RutinasPage implements OnInit {
       });
   }
 
-  // Variable para activar o no las rutinas publicas
+  // Variable to enable or disable public routines.
   publicRutine: boolean = false;
 
   /**
-  * Oculta las rutinas públicas y muestra solo las privadas.
+  * Hides the public routines and only shows the private ones.
   */
   privateRutines(){
     this.publicRutine = false;
   }
 
   /**
-  * Oculta las rutinas privadas y muestra solo las públicas.
+  * Hides the private routines and only shows the public ones.
   */
   publicRutines(){
     this.publicRutine = true;
   }
 
   /**
-  * Elimina una rutina.
-  * @param rutina La rutina a eliminar.
+  * Deletes a routine.
+  * @param rutina The routine to delete.
   */
   deleteRutine(rutina: Rutina){
     console.log("Eliminar rutina: ", rutina);
@@ -111,15 +111,15 @@ export class RutinasPage implements OnInit {
   }
 
   /**
-  * Navega hacia la página de creación de una nueva rutina.
+  * Navigates to the page for creating a new routine.
   */
   goCrearRutina() {
     this.router.navigate(['/crear-rutina']);
   }
 
   /**
-  * Copia una rutina.
-  * @param rutina La rutina a copiar.
+  * Copies a routine.
+  * @param rutina The routine to copy.
   */
   copyExercise(rutina: any) {
     console.log('copiar rutina', rutina);
@@ -132,8 +132,8 @@ export class RutinasPage implements OnInit {
   }
 
   /**
-  * Cambia el estado de una rutina.
-  * @param rutina La rutina a cambiar.
+  * Changes the status of a routine.
+  * @param rutina The routine to change.
   */
   changeRutina(rutina: any) {
     console.log('cambiar rutina', rutina);

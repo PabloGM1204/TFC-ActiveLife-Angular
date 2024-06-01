@@ -8,13 +8,13 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class ItemExerciseComponent  implements OnInit {
 
   /**
-  * Propiedad de entrada que representa los datos de un ejercicio.
+  * Input property that represents the data of an exercise.
   */
   @Input() exercise: any;
 
   /**
-  * Evento de salida que se emite cuando se solicita eliminar un ejercicio.
-  * Emite los datos del ejercicio que se va a eliminar.
+  * Output event that is emitted when a request to remove an exercise is made.
+  * It emits the data of the exercise to be removed.
   */
   @Output() removeExerciseEvent: EventEmitter<any> = new EventEmitter<any>();
 
@@ -23,10 +23,10 @@ export class ItemExerciseComponent  implements OnInit {
   ngOnInit() {}
 
   /**
-  * Método para eliminar un ejercicio.
-  * Emite un evento para notificar que se desea eliminar el ejercicio proporcionado.
+  * Method to remove an exercise.
+  * Emits an event to notify that the provided exercise is to be removed.
   * 
-  * @param exercise Los datos del ejercicio que se va a eliminar.
+  * @param exercise The data of the exercise to be removed.
   */
   removeExercise(exercise: any){
     console.log("Eliminar ejercicio: ", exercise);

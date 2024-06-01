@@ -10,26 +10,26 @@ import { PasswordValidation } from 'src/app/core/validators/password';
 })
 export class RegisterFormComponent  implements OnInit {
 
-  // Evento de registro para enviarselo a la pagina
+  // Registration event to send it to the page.
   @Output() doRegister = new EventEmitter<UserCredentials>();
 
-  // Formulario de registro
+  // Registration form.
   form: FormGroup | null = null;
 
   /**
-  * Constructor de la clase.
-  * Inicializa el formulario de registro con los campos necesarios y las validaciones correspondientes.
+  * Class constructor.
+  * Initializes the registration form with the necessary fields and corresponding validations.
   */
   constructor(
     private formBuilder: FormBuilder
   ) {
-    // Inicializa el formulario de registro con los campos y las validaciones correspondientes.
+    // Initializes the registration form with the necessary fields and corresponding validations.
     this.form = this.formBuilder.group({
       nickname:['', [Validators.required]],
       email:['', [Validators.required, Validators.email]],
       password:['', [Validators.required, PasswordValidation.passwordProto('password')]],
       confirm:['', [Validators.required, PasswordValidation.passwordProto('confirm')]],
-      admin: [false], // Para saber si es administrador o cliente
+      admin: [false], // To know if it is an administrator or a client.
       aceptado: [false]
     }, {validator:[PasswordValidation.passwordMatch('password','confirm') ]});
   }
@@ -37,8 +37,8 @@ export class RegisterFormComponent  implements OnInit {
   ngOnInit() {}
 
   /**
-  * Método invocado al enviar el formulario de registro.
-  * Emite los datos del formulario de registro para su procesamiento.
+  * Method invoked when submitting the registration form.
+  * Emits the registration form data for processing.
   */
   onSubmit(){
     console.log("Datos del registro: ", this.form?.value)
@@ -46,18 +46,18 @@ export class RegisterFormComponent  implements OnInit {
   }
 
   /**
-  * Verifica si el control especificado en el formulario tiene errores de validación.
-  * @param controlName El nombre del control en el formulario.
-  * @returns true si el control tiene errores de validación, de lo contrario false. Si el control no se encuentra, devuelve undefined.
+  * Checks if the specified control in the form has validation errors.
+  * @param controlName The name of the control in the form.
+  * @returns true if the control has validation errors, otherwise false. If the control is not found, it returns undefined.
   */
   hasError(controlName:string):boolean|undefined{
     return this.form?.get(controlName)?.invalid;
   }
 
   /**
-  * Verifica si el control especificado en el formulario ha sido tocado por el usuario.
-  * @param controlName El nombre del control en el formulario.
-  * @returns true si el control ha sido tocado, de lo contrario false. Si el control no se encuentra, devuelve undefined.
+  * Checks if the specified control in the form has been touched by the user.
+  * @param controlName The name of the control in the form.
+  * @returns true if the control has been touched, otherwise false. If the control is not found, it returns undefined.
   */
   hasTouched(controlName:string):boolean|undefined{
     return this.form?.get(controlName)?.touched;

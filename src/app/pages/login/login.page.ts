@@ -18,16 +18,16 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
 })
 export class LoginPage implements OnInit {
 
-  // Variable para saber si se muestra el login o el registro
+  // Variable to know whether to display the login or the registration.
   activateChange: boolean = true;
 
   /**
-  * Constructor de la clase.
-  * @param auth Servicio de autenticación.
-  * @param firebaseSvc Servicio de Firebase.
-  * @param router Enrutador para la navegación.
-  * @param modal Controlador de modales para crear y presentar modales.
-  * @param translate Servicio de traducción personalizado.
+  * Class constructor.
+  * @param auth Authentication service.
+  * @param firebaseSvc Firebase service.
+  * @param router Router for navigation.
+  * @param modal Modal controller to create and present modals.
+  * @param translate Custom translation service.
   */
   constructor(
     private auth: AuthService,
@@ -38,8 +38,8 @@ export class LoginPage implements OnInit {
   ) { }
 
   /**
-  * Método ngOnInit que se ejecuta al inicializar el componente.
-  * Se suscribe al servicio de traducción para actualizar el idioma.
+  * ngOnInit method that runs when initializing the component.
+  * Subscribes to the translation service to update the language.
   */
   ngOnInit() {
     console.log("Configuración de Swiper: ", this.config)
@@ -48,7 +48,7 @@ export class LoginPage implements OnInit {
     });
   }
 
-  // Configuración del Swiper
+  // Swiper configuration.
   config: SwiperOptions = {
     loop: true,
     slidesPerView: 1,
@@ -61,31 +61,31 @@ export class LoginPage implements OnInit {
     }
   };
 
-  // Lista de items para el Swiper que son imagenes de gente en el gym
+  // List of items for the Swiper that are images of people in the gym.
   items: any[] = ['assets/imgs/swiper/img-swiper-1.jpg', 'assets/imgs/swiper/img-swiper-2.jpg', 'assets/imgs/swiper/img-swiper-3.jpg', 'assets/imgs/swiper/img-swiper-4.jpg'];
 
   /**
-  * Método para alternar el estado de la propiedad activateChange.
-  * Cambia el valor de activateChange entre true y false.
+  * Method to toggle the state of the activateChange property.
+  * Changes the value of activateChange between true and false.
   */
   changeComponent(){
     this.activateChange = !this.activateChange
   }
 
   /**
-  * Método para manejar el inicio de sesión del usuario.
+  * Method to handle user login.
   * 
-  * @param credentials - Las credenciales del usuario que intenta iniciar sesión.
+  * @param credentials - The credentials of the user attempting to log in.
   */
   onLogin(credencials: UserCredentials){
-    // Cierra la sesión actual
+    // Closes the current session.
     this.auth.logOut();
     console.log("Datos login: ", credencials)
-    // Intenta iniciar sesión con las credenciales proporcionadas
+    // Tries to log in with the provided credentials.
     this.auth.login(credencials).subscribe({
       next: data => {
         console.log("Data que devuelve el login ", data)
-        // Si el usuario no es administrador
+        // If the user is not an administrator
         if(data.admin == false) {
           let info: string = "";
             switch(this.lang){
@@ -103,7 +103,7 @@ export class LoginPage implements OnInit {
             console.log("Modal cerrado")
             //this.auth.logOut();
           });
-        // Si el usuario es administrador pero aún no tiene permisos
+        // If the user is an administrator but still does not have permissions
         } else if (data.admin == true && data.aceptado == false) {
           let info: string = "";
             switch(this.lang){
@@ -121,7 +121,7 @@ export class LoginPage implements OnInit {
             console.log("Modal cerrado")
             //this.auth.logOut();
           });
-        // Si el usuario es administrador y tiene permisos
+        // If the user is an administrator and has permissions
         } else {
           console.warn("usuario ha ido a home")
           this.router.navigate(['/home']);
@@ -134,17 +134,17 @@ export class LoginPage implements OnInit {
   }
 
   /**
-  * Método para manejar el registro de un nuevo usuario.
+  * Method to handle the registration of a new user.
   * 
-  * @param credentials - Las credenciales del usuario que intenta registrarse.
+  * @param credentials - The credentials of the user attempting to register.
   */
   onRegister(credencials: UserCredentials){
     console.log("Datos registro: ", credencials)
-    // Intenta registrar al usuario con las credenciales proporcionadas
+    // Attempt to register the user with the provided credentials.
     this.auth.register(credencials).subscribe({
       next: data => {
         console.log("Data que devuelve el registro ", data)
-        // Si el usuario no es administrador
+        // If the user is not an administrator
         if(data.admin == false) {
           let info: string = "";
           switch(this.lang){
@@ -162,14 +162,14 @@ export class LoginPage implements OnInit {
             console.log("Modal cerrado")
             //this.auth.logOut();
           });
-        // Si el usuario es administrador pero aún no tiene permisos
+        // If the user is an administrator but still does not have permissions
         } else if (data.admin == true && data.aceptado == false) {
           this.presentModal("Aun no tienes permisos para acceder a la aplicación", (result)=>{
             console.log("Modal cerrado")
             //this.auth.logOut();
           });
         }
-        // Redirige al usuario a la página principal después del registro
+        // Redirects the user to the main page after registration.
         this.router.navigate(['/home']);
       },
       error: err => {
@@ -180,13 +180,13 @@ export class LoginPage implements OnInit {
 
 
   /**
-  * Método para presentar un modal con información.
+  * Method to present a modal with information.
   * 
-  * @param data - Información que se mostrará en el modal.
-  * @param onDismiss - Función de callback que se ejecutará cuando el modal se cierre.
+  * @param data - Information to be displayed in the modal.
+  * @param onDismiss - Callback function that will be executed when the modal is closed.
   */
   async presentModal(data: any | null, onDismiss:(result:any)=>void){
-    // Crear el modal con el componente InfoModalComponent y las propiedades necesarias
+    // Create the modal with the InfoModalComponent and the necessary properties.
     const modal = await this.modal.create({
       component: InfoModalComponent,
       componentProps:{
@@ -194,9 +194,9 @@ export class LoginPage implements OnInit {
       },
       cssClass:"info-modal"
     });
-    // Mostrar el modal
+    // Display the modal.
     modal.present();
-    // Ejecutar la función de callback cuando el modal se cierre
+    // Execute the callback function when the modal is closed.
     modal.onDidDismiss().then(result=>{
       if(result && result.data){
         onDismiss(result);
@@ -204,18 +204,18 @@ export class LoginPage implements OnInit {
     });
   }
 
-  // Variable para el idioma
+  // Variable for the language.
   lang: string = "es";
 
   /**
-  * Cambia el idioma de la aplicación.
+  * Changes the language of the application.
   *
-  * @param idioma - El código del idioma al que se desea cambiar ('es', 'en', 'it').
-  * @returns false - Indica que la acción no recarga la página.
+  * @param idioma - The code of the language to which you want to change ('es', 'en', 'it').
+  * @returns false - Indicates that the action does not reload the page.
   */
   onLang(idioma: string) {
     console.log('Cambio de idioma');
-    // Asigna el idioma seleccionado a la propiedad 'lang'
+    // Assigns the selected language to the 'lang' property.
     switch(idioma){
       case 'es':
         this.lang='es';
@@ -227,9 +227,9 @@ export class LoginPage implements OnInit {
         this.lang='it';
         break;
     }
-    // Cambia el idioma usando el servicio de traducción
+    // Changes the language using the translation service.
     this.translate.use(this.lang);
-    // Devuelve false para evitar el comportamiento predeterminado (por ejemplo, recargar la página)
+    // Returns false to prevent default behavior.
     return false; 
   }
 

@@ -16,21 +16,21 @@ import { BackgroundService } from 'src/app/core/services/background.service';
 })
 export class ProfilePage implements OnInit {
 
-  // Variable para guardar los datos del usuario
+  // Variable to store user data.
   user: any | undefined;
 
-  // Formulario para actualizar el nombre del usuario
+  // Form to update the user's name.
   form: FormGroup;
 
   /**
-  * Constructor de la clase.
+  * Class constructor.
   *
-  * @param formBuilder - Servicio para crear instancias de formularios reactivos.
-  * @param auth - Servicio de autenticación para manejar operaciones de autenticación de usuarios.
-  * @param userSvc - Servicio para manejar operaciones relacionadas con los usuarios.
-  * @param mediaSvc - Servicio para manejar operaciones relacionadas con los medios (imágenes, videos, etc.).
-  * @param _firebaseService - Servicio para interactuar con Firebase.
-  * @param backgroundSvc - Servicio para manejar el fondo de la aplicación.
+  * @param formBuilder - Service to create instances of reactive forms.
+  * @param auth - Authentication service to handle user authentication operations.
+  * @param userSvc - Service to handle operations related to users.
+  * @param mediaSvc - Service to handle operations related to media (images, videos, etc.).
+  * @param _firebaseService - Service to interact with Firebase.
+  * @param backgroundSvc - Service to handle the application's background.
   */
   constructor(
     private formBuilder: FormBuilder,
@@ -40,23 +40,23 @@ export class ProfilePage implements OnInit {
     public _firebaseService: FirebaseService,
     private backgroundSvc: BackgroundService,
   ) {
-    // Inicializa el formulario reactivo con un campo 'name' requerido
+    // Initializes the reactive form with a required 'name' field
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]]
     });
   }
 
   /**
-  * Método ngOnInit.
+  * ngOnInit method.
   *
-  * Método del ciclo de vida de Angular que se ejecuta una vez que se ha inicializado el componente.
-  * Obtiene los datos del usuario autenticado y actualiza el formulario y las propiedades del componente.
+  * Angular lifecycle method that runs once the component has been initialized.
+  * It obtains the authenticated user's data and updates the form and component properties.
   */
   ngOnInit() {
-    // Obtiene los datos del usuario autenticado.
+    // Obtains the authenticated user's data.
     this.auth.me().subscribe(_ => {
       console.log("Usuario All rigght ", _);
-      // Asigna los datos del usuario a la propiedad 'user' del componente.
+      // Assigns the user's data to the 'user' property of the component.
       this.user = {
         uuid: _.uuid,
         username: _.name,
@@ -64,36 +64,36 @@ export class ProfilePage implements OnInit {
         imageUrl: _?.photo ? _?.photo : "https://firebasestorage.googleapis.com/v0/b/fir-project-91ee3.appspot.com/o/images%2Fprofile.png?alt=media&token=cf7e68cc-c045-4fa3-978b-8281d42fcd51",
         fondo: _?.fondo ? _?.fondo : "pri"
       }
-      // Actualiza el valor del campo 'name' en el formulario con el nombre de usuario.
+      // Updates the value of the 'name' field in the form with the username.
       this.form.patchValue({
         name: this.user.username
       });
-      // Asigna la URL de la imagen capturada y el fondo del usuario.
+      // Assigns the URL of the captured image and the user's background.
       this.capturedImage = this.user.imageUrl;
       this.fondo = this.user.fondo;
       console.log("Usuario logeado ",  this.user);
     })
   }
 
-  // Imagen capturada
+  // Captured image.
   capturedImage: any | undefined;
 
   /**
-  * Método para capturar una imagen utilizando la cámara del dispositivo.
-  * Una vez capturada, la imagen se convierte a Blob y se sube al servidor.
-  * Finalmente, la URL de la imagen se actualiza en el perfil del usuario.
+  * Method to capture an image using the device's camera.
+  * Once captured, the image is converted to Blob and uploaded to the server.
+  * Finally, the image URL is updated in the user's profile.
   */
   async takePicture() {
-    // Captura una imagen utilizando la cámara del dispositivo.
+    // Captures an image using the device's camera.
     const image = await Camera.getPhoto({
       quality: 90,
       allowEditing: true,
       resultType: CameraResultType.Uri
     });
-    // Guarda la imagen capturada en la variable 'capturedImage'.
+    // Saves the captured image in the 'capturedImage' variable.
     this.capturedImage = image.webPath;
     console.log("Imagen capturada: ", this.capturedImage);
-    // Convierte la imagen capturada a Blob y la sube al servidor.
+    // Converts the captured image to Blob and uploads it to the server.
     dataURLtoBlob(this.capturedImage, (blob: Blob) => {
       this.mediaSvc.upload(blob).subscribe({
         next: (media: any) => {
@@ -104,20 +104,20 @@ export class ProfilePage implements OnInit {
     });
   }
 
-  // Variable para mostrar el formulario
+  // Variable to display the form
   formActive: boolean = false;
 
   /**
-  * Método para alternar la activación del formulario.
-  * Cambia el estado de la variable formActive entre true y false.
+  * Method to toggle the activation of the form.
+  * Changes the state of the formActive variable between true and false.
   */
   activeForm(){
     this.formActive = !this.formActive;
   }
 
   /**
-  * Actualiza el nombre de usuario con el valor ingresado en el formulario.
-  * Después de actualizar el usuario, alterna el estado del formulario.
+  * Updates the username with the value entered in the form.
+  * After updating the user, it toggles the form state.
   */
   updateUserName() {
     this.user.username = this.form.value.name;
@@ -125,13 +125,13 @@ export class ProfilePage implements OnInit {
     this.activeForm();
   }
 
-  // Variable para el fondo de la aplicación
+  // Variable for the application background.
   fondo: string = "";
 
   /**
-  * Cambia el fondo de la aplicación con el valor proporcionado.
-  * Actualiza el fondo en el servicio de fondo y también en los datos del usuario.
-  * @param fondo El nuevo fondo que se aplicará.
+  * Changes the application background with the provided value.
+  * Updates the background in the background service and also in the user's data.
+  * @param fondo The new background to be applied.
   */
   changeBackground(fondo: string) {
     console.log("Fondo: ", fondo);
@@ -142,12 +142,12 @@ export class ProfilePage implements OnInit {
   }
 
   /**
-  * Método para exportar datos en formato CSV.
-  * Obtiene datos de Firebase, los convierte a formato CSV e inicia las descargas de archivos CSV.
+  * Method to export data in CSV format.
+  * It obtains data from Firebase, converts it to CSV format, and initiates CSV file downloads.
   *
   * @remarks
-  * Este método obtiene datos de Firebase utilizando FirebaseService, los convierte a formato CSV
-  * e inicia la descarga de archivos CSV para cada conjunto de datos.
+  * This method obtains data from Firebase using FirebaseService, converts it to CSV format,
+  * and initiates the download of CSV files for each data set.
   */
   exportData(): void {
     this._firebaseService
@@ -166,9 +166,9 @@ export class ProfilePage implements OnInit {
 
   
   /**
-  * Convierte datos JSON a formato CSV.
-  * @param dataObject - El objeto de datos JSON que se va a convertir a CSV.
-  * @returns Un objeto que contiene el contenido CSV para cada conjunto de datos.
+  * Converts JSON data to CSV format.
+  * @param dataObject - The JSON data object that is going to be converted to CSV.
+  * @returns An object that contains the CSV content for each data set.
   */
   public jsonToCSV(dataObject: { [key: string]: any[] }): {
     [key: string]: string;
@@ -195,10 +195,10 @@ export class ProfilePage implements OnInit {
   }
 
   /**
-   * Inicia la descarga de un archivo CSV.
+   * Initiates the download of a CSV file.
    *
-   * @param csvContent - El contenido CSV que se va a descargar.
-   * @param filename - El nombre del archivo CSV.
+   * @param csvContent - The CSV content that is going to be downloaded.
+   * @param filename - The name of the CSV file.
    */
   public downloadCSV(csvContent: string, filename: string): void {
     if (!csvContent) {

@@ -21,19 +21,19 @@ import { LoadingComponent } from 'src/app/shared/components/loading/loading.comp
 })
 export class HomePage implements OnInit {
 
-  // Variable para el fondo
+  // Variable for the background.
   fondo: string = "";
 
   /**
-  * Constructor de la clase.
+  * Class constructor.
   * 
-  * @param auth Servicio de autenticación utilizado para gestionar la autenticación de usuarios.
-  * @param router El enrutador utilizado para la navegación dentro de la aplicación.
-  * @param rutinaSvc Servicio utilizado para la gestión de rutinas.
-  * @param citasSvc Servicio utilizado para la gestión de citas.
-  * @param userSvc Servicio utilizado para la gestión de usuarios.
-  * @param backgroundSvc Servicio utilizado para gestionar el fondo de la aplicación.
-  * @param modal Controlador utilizado para crear y gestionar modalidades dentro de la aplicación.
+  * @param auth Authentication service used to manage user authentication.
+  * @param router The router used for navigation within the application.
+  * @param rutinaSvc Service used for routine management.
+  * @param citasSvc Service used for appointment management.
+  * @param userSvc Service used for user management.
+  * @param backgroundSvc Service used to manage the application's background.
+  * @param modal Controller used to create and manage modalities within the application.
   */
   constructor(
     public auth: AuthService,
@@ -46,26 +46,26 @@ export class HomePage implements OnInit {
   ) {}
 
   /**
-  * Método llamado después de que Angular inicializa los componentes de la clase.
-  * Se suscribe al servicio de autenticación para obtener información sobre el usuario autenticado.
-  * También se suscribe a los servicios de gestión de rutinas, citas y usuarios para recibir actualizaciones.
-  * Inicializa el fondo de la aplicación y carga datos filtrados dependiendo del usuario logueado.
+  * Method called after Angular initializes the components of the class.
+  * It subscribes to the authentication service to get information about the authenticated user.
+  * It also subscribes to the routine, appointment, and user management services to receive updates.
+  * It initializes the application's background and loads filtered data depending on the logged-in user.
   */
   ngOnInit() {
-    // Función de callback para manejar el cierre del modal del modal de carga
+    // Callback function to handle the closure of the loading modal.
     var onDismiss = (result:any)=>{
       console.log("Resultado del modal: ", result)
     }
-    // Mostrar modal de carga
+    // Display loading modal.
     this.modalLoading(onDismiss)
     this.rutinaSvc.subscribeToRutinaCollection();
     this.userSvc.subscribeToUsersCollection();
     this.citasSvc.subscribeToCitasCollection();
-    // Obtener información sobre el usuario autenticado
+    // Get information about the authenticated user.
     this.auth.me().subscribe(_ => {
       console.log("Usuario logeado "+ _.uuid);
       this.user = _;
-      // Filtrar y cargar datos relacionados con las citas y las rutinas del usuario logueado
+      // Filter and load data related to the appointments and routines of the logged-in user.
       this.citasFiltered(_.uuid);
       this.rutinasFiltered(_.uuid);
       this.backgroundSvc.setBackground(_.fondo);
@@ -75,23 +75,23 @@ export class HomePage implements OnInit {
     });
   }
 
-  // Variable para guardar los datos del usuario
+  // Variable to store the user data.
   user: any
 
-  // Lista de rutinas privadas
+  // List of private routines.
   rutinas: Rutina[] = [];
 
   /**
-  * Filtra las rutinas del usuario actual basándose en el día actual y el estado de activo.
+  * Filters the current user's routines based on the current day and active status.
   * 
-  * @param uuid El identificador único del usuario actual.
+  * @param uuid The unique identifier of the current user.
   */
   rutinasFiltered(uuid: string) {
-    // Obtener el día actual en español
+    // Get the current day in Spanish.
     const days = ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'];
     const today = days[new Date().getDay()];
     console.log("Día actual: ", today);
-    // Filtro las rutinas
+    // Filter the routines.
     this.rutinaSvc.rutinas$.pipe(
       map(rutina => rutina.filter(rutina => rutina.userUUID === uuid && rutina.day == today && rutina.activo == true))
       ).subscribe(filteredRutinas => {
@@ -103,23 +103,23 @@ export class HomePage implements OnInit {
     });
   }
 
-  // Lista de ejercicios
+  // List of exercises.
   exercises: any[] = [];
 
-  // Lista de rutinas privadas
+  // List of private routines.
   citas: Cita[] = [];
 
   /**
-  * Filtra las citas del usuario actual basándose en el estado, el encargado y la fecha de la cita.
+  * Filters the current user's appointments based on the status, the person in charge, and the date of the appointment.
   * 
-  * @param uuid El identificador único del usuario actual.
+  * @param uuid The unique identifier of the current user.
   */
   citasFiltered(uuid: string) {
-    // Combinar las fuentes de datos de citas y usuarios para filtrar las citas
+    // Combine the data sources of appointments and users to filter the appointments.
       combineLatest([this.citasSvc.citas$, this.userSvc.users$]).pipe(
         map(([citas, users]) => 
           citas
-            // Filtrar las citas del usuario actual que están aceptadas y cuya fecha de cita es posterior a la actual
+            // Filter the current user's appointments that are accepted and whose appointment date is after the current date.
             .filter(cita => cita?.encargadoUuid == uuid && cita?.estado == 'aceptado' && cita?.fechaCita.toDate() > new Date()).map(cita => {
               const user = users.find(user => user.uuid === cita.userUUID);
               return {
@@ -129,39 +129,36 @@ export class HomePage implements OnInit {
             })
         )
       ).subscribe(filteredCitas => {
-        // Asignar las citas filtradas al arreglo de citas y registrar el resultado en la consola
+        // Assign the filtered appointments to the appointments array and log the result to the console.
         this.citas = filteredCitas;
         console.log("RESULTADO DE LAS CITAS FILTRADAS: ", this.citas);
       });
   }
 
   /**
-  * Obtiene la fecha y hora formateada de un objeto Timestamp y determina si la cita es pasada o no.
+  * Gets the formatted date and time from a Timestamp object and determines whether the appointment is past or not.
   * 
-  * @param timestamp El objeto Timestamp que representa la fecha y hora de la cita.
-  * @returns Un objeto que contiene la fecha y hora formateada y un indicador de si la cita es pasada o no.
+  * @param timestamp The Timestamp object representing the date and time of the appointment.
+  * @returns An object containing the formatted date and time and an indicator of whether the appointment is past or not.
   */
   getCitaDate(timestamp: Timestamp): { fechaFormateada: string, pasada: boolean } {
-    const citaDate = timestamp.toDate(); // Convierte el Timestamp a un objeto Date
-    const currentDate = new Date(); // Fecha y hora actuales
-    const pasada = citaDate < currentDate;  // Comprueba si la fecha es anterior a la actual
-    // Formatea la fecha y hora
-    const fechaFormateada = citaDate.toLocaleString(); // Devuelve una cadena con la fecha y hora formateada
-
-    // Devuelve la fecha formateada y un indicador de si la cita es pasada o no
+    const citaDate = timestamp.toDate();
+    const currentDate = new Date();
+    const pasada = citaDate < currentDate;
+    const fechaFormateada = citaDate.toLocaleString();
     return { fechaFormateada, pasada };
   }
 
   /**
-  * Redirige al usuario a la página de rutinas.
+  * Redirects the user to the routines page.
   */
   goRutinas() {
     this.router.navigate(['/rutinas']);
   }
 
   /**
-  * Abre un modal de carga y espera a que se cierre para ejecutar la acción especificada.
-  * @param onDismiss La acción a ejecutar cuando se cierre el modal.
+  * Opens a loading modal and waits for it to close to execute the specified action.
+  * @param onDismiss The action to execute when the modal closes.
   */
   async modalLoading(onDismiss:(result:any)=>void){
     const modal = await this.modal.create({

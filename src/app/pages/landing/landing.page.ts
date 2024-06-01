@@ -19,17 +19,17 @@ SwiperCore.use([EffectCoverflow]);
 export class LandingPage implements OnInit {
 
   /**
-  * Referencia al IonRouterOutlet para manejar la navegación dentro de un componente.
+  * Reference to the IonRouterOutlet to handle navigation within a component.
   */
   @ViewChild(IonRouterOutlet, { static: true }) routerOutlet: IonRouterOutlet | undefined;
 
   /**
-  * Constructor de la clase.
-  * @param router Servicio de enrutamiento para la navegación entre componentes.
-  * @param rutinaSvc Servicio para gestionar las rutinas.
-  * @param authSvc Servicio de autenticación.
-  * @param auth Servicio de autenticación para gestionar el estado de inicio de sesión.
-  * @param translate Servicio de traducción personalizado.
+  * Class constructor.
+  * @param router Routing service for navigation between components.
+  * @param rutinaSvc Service to manage routines.
+  * @param authSvc Authentication service.
+  * @param auth Authentication service to manage login state.
+  * @param translate Custom translation service.
   */
   constructor(
     private router: Router,
@@ -39,56 +39,56 @@ export class LandingPage implements OnInit {
     public translate: CustomTranslateService
   ) { }
 
-  // Variable para saber si el usuario está logueado
+  // Variable to know if the user is logged in.
   loguead: Boolean | undefined;
 
   /**
-  * Método que se ejecuta al inicializar el componente.
-  * Se suscribe al servicio de rutinas para obtener las rutinas disponibles.
-  * Se suscribe al estado de inicio de sesión para gestionar la autenticación del usuario.
-  * Se establece un temporizador para manejar la conexión anónima en caso de no haber usuario logeado.
-  * Se suscribe al servicio de traducción para actualizar el idioma del componente.
+  * Method that runs when initializing the component.
+  * Subscribes to the routine service to get the available routines.
+  * Subscribes to the login state to manage user authentication.
+  * Sets a timer to handle anonymous connection in case there is no logged in user.
+  * Subscribes to the translation service to update the component's language.
   */
   ngOnInit() {
-    // Suscripción al servicio de rutinas para obtener las rutinas disponibles
+    // Subscription to the routine service to get the available routines.
     this.rutinaSvc.subscribeToRutinaCollection();
-    // Suscripción al estado de inicio de sesión para gestionar la autenticación del usuario
+    // Subscription to the login state to manage user authentication.
     this.auth.isLogged$.subscribe(logged => {
       console.log(logged);
       this.loguead = logged;
       
     });
-    // Temporizador para manejar la conexión anónima en caso de no haber usuario logeado
+    // Timer to handle anonymous connection in case there is no logged in user.
     setTimeout(() => {
       if (this.loguead) {
         console.log("Usuario logeado");
       } else {
         console.log("No hay usuario logeado");
-        // Conexión anónima
+        // Anonymous connection.
         this.authSvc.connectAnonymously().then(() => {
           console.log("Conexión anónima exitosa");
           this.rutinasFiltered();
         }).catch((error) => {
           console.log("Error en la conexión anónima: ", error);
-          // Cierre de sesión en caso de error en la conexión anónima
+          // Log out in case of error in the anonymous connection.
           this.auth.logOut();
           this.rutinasFiltered();
         });
       }
-    }, 5000); // Espera 3 segundos (3000 milisegundos) antes de ejecutar el código dentro del setTimeout
-    // Suscripción al servicio de traducción para actualizar el idioma del componente
+    }, 5000);
+    // Subscription to the translation service to update the component's language.
     this.translate.language$.subscribe(lang => {
       this.lang = lang;
     });
   }
 
-  // Configuración del swiper para que sea infinito y se vean 3 elementos
+  // Configuration of the swiper to be infinite and display 3 elements.
   config: SwiperOptions = {
     effect: 'coverflow',
     slidesPerView: 3,
     centeredSlides: true,
     coverflowEffect: {
-      rotate: 50, // Cambia el valor según lo que desees
+      rotate: 50,
       stretch: 0,
       depth: 100,
       modifier: 1,
@@ -98,14 +98,14 @@ export class LandingPage implements OnInit {
     initialSlide: 2,
   };
 
-  // Variable para guardar las rutinas
+  // Variable to store the routine.
   rutinas: Rutina[] = [];
 
   /**
-  * Filtra las rutinas disponibles para mostrar solo las públicas.
-  * Suscribe al servicio de rutinas para obtener las rutinas disponibles.
-  * Utiliza el operador pipe con el operador map para filtrar las rutinas públicas.
-  * Actualiza la lista de rutinas filtradas y la almacena en la propiedad rutinas.
+  * Filters the available routines to display only the public ones.
+  * Subscribes to the routine service to get the available routines.
+  * Uses the pipe operator with the map operator to filter the public routines.
+  * Updates the list of filtered routines and stores it in the rutinas property.
   */
   rutinasFiltered() {
     this.rutinaSvc.rutinas$.pipe(
@@ -117,28 +117,28 @@ export class LandingPage implements OnInit {
   }
 
   /**
-  * Navega a la pagina de inicio de sesión.
+  * Navigates to the login page.
   */
   goLogReg(){
     this.router.navigate(['/login'])
   }
 
   /**
-  * Método para descargar el APK.
+  * Method to download the APK.
   */
   downloadAPK(){
     console.log("Descargar APK")
   }
 
-  // Variable para guardar el idioma que la inicializo en español
+  // Variable to store the language, initialized in Spanish.
   lang: string = "es";
 
   /**
- * Cambia el idioma de la aplicación.
- * 
- * @param idioma El idioma al que se cambiará la aplicación.
- * @returns false para evitar el comportamiento predeterminado del enlace.
- */
+  * Changes the language of the application.
+  * 
+  * @param idioma The language to which the application will be changed.
+  * @returns false to prevent the default behavior of the link.
+  */
   onLang(idioma: string) {
     console.log('Cambio de idioma');
     switch(idioma){

@@ -13,24 +13,24 @@ import { ModalConfirmComponent } from 'src/app/shared/components/modal-confirm/m
 })
 export class UsuariosPage implements OnInit {
 
-  // Variable para guardar el fondo de la página
+  // Variable to store the background of the page.
   fondo: string = "";
 
-  // Variable para el término de búsqueda
+  // Variable for the search term.
   searchTerm: string = '';
 
-  // Observable de usuarios filtrados
+  // Observable of filtered users.
   filteredUsers$!: Observable<any[]>;
 
-  // Variable para el estado del checkbox de administrador
+  // Variable for the state of the admin checkbox.
   showAdminsOnly: boolean = false;
   showNonAdminsOnly: boolean = false;
 
   /**
-  * Constructor del componente.
-  * @param userSvc Servicio de usuarios para manejar la información del usuario.
-  * @param modal Controlador de modales para abrir y gestionar modales.
-  * @param backgroundSvc Servicio de fondo para gestionar el fondo del componente.
+  * Component's constructor.
+  * @param userSvc User service to handle user information.
+  * @param modal Modal controller to open and manage modals.
+  * @param backgroundSvc Background service to manage the component's background.
   */
   constructor(
     public userSvc: UsersService,
@@ -39,9 +39,9 @@ export class UsuariosPage implements OnInit {
   ) { }
 
   /**
-  * Método que se ejecuta al inicializar el componente.
-  * Subscribes al servicio de usuarios para obtener la colección de usuarios.
-  * Subscribes al servicio de fondo para actualizar el fondo del componente.
+  * Method that runs when the component is initialized.
+  * Subscribes to the user service to get the collection of users.
+  * Subscribes to the background service to update the component's background.
   */
   ngOnInit() {
     this.userSvc.subscribeToUsersCollection();
@@ -49,7 +49,7 @@ export class UsuariosPage implements OnInit {
       this.fondo = fondo;
     });
 
-    // Inicializar el observable de usuarios filtrados
+    // Initialize the observable of filtered users.
     this.filteredUsers$ = combineLatest([
       this.userSvc.users$,
       this.userSvc.users$.pipe(startWith(''))
@@ -58,6 +58,11 @@ export class UsuariosPage implements OnInit {
     );
   }
 
+  /**
+  * Filters a list of users according to the search term and display options.
+  * @param users - The list of users to filter.
+  * @returns The list of users filtered according to the search term and display options.
+  */
   filterUsers(users: User[]): User[] {
     let filteredUsers = users;
     if (this.searchTerm) {
@@ -75,6 +80,9 @@ export class UsuariosPage implements OnInit {
     return filteredUsers;
   }
 
+  /**
+  * Updates the list of filtered users when the search term changes.
+  */
   onSearchTermChanged() {
     this.filteredUsers$ = combineLatest([
       this.userSvc.users$,
@@ -84,6 +92,11 @@ export class UsuariosPage implements OnInit {
     );
   }
 
+  /**
+  * Handles the change in the state of the admin checkbox.
+  * If only admins are being shown, it deactivates the option to show non-admins.
+  * Updates the list of filtered users according to the changes in the checkbox state.
+  */
   onAdminCheckboxChanged() {
     if (this.showAdminsOnly) {
       this.showNonAdminsOnly = false;
@@ -96,6 +109,11 @@ export class UsuariosPage implements OnInit {
     );
   }
 
+  /**
+  * Handles the change in the state of the non-admin checkbox.
+  * If only non-admins are being shown, it deactivates the option to show admins.
+  * Updates the list of filtered users according to the changes in the checkbox state.
+  */
   onNonAdminCheckboxChanged() {
     if (this.showNonAdminsOnly) {
       this.showAdminsOnly = false;
@@ -109,9 +127,9 @@ export class UsuariosPage implements OnInit {
   }
 
   /**
-  * Método para aceptar un usuario.
+  * Method to accept a user.
   * 
-  * @param user El usuario que se va a aceptar.
+  * @param user The user who is going to be accepted.
   */
   accept(user: User){
     console.log("Aceptar usuario: ", user)
@@ -119,9 +137,9 @@ export class UsuariosPage implements OnInit {
   }
 
   /**
-  * Método para eliminar un usuario.
+  * Method to delete a user.
   * 
-  * @param user El usuario que se va a eliminar.
+  * @param user The user who is going to be deleted.
   */
   deleteUser(user: User){
     var onDismiss = (result:any)=>{
@@ -137,9 +155,9 @@ export class UsuariosPage implements OnInit {
   }
 
   /**
-  * Método para mostrar un modal de confirmación.
+  * Method to display a confirmation modal.
   * 
-  * @param onDismiss Función que se ejecuta cuando se cierra el modal, recibe el resultado del modal como parámetro.
+  * @param onDismiss Function that runs when the modal is closed, receives the result of the modal as a parameter.
   */
   async modalConfirm(onDismiss:(result:any)=>void){
     const modal = await this.modal.create({

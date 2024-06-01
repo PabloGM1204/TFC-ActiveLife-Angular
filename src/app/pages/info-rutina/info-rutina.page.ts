@@ -17,33 +17,35 @@ import { CustomTranslateService } from 'src/app/core/services/custom-translate.s
 })
 export class InfoRutinaPage implements OnInit {
 
+  // Routine form.
   form: FormGroup;
 
+  // ID of the routine.
   id: any;
 
-  // Selec de los ejercicios
+  // Exercise selection.
   secondSelect: boolean = false;
 
-  // Lista de ejercicios
+  // List of exercises.
   exercises: any[] = [];
 
-  // Lista de rutinas
+  // List of routines.
   rutina: any[] = [];
 
-  // Variable para el fondo
+  // Variable for the background.
   fondo: string = "";
 
   /**
-  * Constructor de la clase.
-  * @param formBuilder Instancia de FormBuilder para la creación de formularios.
-  * @param apiSvc Servicio ApiService para realizar llamadas a la API.
-  * @param messageService Servicio MessageService para mostrar mensajes en la interfaz de usuario.
-  * @param route Instancia de ActivatedRoute para obtener información sobre la ruta activa.
-  * @param rutinaSvc Servicio RutinaService para manejar las rutinas.
-  * @param modal Controlador ModalController para mostrar y controlar los modales.
-  * @param router Instancia de Router para la navegación entre componentes y rutas.
-  * @param backgroundSvc Servicio BackgroundService para manejar el fondo de la aplicación.
-  * @param langSvc Servicio CustomTranslateService para la gestión de traducciones personalizadas.
+  * Class constructor.
+  * @param formBuilder FormBuilder instance for form creation.
+  * @param apiSvc ApiService for making calls to the API.
+  * @param messageService MessageService for displaying messages in the user interface.
+  * @param route ActivatedRoute instance to get information about the active route.
+  * @param rutinaSvc RutinaService for handling routines.
+  * @param modal ModalController for displaying and controlling modals.
+  * @param router Router instance for navigation between components and routes.
+  * @param backgroundSvc BackgroundService for managing the application background.
+  * @param langSvc CustomTranslateService for managing custom translations.
   */
   constructor(
     private formBuilder: FormBuilder,
@@ -56,7 +58,7 @@ export class InfoRutinaPage implements OnInit {
     private backgroundSvc: BackgroundService,
     private langSvc: CustomTranslateService
   ) {
-    // Inicialización del formulario con los campos requeridos y sus validadores
+    // Initialization of the form with the required fields and their validators.
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]],
       day: ['', [Validators.required]],
@@ -66,30 +68,30 @@ export class InfoRutinaPage implements OnInit {
   }
 
   /**
-  * Método ngOnInit para inicializar la instancia de la clase.
+  * ngOnInit method to initialize the instance of the class.
   */
   ngOnInit() {
-    // Obtiene el ID de la ruta activa desde los parámetros de la ruta
+    // Gets the ID of the active route from the route parameters.
     this.id = this.route.snapshot.paramMap.get('id');
-    // Si se proporciona un ID válido, carga la rutina correspondiente
+    // If a valid ID is provided, load the corresponding routine.
     if(this.id != null){
       this.loadRutine();
     }
-    // Se suscribe a cambios en el fondo de la aplicación
+    // Subscribes to changes in the application background.
     this.backgroundSvc.background$.subscribe(fondo => {
       this.fondo = fondo;
     });
   }
 
   /**
-  * Método loadRutine para cargar los datos de una rutina específica utilizando su ID.
+  * Method to load the data of a specific routine using its ID.
   */
   loadRutine(){
     console.log("ID de la rutina: ", this.id);
     this.rutinaSvc.getRutina(this.id).subscribe((rutina: any) => {
       //this.rutina = rutina;
       this.exercises = rutina.exercises;
-      // Inicializar el formulario con los datos de la rutina
+      // Initialize the form with the routine data.
       this.form.patchValue({
         name: rutina.title,
         day: rutina.day,
@@ -100,7 +102,7 @@ export class InfoRutinaPage implements OnInit {
   }
 
   /**
-  * Método updateRutine para actualizar una rutina existente con los datos proporcionados en el formulario.
+  * Method to update an existing routine with the data provided in the form.
   */
   updateRutine(){
     let rutina: any = {
@@ -117,10 +119,10 @@ export class InfoRutinaPage implements OnInit {
   }  
 
   /**
-  * Añade un ejercicio a la rutina actual.
+  * Adds an exercise to the current routine.
   *
-  * @param data Datos adicionales a añadir al ejercicio.
-  * @param exercise Ejercicio a añadir a la rutina.
+  * @param data Additional data to add to the exercise.
+  * @param exercise Exercise to add to the routine.
   */
   addExerciseToRutine(data: any, exercise: any){
     console.log("Datos: ", data);
@@ -136,10 +138,10 @@ export class InfoRutinaPage implements OnInit {
   }
 
   /**
-  * Elimina un ejercicio de la rutina actual.
+  * Removes an exercise from the current routine.
   *
-  * @param data Datos adicionales del ejercicio.
-  * @param exercise Ejercicio a eliminar de la rutina.
+  * @param data Additional data of the exercise.
+  * @param exercise Exercise to remove from the routine.
   */
   removeExerciseToRutine(data: any, exercise: any){
     console.log("Datos: ", data);
@@ -150,7 +152,7 @@ export class InfoRutinaPage implements OnInit {
   }
 
   /**
-  * Abre un modal para seleccionar ejercicios y los agrega a la rutina actual.
+  * Opens a modal to select exercises and adds them to the current routine.
   */
   openModal(){
     var onDismiss = (info: any) => {
@@ -164,10 +166,10 @@ export class InfoRutinaPage implements OnInit {
   }
 
   /**
-  * Presenta un formulario modal para la selección de ejercicios.
+  * Presents a modal form for the selection of exercises.
   * 
-  * @param data Los datos de los ejercicios a mostrar en el modal.
-  * @param onDismiss La función a ejecutar cuando se cierra el modal, pasando el resultado.
+  * @param data The data of the exercises to display in the modal.
+  * @param onDismiss The function to execute when the modal closes, passing the result.
   */
   async presentForm(data: any | null, onDismiss:(result:any)=>void){
     const modal = await this.modal.create({
@@ -186,8 +188,8 @@ export class InfoRutinaPage implements OnInit {
   }
 
   /**
-  * Muestra un mensaje de éxito en la parte inferior centrada del componente de mensajes
-  * según el idioma seleccionado.
+  * Displays a success message at the bottom center of the message component
+  * according to the selected language.
   */
   showBottomCenterGood() {
     this.langSvc.language$.subscribe(lang => {
@@ -206,8 +208,8 @@ export class InfoRutinaPage implements OnInit {
   }
 
   /**
-  * Muestra un mensaje de error en la parte inferior centrada del componente de mensajes
-  * según el idioma seleccionado.
+  * Displays an error message at the bottom center of the message component
+  * according to the selected language.
   */
   showBottomCenterBad(){
     this.langSvc.language$.subscribe(lang => { 

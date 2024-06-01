@@ -19,30 +19,30 @@ import { CustomTranslateService } from 'src/app/core/services/custom-translate.s
 })
 export class CrearRutinaPage implements OnInit {
 
-  // En el caso en el que reciba por la ruta el id de la rutina
+  // In the case where the routine id is received through the route.
   id: any;
 
-  // Variable para el formulario
+  // Variable for the form.
   form: FormGroup;
 
-  // Variable para guardar el valor del usuario logueado
+  // Variable to store the value of the logged in user.
   user: User | undefined;
 
-  // Variable para el fondo
+  // Variable for the background.
   fondo: string = "";
 
   /**
-  * Constructor de la clase.
+  * Class constructor.
   * 
-  * @param apiSvc Servicio de la API para realizar llamadas HTTP.
-  * @param rutinaSvc Servicio de rutinas para gestionar las rutinas.
-  * @param formBuilder Constructor para crear instancias de formularios.
-  * @param auth Servicio de autenticación para gestionar la autenticación de usuarios.
-  * @param messageService Servicio para mostrar mensajes y notificaciones.
-  * @param router Enrutador para la navegación dentro de la aplicación.
-  * @param route Objeto que proporciona información sobre la ruta activada actualmente.
-  * @param backgroundSvc Servicio para gestionar el fondo de la aplicación.
-  * @param langSvc Servicio para la gestión de la traducción personalizada.
+  * @param apiSvc API service to make HTTP calls.
+  * @param rutinaSvc Routine service to manage routines.
+  * @param formBuilder Constructor to create form instances.
+  * @param auth Authentication service to manage user authentication.
+  * @param messageService Service to display messages and notifications.
+  * @param router Router for navigation within the application.
+  * @param route Object that provides information about the currently activated route.
+  * @param backgroundSvc Service to manage the application's background.
+  * @param langSvc Service for managing custom translation.
   */
   constructor(
     public apiSvc: ApiService,
@@ -55,7 +55,7 @@ export class CrearRutinaPage implements OnInit {
     private backgroundSvc: BackgroundService,
     private langSvc: CustomTranslateService
   ) {
-    // Inicializa el formulario con los campos necesarios y las validaciones
+    // Initializes the form with the necessary fields and validations.
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]],
       day: ['', [Validators.required]],
@@ -64,19 +64,19 @@ export class CrearRutinaPage implements OnInit {
     });
   }
 
-  // Selec de los ejercicios
+  // Selection of the exercises.
   secondSelect: boolean = false;
 
-  // Lista de ejercicios de la rutina
+  // List of exercises in the routine.
   exercises: any[] = [];
 
-  // Lista de rutinas
+  // List of rutines.
   rutina: any[] = [];
 
   /**
-  * Método del ciclo de vida de Angular que se ejecuta después de que Angular
-  * haya inicializado todas las propiedades de datos vinculadas al componente.
-  * Se utiliza para inicializar datos y realizar operaciones de configuración inicial.
+  * Angular lifecycle method that runs after Angular
+  * has initialized all data-bound properties of the component.
+  * It is used to initialize data and perform initial configuration operations.
   */
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
@@ -93,10 +93,10 @@ export class CrearRutinaPage implements OnInit {
   }
 
   /**
-  * Método para agregar un ejercicio a la rutina.
+  * Method to add an exercise to the routine.
   * 
-  * @param data Los datos asociados al ejercicio.
-  * @param exercise El ejercicio que se va a agregar.
+  * @param data The data associated with the exercise.
+  * @param exercise The exercise to be added.
   */
   addExerciseToRutine(data: any, exercise: any){
     console.log("Datos: ", data);
@@ -112,10 +112,10 @@ export class CrearRutinaPage implements OnInit {
   }
 
   /**
-  * Método para eliminar un ejercicio de la rutina.
+  * Method to remove an exercise from the routine.
   * 
-  * @param data Los datos asociados al ejercicio.
-  * @param exercise El ejercicio que se va a eliminar.
+  * @param data The data associated with the exercise.
+  * @param exercise The exercise to be removed.
   */
   removeExerciseToRutine(data: any, exercise: any){
     console.log("Datos: ", data);
@@ -126,9 +126,9 @@ export class CrearRutinaPage implements OnInit {
   }
 
   /**
-  * Método para activar el segundo selector según el valor seleccionado en el primer selector.
+  * Method to activate the second selector based on the value selected in the first selector.
   * 
-  * @param event El evento que contiene el valor seleccionado en el primer selector.
+  * @param event The event that contains the value selected in the first selector.
   */
   activateSecondSelect(event: any) {
     const value = event.detail.value;
@@ -145,7 +145,7 @@ export class CrearRutinaPage implements OnInit {
   }
 
   /**
-  * Método para crear una nueva rutina con los datos proporcionados por el formulario.
+  * Method to create a new routine with the data provided by the form.
   */
   createRutine(){
     let rutina: Rutina = {
@@ -169,13 +169,13 @@ export class CrearRutinaPage implements OnInit {
   }
 
   /**
-  * Método para cargar una rutina existente según el ID proporcionado.
+  * Method to load an existing routine based on the provided ID.
   */
   loadRutine(){
     console.log("ID de la rutina: ", this.id);
     this.rutinaSvc.getRutina(this.id).subscribe((rutina: any) => {
       this.rutina = rutina;
-      // Inicializo el formulario con los datos de la rutina
+      // Initialize the form with the routine data
       this.form.patchValue({
         name: rutina.title,
         day: rutina.day,
@@ -186,8 +186,8 @@ export class CrearRutinaPage implements OnInit {
   }
 
   /**
-  * Método para mostrar una notificación de éxito en la parte inferior central.
-  * Utiliza el idioma actual para determinar el mensaje de éxito mostrado.
+  * Method to display a success notification at the bottom center.
+  * It uses the current language to determine the success message displayed.
   */
   showBottomCenterGood() {
     this.langSvc.language$.subscribe(lang => {
@@ -206,13 +206,13 @@ export class CrearRutinaPage implements OnInit {
   }
 
   /**
-  * Método para mostrar una notificación de error en la parte inferior central.
-  * Utiliza el idioma actual para determinar el mensaje de error mostrado.
+  * Method to display an error notification at the bottom center.
+  * It uses the current language to determine the error message displayed.
   */
   showBottomCenterBad(){
-    // Suscribirse al idioma actual
+    // Subscribe to the current language.
     this.langSvc.language$.subscribe(lang => { 
-      // Seleccionar el mensaje de error según el idioma actual y agregar la notificación
+      // Select the error message based on the current language and add the notification.
       switch(lang){
         case 'es':
           this.messageService.add({ key: 'er', severity: 'error', summary: 'Eliminado', detail: 'Ejercicio eliminado de la rutina' });
@@ -228,12 +228,12 @@ export class CrearRutinaPage implements OnInit {
   }
 
   /**
-  * Método para verificar si el formulario es inválido o si no se ha agregado ningún ejercicio a la rutina.
+  * Method to check if the form is invalid or if no exercise has been added to the routine.
   * 
-  * @returns Un valor booleano que indica si el formulario es inválido o si no se ha agregado ningún ejercicio a la rutina.
+  * @returns A boolean value indicating whether the form is invalid or if no exercise has been added to the routine.
   */
   isFormInvalid(): boolean {
-     // Verificar si el formulario es inválido o si no se ha agregado ningún ejercicio a la rutina
+    // Check if the form is invalid or if no exercise has been added to the routine.
     return this.form.invalid || this.rutina.length < 1;
   }
 

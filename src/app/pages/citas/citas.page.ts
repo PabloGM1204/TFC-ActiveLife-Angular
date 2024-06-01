@@ -17,18 +17,18 @@ import { ModalCitaComponent } from 'src/app/shared/components/modal-cita/modal-c
 })
 export class CitasPage implements OnInit {
 
-  // Varaible para el fondo
+  // Variable for the background.
   fondo: string = "";
 
   /**
-  * Constructor de la clase.
+  * Constructor of the class.
   * 
-  * @param citasSvc Servicio para la gestión de citas.
-  * @param userSvc Servicio para la gestión de usuarios.
-  * @param auth Servicio de autenticación.
-  * @param modal Controlador de modales.
-  * @param storage Servicio para el almacenamiento.
-  * @param backgroundSvc Servicio para el fondo.
+  * @param citasSvc Service for managing appointments.
+  * @param userSvc Service for managing users.
+  * @param auth Authentication service.
+  * @param modal Modal controller.
+  * @param storage Storage service.
+  * @param backgroundSvc Background service.
   */
   constructor(
     public citasSvc: CitasService,
@@ -40,9 +40,9 @@ export class CitasPage implements OnInit {
   ) { }
 
   /**
-  * Método del ciclo de vida que se ejecuta cuando el componente se inicializa.
-  * Se suscribe a las colecciones de citas y usuarios, recupera la información del usuario autenticado,
-  * filtra las citas del usuario y las citas públicas, y se suscribe a los cambios de fondo.
+  * Lifecycle method that executes when the component is initialized.
+  * Subscribes to the collections of appointments and users, retrieves information of the authenticated user,
+  * filters user appointments and public appointments, and subscribes to background changes.
   */
   ngOnInit() {
     this.citasSvc.subscribeToCitasCollection();
@@ -58,19 +58,19 @@ export class CitasPage implements OnInit {
     });
   }
 
-  // Info del usuario
+  // User info.
   user: any;
 
-  // Lista de rutinas privadas
+  // List of private routines.
   citas: Cita[] = [];
 
-  // Lista de rutinas publicas
+  // List of public routines.
   citasPublic: Cita[] = [];
 
   /**
-  * Método para filtrar las citas asociadas a un usuario específico.
+  * Method to filter appointments associated with a specific user.
   * 
-  * @param uuid El identificador único del usuario.
+  * @param uuid The unique identifier of the user.
   */
   citasFiltered(uuid: string) {
     combineLatest([this.citasSvc.citas$, this.userSvc.users$]).pipe(
@@ -93,7 +93,7 @@ export class CitasPage implements OnInit {
   }
 
   /**
-  * Método para filtrar las citas públicas, es decir, aquellas que no tienen asignado un encargado.
+  * Method to filter public appointments, i.e., those that do not have an assigned attendant.
   */
   citasFilteredByPublic() {
     combineLatest([this.citasSvc.citas$, this.userSvc.users$]).pipe(
@@ -117,53 +117,53 @@ export class CitasPage implements OnInit {
     });
   }
 
-  // Variable para activar o no las citas publicas
+  // Variable to enable or disable public appointments.
   publicCitas: boolean = false;
 
   /**
-  * Método para mostrar las citas personales del usuario, desactivando la visualización de citas públicas.
+  * Method to display the user's personal appointments, disabling the display of public appointments.
   */
   misCitas() {
-    // Desactivar la visualización de citas públicas
+    // Disable the display of public appointments.
     this.publicCitas = false;
   }
 
   /**
-  * Método para mostrar las citas públicas, desactivando la visualización de citas personales del usuario.
+  * Method to display public appointments, disabling the display of the user's personal appointments.
   */
   noAdmins() {
-    // Activar la visualización de citas públicas
+    // Enable the display of public appointments.
     this.publicCitas = true;
   }
 
   /**
-  * Método para aceptar una cita.
+  * Method to accept an appointment.
   * 
-  * @param cita La cita que se va a aceptar.
+  * @param cita The appointment to be accepted.
   */
   accept(cita: Cita) {
-    // Cambiar el estado de la cita a "aceptado"
+    // Change the status of the appointment to "accepted".
     cita.estado = "aceptado";
-    // Actualizar la cita en la base de datos
+    // Update the appointment in the database
     this.citasSvc.updateCita(cita);
   }
 
   /**
-  * Método para denegar una cita.
+  * Method to deny an appointment.
   * 
-  * @param cita La cita que se va a denegar.
+  * @param cita The appointment to be denied.
   */
   denied(cita: Cita){
-    // Cambiar el estado de la cita a "denegado"
+    // Change the status of the appointment to "denied".
     cita.estado = "denegado";
-    // Actualizar la cita en la base de datos
+    // Update the appointment in the database
     this.citasSvc.updateCita(cita);
   }
 
   /**
-  * Método para que el administrador obtenga la cita asignándosela a sí mismo.
+  * Method for the administrator to claim the appointment by assigning it to themselves.
   * 
-  * @param cita La cita que el administrador va a obtener.
+  * @param cita The appointment the administrator will claim.
   */
   getCita(cita: Cita) {
     cita.encargadoUuid = this.user.uuid;
@@ -171,18 +171,18 @@ export class CitasPage implements OnInit {
   }
 
   /**
-  * Método para eliminar una cita.
+  * Method to delete an appointment.
   * 
-  * @param cita La cita que se va a eliminar.
+  * @param cita The appointment to be deleted.
   */
   deleteCita(cita: Cita) {
     this.citasSvc.deleteCita(cita);
   }
 
   /**
-  * Método para abrir el modal de la cita y actualizar los datos necesarios.
+  * Method to open the appointment modal and update necessary data.
   * 
-  * @param cita La cita para la cual se abrirá el modal.
+  * @param cita The appointment for which the modal will be opened.
   */
   openModal(cita: Cita){
     var onDismiss = async (info: any) => {
@@ -192,9 +192,12 @@ export class CitasPage implements OnInit {
       if(file != null){
         console.log("Archivo: ", file);
         const filePath = 'files/' + file.name;
-        const mimeType = file.type; // get the mime type from the file
-        const prefix = 'prefix'; // replace with your prefix
-        const extension = '.' + file.name.split('.').pop(); // get the extension from the file name
+        // Get the mime type from the file
+        const mimeType = file.type; 
+        // Replace with your prefix
+        const prefix = 'prefix'; 
+        // Get the extension from the file name
+        const extension = '.' + file.name.split('.').pop(); 
   
         // Convert the file to a blob
         const reader = new FileReader();
@@ -225,10 +228,10 @@ export class CitasPage implements OnInit {
   }
 
   /**
-  * Método para presentar el modal de los ejercicios a añadir.
+  * Method to present the modal for adding exercises.
   * 
-  * @param data Los datos que se pasan al modal.
-  * @param onDismiss La función que se ejecutará cuando se cierre el modal.
+  * @param data The data passed to the modal.
+  * @param onDismiss The function to be executed when the modal is dismissed.
   */
   async presentForm(data: any | null, onDismiss:(result:any)=>void){
     const modal = await this.modal.create({
@@ -247,19 +250,19 @@ export class CitasPage implements OnInit {
   }
 
   /**
-  * Método para formatear una fecha de tipo Timestamp.
+  * Method to format a date of type Timestamp.
   * 
-  * @param timestamp El objeto Timestamp que se va a formatear.
-  * @returns Un objeto con la fecha formateada y un indicador de si la fecha es pasada o no.
+  * @param timestamp The Timestamp object to format.
+  * @returns An object with the formatted date and an indicator of whether the date is in the past or not.
   */
   getCitaDate(timestamp: Timestamp): { fechaFormateada: string, pasada: boolean } {
-    const citaDate = timestamp.toDate(); // Convierte el Timestamp a un objeto Date
-    const currentDate = new Date(); // Fecha y hora actuales
-    const pasada = citaDate < currentDate;  // Comprueba si la fecha es anterior a la actual
-    // Formatea la fecha y hora
-    const fechaFormateada = citaDate.toLocaleString(); // Devuelve una cadena con la fecha y hora formateada
+    const citaDate = timestamp.toDate();
+    const currentDate = new Date();
+    const pasada = citaDate < currentDate;
+    // Format the date and time.
+    const fechaFormateada = citaDate.toLocaleString();
 
-    // Devuelve la fecha formateada y un indicador de si la cita es pasada o no
+    // Returns the formatted date and an indicator of whether the appointment is in the past or not
     return { fechaFormateada, pasada };
   }
 }

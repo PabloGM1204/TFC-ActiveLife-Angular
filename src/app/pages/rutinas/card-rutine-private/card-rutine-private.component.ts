@@ -10,18 +10,17 @@ import { Rutina } from 'src/app/core/interfaces/rutina';
 export class CardRutinePrivateComponent  implements OnInit {
 
   /**
-  * Entrada: La rutina que se mostrará en el componente.
-  * Salida: Se emite cuando se solicita eliminar la rutina.
+  * The routine that will be displayed in the component.
   */
   @Input() rutina: any;
 
   /**
-  * Salida: Se emite cuando se solicita eliminar la rutina.
+  * Output: It is emitted when the routine is requested to be deleted.
   */
   @Output() deleteRutina: EventEmitter<any> = new EventEmitter<any>();
   
-  /**
-  * Salida: Se emite cuando se solicita cambiar la rutina.
+ /**
+  * Output: It is emitted when a change in the routine is requested.
   */
   @Output() changeRutina: EventEmitter<any> = new EventEmitter<any>();
 
@@ -33,8 +32,8 @@ export class CardRutinePrivateComponent  implements OnInit {
   ngOnInit() {}
 
   /**
-  * Método para editar la rutina.
-  * Navega a la página de información de la rutina para su edición.
+  * Method to edit the routine.
+  * Navigates to the routine information page for its editing.
   */
   editRutine(){
     console.log("Editar rutina: ", this.rutina);
@@ -42,8 +41,8 @@ export class CardRutinePrivateComponent  implements OnInit {
   }
 
   /**
-  * Método para eliminar la rutina.
-  * Emite un evento para notificar la eliminación de la rutina.
+  * Method to delete the routine.
+  * Emits an event to notify the routine's deletion.
   */
   deleteRutine(){
     console.log("Eliminar rutina: ", this.rutina);
@@ -51,9 +50,9 @@ export class CardRutinePrivateComponent  implements OnInit {
   }
 
   /**
-  * Método para cambiar el estado de la rutina.
-  * Emite un evento para notificar el cambio de estado de la rutina.
-  * @param rutina La rutina que se va a cambiar de estado.
+  * Method to change the status of the routine.
+  * Emits an event to notify the change of status of the routine.
+  * @param rutina The routine that is going to be changed in status.
   */
   toggleChange(rutina: any) {
     console.log("Cambiar rutina: ", rutina);

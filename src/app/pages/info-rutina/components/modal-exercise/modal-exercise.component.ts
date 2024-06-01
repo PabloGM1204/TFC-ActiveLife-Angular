@@ -12,11 +12,11 @@ import { CustomTranslateService } from 'src/app/core/services/custom-translate.s
 export class ModalExerciseComponent  implements OnInit {
 
   /**
-  * Constructor del componente.
-  * @param apiSvc Servicio para realizar llamadas a la API.
-  * @param messageService Servicio para mostrar mensajes en la interfaz.
-  * @param modal Controlador para abrir y gestionar modales.
-  * @param langSvc Servicio para gestionar la traducción personalizada.
+  * Component constructor.
+  * @param apiSvc Service to make calls to the API.
+  * @param messageService Service to display messages in the interface.
+  * @param modal Controller to open and manage modals.
+  * @param langSvc Service to manage custom translation.
   */
   constructor(
     public apiSvc: ApiService,
@@ -27,26 +27,26 @@ export class ModalExerciseComponent  implements OnInit {
 
   ngOnInit() {}
 
-  // Variable para los ejercicios de las rutinas
+  // Variable for the exercises of the routines.
   exercises: any[] = [];
 
-  // Variable para activar el segundo select
+  // Variable to activate the second select.
   active: boolean = false;
 
-  // Variable para la rutina
+  // Variable for the routine.
   rutina: any[] = [];
 
   /**
-  * Activa la selección secundaria de ejercicios según la parte del cuerpo seleccionada.
-  * @param event Evento que contiene el valor seleccionado.
+  * Activates the secondary exercise selection based on the selected body part.
+  * @param event Event that contains the selected value.
   */
   activateSecondSelect(event: any) {
     const value = event.detail.value;
     console.log("Valor selccionado ", value)
-    // Obtiene los ejercicios según la parte del cuerpo seleccionada
+    // Gets the exercises based on the selected body part.
     this.apiSvc.exerciseByBodyPart(value).subscribe(
       (reponse: any) => {
-        // Asigna los ejercicios obtenidos a la propiedad correspondiente
+        // Assigns the obtained exercises to the corresponding property.
         this.exercises = reponse;
         this.active = true;
       },
@@ -57,59 +57,59 @@ export class ModalExerciseComponent  implements OnInit {
   }
 
   /**
-  * Añade un ejercicio a la rutina actual con los datos proporcionados.
-  * @param data Datos adicionales del ejercicio.
-  * @param exercise Ejercicio a añadir a la rutina.
+  * Adds an exercise to the current routine with the provided data.
+  * @param data Additional data of the exercise.
+  * @param exercise Exercise to add to the routine.
   */
   addExerciseToRutine(data: any, exercise: any){
     console.log("Datos: ", data);
     console.log("Ejercicio: ", exercise);
-    // Combina los datos adicionales con los del ejercicio
+    // Combines the additional data with the exercise data.
     let _exercise = {
       ...exercise,
       ...data
     }
     console.log("Ejercicio con datos: ", _exercise);
-    // Añade el ejercicio modificado a la rutina
+    // Adds the modified exercise to the routine.
     this.rutina.push(_exercise);
-    // Muestra una notificación de éxito
+    // Displays a success notification.
     this.showBottomCenterGood();
     console.log("Ejercicios: ", this.rutina);
   }
 
   /**
-  * Elimina un ejercicio de la rutina actual.
-  * @param data Datos adicionales relacionados con el ejercicio.
-  * @param exercise El ejercicio a eliminar de la rutina.
+  * Removes an exercise from the current routine.
+  * @param data Additional data related to the exercise.
+  * @param exercise The exercise to be removed from the routine.
   */
   removeExerciseToRutine(data: any, exercise: any){
     console.log("Datos: ", data);
     console.log("Ejercicio: ", exercise);
-    // Muestra una notificación de error
+    // Displays an error notification.
     this.showBottomCenterBad();
-    // Filtra los ejercicios para eliminar el ejercicio especificado
+    // Filters the exercises to remove the specified exercise.
     this.rutina = this.rutina.filter((item) => item.id !== exercise.id);
     console.log("Ejercicios: ", this.rutina);
   }
 
   /**
-  * Actualiza los ejercicios de la rutina y cierra el modal.
-  * Muestra la lista actualizada de ejercicios en la consola.
+  * Updates the exercises of the routine and closes the modal.
+  * Displays the updated list of exercises in the console.
   */
   updateExercises(){
     console.log("Ejercicios: ", this.exercises);
-    // Cierra el modal y pasa la lista actualizada de ejercicios como resultado
+    // Closes the modal and passes the updated list of exercises as a result.
     this.modal.dismiss(this.rutina)
   }
 
   /**
-  * Muestra un mensaje de éxito en la parte inferior centrada del componente de mensajes
-  * según el idioma seleccionado.
+  * Displays a success message at the bottom center of the message component
+  * according to the selected language.
   */
   showBottomCenterGood() {
-    // Subscripción al servicio de idioma para obtener el idioma actual
+    // Subscription to the language service to get the current language.
     this.langSvc.language$.subscribe(lang => {
-      // Switch para manejar los diferentes idiomas
+      // Switch to handle the different languages.
       switch(lang){
         case 'es':
           this.messageService.add({ key: 'bc', severity: 'success', summary: 'Success', detail: 'Ejercicio añadido' });
@@ -125,11 +125,11 @@ export class ModalExerciseComponent  implements OnInit {
   }
 
   /**
-  * Muestra un mensaje de error en la parte inferior centrada del componente de mensajes
-  * según el idioma seleccionado.
+  * Displays an error message at the bottom center of the message component
+  * according to the selected language.
   */
   showBottomCenterBad(){
-    // Subscripción al servicio de idioma para obtener el idioma actual
+    // Subscription to the language service to get the current language.
     this.langSvc.language$.subscribe(lang => { 
       switch(lang){
         case 'es':
