@@ -1,13 +1,26 @@
 <ion-content [fullscreen]="true" id="general" [ngClass]="{'pri': fondo === 'pri', 'sec': fondo == 'sec', 'img': fondo == 'img'}">
+  <div class="searchbar-container">
+    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearchTermChanged()" class="custom-searchbar" placeholder="Busca usuarios..."></ion-searchbar>
+    <div class="checkboxes-container">
+      <ion-item lines="none">
+        <ion-label>Admins </ion-label>
+        <ion-checkbox [(ngModel)]="showAdminsOnly" (ionChange)="onAdminCheckboxChanged()"></ion-checkbox>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Clientes </ion-label>
+        <ion-checkbox [(ngModel)]="showNonAdminsOnly" (ionChange)="onNonAdminCheckboxChanged()"></ion-checkbox>
+      </ion-item>
+    </div>
+  </div>
   <ion-grid>
     <ion-row>
       <ion-col size="2">{{ "usuarios.foto" | translate }}</ion-col>
       <ion-col size="2">{{ "usuarios.nombre" | translate }}</ion-col>
       <ion-col size="2">{{ "usuarios.email" | translate }}</ion-col>
-      <ion-col size="2">{{ "usuarios.admin" | translate }}</ion-col>
+      <ion-col size="2" class="admin">{{ "usuarios.admin" | translate }}</ion-col>
       <ion-col size="2">{{ "usuarios.acciones" | translate }}</ion-col>
     </ion-row>
-    <ion-row [class.odd-row]="index % 2 === 0" [class.even-row]="index % 2 !== 0" *ngFor="let user of userSvc.users$ | async; let index = index">
+    <ion-row [class.odd-row]="index % 2 === 0" [class.even-row]="index % 2 !== 0" *ngFor="let user of filteredUsers$ | async; let index = index">
       <ion-col size="2"><ion-avatar><img [src]="user?.imageUrl" alt="Imagen del alumno"></ion-avatar></ion-col>
       <ion-col size="2">{{ user.username }}</ion-col>
       <ion-col size="2">{{ user.email }}</ion-col>

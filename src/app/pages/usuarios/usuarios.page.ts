@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { Observable, combineLatest, map, startWith } from 'rxjs';
 import { User } from 'src/app/core/interfaces/user';
 import { BackgroundService } from 'src/app/core/services/background.service';
 import { UsersService } from 'src/app/core/services/users.service';
@@ -14,6 +15,16 @@ export class UsuariosPage implements OnInit {
 
   // Variable para guardar el fondo de la página
   fondo: string = "";
+
+  // Variable para el término de búsqueda
+  searchTerm: string = '';
+
+  // Observable de usuarios filtrados
+  filteredUsers$!: Observable<any[]>;
+
+  // Variable para el estado del checkbox de administrador
+  showAdminsOnly: boolean = false;
+  showNonAdminsOnly: boolean = false;
 
   /**
   * Constructor del componente.
@@ -37,6 +48,64 @@ export class UsuariosPage implements OnInit {
     this.backgroundSvc.background$.subscribe(fondo => {
       this.fondo = fondo;
     });
+
+    // Inicializar el observable de usuarios filtrados
+    this.filteredUsers$ = combineLatest([
+      this.userSvc.users$,
+      this.userSvc.users$.pipe(startWith(''))
+    ]).pipe(
+      map(([users]) => this.filterUsers(users))
+    );
+  }
+
+  filterUsers(users: User[]): User[] {
+    let filteredUsers = users;
+    if (this.searchTerm) {
+      const searchTermLower = this.searchTerm.toLowerCase();
+      filteredUsers = filteredUsers.filter(user =>
+        user.username.toLowerCase().includes(searchTermLower) ||
+        user.email.toLowerCase().includes(searchTermLower)
+      );
+    }
+    if (this.showAdminsOnly) {
+      filteredUsers = filteredUsers.filter(user => user.admin);
+    } else if (this.showNonAdminsOnly) {
+      filteredUsers = filteredUsers.filter(user => !user.admin);
+    }
+    return filteredUsers;
+  }
+
+  onSearchTermChanged() {
+    this.filteredUsers$ = combineLatest([
+      this.userSvc.users$,
+      this.userSvc.users$.pipe(startWith(''))
+    ]).pipe(
+      map(([users]) => this.filterUsers(users))
+    );
+  }
+
+  onAdminCheckboxChanged() {
+    if (this.showAdminsOnly) {
+      this.showNonAdminsOnly = false;
+    }
+    this.filteredUsers$ = combineLatest([
+      this.userSvc.users$,
+      this.userSvc.users$.pipe(startWith(''))
+    ]).pipe(
+      map(([users]) => this.filterUsers(users))
+    );
+  }
+
+  onNonAdminCheckboxChanged() {
+    if (this.showNonAdminsOnly) {
+      this.showAdminsOnly = false;
+    }
+    this.filteredUsers$ = combineLatest([
+      this.userSvc.users$,
+      this.userSvc.users$.pipe(startWith(''))
+    ]).pipe(
+      map(([users]) => this.filterUsers(users))
+    );
   }
 
   /**

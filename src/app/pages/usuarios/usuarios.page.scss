@@ -5,7 +5,7 @@
   
 #general ion-grid {
     padding: 16px;
-    margin-top: 55px;
+    margin-top: 110px;
 }
   
 #general ion-row {
@@ -65,8 +65,47 @@ ion-content{
     --background: linear-gradient(to top, #ffd45f, #ff6f91);
 }
 
+.searchbar-container {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    z-index: 10;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+}
+  
+.custom-searchbar {
+    width: 300px;
+    margin-right: 20px;
+    border-radius: 4px;
+}
+  
+.checkboxes-container {
+    display: flex;
+    align-items: center;
+}
+  
+ion-item {
+    margin: 0 10px;
+    --background: transparent;
+    --padding-start: 0px;
+}
+  
+ion-grid {
+    margin-top: 100px;
+}
+
+ion-label {
+    margin-right: 10px;
+}
+
 @media (max-width: 600px) {
     #general ion-grid {
+        margin-top: 220px;
         margin-bottom: 80px;
         padding: 0;
         font-size: small;
@@ -86,5 +125,25 @@ ion-content{
     .botones {
         display: flex;
         justify-content: center;
+    }
+
+    .searchbar-container {
+        position: absolute;
+        margin-top: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .custom-searchbar {
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    .checkboxes-container {
+        flex-direction: column;
+    }
+    
+    ion-item {
+        margin: 5px 0;
     }
 }
