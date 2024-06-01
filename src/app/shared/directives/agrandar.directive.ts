@@ -6,29 +6,29 @@ import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
 export class AgrandarDirective {
 
   /**
-  * Crea una instancia de la clase.
-  * @param el - Referencia al elemento en el DOM.
-  * @param renderer - Renderer para realizar operaciones en el DOM.
+  * Creates an instance of the class.
+  * @param el - Reference to the element in the DOM.
+  * @param renderer - Renderer to perform operations on the DOM.
   */
   constructor(private el: ElementRef, private renderer: Renderer2) { }
 
   /**
-  * Escucha el evento 'mouseenter' y ejecuta la función onMouseEnter().
+  * Listens for the 'mouseenter' event and executes the onMouseEnter() function.
   */
   @HostListener('mouseenter') onMouseEnter() {
     this.resize('1.2');
   }
 
   /**
-  * Escucha el evento 'mouseleave' y ejecuta la función onMouseLeave().
+  * Listens for the 'mouseleave' event and executes the onMouseLeave() function.
   */
   @HostListener('mouseleave') onMouseLeave() {
     this.resize('1');
   }
 
   /**
-  * Cambia el tamaño del elemento utilizando una escala proporcionada.
-  * @param scale La escala a aplicar al elemento.
+  * Resizes the element using a provided scale.
+  * @param scale The scale to apply to the element.
   */
   private resize(scale: string) {
     this.renderer.setStyle(this.el.nativeElement, 'transform', `scale(${scale})`);

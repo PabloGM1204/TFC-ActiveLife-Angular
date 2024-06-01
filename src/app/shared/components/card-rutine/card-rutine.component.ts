@@ -8,31 +8,31 @@ import { Router } from '@angular/router';
 })
 export class CardRutineComponent  implements OnInit {
 
-  // Variable para saber si la página es la de inicio
+  // Variable to determine if the page is the homepage.
   isLandingPage: boolean = false;
 
   /**
-  * La rutina proporcionado como entrada.
+  * The routine provided as input.
   */
   @Input() rutina: any;
 
   /**
-  * Emite un evento para copiar un ejercicio.
-  * @param exercise El ejercicio a copiar.
+  * Emits an event to copy an exercise.
+  * @param exercise The exercise to copy.
   */
   @Output() copyExerciseEvent: EventEmitter<any> = new EventEmitter<any>();
 
 
   constructor(private router: Router) { }
 
-  // Al iniciar el componente se comprueba si la página es landing
+  // Upon component initialization, it checks if the page is the landing page.
   ngOnInit() {
     this.isLandingPage = this.router.url === '/landing';
   }
 
   /**
-  * Emite un evento para copiar una rutina.
-  * @param rutina La rutina que se desea copiar.
+  * Emits an event to copy a routine.
+  * @param rutina The routine to copy.
   */
   copyRutine(rutina: any) {
     console.log('copiar rutina', rutina);

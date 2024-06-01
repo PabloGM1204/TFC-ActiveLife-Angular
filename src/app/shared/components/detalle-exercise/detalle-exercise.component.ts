@@ -7,8 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class DetalleExerciseComponent  implements OnInit {
 
-  /*
-  * Entrada del ejercicio que se mostrará en el componente.
+  /**
+  * Input of the exercise to be displayed in the component.
   */
   @Input() exercise: any;
 

@@ -12,30 +12,30 @@ import { BackgroundService } from './core/services/background.service';
 })
 export class AppComponent {
 
-  // Variable para el usuario
+  // Variable for the user.
   user: any | undefined
 
-  // Variable para mostrar el tooltip
+  // Variable to display the tooltip.
   showTooltip = false;
 
-  // Variable para el texto del tooltip
+  // Variable for the tooltip text.
   infoText?: string;
 
-  // Variable para saber si estamos en la landing
+  // Variable to determine if we are on the landing page.
   isLanding: boolean = false;
 
-  // Variable para el fondo
+  // Variable for the background.
   fondo: string = "";
 
-  // Variable para saber si la autenticación inicial ha sido resuelta
+  // Variable to determine if initial authentication has been resolved.
   initialAuthResolved = false;
 
   /**
-  * Crea una instancia del componente AppComponent.
-  * @param auth El servicio de autenticación.
-  * @param rotuer El enrutador de la aplicación.
-  * @param translate El servicio de traducción personalizado.
-  * @param backgroundSvc El servicio de fondo.
+  * Creates an instance of the AppComponent component.
+  * @param auth The authentication service.
+  * @param rotuer The application router.
+  * @param translate The custom translation service.
+  * @param backgroundSvc The background service.
   */
   constructor(
     public auth: AuthService,
@@ -43,25 +43,25 @@ export class AppComponent {
     public translate: CustomTranslateService,
     private backgroundSvc: BackgroundService,
   ) {
-    // Suscribirse a eventos de cambio de URL en el enrutador
+    // Subscribe to URL change events in the router.
     this.rotuer.events.subscribe(() => {
-      // Verificar si la URL actual corresponde a la página de inicio o inicio de sesión
+      // Check if the current URL corresponds to the home or login page.
       this.isLanding = this.rotuer.url === '/landing' || this.rotuer.url === '/login';
     });
 
-    // Suscribirse a cambios en el fondo
+    // Subscribe to background changes.
     this.backgroundSvc.background$.subscribe(fondo => {
       this.fondo = fondo;
     });
     
-    // Definir elementos personalizados para su uso en la aplicación
+    // Define custom elements for use in the application.
     defineCustomElements(window);
 
-    // Suscribirse a cambios en el estado de inicio de sesión
+    // Subscribe to changes in the login status.
     this.auth.isLogged$.subscribe((logged) => {
-      // Verificar si la autorización inicial ya se ha resuelto
+      // Check if the initial authorization has already been resolved.
       if (this.initialAuthResolved) {
-        // Redirigir a la página de inicio o de inicio de sesión según el estado de inicio de sesión
+        // Redirect to the home or login page based on the login status.
         if (logged) {
           this.rotuer.navigate(['/home']).catch(err => console.error(err));
         } else {
@@ -72,23 +72,23 @@ export class AppComponent {
       }
     });
 
-    // Suscribirse a cambios en el idioma
+    // Subscribe to changes in the language.
     this.translate.language$.subscribe(lang => {
       this.lang = lang;
     });
   }
 
-  // Variable para el idioma
+  // Variable for the language.
   lang: string = "es";
 
   /**
-  * Gestiona el cambio de idioma en la aplicación.
-  * @param idioma El idioma seleccionado.
-  * @returns `false` para evitar la recarga de la página.
+  * Manages the change of language in the application.
+  * @param idioma The selected language.
+  * @returns `false` to prevent the page from reloading.
   */
   onLang(idioma: string) {
     console.log('Cambio de idioma');
-    // Establecer el idioma seleccionado
+    // Set the selected language.
     switch(idioma){
       case 'es':
         this.lang='es';
@@ -100,17 +100,17 @@ export class AppComponent {
         this.lang='it';
         break;
     }
-    // Aplicar el idioma seleccionado mediante el servicio de traducción
+    // Apply the selected language using the translation service.
     this.translate.use(this.lang);
     return false; 
   }
 
   /**
-  * Alternar la visibilidad del tooltip.
+  * Toggle the visibility of the tooltip.
   */
   toggleTooltip() {
     this.showTooltip = !this.showTooltip;
-    // Actualizar el texto del tooltip dependiendo del idioma seleccionado
+    // Update the tooltip text depending on the selected language
     if (this.showTooltip) {
       const page = this.rotuer.url;
       switch (page) {
@@ -209,8 +209,8 @@ export class AppComponent {
   }
 
   /**
-  * Cerrar sesión del usuario.
-  * Redirige al usuario a la página de inicio.
+  * Log out the user.
+  * Redirects the user to the home page.
   */
   onSingOut(){
     this.auth.logOut().subscribe(_=>{

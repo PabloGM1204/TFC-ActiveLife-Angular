@@ -12,20 +12,20 @@ import { finalize } from 'rxjs';
 export class ModalCitaComponent  implements OnInit {
 
   /**
-  * Entrada de la cita que se mostrará en el componente.
+  * Input of the appointment to be displayed in the component.
   */
   @Input() cita: Cita | undefined;
 
-  // Respuesta a la cita
+  // Response to the appointment.
   respuesta: string | undefined = '';
 
   constructor( private modalController: ModalController ) { }
 
-  // Booleano para saber si la cita tiene respuesta
+  // Boolean to know if the appointment has a response.
   resp: boolean = false;
 
   /**
-  * Inicializa el componente y verifica si se ha recibido una cita con un encargado asignado.
+  * Initializes the component and checks if an appointment with an assigned attendant has been received.
   */
   ngOnInit() {
     console.log("Cita recibida: ", this.cita);
@@ -35,26 +35,26 @@ export class ModalCitaComponent  implements OnInit {
   }
 
   /**
-  * Cierra el modal actual.
+  * Closes the current modal.
   */
   dismissModal() {
     this.modalController.dismiss();
   }
 
-  // Booleano para saber si la cita tiene respuesta
+  // Boolean to know if the appointment has a response.
   activo: boolean = false;
   
   /**
-  * Activa o desactiva la respuesta de la cita.
+  * Enables or disables the response to the appointment.
   */
   activateAnswer() {
     this.activo = !this.activo;
   }
 
   /**
-  * Obtiene la fecha formateada de una cita.
-  * @param timestamp El timestamp de la cita.
-  * @returns Una cadena con la fecha y hora formateada.
+  * Gets the formatted date of an appointment.
+  * @param timestamp The timestamp of the appointment.
+  * @returns A string with the formatted date and time.
   */
   getCitaDate(timestamp: Timestamp): string {
     // Convierte el Timestamp a un objeto Date
@@ -63,28 +63,28 @@ export class ModalCitaComponent  implements OnInit {
     return date.toLocaleString(); 
   }
 
-  // Archivo subido
+  // Uploaded file.
   selectedFile: File | null = null;
 
   /**
-  * Maneja la carga de un archivo seleccionado.
-  * @param event El evento del cambio de archivo.
+  * Handles the upload of a selected file.
+  * @param event The file change event.
   */
   uploadFile(event: any) {
     this.selectedFile = event.target.files[0];
   }
 
   /**
-  * Envía la respuesta a la cita y cierra el modal.
+  * Sends the response to the appointment and closes the modal.
   */
   sendAnswer() {
     console.log("Respuesta: ", this.respuesta);
-    // Si la cita existe le añado al respuesta
+    // If the appointment exists, I add the response to it.
     if(this.cita){
       this.cita.respuesta = this.respuesta;
     }
     console.log("Cita a responder: ", this.cita);
-    // Cierra el modal y devuelve la cita con la respuesta mas el archivo
+    // Closes the modal and returns the appointment with the response plus the file.
     this.modalController.dismiss({...this.cita, file: this.selectedFile});
   }
 

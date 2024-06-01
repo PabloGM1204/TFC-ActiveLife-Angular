@@ -6,19 +6,19 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class PrimeraLetraMayusPipe implements PipeTransform {
 
   /**
-  * Capitaliza la primera letra de cada palabra en una cadena de texto.
-  * @param text La cadena de texto que se capitalizará.
-  * @returns La cadena de texto con la primera letra de cada palabra en mayúscula.
+  * Capitalizes the first letter of each word in a text string.
+  * @param text The text string to capitalize.
+  * @returns The text string with the first letter of each word capitalized.
   */
   transform(text: string | undefined): string {
     if (!text) {
       return "";
     }
   
-    // Divide la cadena en palabras utilizando espacios en blanco como referencia para dividir
+    // Splits the string into words using whitespace as a delimiter.
     const palabra = text.split(' ');
   
-    // Pone en mayusculas la primera letra de cada palabra
+    // Capitalizes the first letter of each word.
     const mayusPalabra = palabra.map(palabra => {
       if (palabra.length > 0) {
         return palabra.charAt(0).toUpperCase() + palabra.slice(1);
@@ -27,7 +27,7 @@ export class PrimeraLetraMayusPipe implements PipeTransform {
       }
     });
   
-    // Une las palabras capitalizadas de nuevo en una cadena
+    // Joins the capitalized words back into a string
     const result = mayusPalabra.join(' ');
   
     return result;

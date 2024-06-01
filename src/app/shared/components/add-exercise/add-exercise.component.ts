@@ -9,23 +9,23 @@ import { ModalController } from '@ionic/angular';
 })
 export class AddExerciseComponent  implements OnInit {
 
-  // Entrada del ejercicio que se mostrará en el componente.
+  // Input of the exercise that will be displayed in the component.
   @Input() exercise: any;
 
-  // Formulario para añadir el ejercicio a la rutina
+  // Form to add the exercise to the routine.
   form: FormGroup;
 
   /**
-  * Constructor de la clase.
+  * Class constructor.
   * 
-  * @param formBuilder Objeto FormBuilder para construir formularios reactivos.
-  * @param modalController Controlador de modales para mostrar componentes modales.
+  * @param formBuilder FormBuilder object to build reactive forms.
+  * @param modalController Modal controller to display modal components.
   */
   constructor(
     private formBuilder: FormBuilder,
     private modalController: ModalController
   ) {
-    // Inicializa el formulario reactivo con dos campos requeridos
+    // Initializes the reactive form with two required fields.
     this.form = this.formBuilder.group({
       repeticiones: ['', [Validators.required]],
       serie: ['', [Validators.required]]
@@ -35,7 +35,7 @@ export class AddExerciseComponent  implements OnInit {
   ngOnInit() {}
 
   /**
-  * Agrega un ejercicio.
+  * Adds an exercise.
   */
   addExercise(){
     this.modalController.dismiss(this.form?.value);

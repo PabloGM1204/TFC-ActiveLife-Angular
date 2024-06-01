@@ -11,58 +11,56 @@ import { AddExerciseComponent } from '../add-exercise/add-exercise.component';
 export class CardExerciseComponent  implements OnInit {
 
   /**
-  * El ejercicio proporcionado como entrada.
+  * The exercise provided as input.
   */
   @Input() exercise: any;
 
-  /**
-  * Emite un evento para agregar un ejercicio.
-  * @param exercise El ejercicio a agregar.
+ /**
+  * Emits an event to add an exercise.
+  * @param exercise The exercise to add.
   */
   @Output() addExerciseEvent: EventEmitter<any> = new EventEmitter<any>();
   
   /**
-  * Emite un evento para eliminar un ejercicio.
-  * @param exercise El ejercicio a eliminar.
+  * Emits an event to delete an exercise.
+  * @param exercise The exercise to delete.
   */
   @Output() removeExerciseEvent: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(
-    private modal: ModalController
-  ) { }
+  constructor( private modal: ModalController ) { }
 
   ngOnInit() {}
 
-  // Variable para saber si el ejercicio está
+  // Variable to know if the exercise is.
   dentro: boolean = false;
 
   /**
-  * Agrega un nuevo ejercicio a la rutina.
-  * @param exercise El ejercicio que se va a agregar.
+  * Adds a new exercise to the routine.
+  * @param exercise The exercise that is going to be added.
   */
   addExercise(exercise: any){
     console.log("Datos: ", exercise);
     /**
-     * Callback que se ejecuta cuando se cierra el modal de agregar ejercicio.
-     * @param info La información pasada desde el modal.
-     */
+    * Callback that is executed when the add exercise modal is closed.
+    * @param info The information passed from the modal.
+    */
     var onDismiss = (info: any) => {
       if(info.data){
         console.log("Información: ", info.data);
-        // Emitir el evento para agregar el ejercicio
+        // Emit the event to add the exercise.
         this.addExerciseEvent.emit(info.data);
         this.dentro = true;
       } else  {
         console.log("No hay información");
       }
     }
-    // Mostrar el modal para agregar ejercicio
+    // Display the modal to add exercise.
     this.presentAddExercise(exercise, onDismiss);
   }
 
   /**
-  * Elimina un ejercicio de la rutina.
-  * @param exercise El ejercicio que se va a eliminar.
+  * Deletes an exercise from the routine.
+  * @param exercise The exercise that is going to be deleted.
   */
   removeExercise(exercise: any){
     console.log("Eliminar ejercicio: ", exercise);
@@ -71,9 +69,9 @@ export class CardExerciseComponent  implements OnInit {
   }
 
   /**
-  * Muestra un modal para agregar un ejercicio a la rutina.
-  * @param data Los datos del ejercicio que se va a agregar.
-  * @param onDismiss La función que se ejecuta cuando se cierra el modal.
+  * Displays a modal to add an exercise to the routine.
+  * @param data The data of the exercise that is going to be added.
+  * @param onDismiss The function that runs when the modal is closed.
   */
   async presentAddExercise(data: any, onDismiss: (result: any) => void) {
     const modal = await this.modal.create({
@@ -93,8 +91,8 @@ export class CardExerciseComponent  implements OnInit {
   }
 
   /**
-  * Muestra los detalles de un ejercicio.
-  * @param exercise Los datos del ejercicio del cual se mostrarán los detalles.
+  * Displays the details of an exercise.
+  * @param exercise The data of the exercise whose details will be displayed.
   */
   showDetails(exercise: any){
     console.log("Datos: ", exercise);
@@ -110,9 +108,9 @@ export class CardExerciseComponent  implements OnInit {
 
 
   /**
-  * Presenta un modal con los detalles de un ejercicio.
-  * @param data Los datos del ejercicio del cual se mostrarán los detalles.
-  * @param onDismiss La función que se llamará cuando se cierre el modal.
+  * Presents a modal with the details of an exercise.
+  * @param data The exercise data to display details from.
+  * @param onDismiss The function to call when the modal is closed.
   */
   async presentDetail(data: any, onDismiss: (result: any) => void) {
     const modal = await this.modal.create({

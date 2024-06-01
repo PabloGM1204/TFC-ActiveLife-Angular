@@ -11,7 +11,7 @@ export class LoadingComponent  implements OnInit {
   constructor( private _modal: ModalController ) { }
 
   /**
-  * Inicializa el componente y programa el cierre del modal después de 3 segundos.
+  * Initializes the component and schedules the modal to close after 3 seconds.
   */
   ngOnInit() {
     setTimeout(() => (
