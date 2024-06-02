@@ -30,8 +30,8 @@
         "logout": "Vicino"
     },
     "citas": {
-        "misCitas": "I miei appuntamenti",
-        "noAdmin": "Senza amministratore",
+        "misCitas": "I mei appuntamenti",
+        "noAdmin": "Senza aminitrator",
         "den": "Appuntamento negato",
         "ace": "Appuntamento accettato",
         "pas": "Appuntamento passato",
@@ -40,7 +40,8 @@
         "titulo": "Titolo",
         "fecha": "Data",
         "desc": "Descrizione",
-        "acciones": "Azioni"
+        "acciones": "Azioni",
+        "buscador": "Cerca citazioni..."
     },
     "crear": {
         "crear": "Crea Routine",
@@ -111,7 +112,8 @@
         "admin": "Admin",
         "acciones": "Azioni",
         "acp": "Accetta",
-        "eln": "Elimina"
+        "eln": "Elimina",
+        "buscador": "cercare utenti..."
     },
     "modal-cita": {
         "titulo": "Dettagli dell'appuntamento",

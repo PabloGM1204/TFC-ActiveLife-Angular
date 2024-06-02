@@ -40,7 +40,8 @@
         "titulo": "Title",
         "fecha": "Date",
         "desc": "Description",
-        "acciones": "Actions"
+        "acciones": "Actions",
+        "buscador": "Search appointments..."
     },
     "crear": {
         "crear": "Create Routine",
@@ -111,7 +112,8 @@
         "admin": "Admin",
         "acciones": "Actions",
         "acp": "Accept",
-        "eln": "Delete"
+        "eln": "Delete",
+        "buscador": "Search users..."
     },
     "modal-cita": {
         "titulo": "Appointment Details",

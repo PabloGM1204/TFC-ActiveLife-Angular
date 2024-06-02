@@ -123,6 +123,15 @@ ion-content{
     --background: linear-gradient(to top, #ffd45f, #ff6f91);
 }
 
+.buscador {
+    display: flex;
+    justify-content: center;
+}
+
+ion-searchbar {
+    width: 300px;
+}
+
 @media (max-width: 600px) {
 
     #general ion-grid {

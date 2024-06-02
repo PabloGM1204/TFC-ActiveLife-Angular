@@ -3,7 +3,11 @@
     <ion-button (click)="misCitas()" [class.activo]="!publicCitas" [class.desactivado]="publicCitas">{{ "citas.misCitas" | translate }}</ion-button>
     <ion-button (click)="noAdmins()" [class.activo]="publicCitas" [class.desactivado]="!publicCitas">{{ "citas.noAdmin" | translate }}</ion-button>
   </div>
-  <!-- Leyenda de Colores -->
+  <!-- Search field -->
+  <div class="buscador">
+    <ion-searchbar (ionInput)="filterCitas($event)" placeholder='{{ "citas.buscador" | translate}}'></ion-searchbar>
+  </div>
+  <!-- Leyend Colors -->
   <div class="leyenda">
     <div class="leyenda-item">
       <span class="cuadrado rojo"></span>
@@ -30,7 +34,7 @@
       <ion-col size="2">{{ "citas.desc" | translate }}</ion-col>
       <ion-col size="2" class="acciones">{{ "citas.acciones" | translate }}</ion-col>
     </ion-row>
-    <ion-row *ngFor="let cita of citas" [class.pasada]="getCitaDate(cita.fechaCita).pasada" [class.aceptada]="cita.estado == 'aceptado'" [class.denegado]="cita.estado == 'denegado'">
+    <ion-row *ngFor="let cita of filteredCitas" [class.pasada]="getCitaDate(cita.fechaCita).pasada" [class.aceptada]="cita.estado == 'aceptado'" [class.denegado]="cita.estado == 'denegado'">
       <ion-col size="2">
         <img [src]="cita.clienteFoto" alt="Foto del encargado" style="width: 50px; height: 50px; border-radius: 50%;" />
       </ion-col>
@@ -61,7 +65,7 @@
       <ion-col size="2">{{ "citas.desc" | translate }}</ion-col>
       <ion-col size="2" class="acciones">{{ "citas.acciones" | translate }}</ion-col>
     </ion-row>
-    <ion-row *ngFor="let cita of citasPublic" [class.pasada]="getCitaDate(cita.fechaCita).pasada">
+    <ion-row *ngFor="let cita of filteredCitasPublic" [class.pasada]="getCitaDate(cita.fechaCita).pasada">
       <ion-col size="2">
         <img [src]="cita.clienteFoto" alt="Foto del encargado" style="width: 50px; height: 50px; border-radius: 50%;" />
       </ion-col>
@@ -74,6 +78,9 @@
         </ion-button>
         <ion-button fill="clear" color="secondary" (click)="openModal(cita)">
           <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+        </ion-button>
+        <ion-button *ngIf="getCitaDate(cita.fechaCita).pasada" fill="clear" color="danger" (click)="deleteCita(cita)">
+          <ion-icon name="trash-outline"></ion-icon>
         </ion-button>
       </ion-col>
     </ion-row>

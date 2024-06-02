@@ -1,6 +1,6 @@
 <ion-content [fullscreen]="true" id="general" [ngClass]="{'pri': fondo === 'pri', 'sec': fondo == 'sec', 'img': fondo == 'img'}">
   <div class="searchbar-container">
-    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearchTermChanged()" class="custom-searchbar" placeholder="Busca usuarios..."></ion-searchbar>
+    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearchTermChanged()" class="custom-searchbar" placeholder='{{ "usuarios.buscador" | translate }}'></ion-searchbar>
     <div class="checkboxes-container">
       <ion-item lines="none">
         <ion-label>Admins </ion-label>

@@ -40,7 +40,8 @@
         "titulo": "Título",
         "fecha": "Fecha",
         "desc": "Descripción",
-        "acciones": "Acciones"
+        "acciones": "Acciones",
+        "buscador": "Buscar citas..."
     },
     "crear": {
         "crear": "Crear Rutina",
@@ -111,7 +112,8 @@
         "admin": "Admin",
         "acciones": "Acciones",
         "acp": "Aceptar",
-        "eln": "Elimnar"
+        "eln": "Elimnar",
+        "buscador": "Buscar usuarios..."
     },
     "modal-cita": {
         "titulo": "Detalles de la Cita",

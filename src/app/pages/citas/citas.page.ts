@@ -67,6 +67,37 @@ export class CitasPage implements OnInit {
   // List of public routines.
   citasPublic: Cita[] = [];
 
+  // List of private routines filtered by user and search.
+  filteredCitas: Cita[] = [];
+
+  // List of public routines filtered by search.
+  filteredCitasPublic: Cita[] = [];
+
+  /**
+  * Method to filter appointments based on the search term.
+  * 
+  * @param event The input event from the search field.
+  */
+  filterCitas(event: any) {
+    const searchTerm = event.target.value.toLowerCase();
+  
+    const filterFunction = (cita: Cita) => {
+      const fechaCitaStr = this.getCitaDate(cita.fechaCita).fechaFormateada.toLowerCase();
+      return (
+        cita.titulo.toLowerCase().includes(searchTerm) ||
+        cita.descripcion.toLowerCase().includes(searchTerm) ||
+        cita.clienteNombre!.toLowerCase().includes(searchTerm) ||
+        fechaCitaStr.includes(searchTerm)
+      );
+    };
+  
+    if (!this.publicCitas) {
+      this.filteredCitas = this.citas.filter(filterFunction);
+    } else {
+      this.filteredCitasPublic = this.citasPublic.filter(filterFunction);
+    }
+  }
+
   /**
   * Method to filter appointments associated with a specific user.
   * 
@@ -88,6 +119,7 @@ export class CitasPage implements OnInit {
       )
     ).subscribe(filteredCitas => {
       this.citas = filteredCitas;
+      this.filteredCitas = filteredCitas;
       console.log("RESULTADO DE LAS CITAS FILTRADAS: ", this.citas);
     });
   }
@@ -113,6 +145,7 @@ export class CitasPage implements OnInit {
       )
     ).subscribe(filteredCitas => {
       this.citasPublic = filteredCitas;
+      this.filteredCitasPublic = filteredCitas;
       console.log("RESULTADO DE LAS RUTINAS PUBLICAS: ", this.citasPublic);
     });
   }
