@@ -72,11 +72,11 @@
     "item-exercise": {
         "equip": "Equipment:",
         "obj": "Objective:",
-        "sec": "Secondary Muscles:",
+        "sec": "Secondary muscles:",
         "ser": "Sets:",
         "rep": "Repetitions:",
         "int": "Instructions",
-        "det": "Exercise Details",
+        "det": "Exercise details",
         "tipo": "Type:"
     },
     "info-rutinas": {
