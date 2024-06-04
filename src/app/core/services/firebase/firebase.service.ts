@@ -357,7 +357,7 @@ export class FirebaseService {
    * @throws Error if the data fetching process fails.
    */
   public async getAllData(): Promise<{ [key: string]: any[] }> {
-    const collections = ['usuarios', 'citas', 'rutinas'];
+    const collections = ['users', 'citas', 'rutinas'];
     const allData: { [key: string]: any[] } = {};
 
     try {
