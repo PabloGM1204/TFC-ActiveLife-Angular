@@ -176,11 +176,17 @@ export class ProfilePage implements OnInit {
       if (dataObject.hasOwnProperty(key) && dataObject[key].length > 0) {
         formattedData[key] = dataObject[key].map((item) => {
           const newItem = { ...item };
+          // Formats the date fields to MM-DD-YYYY.
           if (newItem.fechaCita) {
             newItem.fechaCita = this.formatFirebaseTimestamp(newItem.fechaCita);
           }
           if (newItem.fechaSolicitud) {
             newItem.fechaSolicitud = this.formatFirebaseTimestamp(newItem.fechaSolicitud);
+          }
+          // Formats the 'exercises' field to 'Exercises'.
+          if (newItem.exercises) {
+            console.log("Exercises: ", newItem.exercises);
+            newItem.exercises = "Exercises"
           }
           return newItem;
         });
