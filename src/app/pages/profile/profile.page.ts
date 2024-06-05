@@ -142,18 +142,18 @@ export class ProfilePage implements OnInit {
   }
 
   /**
-  * Method to export data in CSV format.
-  * It obtains data from Firebase, converts it to CSV format, and initiates CSV file downloads.
+  * Method to export data.
+  * It obtains data from Firebase.
   *
   * @remarks
-  * This method obtains data from Firebase using FirebaseService, converts it to CSV format,
-  * and initiates the download of CSV files for each data set.
+  * This method obtains data from Firebase using FirebaseService.
   */
   exportData(): void {
     this._firebaseService
       .getAllData()
       .then((dataObject) => {
-        const csvFiles = this.jsonToCSV(dataObject);
+        const formattedData = this.formatDates(dataObject);
+        const csvFiles = this.jsonToCSV(formattedData);
         for (const key in csvFiles) {
           if (csvFiles.hasOwnProperty(key)) {
             const csvContent = csvFiles[key];
@@ -163,18 +163,54 @@ export class ProfilePage implements OnInit {
       })
       .catch((error) => console.error('Failed to fetch data', error));
   }
-
   
   /**
-  * Converts JSON data to CSV format.
-  * @param dataObject - The JSON data object that is going to be converted to CSV.
-  * @returns An object that contains the CSV content for each data set.
-  */
-  public jsonToCSV(dataObject: { [key: string]: any[] }): {
-    [key: string]: string;
-  } {
+   * Formats date fields in the JSON data object to MM-DD-YYYY.
+   * @param dataObject - The JSON data object with dates to format.
+   * @returns A new JSON data object with formatted dates.
+   */
+  private formatDates(dataObject: { [key: string]: any[] }): { [key: string]: any[] } {
+    const formattedData: { [key: string]: any[] } = {};
+  
+    for (const key in dataObject) {
+      if (dataObject.hasOwnProperty(key) && dataObject[key].length > 0) {
+        formattedData[key] = dataObject[key].map((item) => {
+          const newItem = { ...item };
+          if (newItem.fechaCita) {
+            newItem.fechaCita = this.formatFirebaseTimestamp(newItem.fechaCita);
+          }
+          if (newItem.fechaSolicitud) {
+            newItem.fechaSolicitud = this.formatFirebaseTimestamp(newItem.fechaSolicitud);
+          }
+          return newItem;
+        });
+      }
+    }
+  
+    return formattedData;
+  }
+  
+  /**
+   * Formats a Firebase timestamp to MM-DD-YYYY.
+   * @param timestamp - The Firebase timestamp to format.
+   * @returns The formatted date string.
+   */
+  private formatFirebaseTimestamp(timestamp: { seconds: number, nanoseconds: number }): string {
+    const date = new Date(timestamp.seconds * 1000 + timestamp.nanoseconds / 1000000);
+    const month = ('0' + (date.getMonth() + 1)).slice(-2);
+    const day = ('0' + date.getDate()).slice(-2);
+    const year = date.getFullYear();
+    return `${month}-${day}-${year}`;
+  }
+  
+  /**
+   * Converts JSON data to CSV format.
+   * @param dataObject - The JSON data object that is going to be converted to CSV.
+   * @returns An object that contains the CSV content for each data set.
+   */
+  public jsonToCSV(dataObject: { [key: string]: any[] }): { [key: string]: string } {
     const csvFiles: { [key: string]: string } = {};
-
+  
     for (const key in dataObject) {
       if (dataObject.hasOwnProperty(key) && dataObject[key].length > 0) {
         const headers = Object.keys(dataObject[key][0]);
@@ -193,7 +229,7 @@ export class ProfilePage implements OnInit {
     }
     return csvFiles;
   }
-
+  
   /**
    * Initiates the download of a CSV file.
    *

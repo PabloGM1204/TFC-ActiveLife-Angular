@@ -253,7 +253,7 @@ export class CitasPage implements OnInit {
         encargadoUuid: info.data.encargadoUuid,
         estado: info.data.estado,
         respuesta: info.data.respuesta,
-        file: fileRef.file
+        fileUrl: fileRef.file
       }
       this.citasSvc.updateCita(_cita);
     }
