@@ -72,4 +72,16 @@ export class UsersService {
   public deleteUser(user: User) {
     from(this.firebaseSvc.deleteDocument('users', user.uuid))
   }
+
+  /**
+  * Returns a user by their UUID.
+  *
+  * @param uuid The UUID of the user to return.
+  * @return An Observable emitting the user object if found, otherwise null.
+  */
+  public getUserByUuid(uuid: string): Observable<User | null> {
+    return this.users$.pipe(
+      map(users => users.find(user => user.uuid === uuid) || null)
+    );
+  }
 }

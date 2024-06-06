@@ -6,6 +6,7 @@ import { Cita } from 'src/app/core/interfaces/cita';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { BackgroundService } from 'src/app/core/services/background.service';
 import { CitasService } from 'src/app/core/services/citas.service';
+import { EmailService } from 'src/app/core/services/email.service';
 import { FirebaseService } from 'src/app/core/services/firebase/firebase.service';
 import { UsersService } from 'src/app/core/services/users.service';
 import { ModalCitaComponent } from 'src/app/shared/components/modal-cita/modal-cita.component';
@@ -36,7 +37,8 @@ export class CitasPage implements OnInit {
     public auth: AuthService,
     private modal: ModalController,
     private storage: FirebaseService,
-    private backgroundSvc: BackgroundService
+    private backgroundSvc: BackgroundService,
+    private emailSvc: EmailService
   ) { }
 
   /**
@@ -241,6 +243,25 @@ export class CitasPage implements OnInit {
         // Upload the file to Firebase Storage
         fileRef = await this.storage.fileUpload(blob, mimeType, filePath, prefix, extension);
       }
+      let emailCliente = '';
+      if(cita.userUUID)
+      this.userSvc.getUserByUuid(cita.userUUID).subscribe(
+        user => {
+          if (user) {
+            emailCliente = user.email;
+          if(cita.respuesta)
+          this.emailSvc.enviarCorreo(emailCliente, info.data.titulo, `${info.data.respuesta}<br><br>Link del archivo: ${fileRef.file}`)
+            .subscribe(
+              response => {
+                console.log('Correo enviado a ',emailCliente);
+                console.log('Correo enviado', response);
+              },
+              error => {
+                console.error('Error al enviar el correo', error);
+              }
+            );
+          }
+        });
 
       let _cita = {
         id: info.data.id,

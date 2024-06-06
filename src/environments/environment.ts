@@ -14,13 +14,6 @@ export const environment = {
     measurementId: "G-W70WFFMYJ5"
   },
   apiUrl: 'https://exercisedb.p.rapidapi.com/exercises',
+  apiEmailUrl: 'https://api.smtp2go.com/v3/email/send',
+  apiKey: 'api-9F002F6DAC8B4F30844D59A40AE67DC8',
 };
-
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/plugins/zone-error';  // Included with Angular CLI.

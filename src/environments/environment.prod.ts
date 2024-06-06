@@ -10,4 +10,6 @@ export const environment = {
     measurementId: "G-W70WFFMYJ5"
   },
   apiUrl: 'https://exercisedb.p.rapidapi.com/exercises',
+  apiEmailUrl: 'https://api.smtp2go.com/v3/email/send',
+  apiKey: 'api-9F002F6DAC8B4F30844D59A40AE67DC8',
 };
