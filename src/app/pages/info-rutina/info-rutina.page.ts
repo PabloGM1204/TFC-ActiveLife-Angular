@@ -160,6 +160,7 @@ export class InfoRutinaPage implements OnInit {
       info.data.forEach((exercise: any) => {
         this.rutina.push(exercise);
         this.exercises.push(exercise);
+        this.showBottomCenterGood();
     });
     }
     this.presentForm(this.exercises, onDismiss);
@@ -192,6 +193,7 @@ export class InfoRutinaPage implements OnInit {
   * according to the selected language.
   */
   showBottomCenterGood() {
+    console.warn("Asdasdasdas")
     this.langSvc.language$.subscribe(lang => {
       switch(lang){
         case 'es':
@@ -212,6 +214,7 @@ export class InfoRutinaPage implements OnInit {
   * according to the selected language.
   */
   showBottomCenterBad(){
+    console.warn("Asdasdasdas")
     this.langSvc.language$.subscribe(lang => { 
       switch(lang){
         case 'es':

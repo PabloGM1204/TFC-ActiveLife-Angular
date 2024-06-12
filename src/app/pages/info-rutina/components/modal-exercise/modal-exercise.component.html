@@ -1,7 +1,7 @@
 <ion-content>
   <div class="sticky-container">
     <div class="boton">
-      <ion-button (click)="updateExercises()" class="crear" fill="outline"><ion-icon name="add-outline"></ion-icon></ion-button>
+      <ion-button (click)="updateExercises()" class="crear" fill="outline" [disabled]="rutina.length == 0"><ion-icon name="add-outline"></ion-icon></ion-button>
     </div>
     <ion-item>
       <ion-select label="Body Parts" placeholder="Select one part" (ionChange)="activateSecondSelect($event)">
