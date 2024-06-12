@@ -72,8 +72,6 @@ export class ModalExerciseComponent  implements OnInit {
     console.log("Ejercicio con datos: ", _exercise);
     // Adds the modified exercise to the routine.
     this.rutina.push(_exercise);
-    // Displays a success notification.
-    this.showBottomCenterGood();
     console.log("Ejercicios: ", this.rutina);
   }
 
@@ -85,8 +83,6 @@ export class ModalExerciseComponent  implements OnInit {
   removeExerciseToRutine(data: any, exercise: any){
     console.log("Datos: ", data);
     console.log("Ejercicio: ", exercise);
-    // Displays an error notification.
-    this.showBottomCenterBad();
     // Filters the exercises to remove the specified exercise.
     this.rutina = this.rutina.filter((item) => item.id !== exercise.id);
     console.log("Ejercicios: ", this.rutina);
@@ -100,49 +96,6 @@ export class ModalExerciseComponent  implements OnInit {
     console.log("Ejercicios: ", this.exercises);
     // Closes the modal and passes the updated list of exercises as a result.
     this.modal.dismiss(this.rutina)
-  }
-
-  /**
-  * Displays a success message at the bottom center of the message component
-  * according to the selected language.
-  */
-  showBottomCenterGood() {
-    // Subscription to the language service to get the current language.
-    this.langSvc.language$.subscribe(lang => {
-      // Switch to handle the different languages.
-      switch(lang){
-        case 'es':
-          this.messageService.add({ key: 'bc', severity: 'success', summary: 'Success', detail: 'Ejercicio añadido' });
-          break;
-        case 'en':
-          this.messageService.add({ key: 'bc', severity: 'success', summary: 'Success', detail: 'Added exercise' });
-          break;
-        case 'it':
-          this.messageService.add({ key: 'bc', severity: 'success', summary: 'Success', detail: 'Aggiunto esercizio' });
-          break;
-      }
-    })
-  }
-
-  /**
-  * Displays an error message at the bottom center of the message component
-  * according to the selected language.
-  */
-  showBottomCenterBad(){
-    // Subscription to the language service to get the current language.
-    this.langSvc.language$.subscribe(lang => { 
-      switch(lang){
-        case 'es':
-          this.messageService.add({ key: 'er', severity: 'error', summary: 'Eliminado', detail: 'Ejercicio eliminado de la rutina' });
-          break;
-        case 'en':
-          this.messageService.add({ key: 'er', severity: 'error', summary: 'Eliminado', detail: 'Exercise removed from the routine' });
-          break;
-        case 'it':
-          this.messageService.add({ key: 'er', severity: 'error', summary: 'Eliminado', detail: 'Esercizio rimosso dalla routine' });
-          break;
-      }
-    })
   }
 
 }
