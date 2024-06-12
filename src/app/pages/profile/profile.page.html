@@ -16,7 +16,7 @@
       <div class="info-row">
         <ion-label class="label">{{ "profile.nombre" | translate }}</ion-label>
         <br *ngIf="!formActive">
-        <ion-text class="info" *ngIf="!formActive">{{ user?.username }}</ion-text>
+        <ion-text class="info" *ngIf="!formActive">{{ user?.name }}</ion-text>
         <form [formGroup]="form" *ngIf="formActive">
           <br>
           <ion-item class="item">

@@ -39,6 +39,7 @@ export class ProfilePage implements OnInit {
     private mediaSvc: MediaService,
     public _firebaseService: FirebaseService,
     private backgroundSvc: BackgroundService,
+    public authSvc: AuthService,
   ) {
     // Initializes the reactive form with a required 'name' field
     this.form = this.formBuilder.group({
@@ -59,14 +60,14 @@ export class ProfilePage implements OnInit {
       // Assigns the user's data to the 'user' property of the component.
       this.user = {
         uuid: _.uuid,
-        username: _.name,
+        name: _.name,
         email: _.email,
         imageUrl: _?.photo ? _?.photo : "https://firebasestorage.googleapis.com/v0/b/fir-project-91ee3.appspot.com/o/images%2Fprofile.png?alt=media&token=cf7e68cc-c045-4fa3-978b-8281d42fcd51",
         fondo: _?.fondo ? _?.fondo : "pri"
       }
       // Updates the value of the 'name' field in the form with the username.
       this.form.patchValue({
-        name: this.user.username
+        name: this.user.name
       });
       // Assigns the URL of the captured image and the user's background.
       this.capturedImage = this.user.imageUrl;
@@ -120,8 +121,9 @@ export class ProfilePage implements OnInit {
   * After updating the user, it toggles the form state.
   */
   updateUserName() {
-    this.user.username = this.form.value.name;
+    this.user.name = this.form.value.name;
     this.userSvc.updateUser(this.user);
+    this.authSvc._user.next(this.user);
     this.activeForm();
   }
 
