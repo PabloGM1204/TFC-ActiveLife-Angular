@@ -38,7 +38,7 @@ export class CitasService {
         encargadoUuid: data?.encargadoUuid,
         estado: data.estado ? data.estado : 'espera',
         respuesta: data.respuesta ? data.respuesta : '',
-        fileUrl: data.file ? data.file : ''
+        fileUrl: data.fileUrl ? data.fileUrl : ''
       }
     })
   }
