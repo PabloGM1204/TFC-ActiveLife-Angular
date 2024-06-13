@@ -24,7 +24,7 @@ export class LandingPage implements OnInit {
   @ViewChild(IonRouterOutlet, { static: true }) routerOutlet: IonRouterOutlet | undefined;
 
   // Variable to store the link to download the APK.
-  linkAPK = "https://firebasestorage.googleapis.com/v0/b/activelife-74fc2.appspot.com/o/apk%2Fapp-debug.zip?alt=media&token=2da94275-7f16-409c-a6fa-0a3e8c90563f";
+  linkAPK = "https://firebasestorage.googleapis.com/v0/b/activelife-74fc2.appspot.com/o/apk%2Fapp-debug.zip?alt=media&token=65376a5d-0af4-41cd-8fb6-22e43d9ea2bc";
 
   /**
   * Class constructor.
