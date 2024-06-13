@@ -10,7 +10,7 @@
 
 ## Video de como funciona
 
-- [Enlace al video](https://youtu.be/dPz1QRnkBkA)
+- [Enlace al video](https://youtu.be/n6nUeXZgaQU)
 
 ## Prototipos realizados en figma
 
