@@ -27,7 +27,7 @@
 - Despliegue de la página web -> Netlify
 - Diseño de las aplicaciones -> Figma
 
-## Webgrafía
+## Bitacora
 
 - [Bitácora](Bitacora.md)
 
