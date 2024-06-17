@@ -29,6 +29,10 @@
 
 ## Webgrafía
 
+- [Bitácora](Bitacora.md)
+
+## Webgrafía
+
 - [Swiper documentation](https://swiperjs.com/element)
 - [Swiper video](https://www.youtube.com/watch?app=desktop&v=XcvieKvmI5A)
 - [Toast](https://primeng.org/toast)
