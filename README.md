@@ -27,7 +27,11 @@
 - Despliegue de la página web -> Netlify
 - Diseño de las aplicaciones -> Figma
 
-## Bitacora
+## Documentación
+
+- [Documentación](documentation)
+
+## Bitácora
 
 - [Bitácora](Bitacora.md)
 
